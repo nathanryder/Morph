@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bdf9629-c58d-4b93-885b-2e770fa60a8d" name="Default" comment="" />
+    <list default="true" id="7bdf9629-c58d-4b93-885b-2e770fa60a8d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Morph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Morph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/EntityDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/EntityDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/EntityDeath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/EntityDeath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InteractEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InteractEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InteractWithEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InteractWithEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/MoveEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/MoveEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/PlayerDeath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/PlayerDeath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,20 +23,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MorphManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java">
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="379" column="47" selection-start-line="379" selection-start-column="47" selection-end-line="379" selection-end-column="47" />
+            <state relative-caret-position="376">
+              <caret line="207" column="14" selection-start-line="207" selection-start-column="14" selection-end-line="207" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config.yml">
+      <file leaf-file-name="MorphManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="142" column="13" lean-forward="true" selection-start-line="142" selection-start-column="13" selection-end-line="142" selection-end-column="13" />
+            <state relative-caret-position="315">
+              <caret line="162" column="44" selection-start-line="162" selection-start-column="44" selection-end-line="162" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Runnables.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="173" column="60" selection-start-line="173" selection-start-column="55" selection-end-line="173" selection-end-column="60" />
+              <folding>
+                <element signature="e#9092#9124#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InteractEvent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InteractEvent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="548" column="29" selection-start-line="548" selection-start-column="29" selection-end-line="548" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,21 +69,44 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isDis</find>
-      <find>unmorphPlayer(p, true)</find>
-      <find>unmorphPlayer(p, false)</find>
-      <find>unmorph</find>
-      <find>bypassreset</find>
-      <find>system</find>
-      <find>skeleton-shoo</find>
-      <find>spider-web</find>
-      <find>jump-boost</find>
       <find>creeper-explosion</find>
+      <find>explosio</find>
+      <find>explosion</find>
+      <find>jump-boost</find>
+      <find>skeleton-shoot</find>
+      <find>enderman-tele</find>
+      <find>squid</find>
+      <find>squid-waterbreathing</find>
+      <find>horse-speed</find>
+      <find>snowman-snow</find>
+      <find>ocelot-speed</find>
+      <find>ghast-fireball</find>
+      <find>blaze-fire</find>
+      <find>pigz</find>
+      <find>spider-climb</find>
+      <find>giant-throw</find>
+      <find>evoker-attack</find>
+      <find>slime-split</find>
+      <find>slime-</find>
+      <find>llama-spit</find>
+      <find>spider-web</find>
+      <find>stray-slow</find>
+      <find>husk-</find>
+      <find>giant</find>
+      <find>giant-enabled</find>
+      <find>enderdragon</find>
+      <find>giant-force</find>
+      <find>vex</find>
+      <find>removeSpider</find>
+      <find>flying</find>
     </findStrings>
     <replaceStrings>
       <replace>unmorphPlayer(p, false, false)</replace>
       <replace>bypasstime</replace>
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -58,8 +116,15 @@
         <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/PlayerUndisguise.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Messages.java" />
         <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/PlayerDeath.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Morph.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/EntityDamage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/EntityDeath.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InteractWithEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/MoveEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InteractEvent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config.yml" />
       </list>
     </option>
@@ -75,6 +140,7 @@
     <option name="width" value="1600" />
     <option name="height" value="901" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -213,12 +279,12 @@
       <option name="presentableId" value="Default" />
       <updated>1523293453999</updated>
       <workItem from="1523293461159" duration="5208000" />
-      <workItem from="1523370975668" duration="1888000" />
+      <workItem from="1523370975668" duration="4758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7096000" />
+    <option name="totallyTimeSpent" value="9966000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1600" height="901" extended-state="6" />
@@ -232,12 +298,12 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.28643215" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3030303" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.200625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.200625" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -310,13 +376,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Morph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -352,27 +411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="152" column="62" lean-forward="true" selection-start-line="152" selection-start-column="62" selection-end-line="152" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="379" column="47" selection-start-line="379" selection-start-column="47" selection-end-line="379" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InteractEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="485" column="52" selection-start-line="485" selection-start-column="52" selection-end-line="485" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/ItemConsume.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -380,10 +418,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/PlayerDeath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="87" column="21" lean-forward="true" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Morph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="45" column="44" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/EntityDamage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="70" column="23" lean-forward="true" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/EntityDeath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="1011" column="69" lean-forward="true" selection-start-line="1011" selection-start-column="69" selection-end-line="1011" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="173" column="60" selection-start-line="173" selection-start-column="55" selection-end-line="173" selection-end-column="60" />
+          <folding>
+            <element signature="e#9092#9124#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InteractWithEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/MoveEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="101" column="40" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InteractEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="548" column="29" selection-start-line="548" selection-start-column="29" selection-end-line="548" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="162" column="44" selection-start-line="162" selection-start-column="44" selection-end-line="162" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="142" column="13" lean-forward="true" selection-start-line="142" selection-start-column="13" selection-end-line="142" selection-end-column="13" />
+        <state relative-caret-position="376">
+          <caret line="207" column="14" selection-start-line="207" selection-start-column="14" selection-end-line="207" selection-end-column="14" />
         </state>
       </provider>
     </entry>

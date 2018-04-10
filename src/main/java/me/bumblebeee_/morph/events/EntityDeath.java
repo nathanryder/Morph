@@ -990,7 +990,7 @@ public class EntityDeath implements Listener {
 						}
 						break;
 					case "craftgiant":
-                        if (!Morph.pl.getConfig().getBoolean("giant-enabled"))
+                        if (!Morph.pl.getConfig().getBoolean("giant.enabled"))
                             break;
                         if (!killer.hasPermission("morph.bypasskill.giant")) {
                             if (killer.hasPermission("morph.into.giant")) {
@@ -1009,7 +1009,7 @@ public class EntityDeath implements Listener {
                         }
                         break;
 					case "craftenderdragon":
-                        if (!Morph.pl.getConfig().getBoolean("enderdragon-enabled"))
+                        if (!Morph.pl.getConfig().getBoolean("enderdragon.enabled"))
                             break;
                         if (!killer.hasPermission("morph.bypasskill.enderdragon")) {
                             if (killer.hasPermission("morph.into.enderdragon")) {

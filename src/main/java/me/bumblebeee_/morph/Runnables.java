@@ -110,7 +110,7 @@ public class Runnables {
                     PotionEffect fireres = PotionEffectType.FIRE_RESISTANCE.createEffect(999999, 7);
 
                     if (using.equalsIgnoreCase("squid")) {
-                        if (pl.getConfig().getBoolean("squid-waterbreathing")) {
+                        if (pl.getConfig().getBoolean("squid.waterbreathing")) {
                             p.addPotionEffect(waterbreathing);
                             p.addPotionEffect(nightVision);
                         }
@@ -136,39 +136,39 @@ public class Runnables {
                             }
                         }
                     } else if (using.equalsIgnoreCase("iron_golem")) {
-                        if (pl.getConfig().getBoolean("irongolem-strength")) {
+                        if (pl.getConfig().getBoolean("irongolem.strength")) {
                             p.addPotionEffect(slow);
                             p.addPotionEffect(strength);
                         }
                     } else if (using.equalsIgnoreCase("rabbit")) {
-						if (pl.getConfig().getBoolean("jump-boost")) {
+						if (pl.getConfig().getBoolean("rabbit.jump-boost")) {
 							p.addPotionEffect(jump);
 						}
 					} else if (using.equalsIgnoreCase("slime")) {
-						if (pl.getConfig().getBoolean("jump-boost")) {
+						if (pl.getConfig().getBoolean("slime.jump-boost")) {
 							p.addPotionEffect(slimeJump);
 						}
 					} else if (using.equalsIgnoreCase("guardian")) {
-                        if (pl.getConfig().getBoolean("squid-waterbreathing")) {
+                        if (pl.getConfig().getBoolean("guardian.waterbreathing")) {
                             p.addPotionEffect(waterbreathing);
                             p.addPotionEffect(nightVision);
                         }
                     } else if (using.equalsIgnoreCase("bat")) {
                         p.addPotionEffect(nightVision);
                     } else if (using.equalsIgnoreCase("horse")) {
-                        if (pl.getConfig().getBoolean("horse-speed")) {
+                        if (pl.getConfig().getBoolean("horse.speed")) {
                             p.addPotionEffect(horseSpeed, true);
                         }
                     } else if (using.equalsIgnoreCase("skeleton_horse")) {
-                        if (pl.getConfig().getBoolean("horse-speed")) {
+                        if (pl.getConfig().getBoolean("horse.speed")) {
                             p.addPotionEffect(horseSpeed, true);
                         }
                     } else if (using.equalsIgnoreCase("ocelot")) {
-                        if (pl.getConfig().getBoolean("ocelot-speed")) {
+                        if (pl.getConfig().getBoolean("ocelot.speed")) {
                             p.addPotionEffect(ocelotSpeed, true);
                         }
                     } else if (using.equalsIgnoreCase("pig_zombie")) {
-                        if (pl.getConfig().getBoolean("pigzombie-speed")) {
+                        if (pl.getConfig().getBoolean("pig_zombie.speed")) {
                             p.addPotionEffect(zombieSpeed, true);
                         }
                     } else if (using.equalsIgnoreCase("giant")) {

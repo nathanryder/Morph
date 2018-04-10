@@ -43,7 +43,7 @@ public class Morph extends JavaPlugin implements Listener {
         Runnables.mobSounds();
 
         checkReload();
-        if (getConfig().getBoolean("spider-climb")) {
+        if (getConfig().getBoolean("spider.climb")) {
 			Runnables.spider(this);
 		}
 		health = !getConfig().getBoolean("disableHealthSystem");
