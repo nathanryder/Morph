@@ -1,0 +1,163 @@
+#Do you want a sound/particle effect to be played when a player morphs
+morph-sound: true
+morph-particle: true
+
+#Do you want a sound/particle effect to be played when a player unmorphs
+unmorph-sound: true
+unmorph-particle: true
+
+#Allow morphing into players? (Possibly buggy)
+enable-players: false
+
+#Should players be able to see their own disguise?
+viewSelfDisguise: true
+
+#Should players be able to change if they view their disguises?
+canChangeView: true
+
+#When morphed as a mob do any other mobs of the same type ignore you
+#e.g Morphed as a zombie means you don't get attacked by zombies
+ignoreMobsWhenMorphed: true
+
+#What worlds do you want this plugin enabled in?
+#use <all> to enable in all worlds
+enabled-worlds:
+- world
+- world_nether
+- world_the_end
+
+#Reset all of the players morphs when they die
+death-reset-all: false
+#Reset only the morph they died as
+death-reset-current: true
+
+#When a player kills a morphed player, should they get the morph?
+steal-morphs: true
+
+#Enable morph power for flying
+morph-power: true
+#How fast morph power is used per second of flying
+morphPower-use: 1
+#How fast morph power is regained per second of not flying
+morphPower-regain: 1
+
+#The radius /morph near looks at
+near-radius: 10
+
+#Hand swap menu status
+swapMenu: true
+#Only open the menu when there is nothing in the players main hand?
+onlyIfEmptyHand: false
+
+#Abilities
+creeper-explosion: true
+creeper-explosion-damage: false
+flying: true
+jump-boost: true
+skeleton-shoot: true
+enderman-teleport: true
+squid-waterbreathing: true
+ghast-fireball: true
+horse-speed: true
+ocelot-speed: true
+snowman-snow: true
+irongolem-strength: true
+blaze-fire: true
+zombie-eat: true
+pigzombie-speed: true
+snowmen-shoot: true
+spider-climb: true
+giant-throw: true
+enderdragon-fireball: true
+evoker-attack: true
+evoker-spawnVex: true
+vex-phase: true
+chicken-egg: true
+slime-split: true
+llama-spit: true
+spider-web: true
+stray-slow: true
+husk-hunger: true
+
+giant-enabled: true
+enderdragon-enabled: true
+
+#This increases how high giants can throw people
+giant-force: 2
+#Enables the giant to 'throw' blocks as he walks
+#NOTE: This can cause random blocks to be placed/broken if enabled
+giant-walk-throw: false
+#The amount of blocks vex can phase through
+vex-max-layers: 2
+#Remove spider webs after they are shot?
+removeSpiderWeb: true
+#How long (seconds) should webs stay for before despawning
+spiderWebRemove: 30
+
+#Abilities cooldown (seconds)
+cooldowns:
+  blaze: 5
+  ghast: 5
+  enderman: 5
+  snowman: 0
+  skeleton: 0
+  stray: 0
+  giant: 5
+  enderdragon: 5
+  evoker-attack: 5
+  evoker-spawnVex: 30
+  vex: 30
+  chicken: 120
+  llama: 0
+  spider: 0
+  illusioner: 120
+
+#Limit the amount of time people can be morphed for - set to 0 to disable
+time-limits:
+  horse: 0
+  wolf: 0
+  ocelot: 0
+  cow: 0
+  pig: 0
+  wither_skeleton: 0
+  bat: 0
+  blaze: 0
+  cave_spider: 0
+  chicken: 0
+  creeper: 0
+  enderman: 0
+  endermite: 0
+  ghast: 0
+  guardian: 0
+  iron_golem: 0
+  magma_cube: 0
+  mushroom_cow: 0
+  pig_zombie: 0
+  sheep: 0
+  silverfish: 0
+  skeleton: 0
+  slime: 0
+  snowman: 0
+  spider: 0
+  squid: 0
+  villager: 0
+  witch: 0
+  wither: 0
+  llama: 0
+  vex: 0
+  vindicator: 0
+  evoker: 0
+  zombie: 0
+  rabbit: 0
+  giant: 0
+  enderdragon: 0
+  mule: 0
+  donkey: 0
+  zombie_villager: 0
+  parrot: 0
+  illusioner: 0
+
+disableHealthSystem: false
+checkForUpdates: true
+debug: false
+stats: true
