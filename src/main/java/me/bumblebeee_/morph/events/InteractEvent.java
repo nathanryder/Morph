@@ -100,7 +100,7 @@ public class InteractEvent implements Listener {
 							tploc.setYaw(yaw);
 							e.getPlayer().teleport(tploc);
 
-							int cd = Morph.pl.getConfig().getInt("cooldowns.ender");
+							int cd = Morph.pl.getConfig().getInt("ender.ability-cooldown");
 							if (cd != 0) {
 								endercd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {
@@ -129,7 +129,7 @@ public class InteractEvent implements Listener {
 							Arrow a = p.launchProjectile(Arrow.class);
 							a.setMetadata("morph", new FixedMetadataValue(Morph.pl, "yes"));
 
-							int cd = Morph.pl.getConfig().getInt("cooldowns.skeleton");
+							int cd = Morph.pl.getConfig().getInt("skeleton.ability-cooldown");
 							if (cd != 0) {
 								skeletoncd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {
@@ -157,7 +157,7 @@ public class InteractEvent implements Listener {
 								Arrow a = p.launchProjectile(Arrow.class);
 								a.setMetadata("morph", new FixedMetadataValue(Morph.pl, "yes:stray"));
 
-								int cd = Morph.pl.getConfig().getInt("cooldowns.stray");
+								int cd = Morph.pl.getConfig().getInt("stray.ability-cooldown");
 								if (cd != 0) {
 									straycd.put(p, cd);
 									cdTask.put(p, new BukkitRunnable() {
@@ -185,7 +185,7 @@ public class InteractEvent implements Listener {
 							e.setCancelled(true);
 							p.launchProjectile(Snowball.class);
 
-							int cd = Morph.pl.getConfig().getInt("cooldowns.snowman");
+							int cd = Morph.pl.getConfig().getInt("snowman.ability-cooldown");
 							if (cd != 0) {
 								snowcd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {
@@ -214,7 +214,7 @@ public class InteractEvent implements Listener {
 						if (!(ghastcd.containsKey(p))) {
 							p.launchProjectile(Fireball.class);
 
-							int cd = Morph.pl.getConfig().getInt("cooldowns.ghast");
+							int cd = Morph.pl.getConfig().getInt("ghast.ability-cooldown");
 							if (cd != 0) {
 								ghastcd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {
@@ -313,7 +313,7 @@ public class InteractEvent implements Listener {
 							Fireball f = p.launchProjectile(Fireball.class);
 							f.setFireTicks(0);
 
-							int cd = Morph.pl.getConfig().getInt("cooldowns.blaze");
+							int cd = Morph.pl.getConfig().getInt("blaze.ability-cooldown");
 							if (cd != 0) {
 								blazecd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {
@@ -353,7 +353,7 @@ public class InteractEvent implements Listener {
 						p.getWorld().playEffect(p.getLocation(), Effect.ENDERDRAGON_SHOOT, 5);
 						f.setFireTicks(0);
 
-						int cd = Morph.pl.getConfig().getInt("cooldowns.enderdragon");
+						int cd = Morph.pl.getConfig().getInt("enderdragon.ability-cooldown");
 						if (cd != 0) {
 							dragoncd.put(p, cd);
 							cdTask.put(p, new BukkitRunnable() {
@@ -389,7 +389,7 @@ public class InteractEvent implements Listener {
 						a.setOwner(p);
 					}
 
-					int cd = Morph.pl.getConfig().getInt("cooldowns.evoker-attack");
+					int cd = Morph.pl.getConfig().getInt("evoker.attack-cooldown");
 					if (cd != 0) {
 						evokerAttackcd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {
@@ -443,7 +443,7 @@ public class InteractEvent implements Listener {
 					}
 					p.teleport(tp);
 
-					int cd = Morph.pl.getConfig().getInt("cooldowns.vex");
+					int cd = Morph.pl.getConfig().getInt("vex.ability-cooldown");
 					if (cd != 0) {
 						vexcd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {
@@ -470,7 +470,7 @@ public class InteractEvent implements Listener {
 				if (!(chickencd.containsKey(p))) {
 					p.getWorld().dropItemNaturally(p.getLocation(), new ItemStack(Material.EGG));
 
-					int cd = Morph.pl.getConfig().getInt("cooldowns.chicken");
+					int cd = Morph.pl.getConfig().getInt("chicken.ability-cooldown");
 					if (cd != 0) {
 						chickencd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {
@@ -506,7 +506,7 @@ public class InteractEvent implements Listener {
 					s.setShooter(p);
 					s.setVelocity(p.getLocation().getDirection());
 
-					int cd = Morph.pl.getConfig().getInt("cooldowns.llama");
+					int cd = Morph.pl.getConfig().getInt("llama.ability-cooldown");
 					if (cd != 0) {
 						llamacd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {
@@ -546,7 +546,7 @@ public class InteractEvent implements Listener {
 						}, 20 * time);
 					}
 
-					int cd = Morph.pl.getConfig().getInt("cooldowns.spider");
+					int cd = Morph.pl.getConfig().getInt("spider.ability-cooldown");
 					if (cd != 0) {
 						spidercd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {
@@ -580,7 +580,7 @@ public class InteractEvent implements Listener {
 						p.getWorld().spawnEntity(p.getLocation().add(0, 1, 0), EntityType.VEX);
 					}
 
-					int cd = Morph.pl.getConfig().getInt("cooldowns.evoker-spawnVex");
+					int cd = Morph.pl.getConfig().getInt("evoker.spawnVex-cooldown");
 					if (cd != 0) {
 						evokerSpawncd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {

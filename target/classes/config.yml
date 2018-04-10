@@ -51,8 +51,9 @@ onlyIfEmptyHand: false
 
 #Abilities Configuration
 #
-#morph-cooldown is how often you can morph back into the mob after unmorphing from that particular mob
-#ability-cooldown is the cooldown on the given ability of the mob
+#morph-time is how long you can stay morphed as a certain mob - set to 0 to disable
+#morph-cooldown is how often you can morph back into the mob after unmorphing from that particular mob - set to 0 to disable
+#ability-cooldown is the cooldown on the given ability of the mob - set to 0 to disable
 #
 #Enable flying?
 flying: true
@@ -101,6 +102,7 @@ ghast:
   fireball: true
   ability-cooldown: 5
 guardian:
+  waterbreathing: true
   morph-cooldown: 0
 iron_golem:
   morph-cooldown: 0
@@ -131,7 +133,7 @@ snowman:
   ability-cooldown: 0
 spider:
   morph-cooldown: 0
-  spider-climb: true
+  climb: true
   web: true
   #Remove spider webs after they are shot?
   removeSpiderWeb: true
@@ -179,7 +181,7 @@ giant:
   force: 2
   #Enables the giant to 'throw' blocks as he walks
   #NOTE: This might cause random blocks to be placed/broken if enabled
-  giant-walk-throw: false
+  walk-throw: false
   ability-cooldown: 0
 enderdragon:
   enabled: true
@@ -200,6 +202,7 @@ illusioner:
 stray:
   morph-cooldown: 0
   slow: true
+  shoot: true
   ability-cooldown: 0
 husk:
   morph-cooldown: 0

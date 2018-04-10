@@ -45,8 +45,8 @@ public class InteractWithEntity implements Listener {
                 int force = Morph.pl.getConfig().getInt("giant.force");
                 t.setVelocity(new Vector(0, force, 0));
 
-                if (Morph.pl.getConfig().getInt("cooldowns.giant") > 0) {
-                    giantcd.put(p, Morph.pl.getConfig().getInt("cooldowns.giant"));
+                if (Morph.pl.getConfig().getInt("giant.ability-cooldown") > 0) {
+                    giantcd.put(p, Morph.pl.getConfig().getInt("giant.ability-cooldown"));
                     cdTask.put(p, new BukkitRunnable() {
 
                         public void run() {

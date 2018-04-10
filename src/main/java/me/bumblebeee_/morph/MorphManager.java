@@ -16,9 +16,7 @@ import org.bukkit.potion.PotionEffect;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class MorphManager {
 
@@ -27,6 +25,7 @@ public class MorphManager {
     public static List<UUID> toggled = new ArrayList<>();
     public static List<UUID> viewMorphBuffer = new ArrayList<>();
     public static List<UUID> soundDisabled = new ArrayList<>();
+    public static Map<UUID, Map<String, Integer>> typeCooldown = new HashMap();
 
     public void toggleAbilty(Player p) {
         if (toggled.contains(p.getUniqueId())) {
@@ -88,6 +87,15 @@ public class MorphManager {
     }
 
     public void morphPlayer(final Player p, DisguiseType type, boolean silent, boolean baby) {
+        if (typeCooldown.containsKey(p.getUniqueId())) {
+            Map<String, Integer> cooldown = typeCooldown.get(p.getUniqueId());
+            if (cooldown.containsKey(type.toString().toLowerCase())) {
+                int time = cooldown.get(type.toString().toLowerCase());
+                p.sendMessage(prefix + " " + m.getMessage("morphOnCooldown", "", p.getDisplayName(), type.toReadable().toLowerCase(), time));
+                return;
+            }
+        }
+
         Morph.undisguiseBuffer.add(p.getUniqueId());
 
         if (DisguiseAPI.isDisguised(p)) {
@@ -320,7 +328,7 @@ public class MorphManager {
 
         Morph.undisguiseBuffer.remove(p.getUniqueId());
         final String typeStr = type.toString().toLowerCase();
-        int timeLimit = Morph.pl.getConfig().getInt("time-limits." + typeStr);
+        int timeLimit = Morph.pl.getConfig().getInt(typeStr + ".morph-time");
 
         if (timeLimit > 0 && !p.hasPermission("morph.bypasstime." + typeStr)) {
             Bukkit.getServer().getScheduler().runTaskLater(Morph.pl, new Runnable() {
@@ -352,6 +360,7 @@ public class MorphManager {
         for (PotionEffect effect : p.getActivePotionEffects())
             p.removePotionEffect(effect.getType());
 
+        final String type = DisguiseAPI.getDisguise(p).getType().toString().toLowerCase();
         Morph.using.remove(p.getUniqueId());
         DisguiseAPI.undisguiseToAll(p);
 
@@ -386,6 +395,21 @@ public class MorphManager {
                 }
             }
         }, 0, 10);
+
+        int morphCooldown = Morph.pl.getConfig().getInt(type + ".morph-cooldown");
+        if (morphCooldown > 0) {
+            if (typeCooldown.containsKey(p.getUniqueId())) {
+                Map<String, Integer> cooldown = typeCooldown.get(p.getUniqueId());
+                typeCooldown.remove(p.getUniqueId());
+
+                cooldown.put(type, morphCooldown);
+                typeCooldown.put(p.getUniqueId(), cooldown);
+            } else {
+                Map<String, Integer> cooldown = new HashMap<>();
+                cooldown.put(type, morphCooldown);
+                typeCooldown.put(p.getUniqueId(), cooldown);
+            }
+        }
     }
 
     public boolean isAllowBaby(String mob) {
