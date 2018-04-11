@@ -59,79 +59,104 @@ onlyIfEmptyHand: false
 flying: true
 
 horse:
+  morph-time: 0
   morph-cooldown: 0
   speed: true
 wolf:
+  morph-time: 0
   morph-cooldown: 0
 ocelot:
+  morph-time: 0
   morph-cooldown: 0
   speed: true
 cow:
+  morph-time: 0
   morph-cooldown: 0
 pig:
+  morph-time: 0
   morph-cooldown: 0
 wither_skeleton:
+  morph-time: 0
   morph-cooldown: 0
   ability-cooldown: 0
 bat:
+  morph-time: 0
   morph-cooldown: 0
 blaze:
+  morph-time: 0
   morph-cooldown: 0
   fire: true
   ability-cooldown: 5
 cave_spider:
+  morph-time: 0
   morph-cooldown: 0
   spider-climb: true
   ability-cooldown: 0
 chicken:
+  morph-time: 0
   morph-cooldown: 0
   egg: true
   ability-cooldown: 120
 creeper:
+  morph-time: 0
   morph-cooldown: 0
   explosion: true
   explosion-damage: false
 enderman:
+  morph-time: 0
   morph-cooldown: 0
   teleport: true
   ability-cooldown: 5
 endermite:
+  morph-time: 0
   morph-cooldown: 0
 ghast:
+  morph-time: 0
   morph-cooldown: 0
   fireball: true
   ability-cooldown: 5
 guardian:
+  morph-time: 0
   waterbreathing: true
   morph-cooldown: 0
 iron_golem:
+  morph-time: 0
   morph-cooldown: 0
   strength: true
 magma_cube:
+  morph-time: 0
   morph-cooldown: 0
 mushroom_cow:
+  morph-time: 0
   morph-cooldown: 0
 pig_zombie:
+  morph-time: 0
   morph-cooldown: 0
   eat: true
   speed: true
 sheep:
+  morph-time: 0
   morph-cooldown: 0
 silverfish:
+  morph-time: 0
   morph-cooldown: 0
 skeleton:
+  morph-time: 0
   morph-cooldown: 0
   shoot: true
 slime:
+  morph-time: 0
   morph-cooldown: 0
   jump-boost: true
   split: true
 snowman:
+  morph-time: 0
   morph-cooldown: 0
   snow: true
   shoot: true
   ability-cooldown: 0
 spider:
+  morph-time: 0
   morph-cooldown: 0
   climb: true
   web: true
@@ -141,39 +166,50 @@ spider:
   spiderWebRemove: 30
   ability-cooldown: 0
 squid:
+  morph-time: 0
   morph-cooldown: 0
   waterbreathing: true
 villager:
+  morph-time: 0
   morph-cooldown: 0
 witch:
+  morph-time: 0
   morph-cooldown: 0
 wither:
+  morph-time: 0
   morph-cooldown: 0
 llama:
+  morph-time: 0
   morph-cooldown: 0
   spit: true
   ability-cooldown: 0
 vex:
+  morph-time: 0
   morph-cooldown: 0
   phase: true
   #The amount of blocks vex can phase through
   max-layers: 2
   ability-cooldown: 30
 vindicator:
+  morph-time: 0
   morph-cooldown: 0
 evoker:
+  morph-time: 0
   morph-cooldown: 0
   attack: true
   spawnVex: true
   attack-cooldown: 5
   spawnVex-cooldown: 30
 zombie:
+  morph-time: 0
   morph-cooldown: 0
   eat: true
 rabbit:
+  morph-time: 0
   morph-cooldown: 0
   jump-boost: true
 giant:
+  morph-time: 0
   enabled: true
   morph-cooldown: 0
   throw: true
@@ -184,27 +220,35 @@ giant:
   walk-throw: false
   ability-cooldown: 0
 enderdragon:
+  morph-time: 0
   enabled: true
   morph-cooldown: 0
   fireball: true
   ability-cooldown: 0
 mule:
+  morph-time: 0
   morph-cooldown: 0
 donkey:
+  morph-time: 0
   morph-cooldown: 0
 zombie_villager:
+  morph-time: 0
   morph-cooldown: 0
 parrot:
+  morph-time: 0
   morph-cooldown: 0
 illusioner:
+  morph-time: 0
   morph-cooldown: 0
   ability-cooldown: 0
 stray:
+  morph-time: 0
   morph-cooldown: 0
   slow: true
   shoot: true
   ability-cooldown: 0
 husk:
+  morph-time: 0
   morph-cooldown: 0
   hunger: true
 

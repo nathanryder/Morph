@@ -580,7 +580,7 @@ public class InteractEvent implements Listener {
 						p.getWorld().spawnEntity(p.getLocation().add(0, 1, 0), EntityType.VEX);
 					}
 
-					int cd = Morph.pl.getConfig().getInt("evoker.spawnVex-cooldown");
+					int cd = Morph.pl.getConfig().getInt("evoker.spawnVex-can");
 					if (cd != 0) {
 						evokerSpawncd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {

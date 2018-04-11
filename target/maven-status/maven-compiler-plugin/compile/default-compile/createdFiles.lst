@@ -49,6 +49,7 @@ me/bumblebeee_/morph/versions/Actionbar_1_9_R1.class
 me/bumblebeee_/morph/events/EntityDamage$1.class
 me/bumblebeee_/morph/events/MoveEvent$1.class
 me/bumblebeee_/morph/events/WeatherChange.class
+me/bumblebeee_/morph/MorphManager$4.class
 me/bumblebeee_/morph/Runnables$2.class
 me/bumblebeee_/morph/events/InteractEvent$13.class
 me/bumblebeee_/morph/Metrics$SingleLineChart.class
