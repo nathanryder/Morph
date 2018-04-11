@@ -348,7 +348,11 @@ public class MorphManager {
                     }
 
                     morphTimeout.put(p.getUniqueId(), time);
-                    ManaManager.ab.sendActionbar(p, m.getMessage("timeLeftAsMorph", "", "", typeStr, time));
+                    int minutes = time / 60;
+                    int seconds = time % 60;
+                    String disMin = (minutes < 10 ? "0" : "") + minutes;
+                    String disSec = (seconds < 10 ? "0" : "") + seconds;
+                    ManaManager.ab.sendActionbar(p, m.getMessage("timeLeftAsMorph", typeStr, disMin, disSec));
                 }
             }.runTaskTimer(Morph.pl, 0, 20);
 
