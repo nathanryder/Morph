@@ -9,6 +9,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
+import org.bukkit.scheduler.BukkitRunnable;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PlayerLeave implements Listener {
 	
@@ -19,9 +23,10 @@ public class PlayerLeave implements Listener {
 	
 	@EventHandler
 	public void onPlayerLeave(PlayerQuitEvent e) {
-		Player p = e.getPlayer();
-		
+		final Player p = e.getPlayer();
+
 		if (DisguiseAPI.isDisguised(p)) {
+			final String type = DisguiseAPI.getDisguise(p).getType().toString().toLowerCase();
 			if (!Morph.using.containsKey(p.getUniqueId()))
 				return;
 
@@ -34,15 +39,48 @@ public class PlayerLeave implements Listener {
 				p.setAllowFlight(false);
 				p.setFlying(false);
 			}
-		    for (PotionEffect effect : p.getActivePotionEffects())
-		        p.removePotionEffect(effect.getType());
-		    
+			for (PotionEffect effect : p.getActivePotionEffects())
+				p.removePotionEffect(effect.getType());
+
 			Morph.using.remove(p.getUniqueId());
 			DisguiseAPI.undisguiseToAll(p);
-		}
 
-		if (MorphManager.soundDisabled.contains(p.getUniqueId()))
-			MorphManager.soundDisabled.remove(p.getUniqueId());
+			if (MorphManager.soundDisabled.contains(p.getUniqueId()))
+				MorphManager.soundDisabled.remove(p.getUniqueId());
+
+			int morphCooldown = Morph.pl.getConfig().getInt(type + ".morph-cooldown");
+			if (morphCooldown > 0) {
+				if (MorphManager.typeCooldown.containsKey(p.getUniqueId())) {
+					Map<String, Integer> cooldown = MorphManager.typeCooldown.get(p.getUniqueId());
+					MorphManager.typeCooldown.remove(p.getUniqueId());
+
+					cooldown.put(type, morphCooldown);
+					MorphManager.typeCooldown.put(p.getUniqueId(), cooldown);
+				} else {
+					Map<String, Integer> cooldown = new HashMap<>();
+					cooldown.put(type, morphCooldown);
+					MorphManager.typeCooldown.put(p.getUniqueId(), cooldown);
+				}
+
+				new BukkitRunnable() {
+					@Override
+					public void run() {
+						Map<String, Integer> cooldown = MorphManager.typeCooldown.get(p.getUniqueId());
+						int time = cooldown.get(type) - 1;
+						cooldown.remove(type);
+
+						if (time != 0)
+							cooldown.put(type, time);
+						else {
+							cancel();
+							return;
+						}
+
+						MorphManager.typeCooldown.put(p.getUniqueId(), cooldown);
+					}
+				}.runTaskTimer(Morph.pl, 20, 20);
+			}
+		}
 	}
 
 }
