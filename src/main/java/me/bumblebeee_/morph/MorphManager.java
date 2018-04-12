@@ -342,6 +342,11 @@ public class MorphManager {
                         cancel();
                         return;
                     }
+                    if (!typeStr.equals(DisguiseAPI.getDisguise(p).getType().toString().toLowerCase())) {
+                        cancel();
+                        return;
+                    }
+
                     int time = morphTimeout.get(p.getUniqueId())-1;
                     morphTimeout.remove(p.getUniqueId());
 
@@ -361,7 +366,15 @@ public class MorphManager {
 
                     morphTimeout.put(p.getUniqueId(), time);
 
-                    if (time <= 30) {
+                    if (p.getAllowFlight()) {
+                        if (time <= 30) {
+                            int minutes = time / 60;
+                            int seconds = time % 60;
+                            String disMin = (minutes < 10 ? "0" : "") + minutes;
+                            String disSec = (seconds < 10 ? "0" : "") + seconds;
+                            ManaManager.ab.sendActionbar(p, m.getMessage("timeLeftAsMorph", typeStr, disMin, disSec));
+                        }
+                    } else {
                         int minutes = time / 60;
                         int seconds = time % 60;
                         String disMin = (minutes < 10 ? "0" : "") + minutes;

@@ -276,8 +276,10 @@ public class Runnables {
                         continue;
                     if (!Morph.pl.getConfig().getBoolean("morph-power"))
                         continue;
-                    if (MorphManager.morphTimeout.get(p.getUniqueId()) <= 30)
-                        continue;
+                    if (MorphManager.morphTimeout.get(p.getUniqueId()) != null) {
+                        if (MorphManager.morphTimeout.get(p.getUniqueId()) <= 30)
+                            continue;
+                    }
 
                     if (p.isFlying()) {
                         if (mana.getMana(p) < 0) {
