@@ -361,7 +361,6 @@ public class MorphManager {
 
                     morphTimeout.put(p.getUniqueId(), time);
 
-                    System.out.println("Time: " + time);
                     if (time <= 30) {
                         int minutes = time / 60;
                         int seconds = time % 60;

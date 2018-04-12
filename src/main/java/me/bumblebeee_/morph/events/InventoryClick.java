@@ -84,7 +84,6 @@ public class InventoryClick implements Listener {
                 p.closeInventory();
                 morph.unmorphPlayer(p, false, false);
             } else if (dis.contains("Click to morph into")) {
-                System.out.println("A");
                 p.closeInventory();
                 File userFile = new File(Morph.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
                 FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
@@ -93,7 +92,6 @@ public class InventoryClick implements Listener {
 
                 Inventorys.pages.remove(p.getUniqueId());
                 if (Inventorys.pages.containsKey(p.getUniqueId())) {
-                    System.out.println("B");
                     //Is trying to morph as player
                     if (Morph.pl.getConfig().getBoolean("enable-players")) {
                         String[] split = dis.split(" ");

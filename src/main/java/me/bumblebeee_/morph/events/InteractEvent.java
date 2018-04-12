@@ -564,36 +564,36 @@ public class InteractEvent implements Listener {
 				} else {
 					p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, spidercd.get(p)));
 				}
-			} else {
-				p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, evokerSpawncd.get(p)));
-			}
-		} else if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-			if (using.equalsIgnoreCase("evoker")) {
-				if (!pl.getConfig().getBoolean("evoker.spawnVex"))
-					return;
-				if (!p.isSneaking())
-					return;
+			} else if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
+				if (using.equalsIgnoreCase("evoker")) {
+					if (!pl.getConfig().getBoolean("evoker.spawnVex"))
+						return;
+					if (!p.isSneaking())
+						return;
 
-				if (!(evokerSpawncd.containsKey(p))) {
-					int c = r.nextInt(3) + 2;
-					for (int i = 0; i <= c; i++) {
-						p.getWorld().spawnEntity(p.getLocation().add(0, 1, 0), EntityType.VEX);
-					}
+					if (!(evokerSpawncd.containsKey(p))) {
+						int c = r.nextInt(3) + 2;
+						for (int i = 0; i <= c; i++) {
+							p.getWorld().spawnEntity(p.getLocation().add(0, 1, 0), EntityType.VEX);
+						}
 
-					int cd = Morph.pl.getConfig().getInt("evoker.spawnVex-can");
-					if (cd != 0) {
-						evokerSpawncd.put(p, cd);
-						cdTask.put(p, new BukkitRunnable() {
-							public void run() {
-								evokerSpawncd.put(p, evokerSpawncd.get(p) - 1);
-								if (evokerSpawncd.get(p) <= 1) {
-									evokerSpawncd.remove(p);
-									cdTask.remove(p);
-									cancel();
+						int cd = Morph.pl.getConfig().getInt("evoker.spawnVex-can");
+						if (cd != 0) {
+							evokerSpawncd.put(p, cd);
+							cdTask.put(p, new BukkitRunnable() {
+								public void run() {
+									evokerSpawncd.put(p, evokerSpawncd.get(p) - 1);
+									if (evokerSpawncd.get(p) <= 1) {
+										evokerSpawncd.remove(p);
+										cdTask.remove(p);
+										cancel();
+									}
 								}
-							}
-						});
-						cdTask.get(p).runTaskTimer(pl, 20, 20);
+							});
+							cdTask.get(p).runTaskTimer(pl, 20, 20);
+						}
+					} else {
+						p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, evokerSpawncd.get(p)));
 					}
 				}
 			}
