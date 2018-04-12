@@ -342,6 +342,12 @@ public class MorphManager {
                         cancel();
                         return;
                     }
+
+                    if (DisguiseAPI.getDisguise(p) == null) {
+                        cancel();
+                        return;
+                    }
+
                     if (!typeStr.equals(DisguiseAPI.getDisguise(p).getType().toString().toLowerCase())) {
                         cancel();
                         return;
@@ -366,7 +372,7 @@ public class MorphManager {
 
                     morphTimeout.put(p.getUniqueId(), time);
 
-                    if (p.getAllowFlight()) {
+                    if (canMobFly(typeStr)) {
                         if (time <= 30) {
                             int minutes = time / 60;
                             int seconds = time % 60;
@@ -385,6 +391,23 @@ public class MorphManager {
             }.runTaskTimer(Morph.pl, 0, 20);
 
         }
+    }
+
+    public boolean canMobFly(String type) {
+        if (type.equalsIgnoreCase("ghast"))
+            return true;
+        else if (type.equalsIgnoreCase("bat"))
+            return true;
+        else if (type.equalsIgnoreCase("blaze"))
+            return true;
+        else if (type.equalsIgnoreCase("parrot"))
+            return true;
+        else if (type.equalsIgnoreCase("enderdragon"))
+            return true;
+        else if (type.equalsIgnoreCase("vex"))
+            return true;
+
+        return false;
     }
 
     public void unmorphPlayer(final Player p, boolean staff, boolean time) {

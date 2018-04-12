@@ -4,7 +4,11 @@
     <list default="true" id="7bdf9629-c58d-4b93-885b-2e770fa60a8d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Morph-2.12.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Morph-2.12.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +32,17 @@
       <file leaf-file-name="MorphManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="348" column="20" selection-start-line="348" selection-start-column="20" selection-end-line="348" selection-end-column="20" />
+            <state relative-caret-position="180">
+              <caret line="341" column="33" lean-forward="true" selection-start-line="341" selection-start-column="33" selection-end-line="341" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7">
+              <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -264,12 +277,12 @@
       <workItem from="1523458993430" duration="2240000" />
       <workItem from="1523463559011" duration="418000" />
       <workItem from="1523545438178" duration="4257000" />
-      <workItem from="1523550817174" duration="498000" />
+      <workItem from="1523550817174" duration="2668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19584000" />
+    <option name="totallyTimeSpent" value="21754000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="122" y="926" width="1366" height="742" extended-state="6" />
@@ -466,13 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="157" column="56" selection-start-line="157" selection-start-column="56" selection-end-line="157" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/ItemConsume.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -547,13 +553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="209" column="18" selection-start-line="209" selection-start-column="18" selection-end-line="209" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/versions/Actionbar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -594,10 +593,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="156" column="22" selection-start-line="156" selection-start-column="4" selection-end-line="156" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="348" column="20" selection-start-line="348" selection-start-column="20" selection-end-line="348" selection-end-column="20" />
+        <state relative-caret-position="180">
+          <caret line="341" column="33" lean-forward="true" selection-start-line="341" selection-start-column="33" selection-end-line="341" selection-end-column="33" />
         </state>
       </provider>
     </entry>
