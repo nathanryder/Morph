@@ -49,6 +49,15 @@ swapMenu: true
 #Only open the menu when there is nothing in the players main hand?
 onlyIfEmptyHand: false
 
+#Changing death messages if the killer is morphed
+#Available placeholders are:
+#{victim} {killer} {killerMob} {world}
+overrideDeathMessage: true
+randomMessage: false
+deathMessages:
+- "{killer} killed {victim} while morphed as a {killerMob}"
+- "{victim} was killed by a {killerMob}"
+
 #Abilities Configuration
 #
 #morph-time is how long you can stay morphed as a certain mob - set to 0 to disable
