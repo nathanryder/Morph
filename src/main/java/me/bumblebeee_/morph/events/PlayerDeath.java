@@ -17,8 +17,10 @@ import org.bukkit.potion.PotionEffect;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 public class PlayerDeath implements Listener {
 
@@ -96,9 +98,11 @@ public class PlayerDeath implements Listener {
 				}
 			}
 		}
-		
+
 		if (using.equalsIgnoreCase("creeper")) {
 			if (pl.getConfig().getBoolean("creeper.explosion")) {
+				if (!Morph.pl.getConfig().getBoolean("creeperDeathMessage"))
+					e.setDeathMessage(null);
 				w.createExplosion(p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), 2.0F, false, pl.getConfig().getBoolean("creeper.explosion-damage"));
 				p.sendMessage(prefix + " " + m.getMessage("creeperExploded", "", p.getDisplayName(), "", ""));
 			}
