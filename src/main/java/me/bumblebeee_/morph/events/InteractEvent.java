@@ -179,7 +179,7 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("snowman")) {
-				if (pl.getConfig().getString("snowmen-shoot").equalsIgnoreCase("true")) {
+				if (pl.getConfig().getString("snowman.shoot").equalsIgnoreCase("true")) {
 					if (p.isSneaking()) {
 						if (!(snowcd.containsKey(p))) {
 							e.setCancelled(true);
