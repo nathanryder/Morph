@@ -23,5 +23,6 @@ public class RegisterEvents {
 		Bukkit.getServer().getPluginManager().registerEvents(new EntityTarget(), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new PlayerUndisguise(), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new PlayerSwapHandItems(), pl);
+		Bukkit.getServer().getPluginManager().registerEvents(new ItemDrop(), pl);
 	}
 }

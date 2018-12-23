@@ -50,8 +50,7 @@ public class MoveEvent implements Listener {
         if (using.equalsIgnoreCase("snowman")) {
             if (e.getTo().clone().add(0, -0.5, 0).getBlock().getTemperature() > 1) {
                 p.setFireTicks(40);
-            } else if (e.getTo().clone().add(0, -0.5, 0).getBlock().getType() == Material.WATER ||
-                    e.getTo().clone().add(0, -0.5, 0).getBlock().getType() == Material.STATIONARY_WATER) {
+            } else if (e.getTo().clone().add(0, -0.5, 0).getBlock().getType() == Material.WATER) {
                 if (p.getHealth()-0.5 <= 0) {
                     p.setHealth(0);
                 } else {

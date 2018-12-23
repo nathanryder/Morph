@@ -11,6 +11,8 @@ import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -87,6 +89,22 @@ public class MorphManager {
             p.sendMessage(prefix + " " + m.getMessage("changeSoundVolSuccess").replace("%statusColor%", ChatColor.RED + "disabled"));
             soundDisabled.add(p.getUniqueId());
         }
+    }
+
+    public ItemStack getMorphItem() {
+        List<String> lore = new ArrayList<>();
+        Material mat = Material.matchMaterial(Morph.pl.getConfig().getString("morphItem.type"));
+        int data = Morph.pl.getConfig().getInt("morphItem.data");
+        String name = ChatColor.translateAlternateColorCodes('&', Morph.pl.getConfig().getString("morphItem.name"));
+
+        Morph.pl.getConfig().getStringList("morphItem.lore").forEach(line -> lore.add(ChatColor.translateAlternateColorCodes('&', line)));
+        ItemStack item = new ItemStack(mat, 1, (byte)data);
+        ItemMeta im = item.getItemMeta();
+        im.setDisplayName(name);
+        im.setLore(lore);
+        item.setItemMeta(im);
+
+        return item;
     }
 
     public void morphPlayer(final Player p, DisguiseType type, boolean silent, boolean baby) {
@@ -317,7 +335,7 @@ public class MorphManager {
                         i++;
                         if (Morph.pl.getConfig().getBoolean("morph-particle")) {
                             if (!ManaManager.version.equalsIgnoreCase("v1_8_R3"))
-                                p.getWorld().playEffect(p.getLocation().add(0, 1, 0), Effect.EXPLOSION_LARGE, 50);
+                                p.getWorld().playEffect(p.getLocation().add(0, 1, 0), Effect.BLAZE_SHOOT, 50);
                         }
                         if (Morph.pl.getConfig().getBoolean("morph-sound")) {
                             if (!ManaManager.version.equalsIgnoreCase("v1_8_R3"))
@@ -450,7 +468,7 @@ public class MorphManager {
                     i++;
                     if (Morph.pl.getConfig().getBoolean("unmorph-particle")) {
                         if (!ManaManager.version.equalsIgnoreCase("v1_8_R3"))
-                            p.getWorld().playEffect(p.getLocation().add(0, 1, 0), Effect.EXPLOSION_LARGE, 50);
+                            p.getWorld().playEffect(p.getLocation().add(0, 1, 0), Effect.BLAZE_SHOOT, 50);
                     }
                     if (Morph.pl.getConfig().getBoolean("unmorph-sound")) {
                         if (!ManaManager.version.equalsIgnoreCase("v1_8_R3")) {
@@ -566,13 +584,13 @@ public class MorphManager {
             case "horse":
                 return Sound.ENTITY_HORSE_AMBIENT;
             case "enderman":
-                return Sound.ENTITY_ENDERMEN_AMBIENT;
+                return Sound.ENTITY_ENDERMAN_AMBIENT;
             case "villager":
                 return Sound.ENTITY_VILLAGER_AMBIENT;
             case "stray":
                 return Sound.ENTITY_STRAY_AMBIENT;
             case "iron_golem":
-                return Sound.ENTITY_IRONGOLEM_ATTACK;
+                return Sound.ENTITY_IRON_GOLEM_ATTACK;
             case "blaze":
                 return Sound.ENTITY_BLAZE_AMBIENT;
             case "skeleton":
@@ -582,7 +600,7 @@ public class MorphManager {
             case "cave_spider":
                 return Sound.ENTITY_SPIDER_AMBIENT;
             case "pig_zombie":
-                return Sound.ENTITY_ZOMBIE_PIG_AMBIENT;
+                return Sound.ENTITY_ZOMBIE_PIGMAN_AMBIENT;
             case "mushroom_cow":
                 return Sound.ENTITY_COW_AMBIENT;
             case "slime":
@@ -600,19 +618,19 @@ public class MorphManager {
             case "husk":
                 return Sound.ENTITY_HUSK_AMBIENT;
             case "magma_cube":
-                return Sound.ENTITY_MAGMACUBE_SQUISH;
+                return Sound.ENTITY_MAGMA_CUBE_SQUISH;
             case "creeper":
                 return Sound.ENTITY_CREEPER_PRIMED;
             case "squid":
                 return Sound.ENTITY_SQUID_AMBIENT;
             case "pig":
-                return Sound.ENTITY_ZOMBIE_PIG_AMBIENT;
+                return Sound.ENTITY_PIG_AMBIENT;
             case "ghast":
                 return Sound.ENTITY_GHAST_AMBIENT;
             case "ender_dragon":
-                return Sound.ENTITY_ENDERDRAGON_AMBIENT;
+                return Sound.ENTITY_ENDER_DRAGON_AMBIENT;
             case "snowman":
-                return Sound.ENTITY_SNOWMAN_AMBIENT;
+                return Sound.ENTITY_SNOW_GOLEM_AMBIENT;
         }
         return null;
     }

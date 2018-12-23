@@ -1,5 +1,6 @@
 package me.bumblebeee_.morph.events;
 
+import me.bumblebeee_.morph.Inventorys;
 import me.bumblebeee_.morph.Messages;
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
@@ -79,11 +80,23 @@ public class InteractEvent implements Listener {
 	@EventHandler
     public void onClick(PlayerInteractEvent e) {
 		final Player p = e.getPlayer();
-        if (!Morph.using.containsKey(p.getUniqueId()))
+
+		ItemStack item = mm.getMorphItem();
+		if (e.getItem() != null) {
+			if (e.getItem().isSimilar(item)) {
+				Inventorys inv = new Inventorys();
+				inv.openMorph(p, 1);
+				return;
+			}
+		}
+
+		if (!Morph.using.containsKey(p.getUniqueId()))
             return;
 		String using = mm.getUsing(p);
 		if (MorphManager.toggled.contains(p.getUniqueId()))
 			return;
+
+
 
 		if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
 			if (using.equalsIgnoreCase("enderman")) {
@@ -239,7 +252,7 @@ public class InteractEvent implements Listener {
 			} else if (using.equalsIgnoreCase("sheep")) {
 				if (p.getInventory().getItemInMainHand().getType().equals(Material.SHEARS)) {
 					if (!(sheepcd.containsKey(p))) {
-						ItemStack drop = new ItemStack(Material.WOOL);
+						ItemStack drop = new ItemStack(Material.WHITE_WOOL);
 						drop.setAmount(2);
 						p.getWorld().dropItem(p.getLocation(), drop);
 
@@ -531,7 +544,7 @@ public class InteractEvent implements Listener {
 					return;
 
 				if (!(spidercd.containsKey(p))) {
-					final FallingBlock b = p.getWorld().spawnFallingBlock(p.getEyeLocation(), new MaterialData(Material.WEB));
+					final FallingBlock b = p.getWorld().spawnFallingBlock(p.getEyeLocation(), new MaterialData(Material.COBWEB));
 					b.setVelocity(p.getEyeLocation().getDirection().multiply(2));
 
 					if (Morph.pl.getConfig().getBoolean("spider.removeSpiderWeb")) {
@@ -540,7 +553,7 @@ public class InteractEvent implements Listener {
 							@Override
 							public void run() {
 								b.remove();
-								if (b.getLocation().getBlock().getType() == Material.WEB)
+								if (b.getLocation().getBlock().getType() == Material.COBWEB)
 									b.getLocation().getBlock().setType(Material.AIR);
 							}
 						}, 20 * time);

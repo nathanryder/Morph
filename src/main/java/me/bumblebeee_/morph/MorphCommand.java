@@ -23,12 +23,12 @@ public class MorphCommand implements CommandExecutor {
 
     Messages m = new Messages();
     Inventorys inv = new Inventorys();
-    String prefix = m.getMessage("prefix");
     MorphManager morph = new MorphManager();
     Plugin pl = Morph.pl;
 
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+        String prefix = m.getMessage("prefix");
         if (cmd.getName().equalsIgnoreCase("delmorph")) {
             if (!sender.hasPermission("morph.morph.modify")) {
                 sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
@@ -169,6 +169,7 @@ public class MorphCommand implements CommandExecutor {
                     if (args[0].equalsIgnoreCase("reload")) {
                         if (sender.hasPermission("morph.reload")) {
                             pl.reloadConfig();
+                            m.setup();
                             Morph.health = !pl.getConfig().getBoolean("disableHealthSystem");
                             sender.sendMessage(prefix + " " + m.getMessage("reloadedConfig"));
                             return true;
@@ -196,6 +197,14 @@ public class MorphCommand implements CommandExecutor {
                         Morph.health = !pl.getConfig().getBoolean("disableHealthSystem");
                         p.sendMessage(prefix + " " + m.getMessage("reloadedConfig"));
                     }
+                    return true;
+                } else if (args[0].equalsIgnoreCase("giveitem")) {
+                    if (!sender.hasPermission("morph.giveitem")) {
+                        sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
+                        return false;
+                    }
+
+                    p.getInventory().addItem(morph.getMorphItem());
                     return true;
                 }
             }

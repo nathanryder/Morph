@@ -113,6 +113,9 @@ public class Messages {
     }
 
     public String getMessage(String key) {
+        f = new File(Morph.pl.getDataFolder() + File.separator + "messages.yml");
+        c = YamlConfiguration.loadConfiguration(f);
+
         String msg = c.getString(key);
         if (msg == null) {
             Morph.pl.getLogger().warning(ChatColor.RED + "Failed to find message with key " + key);
