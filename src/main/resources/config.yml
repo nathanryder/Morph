@@ -272,6 +272,26 @@ husk:
   morph-time: 0
   morph-cooldown: 0
   hunger: true
+dolphin:
+  morph-time: 0
+  morph-cooldown: 0
+drowned:
+  morph-time: 0
+  morph-cooldown: 0
+cod:
+  morph-time: 0
+  morph-cooldown: 0
+salmon:
+  morph-time: 0
+  morph-cooldown: 0
+tropicalfish:
+  morph-time: 0
+  morph-cooldown: 0
+pufferfish:
+  morph-time: 0
+  morph-cooldown: 0
+  poison: true
+  ability-cooldown: 15
 
 disableHealthSystem: false
 checkForUpdates: true

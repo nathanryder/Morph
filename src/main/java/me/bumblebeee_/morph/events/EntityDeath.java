@@ -1123,6 +1123,74 @@ public class EntityDeath implements Listener {
 							}
 						}
 						break;
+					case "craftcod":
+						if (!killer.hasPermission("morph.bypasskill.cod")) {
+							if (killer.hasPermission("morph.into.cod")) {
+								if (!stringList.contains("cod")) {
+									stringList.add("cod");
+									fileConfig.set("Mobs", stringList);
+									try {
+										fileConfig.save(userFile);
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
+									killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a cod!");
+									break;
+								}
+							}
+						}
+						break;
+					case "craftsalmon":
+						if (!killer.hasPermission("morph.bypasskill.salmon")) {
+							if (killer.hasPermission("morph.into.salmon")) {
+								if (!stringList.contains("salmon")) {
+									stringList.add("salmon");
+									fileConfig.set("Mobs", stringList);
+									try {
+										fileConfig.save(userFile);
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
+									killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a salmon!");
+									break;
+								}
+							}
+						}
+						break;
+					case "craftpufferfish":
+						if (!killer.hasPermission("morph.bypasskill.pufferfish")) {
+							if (killer.hasPermission("morph.into.pufferfish")) {
+								if (!stringList.contains("pufferfish")) {
+									stringList.add("pufferfish");
+									fileConfig.set("Mobs", stringList);
+									try {
+										fileConfig.save(userFile);
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
+									killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a pufferfish!");
+									break;
+								}
+							}
+						}
+						break;
+					case "crafttropicalfish":
+						if (!killer.hasPermission("morph.bypasskill.tropicalfish")) {
+							if (killer.hasPermission("morph.into.tropicalfish")) {
+								if (!stringList.contains("tropicalfish")) {
+									stringList.add("tropicalfish");
+									fileConfig.set("Mobs", stringList);
+									try {
+										fileConfig.save(userFile);
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
+									killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a tropicalfish!");
+									break;
+								}
+							}
+						}
+						break;
                     case "craftrabbit{rabbittype=black_and_white}":
                         if (!killer.hasPermission("morph.bypasskill.rabbit")) {
                             if (killer.hasPermission("morph.into.rabbit")) {

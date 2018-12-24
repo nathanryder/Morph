@@ -177,6 +177,31 @@ public class Runnables {
                         p.addPotionEffect(dolphinGrace, true);
                     } else if (using.equalsIgnoreCase("drowned")) {
                         p.addPotionEffect(waterbreathing, true);
+
+                        Block below = p.getLocation().subtract(0, 1, 0).getBlock();
+                        Block in = p.getLocation().getBlock();
+
+                        if (below.getType().isSolid() && in.getType() == Material.WATER) {
+                            PotionEffect potion = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 2);
+                            p.addPotionEffect(potion);
+                        }
+                    } else if (using.equalsIgnoreCase("cod") || using.equalsIgnoreCase("salmon")
+                            || using.equalsIgnoreCase("pufferfish") || using.equalsIgnoreCase("tropicalfish")) {
+
+                        Block in = p.getLocation().getBlock();
+                        if (in.getType() == Material.WATER) {
+                            PotionEffect potion = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 0);
+
+                            p.addPotionEffect(waterbreathing, true);
+                            p.addPotionEffect(potion);
+                        } else if (in.getType() == Material.AIR) {
+
+                            if (p.getHealth() - 0.5 <= 0) {
+                                p.setHealth(0);
+                            } else {
+                                p.setHealth(p.getHealth() - 0.5);
+                            }
+                        }
                     }
                 }
 			}
@@ -240,30 +265,6 @@ public class Runnables {
                                 } else {
                                     p.setHealth(p.getHealth() - 0.5);
                                 }
-                            }
-                        }
-                    }
-                }
-            }
-        }, 20, 20);
-    }
-
-    public static void effects(final Plugin pl) {
-        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(pl, new BukkitRunnable() {
-            public void run() {
-                for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-                    if (DisguiseAPI.isDisguised(p)) {
-                        if (!Morph.using.containsKey(p.getUniqueId()))
-                            continue;
-                        String using = morph.getUsing(p);
-
-                        if (using.equalsIgnoreCase("drowned")) {
-                            Block below = p.getLocation().subtract(0, 1, 0).getBlock();
-                            Block in = p.getLocation().getBlock();
-
-                            if (below.getType().isSolid() && in.getType() == Material.WATER) {
-                                PotionEffect potion = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 2);
-                                p.addPotionEffect(potion);
                             }
                         }
                     }

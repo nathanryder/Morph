@@ -635,6 +635,14 @@ public class MorphManager {
                 return Sound.ENTITY_DOLPHIN_AMBIENT;
             case "drowned":
                 return Sound.ENTITY_DROWNED_AMBIENT;
+            case "cod":
+                return Sound.ENTITY_COD_AMBIENT;
+            case "salmon":
+                return Sound.ENTITY_SALMON_AMBIENT;
+            case "pufferfish":
+                return Sound.ENTITY_PUFFER_FISH_AMBIENT;
+            case "tropicalfish":
+                return Sound.ENTITY_TROPICAL_FISH_AMBIENT;
         }
         return null;
     }
