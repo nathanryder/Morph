@@ -175,6 +175,8 @@ public class Runnables {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 99999, 2));
 					} else if (using.equalsIgnoreCase("dolphin")) {
                         p.addPotionEffect(dolphinGrace, true);
+                    } else if (using.equalsIgnoreCase("drowned")) {
+                        p.addPotionEffect(waterbreathing, true);
                     }
                 }
 			}
@@ -182,48 +184,56 @@ public class Runnables {
 	}
 
 	@SuppressWarnings("deprecation")
-	public static void burning(final Plugin pl) {
-		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(pl, new BukkitRunnable() {
-			public void run() {
-				for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-					if (DisguiseAPI.isDisguised(p)) {
-						if (!Morph.using.containsKey(p.getUniqueId()))
-							continue;
-						String using = morph.getUsing(p);
+    public static void burning(final Plugin pl) {
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(pl, new BukkitRunnable() {
+            public void run() {
+                for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+                    if (DisguiseAPI.isDisguised(p)) {
+                        if (!Morph.using.containsKey(p.getUniqueId()))
+                            continue;
+                        String using = morph.getUsing(p);
 
-						if (using.equalsIgnoreCase("snowman")) {
-							if (raining) {
-								if (p.getHealth() - 0.5 <= 0) {
-									p.setHealth(0);
-								} else {
-									p.setHealth(p.getHealth() - 0.5);
-								}
-							}
-						} else if (using.equalsIgnoreCase("stray")) {
-							if (p.getWorld().getTime() > 0 && p.getWorld().getTime() < 13000) {
+                        if (using.equalsIgnoreCase("snowman")) {
+                            if (raining) {
+                                if (p.getHealth() - 0.5 <= 0) {
+                                    p.setHealth(0);
+                                } else {
+                                    p.setHealth(p.getHealth() - 0.5);
+                                }
+                            }
+                        } else if (using.equalsIgnoreCase("stray")) {
+                            if (p.getWorld().getTime() > 0 && p.getWorld().getTime() < 13000) {
                                 if (!raining) {
                                     if (p.getLocation().getBlock().getLightFromSky() > 12) {
                                         p.setFireTicks(60);
                                     }
                                 }
-							}
-						} else if (using.equalsIgnoreCase("skeleton")) {
-							if (p.getWorld().getTime() > 0 && p.getWorld().getTime() < 13000) {
+                            }
+                        } else if (using.equalsIgnoreCase("skeleton")) {
+                            if (p.getWorld().getTime() > 0 && p.getWorld().getTime() < 13000) {
                                 if (!raining) {
                                     if (p.getLocation().getBlock().getLightFromSky() > 12) {
                                         p.setFireTicks(60);
                                     }
                                 }
-							}
-						} else if (using.equalsIgnoreCase("zombie")) {
-							if (p.getWorld().getTime() > 0 && p.getWorld().getTime() < 13000) {
+                            }
+                        } else if (using.equalsIgnoreCase("zombie")) {
+                            if (p.getWorld().getTime() > 0 && p.getWorld().getTime() < 13000) {
                                 if (!raining) {
                                     if (p.getLocation().getBlock().getLightFromSky() > 12) {
                                         p.setFireTicks(60);
                                     }
                                 }
-							}
-						} else if (using.equalsIgnoreCase("enderman")) {
+                            }
+                        } else if (using.equalsIgnoreCase("drowned")) {
+                            if (p.getWorld().getTime() > 0 && p.getWorld().getTime() < 13000) {
+                                if (!raining) {
+                                    if (p.getLocation().getBlock().getLightFromSky() > 12) {
+                                        p.setFireTicks(60);
+                                    }
+                                }
+                            }
+                        } else if (using.equalsIgnoreCase("enderman")) {
                             if (raining) {
                                 if (p.getHealth() - 0.5 <= 0) {
                                     p.setHealth(0);
@@ -232,11 +242,35 @@ public class Runnables {
                                 }
                             }
                         }
-					}
-				}
-			}
-		}, 20, 20);
-	}
+                    }
+                }
+            }
+        }, 20, 20);
+    }
+
+    public static void effects(final Plugin pl) {
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(pl, new BukkitRunnable() {
+            public void run() {
+                for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+                    if (DisguiseAPI.isDisguised(p)) {
+                        if (!Morph.using.containsKey(p.getUniqueId()))
+                            continue;
+                        String using = morph.getUsing(p);
+
+                        if (using.equalsIgnoreCase("drowned")) {
+                            Block below = p.getLocation().subtract(0, 1, 0).getBlock();
+                            Block in = p.getLocation().getBlock();
+
+                            if (below.getType().isSolid() && in.getType() == Material.WATER) {
+                                PotionEffect potion = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 2);
+                                p.addPotionEffect(potion);
+                            }
+                        }
+                    }
+                }
+            }
+        }, 20, 20);
+    }
 
 	public static void mobSounds() {
         if (ManaManager.version != null) {

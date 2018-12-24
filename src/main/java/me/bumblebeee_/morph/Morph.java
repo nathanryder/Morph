@@ -39,6 +39,7 @@ public class Morph extends JavaPlugin implements Listener {
 			mana.setup();
 		}
         Runnables.setup(this);
+        Runnables.effects(this);
         Runnables.burning(this);
         Runnables.mobSounds();
 

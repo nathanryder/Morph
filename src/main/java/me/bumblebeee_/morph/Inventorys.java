@@ -1,7 +1,6 @@
 package me.bumblebeee_.morph;
 
 import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -14,7 +13,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.io.File;
-import java.lang.reflect.Field;
 import java.util.*;
 
 public class Inventorys {
@@ -65,7 +63,8 @@ public class Inventorys {
         owners.put("illusioner", "MHF_Illusioner");
         owners.put("guardian", "MHF_Guardian");
         owners.put("silverfish", "MHF_SilverFish");
-        owners.put("dolphin", "textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGU5Njg4Yjk1MGQ4ODBiNTViN2FhMmNmY2Q3NmU1YTBmYTk0YWFjNmQxNmY3OGU4MzNmNzQ0M2VhMjlmZWQzIn19fQ==");
+        owners.put("dolphin", "MHF_Dolphin");
+        owners.put("drowned", "MHF_Drowned");
 
         owners.put("giant", "MHF_Giant");
         owners.put("ender_dragon", "ender_dragon");
@@ -321,6 +320,7 @@ public class Inventorys {
     }
 
     public ItemStack getHead(String owner, String display) {
+        boolean baby = false;
         if (owner.split(":").length > 1) {
             owner = owner.split(":")[0];
         }
