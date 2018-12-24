@@ -66,6 +66,7 @@ permissions:
             morph.into.salmon: true
             morph.into.pufferfish: true
             morph.into.tropicalfish: true
+            morph.into.phantom: true
     morph.bypasskill.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -119,6 +120,7 @@ permissions:
             morph.into.salmon: false
             morph.into.pufferfish: false
             morph.into.tropicalfish: false
+            morph.into.phantom: false
     morph.bypassreset.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -173,6 +175,7 @@ permissions:
             morph.bypassreset.salmon: false
             morph.bypassreset.pufferfish: false
             morph.bypassreset.tropicalfish: false
+            morph.bypassreset.phantom: false
     morph.bypasstime.*:
         description: Bypass the time limit on unmorphing
         children:
@@ -227,6 +230,7 @@ permissions:
             morph.bypasstime.salmon: false
             morph.bypasstime.pufferfish: false
             morph.bypasstime.tropicalfish: false
+            morph.bypasstime.phantom: false
     morph.morph:
         description: Main permission
         default: false

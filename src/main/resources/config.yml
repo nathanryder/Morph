@@ -292,6 +292,9 @@ pufferfish:
   morph-cooldown: 0
   poison: true
   ability-cooldown: 15
+phantom:
+  morph-time: 0
+  morph-cooldown: 0
 
 disableHealthSystem: false
 checkForUpdates: true
