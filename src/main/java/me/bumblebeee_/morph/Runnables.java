@@ -98,6 +98,7 @@ public class Runnables {
                     PotionEffect slow = PotionEffectType.SLOW.createEffect(999999, 1);
                     PotionEffect strength = PotionEffectType.INCREASE_DAMAGE.createEffect(199999980, 5);
                     PotionEffect nightVision = PotionEffectType.NIGHT_VISION.createEffect(199999980, 6);
+                    PotionEffect turtleSlow = PotionEffectType.SLOW.createEffect(999999, 0);
                     PotionEffect squidSlow = PotionEffectType.SLOW.createEffect(999999, 3);
                     PotionEffect squidBlind = PotionEffectType.BLINDNESS.createEffect(999999, 1);
                     PotionEffect waterbreathing = PotionEffectType.WATER_BREATHING.createEffect(200, 7);
@@ -107,6 +108,7 @@ public class Runnables {
                     PotionEffect zombieSpeed = PotionEffectType.SPEED.createEffect(999999, 1);
                     PotionEffect ocelotSpeed = PotionEffectType.SPEED.createEffect(999999, 6);
                     PotionEffect fireres = PotionEffectType.FIRE_RESISTANCE.createEffect(999999, 7);
+                    PotionEffect dmgRes = PotionEffectType.DAMAGE_RESISTANCE.createEffect(999999, 2);
                     PotionEffect dolphinGrace = PotionEffectType.DOLPHINS_GRACE.createEffect(999999, 1);
 
                     if (using.equalsIgnoreCase("squid")) {
@@ -204,6 +206,10 @@ public class Runnables {
                         }
                     } else if (using.equalsIgnoreCase("phantom")) {
                         p.addPotionEffect(nightVision);
+                    } else if (using.equalsIgnoreCase("turtle")) {
+                        p.addPotionEffect(waterbreathing);
+                        p.addPotionEffect(dmgRes);
+                        p.addPotionEffect(turtleSlow);
                     }
                 }
 			}

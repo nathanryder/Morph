@@ -70,6 +70,7 @@ public class Inventorys {
         owners.put("pufferfish", "MHF_PufferFish");
         owners.put("tropicalfish", "MHF_TropicalFish");
         owners.put("phantom", "MHF_Phantom");
+        owners.put("turtle", "MHF_Turtle");
 
         owners.put("giant", "MHF_Giant");
         owners.put("ender_dragon", "ender_dragon");
