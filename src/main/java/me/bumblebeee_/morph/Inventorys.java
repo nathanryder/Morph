@@ -100,115 +100,123 @@ public class Inventorys {
 
     public void openMorph(final Player p, int page) {
         p.closeInventory();
-        if (owners.isEmpty())
-            setupOwners();
-        File userFile = new File(Morph.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
-        FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
-        String using = "none";
-        if (Morph.using.containsKey(p.getUniqueId())) {
-            using = mm.getUsing(p);
-        }
-        List<String> mobs = fileConfig.getStringList("Mobs");
-        String title;
-        if (!using.equalsIgnoreCase("none")) {
-            title = msgs.getMessage("morphedTitle").replace("{mob}", using);
-        } else {
-            title = msgs.getMessage("unmorphedTitle");
-        }
+        p.sendMessage(msgs.getMessage("openingInventory"));
 
-        Inventory inv = Bukkit.getServer().createInventory(null, 36, title);
+        Bukkit.getScheduler().runTaskAsynchronously(Morph.pl, new Runnable() {
+            @Override
+            public void run() {
 
-        ItemStack owner = new ItemStack(Material.PLAYER_HEAD);
-        owner.setDurability((short) 3);
-        SkullMeta sm = (SkullMeta) owner.getItemMeta();
-        sm.setOwner(p.getName());
-        sm.setDisplayName(ChatColor.DARK_PURPLE + "Click to unmorph");
-        owner.setItemMeta(sm);
-
-
-        int pos = 1;
-        if (!mobs.isEmpty()) {
-            for (int i = ((page-1)*(27)); i < mobs.size(); i++) {
-                if (pos >= page*27)
-                    continue;
-                if (!p.hasPermission("morph.bypasskill." + mobs.get(i).toLowerCase())) {
-                    String mob = mobs.get(i);
-                    String l1 = mobs.get(i).substring(0, 1).toUpperCase();
-                    String mobName = l1 + mobs.get(i).substring(1);
-                    if (mobName.split(":").length > 1) {
-                        mobName = mobName.split(":")[1] + " " + mobName.split(":")[0];
-                    }
-
-                    String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
-                    inv.setItem(pos, createHead(mob, display));
-                    pos++;
+                if (owners.isEmpty())
+                    setupOwners();
+                File userFile = new File(Morph.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
+                FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
+                String using = "none";
+                if (Morph.using.containsKey(p.getUniqueId())) {
+                    using = mm.getUsing(p);
                 }
-            }
-        }
-
-        if (page == 1) {
-            for (String s : owners.keySet()) {
-                if (pos >= page*27)
-                    continue;
-                if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
-                    String m = owners.get(s);
-                    String mob = getMobName(m);
-                    String l1 = mob.substring(0, 1).toUpperCase();
-                    String mobName = l1 + mob.substring(1);
-                    if (mobName.split("_").length > 1) {
-                        mobName = mobName.split("_")[0] + " " + mobName.split("_")[1];
-                    }
-
-                    String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
-                    inv.setItem(pos, createHead(mob, display));
-                    pos++;
+                List<String> mobs = fileConfig.getStringList("Mobs");
+                String title;
+                if (!using.equalsIgnoreCase("none")) {
+                    title = msgs.getMessage("morphedTitle").replace("{mob}", using);
+                } else {
+                    title = msgs.getMessage("unmorphedTitle");
                 }
-            }
-        } else if (page == 2) {
-            int i = 0;
-            for (String s : owners.keySet()) {
-                if (i >= 26 && i < 52) {
-                    if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
-                        String m = owners.get(s);
-                        String mob = getMobName(m);
-                        String l1 = mob.substring(0, 1).toUpperCase();
-                        String mobName = l1 + mob.substring(1);
-                        if (mobName.split("_").length > 1) {
-                            mobName = mobName.split("_")[0] + " " + mobName.split("_")[1];
+
+                Inventory inv = Bukkit.getServer().createInventory(null, 36, title);
+
+                ItemStack owner = new ItemStack(Material.PLAYER_HEAD);
+                owner.setDurability((short) 3);
+                SkullMeta sm = (SkullMeta) owner.getItemMeta();
+                sm.setOwner(p.getName());
+                sm.setDisplayName(ChatColor.DARK_PURPLE + "Click to unmorph");
+                owner.setItemMeta(sm);
+
+
+                int pos = 1;
+                if (!mobs.isEmpty()) {
+                    for (int i = ((page-1)*(27)); i < mobs.size(); i++) {
+                        if (pos >= page*27)
+                            continue;
+                        if (!p.hasPermission("morph.bypasskill." + mobs.get(i).toLowerCase())) {
+                            String mob = mobs.get(i);
+                            String l1 = mobs.get(i).substring(0, 1).toUpperCase();
+                            String mobName = l1 + mobs.get(i).substring(1);
+                            if (mobName.split(":").length > 1) {
+                                mobName = mobName.split(":")[1] + " " + mobName.split(":")[0];
+                            }
+
+                            String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
+                            inv.setItem(pos, createHead(mob, display));
+                            pos++;
                         }
-
-                        String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
-                        inv.setItem(pos, createHead(mob, display));
-                        pos++;
                     }
                 }
-                i++;
-            }
-        } else if (page == 3) {
-            int i = 0;
-            for (String s : owners.keySet()) {
-                if (i >= 52) {
-                    if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
-                        String m = owners.get(s);
-                        String mob = getMobName(m);
-                        String l1 = mob.substring(0, 1).toUpperCase();
-                        String mobName = l1 + mob.substring(1);
-                        if (mobName.split("_").length > 1) {
-                            mobName = mobName.split("_")[0] + " " + mobName.split("_")[1];
+
+                if (page == 1) {
+                    for (String s : owners.keySet()) {
+                        if (pos >= page*27)
+                            continue;
+                        if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
+                            String m = owners.get(s);
+                            String mob = getMobName(m);
+                            String l1 = mob.substring(0, 1).toUpperCase();
+                            String mobName = l1 + mob.substring(1);
+                            if (mobName.split("_").length > 1) {
+                                mobName = mobName.split("_")[0] + " " + mobName.split("_")[1];
+                            }
+
+                            String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
+                            inv.setItem(pos, createHead(mob, display));
+                            pos++;
                         }
+                    }
+                } else if (page == 2) {
+                    int i = 0;
+                    for (String s : owners.keySet()) {
+                        if (i >= 26 && i < 52) {
+                            if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
+                                String m = owners.get(s);
+                                String mob = getMobName(m);
+                                String l1 = mob.substring(0, 1).toUpperCase();
+                                String mobName = l1 + mob.substring(1);
+                                if (mobName.split("_").length > 1) {
+                                    mobName = mobName.split("_")[0] + " " + mobName.split("_")[1];
+                                }
 
-                        String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
-                        inv.setItem(pos, createHead(mob, display));
-                        pos++;
+                                String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
+                                inv.setItem(pos, createHead(mob, display));
+                                pos++;
+                            }
+                        }
+                        i++;
+                    }
+                } else if (page == 3) {
+                    int i = 0;
+                    for (String s : owners.keySet()) {
+                        if (i >= 52) {
+                            if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
+                                String m = owners.get(s);
+                                String mob = getMobName(m);
+                                String l1 = mob.substring(0, 1).toUpperCase();
+                                String mobName = l1 + mob.substring(1);
+                                if (mobName.split("_").length > 1) {
+                                    mobName = mobName.split("_")[0] + " " + mobName.split("_")[1];
+                                }
+
+                                String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
+                                inv.setItem(pos, createHead(mob, display));
+                                pos++;
+                            }
+                        }
+                        i++;
                     }
                 }
-                i++;
-            }
-        }
-        constructInventory(inv);
-        inv.setItem(0, owner);
+                constructInventory(inv);
+                inv.setItem(0, owner);
 
-        p.openInventory(inv);
+                p.openInventory(inv);
+            }
+        });
     }
 
     public void constructInventory(Inventory inv) {
@@ -354,8 +362,6 @@ public class Inventorys {
             owner = owner.split(":")[0];
         }
 
-        //TODO
-        System.out.println("Owner: " + owner);
         if (!owner.split("_")[0].equalsIgnoreCase("MHF")) {
             ItemStack i = getHeadTest(owner, "Name");
             SkullMeta sm = (SkullMeta) i.getItemMeta();
