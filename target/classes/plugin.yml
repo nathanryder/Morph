@@ -1,0 +1,221 @@
+name: Morphy
+version: 2.12
+main: me.bumblebeee_.morph.Morph
+description: Morphing plugin
+depend: [LibsDisguises]
+commands:
+    morph:
+        description: Morph into a entity!
+    unmorph:
+        description: Morph back to the original player!
+    addmorph:
+        description: Add a mob to a player!
+    delmorph:
+        description: remove a mob from a player!
+permissions:
+    morph.into.*:
+        description: Morph into all mobs
+        children:
+            morph.into.horse: true
+            morph.into.wolf: true
+            morph.into.ocelot: true
+            morph.into.player: true
+            morph.into.cow: true
+            morph.into.pig: true
+            morph.into.wither_skeleton: true
+            morph.into.bat: true
+            morph.into.blaze: true
+            morph.into.cave_spider: true
+            morph.into.chicken: true
+            morph.into.creeper: true
+            morph.into.enderman: true
+            morph.into.endermite: true
+            morph.into.ghast: true
+            morph.into.guardian: true
+            morph.into.iron_golem: true
+            morph.into.magma_cube: true
+            morph.into.mushroom_cow: true
+            morph.into.pig_zombie: true
+            morph.into.sheep: true
+            morph.into.silverfish: true
+            morph.into.skeleton: true
+            morph.into.slime: true
+            morph.into.snowman: true
+            morph.into.spider: true
+            morph.into.squid: true
+            morph.into.villager: true
+            morph.into.witch: true
+            morph.into.wither: true
+            morph.into.llama: true
+            morph.into.vex: true
+            morph.into.vindicator: true
+            morph.into.evoker: true
+            morph.into.zombie: true
+            morph.into.rabbit: true
+            morph.into.giant: true
+            morph.into.enderdragon: true
+            morph.into.mule: true
+            morph.into.donkey: true
+            morph.into.zombie_villager: true
+            morph.into.parrot: true
+            morph.into.illusioner: true
+    morph.bypasskill.*:
+        description: Morph into all mobs without having to kill them
+        children:
+            morph.into.horse: false
+            morph.into.wolf: false
+            morph.into.ocelot: false
+            morph.into.player: false
+            morph.into.cow: false
+            morph.into.pig: false
+            morph.into.wither_skeleton: false
+            morph.into.bat: false
+            morph.into.blaze: false
+            morph.into.cave_spider: false
+            morph.into.chicken: false
+            morph.into.creeper: false
+            morph.into.enderman: false
+            morph.into.endermite: false
+            morph.into.ghast: false
+            morph.into.guardian: false
+            morph.into.iron_golem: false
+            morph.into.magma_cube: false
+            morph.into.mushroom_cow: false
+            morph.into.pig_zombie: false
+            morph.into.sheep: false
+            morph.into.silverfish: false
+            morph.into.skeleton: false
+            morph.into.slime: false
+            morph.into.snowman: false
+            morph.into.spider: false
+            morph.into.squid: false
+            morph.into.villager: false
+            morph.into.witch: false
+            morph.into.wither: false
+            morph.into.zombie: false
+            morph.into.llama: false
+            morph.into.vex: false
+            morph.into.vindicator: false
+            morph.into.evoker: false
+            morph.into.rabbit: false
+            morph.into.giant: false
+            morph.into.enderdragon: false
+            morph.into.mule: false
+            morph.into.donkey: false
+            morph.into.zombie_villager: false
+            morph.into.husk: false
+            morph.into.parrot: false
+            morph.into.illusioner: false
+    morph.bypassreset.*:
+        description: Morph into all mobs without having to kill them
+        children:
+            morph.bypassreset.horse: false
+            morph.bypassreset.wolf: false
+            morph.bypassreset.ocelot: false
+            morph.bypassreset.player: false
+            morph.bypassreset.cow: false
+            morph.bypassreset.pig: false
+            morph.bypassreset.wither_skeleton: false
+            morph.bypassreset.bat: false
+            morph.bypassreset.blaze: false
+            morph.bypassreset.cave_spider: false
+            morph.bypassreset.chicken: false
+            morph.bypassreset.creeper: false
+            morph.bypassreset.enderman: false
+            morph.bypassreset.endermite: false
+            morph.bypassreset.ghast: false
+            morph.bypassreset.guardian: false
+            morph.bypassreset.iron_golem: false
+            morph.bypassreset.magma_cube: false
+            morph.bypassreset.mushroom_cow: false
+            morph.bypassreset.pig_zombie: false
+            morph.bypassreset.sheep: false
+            morph.bypassreset.silverfish: false
+            morph.bypassreset.skeleton: false
+            morph.bypassreset.slime: false
+            morph.bypassreset.snowman: false
+            morph.bypassreset.spider: false
+            morph.bypassreset.squid: false
+            morph.bypassreset.villager: false
+            morph.bypassreset.witch: false
+            morph.bypassreset.wither: false
+            morph.bypassreset.zombie: false
+            morph.bypassreset.llama: false
+            morph.bypassreset.vex: false
+            morph.bypassreset.vindicator: false
+            morph.bypassreset.evoker: false
+            morph.bypassreset.rabbit: false
+            morph.bypassreset.giant: false
+            morph.bypassreset.enderdragon: false
+            morph.bypassreset.all: false
+            morph.bypassreset.mule: false
+            morph.bypassreset.donkey: false
+            morph.bypassreset.zombie_villager: false
+            morph.bypassreset.husk: false
+            morph.bypassreset.parrot: false
+            morph.bypassreset.illusioner: false
+    morph.bypasstime.*:
+        description: Bypass the time limit on unmorphing
+        children:
+            morph.bypasstime.horse: false
+            morph.bypasstime.wolf: false
+            morph.bypasstime.ocelot: false
+            morph.bypasstime.player: false
+            morph.bypasstime.cow: false
+            morph.bypasstime.pig: false
+            morph.bypasstime.wither_skeleton: false
+            morph.bypasstime.bat: false
+            morph.bypasstime.blaze: false
+            morph.bypasstime.cave_spider: false
+            morph.bypasstime.chicken: false
+            morph.bypasstime.creeper: false
+            morph.bypasstime.enderman: false
+            morph.bypasstime.endermite: false
+            morph.bypasstime.ghast: false
+            morph.bypasstime.guardian: false
+            morph.bypasstime.iron_golem: false
+            morph.bypasstime.magma_cube: false
+            morph.bypasstime.mushroom_cow: false
+            morph.bypasstime.pig_zombie: false
+            morph.bypasstime.sheep: false
+            morph.bypasstime.silverfish: false
+            morph.bypasstime.skeleton: false
+            morph.bypasstime.slime: false
+            morph.bypasstime.snowman: false
+            morph.bypasstime.spider: false
+            morph.bypasstime.squid: false
+            morph.bypasstime.villager: false
+            morph.bypasstime.witch: false
+            morph.bypasstime.wither: false
+            morph.bypasstime.zombie: false
+            morph.bypasstime.llama: false
+            morph.bypasstime.vex: false
+            morph.bypasstime.vindicator: false
+            morph.bypasstime.evoker: false
+            morph.bypasstime.rabbit: false
+            morph.bypasstime.giant: false
+            morph.bypasstime.enderdragon: false
+            morph.bypasstime.all: false
+            morph.bypasstime.mule: false
+            morph.bypasstime.donkey: false
+            morph.bypasstime.zombie_villager: false
+            morph.bypasstime.husk: false
+            morph.bypasstime.parrot: false
+            morph.bypasstime.illusioner: false
+    morph.morph:
+        description: Main permission
+        default: false
+        children:
+            morph.into.*: true
+            morph.toggle: true
+            morph.changeview: true
+    morph.*:
+        description: Use all Morph commands
+        children:
+            morph.morph: true
+            morph.toggle: true
+            morph.morph.modify: true
+            morph.into.*: true
+            morph.bypasskill.*: true
+            morph.bypassreset.*: true
+        default: op
