@@ -401,7 +401,7 @@ public class EntityDeath implements Listener {
 					killer.sendMessage(prefix + " " + msg);
 				}
 
-				if (pl.getConfig().getBoolean("morph-on-kill")) {
+				if (pl.getConfig().getBoolean("morphOnKill")) {
 					morph.morphPlayer(killer, DisguiseType.valueOf(type.toUpperCase()), false, isBaby);
 				}
 			}

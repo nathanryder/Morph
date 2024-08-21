@@ -3,6 +3,8 @@ package me.bumblebeee_.morph.events;
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
 import me.libraryaddict.disguise.DisguiseAPI;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,6 +13,8 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,6 +45,18 @@ public class PlayerLeave implements Listener {
 			}
 			for (PotionEffect effect : p.getActivePotionEffects())
 				p.removePotionEffect(effect.getType());
+
+			//store last used morph?
+			if (Morph.pl.getConfig().getBoolean("persistMorphs")) {
+				File userFile = new File(pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
+				FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
+				fileConfig.set("lastMorph", Morph.using.get(p.getUniqueId()));
+				try {
+					fileConfig.save(userFile);
+				} catch (IOException ioException) {
+					ioException.printStackTrace();
+				}
+			}
 
 			Morph.using.remove(p.getUniqueId());
 			DisguiseAPI.undisguiseToAll(p);

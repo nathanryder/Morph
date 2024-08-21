@@ -30,8 +30,11 @@ enabled-worlds:
 death-reset-all: false
 #Reset only the morph they died as
 death-reset-current: true
-morph-on-kill: false
+#Change morph as soon as you gain access to a new morph
+morphOnKill: false
 
+#Keep morphs through login sessions
+persistMorphs: true
 #When a player kills a morphed player, should they get the morph?
 steal-morphs: true
 

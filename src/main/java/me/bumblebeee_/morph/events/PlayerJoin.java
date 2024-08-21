@@ -1,6 +1,7 @@
 package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.*;
+import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -15,6 +16,7 @@ import org.bukkit.potion.PotionEffect;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 
 public class PlayerJoin implements Listener { 
 
@@ -88,6 +90,26 @@ public class PlayerJoin implements Listener {
 			if (give)
 				p.getInventory().setItem(slot, item);
 		}
+
+		if (Morph.pl.getConfig().getBoolean("persistMorphs")) {
+			String last = c.getString("lastMorph");
+			if (last != null) {
+				String[] data = last.split(":");
+				String typeStr = data[0].toUpperCase();
+				DisguiseType type = DisguiseType.valueOf(typeStr.toUpperCase());
+				boolean isBaby = data.length > 1 && data[1].equals("baby");
+
+				morph.morphPlayer(p, type, false, isBaby);
+
+				c.set("lastMorph", null);
+				try {
+					c.save(userFile);
+				} catch (IOException ioException) {
+					ioException.printStackTrace();
+				}
+			}
+		}
+
 	}
 
 }

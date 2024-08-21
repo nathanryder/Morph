@@ -3,6 +3,7 @@ package me.bumblebeee_.morph;
 import me.bumblebeee_.morph.events.RegisterEvents;
 import me.libraryaddict.disguise.DisguiseAPI;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -11,6 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -64,6 +66,22 @@ public class Morph extends JavaPlugin implements Listener {
 	}
 
 	public void onDisable() {
+		if (Morph.pl.getConfig().getBoolean("persistMorphs")) {
+			//store last used morph
+			for (UUID uuid : Morph.using.keySet()) {
+				String mob = Morph.using.get(uuid);
+				File userFile = new File(pl.getDataFolder() + "/UserData/" + uuid + ".yml");
+				FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
+				fileConfig.set("lastMorph", mob);
+
+				try {
+					fileConfig.save(userFile);
+				} catch (IOException ioException) {
+					ioException.printStackTrace();
+				}
+			}
+		}
+
         using.clear();
 		MorphManager.soundDisabled.clear();
         mana.getManaPlayers().clear();
