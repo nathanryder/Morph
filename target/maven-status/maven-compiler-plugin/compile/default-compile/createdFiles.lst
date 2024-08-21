@@ -13,6 +13,7 @@ me/bumblebeee_/morph/Stats$2.class
 me/bumblebeee_/morph/events/EntityDeath.class
 me/bumblebeee_/morph/events/InteractEvent$12.class
 me/bumblebeee_/morph/versions/Actionbar_1_10_R1.class
+me/bumblebeee_/morph/events/InteractEvent$18.class
 me/bumblebeee_/morph/events/ItemConsume.class
 me/bumblebeee_/morph/events/PlayerLeave$1.class
 me/bumblebeee_/morph/events/EntityTarget.class
@@ -46,7 +47,6 @@ me/bumblebeee_/morph/MorphManager$1.class
 me/bumblebeee_/morph/events/InteractEvent$2.class
 me/bumblebeee_/morph/events/ChangeWorld.class
 me/bumblebeee_/morph/versions/Actionbar_1_12_R1.class
-me/bumblebeee_/morph/Runnables$6.class
 me/bumblebeee_/morph/Metrics$Country.class
 me/bumblebeee_/morph/Metrics$SimpleMapChart.class
 me/bumblebeee_/morph/events/InteractEvent$17.class

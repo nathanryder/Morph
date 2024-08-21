@@ -62,6 +62,10 @@ permissions:
             morph.into.illusioner: true
             morph.into.dolphin: true
             morph.into.drowned: true
+            morph.into.cod: true
+            morph.into.salmon: true
+            morph.into.pufferfish: true
+            morph.into.tropicalfish: true
     morph.bypasskill.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -111,6 +115,10 @@ permissions:
             morph.into.illusioner: false
             morph.into.dolphin: false
             morph.into.drowned: false
+            morph.into.cod: false
+            morph.into.salmon: false
+            morph.into.pufferfish: false
+            morph.into.tropicalfish: false
     morph.bypassreset.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -161,6 +169,10 @@ permissions:
             morph.bypassreset.illusioner: false
             morph.bypassreset.dolphin: false
             morph.bypassreset.drowned: false
+            morph.bypassreset.cod: false
+            morph.bypassreset.salmon: false
+            morph.bypassreset.pufferfish: false
+            morph.bypassreset.tropicalfish: false
     morph.bypasstime.*:
         description: Bypass the time limit on unmorphing
         children:
@@ -211,6 +223,10 @@ permissions:
             morph.bypasstime.illusioner: false
             morph.bypasstime.dolphin: false
             morph.bypasstime.drowned: false
+            morph.bypasstime.cod: false
+            morph.bypasstime.salmon: false
+            morph.bypasstime.pufferfish: false
+            morph.bypasstime.tropicalfish: false
     morph.morph:
         description: Main permission
         default: false

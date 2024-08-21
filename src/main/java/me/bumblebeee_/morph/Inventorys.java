@@ -65,6 +65,10 @@ public class Inventorys {
         owners.put("silverfish", "MHF_SilverFish");
         owners.put("dolphin", "MHF_Dolphin");
         owners.put("drowned", "MHF_Drowned");
+        owners.put("cod", "MHF_Cod");
+        owners.put("salmon", "MHF_Salmon");
+        owners.put("pufferfish", "MHF_PufferFish");
+        owners.put("tropicalfish", "MHF_TropicalFish");
 
         owners.put("giant", "MHF_Giant");
         owners.put("ender_dragon", "ender_dragon");

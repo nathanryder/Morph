@@ -53,6 +53,7 @@ public class InteractEvent implements Listener {
 	private HashMap<Player, Integer> spidercd;
 	private HashMap<Player, Integer> straycd;
 	private HashMap<Player, Integer> illusionercd;
+	private HashMap<Player, Integer> puffercd;
 	private HashMap<Player, BukkitRunnable> cdTask;
 	
 	Plugin pl = null;
@@ -74,6 +75,7 @@ public class InteractEvent implements Listener {
 		straycd = new HashMap<>();
 		evokerSpawncd = new HashMap<>();
 		illusionercd = new HashMap<>();
+		puffercd = new HashMap<>();
 		cdTask = new HashMap<>();
 	}
 	
@@ -99,7 +101,43 @@ public class InteractEvent implements Listener {
 
 
 		if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
-			if (using.equalsIgnoreCase("enderman")) {
+			if (using.equalsIgnoreCase("pufferfish")) {
+				if (pl.getConfig().getBoolean("pufferfish.poison")) {
+					if (p.isSneaking()) {
+						if (!(puffercd.containsKey(p))) {
+							//Do ability
+							PotionEffect poison = new PotionEffect(PotionEffectType.POISON, 150, 0);
+							for (Entity near : p.getNearbyEntities(8, 8, 8)) {
+								if (!(near instanceof LivingEntity))
+									continue;
+
+								((LivingEntity) near).addPotionEffect(poison);
+							}
+
+							int cd = Morph.pl.getConfig().getInt("pufferfish.ability-cooldown");
+							if (cd != 0) {
+								puffercd.put(p, cd);
+								cdTask.put(p, new BukkitRunnable() {
+
+									public void run() {
+										puffercd.put(p, puffercd.get(p) - 1);
+										if (puffercd.get(p) <= 1) {
+											puffercd.remove(p);
+											cdTask.remove(p);
+											cancel();
+										}
+									}
+
+								});
+								cdTask.get(p).runTaskTimer(pl, 20, 20);
+							}
+						} else {
+							p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, puffercd.get(p)));
+						}
+					}
+				}
+
+			} else if (using.equalsIgnoreCase("enderman")) {
 				if (pl.getConfig().getString("enderman.teleport").equalsIgnoreCase("true")) {
 					if (p.isSneaking()) {
 						if (!(endercd.containsKey(p))) {
