@@ -1,5 +1,6 @@
 package me.bumblebeee_.morph.events;
 
+import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
 import org.bukkit.Bukkit;
@@ -56,14 +57,14 @@ public class MoveEvent implements Listener {
                 } else {
                     p.setHealth(p.getHealth() - 0.5);
                 }
-            } else if (pl.getConfig().getBoolean("snowman.snow")) {
+            } else if (Config.MOB_CONFIG.getConfig().getBoolean("snowman.snow")) {
                 Block b = p.getLocation().getBlock();
                 if (b.getLocation().add(0, -1, 0).getBlock().getType() != Material.AIR) {
                     b.setType(Material.SNOW);
                 }
             }
         } else if (using.equalsIgnoreCase("giant")) {
-            if (!Morph.pl.getConfig().getBoolean("giant.walk-throw"))
+            if (!Config.MOB_CONFIG.getConfig().getBoolean("giant.walk-throw"))
                 return;
 
             if (!(blockcd.containsKey(p))) {

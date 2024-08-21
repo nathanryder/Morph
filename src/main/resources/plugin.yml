@@ -3,6 +3,7 @@ version: 2.20-SNAPSHOT
 main: me.bumblebeee_.morph.Morph
 description: Morphing plugin
 depend: [LibsDisguises]
+api-version: 1.13
 commands:
     morph:
         description: Morph into a entity!

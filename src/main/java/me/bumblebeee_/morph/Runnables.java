@@ -37,6 +37,11 @@ public class Runnables {
 						continue;
 					String using = morph.getUsing(p);
 
+					if (using.equalsIgnoreCase("spider") && !Config.MOB_CONFIG.getConfig().getBoolean("spider.climb"))
+					    continue;
+                    if (using.equalsIgnoreCase("cave_spider") && !Config.MOB_CONFIG.getConfig().getBoolean("cave_spider.spider-climb"))
+                        continue;
+
 					if (using.equalsIgnoreCase("spider") || using.equalsIgnoreCase("cave_spider")) {
 						if (p.isSneaking()) {
 							Location l = p.getLocation().add(0, 1, 0);
@@ -111,7 +116,7 @@ public class Runnables {
                     PotionEffect dmgRes = PotionEffectType.DAMAGE_RESISTANCE.createEffect(999999, 2);
 
                     if (using.equalsIgnoreCase("squid")) {
-                        if (pl.getConfig().getBoolean("squid.waterbreathing")) {
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("squid.waterbreathing")) {
                             p.addPotionEffect(waterbreathing);
                             p.addPotionEffect(nightVision);
                         }
@@ -137,39 +142,39 @@ public class Runnables {
                             }
                         }
                     } else if (using.equalsIgnoreCase("iron_golem")) {
-                        if (pl.getConfig().getBoolean("irongolem.strength")) {
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("irongolem.strength")) {
                             p.addPotionEffect(slow);
                             p.addPotionEffect(strength);
                         }
                     } else if (using.equalsIgnoreCase("rabbit")) {
-						if (pl.getConfig().getBoolean("rabbit.jump-boost")) {
+						if (Config.MOB_CONFIG.getConfig().getBoolean("rabbit.jump-boost")) {
 							p.addPotionEffect(jump);
 						}
 					} else if (using.equalsIgnoreCase("slime")) {
-						if (pl.getConfig().getBoolean("slime.jump-boost")) {
+						if (Config.MOB_CONFIG.getConfig().getBoolean("slime.jump-boost")) {
 							p.addPotionEffect(slimeJump);
 						}
 					} else if (using.equalsIgnoreCase("guardian")) {
-                        if (pl.getConfig().getBoolean("guardian.waterbreathing")) {
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("guardian.waterbreathing")) {
                             p.addPotionEffect(waterbreathing);
                             p.addPotionEffect(nightVision);
                         }
                     } else if (using.equalsIgnoreCase("bat")) {
                         p.addPotionEffect(nightVision);
                     } else if (using.equalsIgnoreCase("horse")) {
-                        if (pl.getConfig().getBoolean("horse.speed")) {
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("horse.speed")) {
                             p.addPotionEffect(horseSpeed, true);
                         }
                     } else if (using.equalsIgnoreCase("skeleton_horse")) {
-                        if (pl.getConfig().getBoolean("horse.speed")) {
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("horse.speed")) {
                             p.addPotionEffect(horseSpeed, true);
                         }
                     } else if (using.equalsIgnoreCase("ocelot")) {
-                        if (pl.getConfig().getBoolean("ocelot.speed")) {
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("ocelot.speed")) {
                             p.addPotionEffect(ocelotSpeed, true);
                         }
                     } else if (using.equalsIgnoreCase("pig_zombie")) {
-                        if (pl.getConfig().getBoolean("pig_zombie.speed")) {
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("pig_zombie.speed")) {
                             p.addPotionEffect(zombieSpeed, true);
                         }
                     } else if (using.equalsIgnoreCase("giant")) {

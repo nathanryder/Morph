@@ -1,18 +1,11 @@
 package me.bumblebeee_.morph.events;
 
-import me.bumblebeee_.morph.Inventorys;
-import me.bumblebeee_.morph.Messages;
-import me.bumblebeee_.morph.Morph;
-import me.bumblebeee_.morph.MorphManager;
-import me.libraryaddict.disguise.DisguiseAPI;
-import net.minecraft.server.v1_11_R1.PacketPlayOutCamera;
+import me.bumblebeee_.morph.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
-import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
-import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -102,7 +95,7 @@ public class InteractEvent implements Listener {
 
 		if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
 			if (using.equalsIgnoreCase("pufferfish")) {
-				if (pl.getConfig().getBoolean("pufferfish.poison")) {
+				if (Config.MOB_CONFIG.getConfig().getBoolean("pufferfish.poison")) {
 					if (p.isSneaking()) {
 						if (!(puffercd.containsKey(p))) {
 							//Do ability
@@ -114,7 +107,7 @@ public class InteractEvent implements Listener {
 								((LivingEntity) near).addPotionEffect(poison);
 							}
 
-							int cd = Morph.pl.getConfig().getInt("pufferfish.ability-cooldown");
+							int cd = Config.MOB_CONFIG.getConfig().getInt("pufferfish.ability-cooldown");
 							if (cd != 0) {
 								puffercd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {
@@ -138,7 +131,7 @@ public class InteractEvent implements Listener {
 				}
 
 			} else if (using.equalsIgnoreCase("enderman")) {
-				if (pl.getConfig().getString("enderman.teleport").equalsIgnoreCase("true")) {
+				if (Config.MOB_CONFIG.getConfig().getString("enderman.teleport").equalsIgnoreCase("true")) {
 					if (p.isSneaking()) {
 						if (!(endercd.containsKey(p))) {
 							float pitch = p.getLocation().getPitch();
@@ -151,7 +144,7 @@ public class InteractEvent implements Listener {
 							tploc.setYaw(yaw);
 							e.getPlayer().teleport(tploc);
 
-							int cd = Morph.pl.getConfig().getInt("ender.ability-cooldown");
+							int cd = Config.MOB_CONFIG.getConfig().getInt("ender.ability-cooldown");
 							if (cd != 0) {
 								endercd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {
@@ -174,13 +167,13 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("skeleton")) {
-				if (pl.getConfig().getString("skeleton.shoot").equalsIgnoreCase("true")) {
+				if (Config.MOB_CONFIG.getConfig().getString("skeleton.shoot").equalsIgnoreCase("true")) {
 					if (p.isSneaking()) {
 						if (!(skeletoncd.containsKey(p))) {
 							Arrow a = p.launchProjectile(Arrow.class);
 							a.setMetadata("morph", new FixedMetadataValue(Morph.pl, "yes"));
 
-							int cd = Morph.pl.getConfig().getInt("skeleton.ability-cooldown");
+							int cd = Config.MOB_CONFIG.getConfig().getInt("skeleton.ability-cooldown");
 							if (cd != 0) {
 								skeletoncd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {
@@ -201,14 +194,14 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("stray")) {
-				if (pl.getConfig().getString("stray.shoot").equalsIgnoreCase("true")) {
-					if (pl.getConfig().getString("stray.slow").equalsIgnoreCase("true")) {
+				if (Config.MOB_CONFIG.getConfig().getString("stray.shoot").equalsIgnoreCase("true")) {
+					if (Config.MOB_CONFIG.getConfig().getString("stray.slow").equalsIgnoreCase("true")) {
 						if (p.isSneaking()) {
 							if (!(straycd.containsKey(p))) {
 								Arrow a = p.launchProjectile(Arrow.class);
 								a.setMetadata("morph", new FixedMetadataValue(Morph.pl, "yes:stray"));
 
-								int cd = Morph.pl.getConfig().getInt("stray.ability-cooldown");
+								int cd = Config.MOB_CONFIG.getConfig().getInt("stray.ability-cooldown");
 								if (cd != 0) {
 									straycd.put(p, cd);
 									cdTask.put(p, new BukkitRunnable() {
@@ -230,13 +223,13 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("snowman")) {
-				if (pl.getConfig().getString("snowman.shoot").equalsIgnoreCase("true")) {
+				if (Config.MOB_CONFIG.getConfig().getString("snowman.shoot").equalsIgnoreCase("true")) {
 					if (p.isSneaking()) {
 						if (!(snowcd.containsKey(p))) {
 							e.setCancelled(true);
 							p.launchProjectile(Snowball.class);
 
-							int cd = Morph.pl.getConfig().getInt("snowman.ability-cooldown");
+							int cd = Config.MOB_CONFIG.getConfig().getInt("snowman.ability-cooldown");
 							if (cd != 0) {
 								snowcd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {
@@ -260,12 +253,12 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("ghast")) {
-				if (pl.getConfig().getString("ghast.fireball").equalsIgnoreCase("true")) {
+				if (Config.MOB_CONFIG.getConfig().getString("ghast.fireball").equalsIgnoreCase("true")) {
 					if (p.isSneaking()) {
 						if (!(ghastcd.containsKey(p))) {
 							p.launchProjectile(Fireball.class);
 
-							int cd = Morph.pl.getConfig().getInt("ghast.ability-cooldown");
+							int cd = Config.MOB_CONFIG.getConfig().getInt("ghast.ability-cooldown");
 							if (cd != 0) {
 								ghastcd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {
@@ -358,13 +351,13 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("blaze")) {
-				if (pl.getConfig().getString("blaze.fire").equalsIgnoreCase("true")) {
+				if (Config.MOB_CONFIG.getConfig().getString("blaze.fire").equalsIgnoreCase("true")) {
 					if (p.isSneaking()) {
 						if (!(blazecd.containsKey(p))) {
 							Fireball f = p.launchProjectile(Fireball.class);
 							f.setFireTicks(0);
 
-							int cd = Morph.pl.getConfig().getInt("blaze.ability-cooldown");
+							int cd = Config.MOB_CONFIG.getConfig().getInt("blaze.ability-cooldown");
 							if (cd != 0) {
 								blazecd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {
@@ -396,7 +389,7 @@ public class InteractEvent implements Listener {
 					p.setFoodLevel(flevel + 2);
 				}
 			} else if (using.equalsIgnoreCase("ender_dragon")) {
-				if (!pl.getConfig().getBoolean("enderdragon.fireball"))
+				if (!Config.MOB_CONFIG.getConfig().getBoolean("enderdragon.fireball"))
 					return;
 				if (p.isSneaking()) {
 					if (!(dragoncd.containsKey(p))) {
@@ -404,7 +397,7 @@ public class InteractEvent implements Listener {
 						p.getWorld().playEffect(p.getLocation(), Effect.ENDERDRAGON_SHOOT, 5);
 						f.setFireTicks(0);
 
-						int cd = Morph.pl.getConfig().getInt("enderdragon.ability-cooldown");
+						int cd = Config.MOB_CONFIG.getConfig().getInt("enderdragon.ability-cooldown");
 						if (cd != 0) {
 							dragoncd.put(p, cd);
 							cdTask.put(p, new BukkitRunnable() {
@@ -426,7 +419,7 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("evoker")) {
-				if (!pl.getConfig().getBoolean("evoker.attack"))
+				if (!Config.MOB_CONFIG.getConfig().getBoolean("evoker.attack"))
 					return;
 				if (!p.isSneaking())
 					return;
@@ -440,7 +433,7 @@ public class InteractEvent implements Listener {
 						a.setOwner(p);
 					}
 
-					int cd = Morph.pl.getConfig().getInt("evoker.attack-cooldown");
+					int cd = Config.MOB_CONFIG.getConfig().getInt("evoker.attack-cooldown");
 					if (cd != 0) {
 						evokerAttackcd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {
@@ -461,7 +454,7 @@ public class InteractEvent implements Listener {
 					p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, evokerAttackcd.get(p)));
 				}
 			} else if (using.equalsIgnoreCase("vex")) {
-				if (!pl.getConfig().getBoolean("vex.phase"))
+				if (!Config.MOB_CONFIG.getConfig().getBoolean("vex.phase"))
 					return;
 				if (!p.isSneaking())
 					return;
@@ -476,7 +469,7 @@ public class InteractEvent implements Listener {
 						return;
 
 					Location tp = null;
-					int maxLayers = Morph.pl.getConfig().getInt("vex.max-layers");
+					int maxLayers = Config.MOB_CONFIG.getConfig().getInt("vex.max-layers");
 					for (int i = 0; i <= maxLayers; i++) {
 						if (tp != null)
 							continue;
@@ -494,7 +487,7 @@ public class InteractEvent implements Listener {
 					}
 					p.teleport(tp);
 
-					int cd = Morph.pl.getConfig().getInt("vex.ability-cooldown");
+					int cd = Config.MOB_CONFIG.getConfig().getInt("vex.ability-cooldown");
 					if (cd != 0) {
 						vexcd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {
@@ -513,7 +506,7 @@ public class InteractEvent implements Listener {
 					p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, vexcd.get(p)));
 				}
 			} else if (using.equalsIgnoreCase("chicken")) {
-				if (!pl.getConfig().getBoolean("chicken.egg"))
+				if (!Config.MOB_CONFIG.getConfig().getBoolean("chicken.egg"))
 					return;
 				if (!p.isSneaking())
 					return;
@@ -521,7 +514,7 @@ public class InteractEvent implements Listener {
 				if (!(chickencd.containsKey(p))) {
 					p.getWorld().dropItemNaturally(p.getLocation(), new ItemStack(Material.EGG));
 
-					int cd = Morph.pl.getConfig().getInt("chicken.ability-cooldown");
+					int cd = Config.MOB_CONFIG.getConfig().getInt("chicken.ability-cooldown");
 					if (cd != 0) {
 						chickencd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {
@@ -540,14 +533,14 @@ public class InteractEvent implements Listener {
 					p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, chickencd.get(p)));
 				}
 			} else if (using.equalsIgnoreCase("creeper")) {
-				if (!pl.getConfig().getBoolean("creeper.explosion"))
+				if (!Config.MOB_CONFIG.getConfig().getBoolean("creeper.explosion"))
 					return;
 				if (!p.isSneaking())
 					return;
 
 				p.setHealth(0);
 			} else if (using.equalsIgnoreCase("llama")) {
-				if (!pl.getConfig().getBoolean("llama.spit"))
+				if (!Config.MOB_CONFIG.getConfig().getBoolean("llama.spit"))
 					return;
 				if (!p.isSneaking())
 					return;
@@ -557,7 +550,7 @@ public class InteractEvent implements Listener {
 					s.setShooter(p);
 					s.setVelocity(p.getLocation().getDirection());
 
-					int cd = Morph.pl.getConfig().getInt("llama.ability-cooldown");
+					int cd = Config.MOB_CONFIG.getConfig().getInt("llama.ability-cooldown");
 					if (cd != 0) {
 						llamacd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {
@@ -576,7 +569,7 @@ public class InteractEvent implements Listener {
 					p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, llamacd.get(p)));
 				}
 			} else if (using.equalsIgnoreCase("spider")) {
-				if (!pl.getConfig().getBoolean("spider.web"))
+				if (!Config.MOB_CONFIG.getConfig().getBoolean("spider.web"))
 					return;
 				if (!p.isSneaking())
 					return;
@@ -585,8 +578,8 @@ public class InteractEvent implements Listener {
 					final FallingBlock b = p.getWorld().spawnFallingBlock(p.getEyeLocation(), new MaterialData(Material.COBWEB));
 					b.setVelocity(p.getEyeLocation().getDirection().multiply(2));
 
-					if (Morph.pl.getConfig().getBoolean("spider.removeSpiderWeb")) {
-						int time = Morph.pl.getConfig().getInt("spider.spiderWebRemove");
+					if (Config.MOB_CONFIG.getConfig().getBoolean("spider.removeSpiderWeb")) {
+						int time = Config.MOB_CONFIG.getConfig().getInt("spider.spiderWebRemove");
 						Bukkit.getServer().getScheduler().runTaskLater(Morph.pl, new Runnable() {
 							@Override
 							public void run() {
@@ -597,7 +590,7 @@ public class InteractEvent implements Listener {
 						}, 20 * time);
 					}
 
-					int cd = Morph.pl.getConfig().getInt("spider.ability-cooldown");
+					int cd = Config.MOB_CONFIG.getConfig().getInt("spider.ability-cooldown");
 					if (cd != 0) {
 						spidercd.put(p, cd);
 						cdTask.put(p, new BukkitRunnable() {
@@ -617,7 +610,7 @@ public class InteractEvent implements Listener {
 				}
 			} else if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
 				if (using.equalsIgnoreCase("evoker")) {
-					if (!pl.getConfig().getBoolean("evoker.spawnVex"))
+					if (!Config.MOB_CONFIG.getConfig().getBoolean("evoker.spawnVex"))
 						return;
 					if (!p.isSneaking())
 						return;
@@ -628,7 +621,7 @@ public class InteractEvent implements Listener {
 							p.getWorld().spawnEntity(p.getLocation().add(0, 1, 0), EntityType.VEX);
 						}
 
-						int cd = Morph.pl.getConfig().getInt("evoker.spawnVex-can");
+						int cd = Config.MOB_CONFIG.getConfig().getInt("evoker.spawnVex-cooldown");
 						if (cd != 0) {
 							evokerSpawncd.put(p, cd);
 							cdTask.put(p, new BukkitRunnable() {

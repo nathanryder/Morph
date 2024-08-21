@@ -173,7 +173,7 @@ public class MorphManager {
             p.removePotionEffect(effect.getType());
 
         if (using.equalsIgnoreCase("bat")) {
-            if (pl.getConfig().getBoolean("flying")) {
+            if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
             }
@@ -182,7 +182,7 @@ public class MorphManager {
                 p.setMaxHealth(6);
             }
         } else if (using.equalsIgnoreCase("vex")) {
-            if (pl.getConfig().getBoolean("flying")) {
+            if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
                 if (Morph.health) {
@@ -191,7 +191,7 @@ public class MorphManager {
                 }
             }
         } else if (using.equalsIgnoreCase("bee")) {
-            if (pl.getConfig().getBoolean("flying")) {
+            if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
                 if (Morph.health) {
@@ -200,19 +200,19 @@ public class MorphManager {
                 }
             }
         } else if (using.equalsIgnoreCase("wither")) {
-            if (pl.getConfig().getBoolean("flying")) {
+            if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
             }
         } else if (using.equalsIgnoreCase("blaze")) {
-            if (pl.getConfig().getBoolean("flying")) {
+            if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
             }
             FlagWatcher watcher = DisguiseAPI.getDisguise(p).getWatcher();
             watcher.setBurning(true);
         } else if (using.equalsIgnoreCase("ghast")) {
-            if (pl.getConfig().getBoolean("flying")) {
+            if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
                 if (Morph.health) {
@@ -275,7 +275,7 @@ public class MorphManager {
                 p.setMaxHealth(2);
             }
         } else if (using.equalsIgnoreCase("ender_dragon")) {
-            if (pl.getConfig().getBoolean("flying")) {
+            if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
             }
@@ -319,7 +319,7 @@ public class MorphManager {
                 p.setHealthScale(6);
                 p.setMaxHealth(6);
             }
-            if (pl.getConfig().getBoolean("flying")) {
+            if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
             }
@@ -390,7 +390,7 @@ public class MorphManager {
 
         Morph.undisguiseBuffer.remove(p.getUniqueId());
         final String typeStr = type.toString().toLowerCase();
-        final int timeLimit = Morph.pl.getConfig().getInt(typeStr + ".morph-time");
+        final int timeLimit = Config.MOB_CONFIG.getConfig().getInt(typeStr + ".morph-time");
 
         if (timeLimit > 0 && !p.hasPermission("morph.bypasstime." + typeStr)) {
             morphTimeout.put(p.getUniqueId(), timeLimit+1);
@@ -527,7 +527,7 @@ public class MorphManager {
         if (morphTimeout.get(p.getUniqueId()) != null)
             removeFromTimeout.add(p.getUniqueId());
 
-        int morphCooldown = Morph.pl.getConfig().getInt(type + ".morph-cooldown");
+        int morphCooldown = Config.MOB_CONFIG.getConfig().getInt(type + ".morph-cooldown");
         if (morphCooldown > 0) {
             if (typeCooldown.containsKey(p.getUniqueId())) {
                 Map<String, Integer> cooldown = typeCooldown.get(p.getUniqueId());

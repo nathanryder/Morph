@@ -1,5 +1,6 @@
 package me.bumblebeee_.morph.events;
 
+import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Messages;
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
@@ -100,10 +101,10 @@ public class PlayerDeath implements Listener {
 		}
 
 		if (using.equalsIgnoreCase("creeper")) {
-			if (pl.getConfig().getBoolean("creeper.explosion")) {
+			if (Config.MOB_CONFIG.getConfig().getBoolean("creeper.explosion")) {
 				if (!Morph.pl.getConfig().getBoolean("creeperDeathMessage"))
 					e.setDeathMessage(null);
-				w.createExplosion(p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), 2.0F, false, pl.getConfig().getBoolean("creeper.explosion-damage"));
+				w.createExplosion(p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), 2.0F, false, Config.MOB_CONFIG.getConfig().getBoolean("creeper.explosion-damage"));
 				p.sendMessage(prefix + " " + m.getMessage("creeperExploded", "", p.getDisplayName(), "", ""));
 			}
 		}

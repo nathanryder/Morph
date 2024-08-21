@@ -17,6 +17,8 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.util.*;
 
+import static me.bumblebeee_.morph.MorphCommand.send;
+
 public class Inventorys {
 
     MorphManager mm = new MorphManager();
@@ -106,9 +108,17 @@ public class Inventorys {
     }
 
     public void openMorph(final Player p, int page) {
-        if (Morph.pl.getConfig().getBoolean("disableGUI")) {
+        FileConfiguration config = Morph.pl.getConfig();
+        if (config.getBoolean("disableGUI")) {
             p.sendMessage(msgs.getMessage("GUIdisabled"));
             return;
+        }
+
+        if (!(config.getStringList("enabled-worlds").contains(p.getWorld().getName()))) {
+            if (!(config.getStringList("enabled-worlds").contains("<all>"))) {
+                send(p, msgs.getMessage("prefix") + " " + msgs.getMessage("disableInThisWorld"));
+                return;
+            }
         }
 
         p.closeInventory();

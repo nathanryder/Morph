@@ -1,5 +1,6 @@
 package me.bumblebeee_.morph.events;
 
+import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
 import org.bukkit.Bukkit;
@@ -46,7 +47,7 @@ public class EntityDamage implements Listener {
                 ev.setCancelled(true);
             }
         } else if (using.contains("slime")) {
-            if (!Morph.pl.getConfig().getBoolean("slime.split"))
+            if (!Config.MOB_CONFIG.getConfig().getBoolean("slime.split"))
                 return;
             if (p.getHealth()-ev.getFinalDamage() < 1) {
                 ev.setCancelled(true);
@@ -67,7 +68,7 @@ public class EntityDamage implements Listener {
                 }
             }
         } else if (using.contains("husk")) {
-            if (!Morph.pl.getConfig().getBoolean("husk.hunger"))
+            if (!Config.MOB_CONFIG.getConfig().getBoolean("husk.hunger"))
                 return;
         }
 	}

@@ -1,5 +1,6 @@
 package me.bumblebeee_.morph.events;
 
+import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
 import org.bukkit.Material;
@@ -25,20 +26,22 @@ public class ItemConsume implements Listener {
 	@EventHandler
 	public void onConsume(PlayerItemConsumeEvent e) {
 		if (e.getItem().getType() == Material.ROTTEN_FLESH) {
-			if (pl.getConfig().getString("zombie-eat") == "true") {
-				Player p = e.getPlayer();
-				if (!Morph.using.containsKey(p.getUniqueId()))
-					return;
+			Player p = e.getPlayer();
+			if (!Morph.using.containsKey(p.getUniqueId()))
+				return;
 
-				File userFile = new File(pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
-				FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
-				String using = mm.getUsing(p);
-				if (using.equalsIgnoreCase("zombie")) {
-					ItemStack remove = new ItemStack(e.getItem().getType(), 1);
-					p.getInventory().removeItem(remove);
-					p.setFoodLevel(p.getFoodLevel() + 6);
-					e.setCancelled(true);
-				}
+			File userFile = new File(pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
+			FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
+			String using = mm.getUsing(p);
+
+			if (!using.equalsIgnoreCase("zombie") && !using.equalsIgnoreCase("pig_zombie"))
+				return;
+
+			if (Config.MOB_CONFIG.getConfig().getBoolean(using + ".eat")) {
+				ItemStack remove = new ItemStack(e.getItem().getType(), 1);
+				p.getInventory().removeItem(remove);
+				p.setFoodLevel(p.getFoodLevel() + 6);
+				e.setCancelled(true);
 			}
 		}
 	}

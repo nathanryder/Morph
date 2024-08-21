@@ -43,16 +43,12 @@ public class Morph extends JavaPlugin implements Listener {
         Runnables.mobSounds();
 
         checkReload();
-        if (getConfig().getBoolean("spider.climb")) {
-			Runnables.spider(this);
-		}
+        Runnables.spider(this);
 		health = !getConfig().getBoolean("disableHealthSystem");
 
-		if (getConfig().getBoolean("checkForUpdates"))
-			uc.run("8846");
+//		if (getConfig().getBoolean("checkForUpdates"))
+//			uc.run("8846");
 		Metrics metrics = new Metrics(this);
-		Stats stats = new Stats();
-		stats.start();
 
 		for (Player p : Bukkit.getServer().getOnlinePlayers()) {
 			if (MorphManager.soundDisabled.contains(p.getUniqueId()))
@@ -82,6 +78,11 @@ public class Morph extends JavaPlugin implements Listener {
 
 	public void setupFiles() {
 		saveDefaultConfig();
+
+		for (Config config : Config.values()) {
+			config.createOrLoad();
+		}
+
 		m.setup();
 		File userfiles = new File(getDataFolder() + File.separator + "UserData" + File.separator);
 		if (!userfiles.exists()) {

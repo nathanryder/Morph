@@ -1,5 +1,6 @@
 package me.bumblebeee_.morph.events;
 
+import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Messages;
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
@@ -34,7 +35,7 @@ public class InteractWithEntity implements Listener {
         if (!Morph.using.containsKey(p.getUniqueId()))
             return;
         String using = mm.getUsing(p);
-        if (!Morph.pl.getConfig().getBoolean("giant.throw"))
+        if (!Config.MOB_CONFIG.getConfig().getBoolean("giant.throw"))
             return;
 
         if (MorphManager.toggled.contains(p.getUniqueId()))
@@ -42,11 +43,11 @@ public class InteractWithEntity implements Listener {
 
         if (using.equalsIgnoreCase("giant")) {
             if (!(giantcd.containsKey(p))) {
-                int force = Morph.pl.getConfig().getInt("giant.force");
+                int force = Config.MOB_CONFIG.getConfig().getInt("giant.force");
                 t.setVelocity(new Vector(0, force, 0));
 
-                if (Morph.pl.getConfig().getInt("giant.ability-cooldown") > 0) {
-                    giantcd.put(p, Morph.pl.getConfig().getInt("giant.ability-cooldown"));
+                if (Config.MOB_CONFIG.getConfig().getInt("giant.ability-cooldown") > 0) {
+                    giantcd.put(p, Config.MOB_CONFIG.getConfig().getInt("giant.ability-cooldown"));
                     cdTask.put(p, new BukkitRunnable() {
 
                         public void run() {

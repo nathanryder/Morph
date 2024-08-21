@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Morph;
 import me.libraryaddict.disguise.disguisetypes.RabbitType;
 import me.libraryaddict.disguise.disguisetypes.watchers.RabbitWatcher;
@@ -985,7 +986,7 @@ public class EntityDeath implements Listener {
 							}
 							break;
 						case "craftgiant":
-							if (!Morph.pl.getConfig().getBoolean("giant.enabled"))
+							if (!Config.MOB_CONFIG.getConfig().getBoolean("giant.enabled"))
 								break;
 							if (!killer.hasPermission("morph.bypasskill.giant")) {
 								if (killer.hasPermission("morph.into.giant")) {
@@ -1004,7 +1005,7 @@ public class EntityDeath implements Listener {
 							}
 							break;
 						case "craftenderdragon":
-							if (!Morph.pl.getConfig().getBoolean("enderdragon.enabled"))
+							if (!Config.MOB_CONFIG.getConfig().getBoolean("enderdragon.enabled"))
 								break;
 							if (!killer.hasPermission("morph.bypasskill.enderdragon")) {
 								if (killer.hasPermission("morph.into.enderdragon")) {
