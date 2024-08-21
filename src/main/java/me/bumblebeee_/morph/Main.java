@@ -4,7 +4,6 @@ import lombok.Getter;
 import me.bumblebeee_.morph.events.RegisterEvents;
 import me.bumblebeee_.morph.morphs.*;
 import me.libraryaddict.disguise.DisguiseAPI;
-import me.libraryaddict.disguise.disguisetypes.MobDisguise;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -41,6 +40,16 @@ public class Main extends JavaPlugin implements Listener {
         setupFiles();
         setupCommands();
 
+        double version;
+		try {
+			String versionStr = Bukkit.getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3].replace("v", "");
+			versionStr = versionStr.substring(0, versionStr.length()-3).replace("_", ".");
+			version = Double.parseDouble(versionStr);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			version = 1.19;
+		}
+		Bukkit.getServer().getLogger().info("Version: " + version);
+
         morphManager = new MorphManager();
 		morphManager.registerMorph(new BlazeMorph());
 		morphManager.registerMorph(new SkeletonHorseMorph());
@@ -72,7 +81,6 @@ public class Main extends JavaPlugin implements Listener {
 		morphManager.registerMorph(new WitchMorph());
 		morphManager.registerMorph(new WitherMorph());
 		morphManager.registerMorph(new ZombieMorph());
-		morphManager.registerMorph(new ZombifiedPiglinMorph());
 		morphManager.registerMorph(new HuskMorph());
 		morphManager.registerMorph(new ShulkerMorph());
 		morphManager.registerMorph(new PolarBearMorph());
@@ -87,34 +95,48 @@ public class Main extends JavaPlugin implements Listener {
 		morphManager.registerMorph(new CaveSpiderMorph());
 		morphManager.registerMorph(new IllusionerMorph());
 		morphManager.registerMorph(new ParrotMorph());
-		morphManager.registerMorph(new DolphinMorph());
-		morphManager.registerMorph(new DrownedMorph());
-		morphManager.registerMorph(new CodMorph());
-		morphManager.registerMorph(new SalmonMorph());
-		morphManager.registerMorph(new PufferFishMorph());
-		morphManager.registerMorph(new TropicalFishMorph());
-		morphManager.registerMorph(new PhantomMorph());
-		morphManager.registerMorph(new TurtleMorph());
-		morphManager.registerMorph(new BeeMorph());
 		morphManager.registerMorph(new RabbitMorph());
-		morphManager.registerMorph(new CatMorph());
-		morphManager.registerMorph(new FoxMorph());
-		morphManager.registerMorph(new PandaMorph());
-		morphManager.registerMorph(new HoglinMorph());
-		morphManager.registerMorph(new StriderMorph());
-		morphManager.registerMorph(new ZoglinMorph());
-		morphManager.registerMorph(new PillagerMorph());
-		morphManager.registerMorph(new PiglinBruteMorph());
-		morphManager.registerMorph(new PiglinMorph());
-		morphManager.registerMorph(new RavagerMorph());
-		morphManager.registerMorph(new GoatMorph());
-		morphManager.registerMorph(new GlowSquidMorph());
-		morphManager.registerMorph(new AxolotlMorph());
-		morphManager.registerMorph(new AllayMorph());
-		morphManager.registerMorph(new FrogMorph());
-		morphManager.registerMorph(new TadpoleMorph());
-		morphManager.registerMorph(new WardenMorph());
 		morphManager.registerMorph(new StrayMorph());
+		if (version >= 1.13) {
+			morphManager.registerMorph(new DolphinMorph());
+			morphManager.registerMorph(new DrownedMorph());
+			morphManager.registerMorph(new CodMorph());
+			morphManager.registerMorph(new SalmonMorph());
+			morphManager.registerMorph(new PufferFishMorph());
+			morphManager.registerMorph(new TropicalFishMorph());
+			morphManager.registerMorph(new PhantomMorph());
+			morphManager.registerMorph(new TurtleMorph());
+		}
+		if (version >= 1.14) {
+			morphManager.registerMorph(new CatMorph());
+			morphManager.registerMorph(new FoxMorph());
+			morphManager.registerMorph(new PandaMorph());
+			morphManager.registerMorph(new PillagerMorph());
+			morphManager.registerMorph(new RavagerMorph());
+
+		}
+		if (version >= 1.15) {
+			morphManager.registerMorph(new BeeMorph());
+		}
+		if (version >= 1.16) {
+			morphManager.registerMorph(new HoglinMorph());
+			morphManager.registerMorph(new PiglinBruteMorph());
+			morphManager.registerMorph(new PiglinMorph());
+			morphManager.registerMorph(new ZombifiedPiglinMorph());
+			morphManager.registerMorph(new StriderMorph());
+			morphManager.registerMorph(new ZoglinMorph());
+		}
+		if (version >= 1.17) {
+			morphManager.registerMorph(new AxolotlMorph());
+			morphManager.registerMorph(new GlowSquidMorph());
+			morphManager.registerMorph(new GoatMorph());
+		}
+		if (version >= 1.19) {
+			morphManager.registerMorph(new AllayMorph());
+			morphManager.registerMorph(new FrogMorph());
+			morphManager.registerMorph(new TadpoleMorph());
+			morphManager.registerMorph(new WardenMorph());
+		}
 
 		m.setup();
 		Runnables.potionEffects();

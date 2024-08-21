@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.io.IOException;
@@ -89,7 +90,13 @@ public class PlayerJoin implements Listener {
 				Morph type = Main.getMorphManager().getMorphType(typeStr);
 				boolean isBaby = data.length > 1 && data[1].equals("baby");
 
-				Main.getMorphManager().morphPlayer(p, type, false, isBaby);
+				new BukkitRunnable() {
+					@Override
+					public void run() {
+						Main.getMorphManager().morphPlayer(p, type, false, isBaby);
+						cancel();
+					}
+				}.runTaskTimer(Main.pl, 5, 20);
 
 				c.set("lastMorph", null);
 				try {
