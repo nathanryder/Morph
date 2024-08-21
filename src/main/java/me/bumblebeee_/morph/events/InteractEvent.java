@@ -389,7 +389,7 @@ public class InteractEvent implements Listener {
 					p.setFoodLevel(flevel + 2);
 				}
 			} else if (using.equalsIgnoreCase("ender_dragon")) {
-				if (!Config.MOB_CONFIG.getConfig().getBoolean("enderdragon.fireball"))
+				if (!Config.MOB_CONFIG.getConfig().getBoolean("ender_dragon.fireball"))
 					return;
 				if (p.isSneaking()) {
 					if (!(dragoncd.containsKey(p))) {
@@ -397,7 +397,7 @@ public class InteractEvent implements Listener {
 						p.getWorld().playEffect(p.getLocation(), Effect.ENDERDRAGON_SHOOT, 5);
 						f.setFireTicks(0);
 
-						int cd = Config.MOB_CONFIG.getConfig().getInt("enderdragon.ability-cooldown");
+						int cd = Config.MOB_CONFIG.getConfig().getInt("ender_dragon.ability-cooldown");
 						if (cd != 0) {
 							dragoncd.put(p, cd);
 							cdTask.put(p, new BukkitRunnable() {
@@ -608,37 +608,37 @@ public class InteractEvent implements Listener {
 				} else {
 					p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, spidercd.get(p)));
 				}
-			} else if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-				if (using.equalsIgnoreCase("evoker")) {
-					if (!Config.MOB_CONFIG.getConfig().getBoolean("evoker.spawnVex"))
-						return;
-					if (!p.isSneaking())
-						return;
+			}
+		} else if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
+			if (using.equalsIgnoreCase("evoker")) {
+				if (!Config.MOB_CONFIG.getConfig().getBoolean("evoker.spawnVex"))
+					return;
+				if (!p.isSneaking())
+					return;
 
-					if (!(evokerSpawncd.containsKey(p))) {
-						int c = r.nextInt(3) + 2;
-						for (int i = 0; i <= c; i++) {
-							p.getWorld().spawnEntity(p.getLocation().add(0, 1, 0), EntityType.VEX);
-						}
-
-						int cd = Config.MOB_CONFIG.getConfig().getInt("evoker.spawnVex-cooldown");
-						if (cd != 0) {
-							evokerSpawncd.put(p, cd);
-							cdTask.put(p, new BukkitRunnable() {
-								public void run() {
-									evokerSpawncd.put(p, evokerSpawncd.get(p) - 1);
-									if (evokerSpawncd.get(p) <= 1) {
-										evokerSpawncd.remove(p);
-										cdTask.remove(p);
-										cancel();
-									}
-								}
-							});
-							cdTask.get(p).runTaskTimer(pl, 20, 20);
-						}
-					} else {
-						p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, evokerSpawncd.get(p)));
+				if (!(evokerSpawncd.containsKey(p))) {
+					int c = r.nextInt(3) + 2;
+					for (int i = 0; i <= c; i++) {
+						p.getWorld().spawnEntity(p.getLocation().add(0, 1, 0), EntityType.VEX);
 					}
+
+					int cd = Config.MOB_CONFIG.getConfig().getInt("evoker.spawnVex-cooldown");
+					if (cd != 0) {
+						evokerSpawncd.put(p, cd);
+						cdTask.put(p, new BukkitRunnable() {
+							public void run() {
+								evokerSpawncd.put(p, evokerSpawncd.get(p) - 1);
+								if (evokerSpawncd.get(p) <= 1) {
+									evokerSpawncd.remove(p);
+									cdTask.remove(p);
+									cancel();
+								}
+							}
+						});
+						cdTask.get(p).runTaskTimer(pl, 20, 20);
+					}
+				} else {
+					p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, evokerSpawncd.get(p)));
 				}
 			}
 		}

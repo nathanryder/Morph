@@ -278,7 +278,7 @@ giant:
   #NOTE: This might cause random blocks to be placed/broken if enabled
   walk-throw: false
   ability-cooldown: 0
-enderdragon:
+ender_dragon:
   enabled: true
   health: 100
   requiredKills: 1
