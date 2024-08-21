@@ -86,12 +86,10 @@ public class Inventorys {
                             String mob = mobs.get(i);
                             Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
                             if (morphType == null) {
-                                Main.pl.getLogger().severe("Failed to find type for " + mob.split(":")[0] + "("+mob+")");
                                 continue;
                             }
 
                             String mobName = morphType.toFriendly();
-
                             if (mob.split(":").length > 1) {
                                 mobName = "Baby " + mobName.split(":")[0];
                             }
@@ -110,9 +108,12 @@ public class Inventorys {
                         if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
                             String m = owners.get(s);
                             String mob = getMobName(m);
-                            System.out.println("Find mob: " + mob.split(":")[0]);
-                            String mobName = Main.getMorphManager().getMorphType(mob.split(":")[0]).toFriendly();
+                            Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
+                            if (morphType == null) {
+                                continue;
+                            }
 
+                            String mobName = morphType.toFriendly();
                             if (m.split(":").length > 1) {
                                 mobName = "Baby " + mobName.split(":")[0];
                             }
@@ -129,8 +130,12 @@ public class Inventorys {
                             if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
                                 String m = owners.get(s);
                                 String mob = getMobName(m);
-                                String mobName = Main.getMorphManager().getMorphType(mob.split(":")[0]).toFriendly();
+                                Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
+                                if (morphType == null) {
+                                    continue;
+                                }
 
+                                String mobName = morphType.toFriendly();
                                 if (m.split(":").length > 1) {
                                     mobName = "Baby " + mobName.split(":")[0];
                                 }
@@ -149,8 +154,12 @@ public class Inventorys {
                             if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
                                 String m = owners.get(s);
                                 String mob = getMobName(m);
-                                String mobName = Main.getMorphManager().getMorphType(mob.split(":")[0]).toFriendly();
+                                Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
+                                if (morphType == null) {
+                                    continue;
+                                }
 
+                                String mobName = morphType.toFriendly();
                                 if (m.split(":").length > 1) {
                                     mobName = "Baby " + mobName.split(":")[0];
                                 }
