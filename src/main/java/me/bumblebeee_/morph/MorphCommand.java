@@ -246,11 +246,11 @@ public class MorphCommand implements CommandExecutor {
                 } else if (args[0].equalsIgnoreCase("bear:baby")) {
                     args[0] = "polar_bear:baby";
                 } else if (args[0].equalsIgnoreCase("pigzombie:baby")) {
-                    args[0] = "pig_zombie:baby";
+                    args[0] = "zombified_piglin:baby";
                 } else if (args[0].equalsIgnoreCase("zombiepig:baby")) {
-                    args[0] = "pig_zombie:baby";
+                    args[0] = "zombified_piglin:baby";
                 } else if (args[0].equalsIgnoreCase("zombiepigman:baby")) {
-                    args[0] = "pig_zombie:baby";
+                    args[0] = "zombified_piglin:baby";
                 } else if (args[0].equalsIgnoreCase("dragon:baby")) {
                     args[0] = "ender_dragon:baby";
                 } else if (args[0].equalsIgnoreCase("enderdragon:baby")) {
@@ -274,11 +274,11 @@ public class MorphCommand implements CommandExecutor {
                 } else if (args[0].equalsIgnoreCase("bear")) {
                     args[0] = "polar_bear";
                 } else if (args[0].equalsIgnoreCase("pigzombie")) {
-                    args[0] = "pig_zombie";
+                    args[0] = "zombified_piglin";
                 } else if (args[0].equalsIgnoreCase("zombiepig")) {
-                    args[0] = "pig_zombie";
+                    args[0] = "zombified_piglin";
                 } else if (args[0].equalsIgnoreCase("zombiepigman")) {
-                    args[0] = "pig_zombie";
+                    args[0] = "zombified_piglin";
                 } else if (args[0].equalsIgnoreCase("dragon")) {
                     args[0] = "ender_dragon";
                 } else if (args[0].equalsIgnoreCase("enderdragon")) {
@@ -337,11 +337,11 @@ public class MorphCommand implements CommandExecutor {
                     } else if (args[1].equalsIgnoreCase("bear")) {
                         args[1] = "polar_bear";
                     } else if (args[1].equalsIgnoreCase("pigzombie")) {
-                        args[1] = "pig_zombie";
+                        args[1] = "zombified_piglin";
                     } else if (args[1].equalsIgnoreCase("zombiepig")) {
-                        args[1] = "pig_zombie";
+                        args[1] = "zombified_piglin";
                     } else if (args[1].equalsIgnoreCase("zombiepigman")) {
-                        args[1] = "pig_zombie";
+                        args[1] = "zombified_piglin";
                     } else if (args[1].equalsIgnoreCase("dragon")) {
                         args[1] = "ender_dragon";
                     } else if (args[1].equalsIgnoreCase("enderdragon")) {

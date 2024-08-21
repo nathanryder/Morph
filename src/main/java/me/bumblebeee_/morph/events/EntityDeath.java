@@ -87,6 +87,7 @@ public class EntityDeath implements Listener {
 					}
 				}
 
+				System.out.println("Type: " + ev.getEntity().toString().toLowerCase());
 				switch (ev.getEntity().toString().toLowerCase()) {
 					case "craftpig":
 						Pig p = (Pig) ev.getEntity();
@@ -162,11 +163,13 @@ public class EntityDeath implements Listener {
 						}
 						break;
 					case "craftpigzombie":
+						System.out.println("1");
 						PigZombie pz = (PigZombie) ev.getEntity();
 						if (pz.isBaby()) {
-							fullType = "pig_zombie:baby";
+							fullType = "zombified_piglin:baby";
 						} else {
-							fullType = "pig_zombie";
+							System.out.println("2");
+							fullType = "zombified_piglin";
 						}
 						break;
 					case "craftvillagerzombie":

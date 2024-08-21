@@ -135,7 +135,7 @@ mushroom_cow:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
-pig_zombie:
+zombified_piglin:
   enabled: true
   health: 20
   requiredKills: 1
