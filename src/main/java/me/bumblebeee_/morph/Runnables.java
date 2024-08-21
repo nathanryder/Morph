@@ -333,7 +333,7 @@ public class Runnables {
                     if (sounds.contains(p.getUniqueId())) {
                         Sound s = morph.playSound(p);
                         if (s != null)
-                            p.getWorld().playSound(p.getLocation(), s, 2, 2);
+                            p.getWorld().playSound(p.getLocation(), s, 2, 1);
                         sounds.remove(p.getUniqueId());
                     } else {
                         sounds.add(p.getUniqueId());
