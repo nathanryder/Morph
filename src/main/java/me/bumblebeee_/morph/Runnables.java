@@ -348,18 +348,24 @@ public class Runnables {
             @Override
             public void run() {
                 for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+                    System.out.println("1");
                     if (!mana.getManaPlayers().containsKey(p.getUniqueId()))
                         continue;
+                    System.out.println("2");
                     if (!hasFlyingAbility(p))
                         continue;
+                    System.out.println("3");
                     if (!Morph.pl.getConfig().getBoolean("morph-power"))
                         continue;
+                    System.out.println("4");
                     if (MorphManager.morphTimeout.get(p.getUniqueId()) != null) {
                         if (MorphManager.morphTimeout.get(p.getUniqueId()) <= 30)
                             continue;
                     }
+                    System.out.println("5");
 
                     if (p.isFlying()) {
+                        System.out.println("6");
                         if (mana.getMana(p) < 0) {
                             p.setFlying(false);
                             p.setAllowFlight(false);
@@ -413,18 +419,13 @@ public class Runnables {
             return false;
         switch (Morph.using.get(p.getUniqueId())) {
             case "bat":
-                return true;
-            case "vex":
-                return true;
-            case "wither":
-                return true;
-            case "blaze":
-                return true;
-            case "ghast":
-                return true;
-            case "ender_dragon":
-                return true;
+            case "bee":
             case "parrot":
+            case "ender_dragon":
+            case "ghast":
+            case "blaze":
+            case "wither":
+            case "vex":
                 return true;
         }
         return false;
