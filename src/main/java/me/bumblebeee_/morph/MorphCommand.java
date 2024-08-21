@@ -459,7 +459,7 @@ public class MorphCommand implements CommandExecutor {
                             return true;
                         }
 
-                        if (!players.contains(off.getName())) {
+                        if (!players.contains(off.getName()) && !p.hasPermission("morph.into.player." + off.getName())) {
                             send(p, prefix + " " + m.getMessage("unableToMorphAsPlayer", off.getName(), p.getDisplayName(), "", ""));
                             return true;
                         }
@@ -477,7 +477,7 @@ public class MorphCommand implements CommandExecutor {
                             return true;
                         }
 
-                        if (!players.contains(on.getName())) {
+                        if (!players.contains(on.getName()) && !p.hasPermission("morph.into.player." + on.getName())) {
                             send(p, prefix + " " + m.getMessage("unableToMorphAsPlayer", on.getName(), p.getDisplayName(), "", ""));
                             return true;
                         }
