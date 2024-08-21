@@ -1,6 +1,7 @@
 package me.bumblebeee_.morph.morphs;
 
 import me.bumblebeee_.morph.Config;
+import me.bumblebeee_.morph.VersionedPotionEffectType;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Sound;
 import org.bukkit.potion.PotionEffect;
@@ -22,7 +23,7 @@ public class FrogMorph extends Morph {
                 .headId("d0edcb898356fd400c205c6134e098610bafbbc50417729a155ce77d7bca98d4");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".jump-boost")) {
-            PotionEffect jump = new PotionEffect(PotionEffectType.JUMP, 999999, 5, false ,false);
+            PotionEffect jump = new PotionEffect(VersionedPotionEffectType.JUMP_BOOST.get(), 999999, 5, false ,false);
             this.potionEffect(jump);
         }
     }

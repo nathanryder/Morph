@@ -1,6 +1,7 @@
 package me.bumblebeee_.morph.morphs;
 
 import me.bumblebeee_.morph.Config;
+import me.bumblebeee_.morph.VersionedPotionEffectType;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Sound;
 import org.bukkit.potion.PotionEffect;
@@ -22,7 +23,7 @@ public class RabbitMorph extends Morph {
                 .abilityInfo("&5Passive: &eJump boost 6");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".jump-boost")) {
-            PotionEffect jump = new PotionEffect(PotionEffectType.JUMP, 999999, 5, false ,false);
+            PotionEffect jump = new PotionEffect(VersionedPotionEffectType.JUMP_BOOST.get(), 999999, 5, false ,false);
             this.potionEffect(jump);
         }
     }

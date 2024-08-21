@@ -2,6 +2,7 @@ package me.bumblebeee_.morph.morphs;
 
 import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Main;
+import me.bumblebeee_.morph.VersionedPotionEffectType;
 import me.bumblebeee_.morph.events.PlayerUndisguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Bukkit;
@@ -34,7 +35,7 @@ public class StriderMorph extends Morph implements Listener {
                 .runnable(new BukkitRunnable() {
                     PotionEffect ocelotSpeed = new PotionEffect(PotionEffectType.SPEED, 999999, 6, false ,false);
                     PotionEffect fireres = new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 999999, 7, false ,false);
-                    PotionEffect squidSlow = new PotionEffect(PotionEffectType.SLOW, 999999, 3, false ,false);
+                    PotionEffect squidSlow = new PotionEffect(VersionedPotionEffectType.SLOWNESS.get(), 999999, 3, false ,false);
 
                     @Override
                     public void run() {
@@ -44,7 +45,7 @@ public class StriderMorph extends Morph implements Listener {
 
                             Block b = p.getLocation().getBlock();
                             if (b.getType() == Material.LAVA) {
-                                p.removePotionEffect(PotionEffectType.SLOW);
+                                p.removePotionEffect(VersionedPotionEffectType.SLOWNESS.get());
 
                                 if (Config.MOB_CONFIG.getConfig().getBoolean("strider.speed")) {
                                     p.addPotionEffect(ocelotSpeed, true);

@@ -1,6 +1,7 @@
 package me.bumblebeee_.morph.morphs;
 
 import me.bumblebeee_.morph.Config;
+import me.bumblebeee_.morph.VersionedPotionEffectType;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Sound;
 import org.bukkit.potion.PotionEffect;
@@ -26,7 +27,7 @@ public class TurtleMorph extends Morph {
             this.potionEffect(waterbreathing);
         }
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".damageresistance")) {
-            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 200, 7, false ,false);
+            PotionEffect waterbreathing = new PotionEffect(VersionedPotionEffectType.INSTANT_DAMAGE.get(), 200, 7, false ,false);
             this.potionEffect(waterbreathing);
         }
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".nightvision")) {

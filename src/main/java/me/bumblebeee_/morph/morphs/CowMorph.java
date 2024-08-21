@@ -74,7 +74,7 @@ public class CowMorph extends Morph implements Listener {
             if (e.getClickedBlock() == null)
                 return;
 
-            if (e.getClickedBlock().getType() == Material.GRASS) {
+            if (e.getClickedBlock().getType() == Material.GRASS_BLOCK) {
                 e.getClickedBlock().setType(Material.DIRT);
                 int flevel = p.getFoodLevel();
                 p.setFoodLevel(flevel + 2);

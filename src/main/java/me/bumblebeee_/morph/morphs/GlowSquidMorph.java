@@ -2,6 +2,7 @@ package me.bumblebeee_.morph.morphs;
 
 import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Main;
+import me.bumblebeee_.morph.VersionedPotionEffectType;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -29,7 +30,7 @@ public class GlowSquidMorph extends Morph {
                 .headId("3e94a1bb1cb00aaa153a74daf4b0eea20b8974522fe9901eb55aef478ebeff0d")
                 .runnable(new BukkitRunnable() {
                     PotionEffect squidBlind = new PotionEffect(PotionEffectType.BLINDNESS, 99999, 1, false ,false);
-                    PotionEffect squidSlow = new PotionEffect(PotionEffectType.SLOW, 99999, 3, false ,false);
+                    PotionEffect squidSlow = new PotionEffect(VersionedPotionEffectType.SLOWNESS.get(), 99999, 3, false ,false);
 
                     @Override
                     public void run() {
@@ -39,7 +40,7 @@ public class GlowSquidMorph extends Morph {
 
                             Block b = p.getLocation().getBlock();
                             if (b.getType() == Material.WATER) {
-                                p.removePotionEffect(PotionEffectType.SLOW);
+                                p.removePotionEffect(VersionedPotionEffectType.SLOWNESS.get());
                                 p.removePotionEffect(PotionEffectType.BLINDNESS);
                             } else {
                                 p.addPotionEffect(squidSlow, true);

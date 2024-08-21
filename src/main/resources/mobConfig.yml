@@ -570,3 +570,17 @@ sniffer:
   morph-time: 0
   morph-cooldown: 0
   ability-cooldown: 10
+bogged:
+  enabled: true
+  health: 16
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+  shoot: true
+breeze:
+  enabled: true
+  health: 30
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+  ability-cooldown: 10

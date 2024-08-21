@@ -2,6 +2,7 @@ package me.bumblebeee_.morph.morphs;
 
 import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Main;
+import me.bumblebeee_.morph.VersionedPotionEffectType;
 import me.bumblebeee_.morph.events.EntityDamage;
 import me.bumblebeee_.morph.events.PlayerUndisguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
@@ -41,7 +42,7 @@ public class SlimeMorph extends Morph implements Listener {
                 .abilityInfo("&5Passive: &eJump boost 4 and splits into multiple slimes when taking damage");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".jump-boost")) {
-            PotionEffect slimeJump = new PotionEffect(PotionEffectType.JUMP, 999999, 3, false ,false);
+            PotionEffect slimeJump = new PotionEffect(VersionedPotionEffectType.JUMP_BOOST.get(), 999999, 3, false ,false);
             this.potionEffect(slimeJump);
         }
 

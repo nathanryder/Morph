@@ -103,10 +103,10 @@ public class StrayMorph extends Morph implements Listener {
             if (e.getHitEntity() instanceof LivingEntity) {
                 LivingEntity t = (LivingEntity) e.getHitEntity();
                 for (PotionEffect p : t.getActivePotionEffects()) {
-                    if (p.getType() == PotionEffectType.SLOW)
-                        t.removePotionEffect(PotionEffectType.SLOW);
+                    if (p.getType() == VersionedPotionEffectType.SLOWNESS.get())
+                        t.removePotionEffect(VersionedPotionEffectType.SLOWNESS.get());
                 }
-                PotionEffect slow = new PotionEffect(PotionEffectType.SLOW, 600, 0, false ,false);
+                PotionEffect slow = new PotionEffect(VersionedPotionEffectType.SLOWNESS.get(), 600, 0, false ,false);
                 t.addPotionEffect(slow);
             }
         }

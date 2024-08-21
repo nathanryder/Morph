@@ -1,6 +1,7 @@
 package me.bumblebeee_.morph.morphs;
 
 import me.bumblebeee_.morph.Config;
+import me.bumblebeee_.morph.VersionedPotionEffectType;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Sound;
 import org.bukkit.potion.PotionEffect;
@@ -22,11 +23,11 @@ public class RavagerMorph extends Morph {
                 .headId("3b62501cd1b87b37f628018210ec5400cb65a4d1aab74e6a3f7f62aa85db97ee");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".strength")) {
-            PotionEffect ravagerStrength = new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 999999, 6, false ,false);
+            PotionEffect ravagerStrength = new PotionEffect(VersionedPotionEffectType.INSTANT_DAMAGE.get(), 999999, 6, false ,false);
             this.potionEffect(ravagerStrength);
         }
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".slowness")) {
-            PotionEffect slow = new PotionEffect(PotionEffectType.SLOW, 999999, 1, false ,false);
+            PotionEffect slow = new PotionEffect(VersionedPotionEffectType.SLOWNESS.get(), 999999, 1, false ,false);
             this.potionEffect(slow);
         }
 

@@ -124,4 +124,17 @@ public class Utils {
         return axis[Math.round(yaw / 90f) & 0x3].getOppositeFace();
     }
 
+    public static double getVersion() {
+        double version;
+        try {
+            String versionStr = Bukkit.getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3].replace("v", "");
+            versionStr = versionStr.substring(0, versionStr.length()-3).replace("_", ".");
+            version = Double.parseDouble(versionStr);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            Bukkit.getServer().getLogger().severe("Failed to find a valid server version! Report this to the developer immediately");
+            version = 1.2;
+        }
+
+        return version;
+    }
 }

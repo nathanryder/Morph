@@ -37,18 +37,10 @@ public class Main extends JavaPlugin implements Listener {
 	public void onEnable() {
 		pl = this;
 		messages = new Messages();
+		double version = Utils.getVersion();
 
         setupFiles();
         setupCommands();
-
-        double version;
-		try {
-			String versionStr = Bukkit.getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3].replace("v", "");
-			versionStr = versionStr.substring(0, versionStr.length()-3).replace("_", ".");
-			version = Double.parseDouble(versionStr);
-		} catch (ArrayIndexOutOfBoundsException e) {
-			version = 1.19;
-		}
 
 		messages.setup();
 		morphManager = new MorphManager();
@@ -141,6 +133,10 @@ public class Main extends JavaPlugin implements Listener {
 		if (version >= 1.20) {
 			morphManager.registerMorph(new CamelMorph());
 			morphManager.registerMorph(new SnifferMorph());
+		}
+		if (version >= 1.21) {
+			morphManager.registerMorph(new BoggedMorph());
+			morphManager.registerMorph(new BreezeMorph());
 		}
 
 		Runnables.potionEffects();

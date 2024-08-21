@@ -2,6 +2,7 @@ package me.bumblebeee_.morph.morphs;
 
 import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Main;
+import me.bumblebeee_.morph.VersionedPotionEffectType;
 import me.bumblebeee_.morph.events.PlayerUndisguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Bukkit;
@@ -31,8 +32,8 @@ public class IronGolemMorph extends Morph implements Listener {
                 .abilityInfo("&5Passive: &eNo fall damage and Strength 6","&5Weakness: Slowness 1");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".strength")) {
-            PotionEffect strength = new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 999999, 5, false ,false);
-            PotionEffect slow = new PotionEffect(PotionEffectType.SLOW, 999999, 1, false ,false);
+            PotionEffect strength = new PotionEffect(VersionedPotionEffectType.INSTANT_DAMAGE.get(), 999999, 5, false ,false);
+            PotionEffect slow = new PotionEffect(VersionedPotionEffectType.SLOWNESS.get(), 999999, 1, false ,false);
             this.potionEffect(strength).potionEffect(slow);
         }
 
