@@ -74,6 +74,9 @@ public class Inventorys {
         owners.put("tropicalfish", "MHF_TropicalFish");
         owners.put("phantom", "MHF_Phantom");
         owners.put("turtle", "MHF_Turtle");
+        owners.put("cat", "e9b3986e32affdb22731b687ac054a25851f8616a5a3c5ae6bb92b8ed1c9ae");
+        owners.put("fox", "16db7d507389a14bbec39de6922165b32d43657bcb6aaf4b5182825b22b4");
+        owners.put("panda", "d188c980aacfa94cf33088512b1b9517ba826b154d4cafc262aff6977be8a");
 
         owners.put("giant", "MHF_Giant");
         owners.put("ender_dragon", "ender_dragon");

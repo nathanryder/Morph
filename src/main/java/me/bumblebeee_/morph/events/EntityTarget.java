@@ -2,6 +2,8 @@ package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,6 +22,7 @@ public class EntityTarget implements Listener {
             return;
 
         String using = mm.getUsing(p);
+        Entity en = e.getEntity();
         if (using.equalsIgnoreCase("evoker")) {
             e.setCancelled(true);
         } else if (using.equalsIgnoreCase("slime")) {
@@ -28,9 +31,12 @@ public class EntityTarget implements Listener {
                     e.setCancelled(true);
                 }
             }
-        } else if (e.getEntity().getType().toString().equalsIgnoreCase(Morph.using.get(p.getUniqueId()))) {
+        } else if (en.getType().toString().equalsIgnoreCase(Morph.using.get(p.getUniqueId()))) {
             if (Morph.pl.getConfig().getBoolean("ignoreMobsWhenMorphed"))
-            e.setCancelled(true);
+                e.setCancelled(true);
+        } else if (en.getType() == EntityType.PHANTOM) {
+            if (Morph.using.get(p.getUniqueId()).equalsIgnoreCase("cat"))
+                e.setCancelled(true);
         }
     }
 

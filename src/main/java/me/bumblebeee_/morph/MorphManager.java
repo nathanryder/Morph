@@ -317,6 +317,21 @@ public class MorphManager {
                 p.setHealthScale(32);
                 p.setMaxHealth(32);
             }
+        } else if (using.equalsIgnoreCase("cat")) {
+            if (Morph.health) {
+                p.setHealthScale(10);
+                p.setMaxHealth(10);
+            }
+        } else if (using.equalsIgnoreCase("fox")) {
+            if (Morph.health) {
+                p.setHealthScale(10);
+                p.setMaxHealth(10);
+            }
+        } else if (using.equalsIgnoreCase("panda")) {
+            if (Morph.health) {
+                p.setHealthScale(10);
+                p.setMaxHealth(10);
+            }
         }
 
         if (!silent) {
@@ -647,6 +662,12 @@ public class MorphManager {
                 return Sound.ENTITY_PHANTOM_AMBIENT;
             case "turtle":
                 return Sound.ENTITY_PHANTOM_AMBIENT;
+            case "cat":
+                return Sound.ENTITY_CAT_AMBIENT;
+            case "fox":
+                return Sound.ENTITY_FOX_AMBIENT;
+            case "panda":
+                return Sound.ENTITY_PANDA_AMBIENT;
         }
         return null;
     }

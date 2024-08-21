@@ -86,7 +86,8 @@ public class Runnables {
 
 	@SuppressWarnings("deprecation")
 	public static void setup(final Plugin pl) {
-		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(pl, new BukkitRunnable() {
+		Bukkit.getServer().getScheduler().runTaskTimer(pl, new Runnable() {
+		    @Override
 			public void run() {
 				for (Player p : Bukkit.getServer().getOnlinePlayers()) {
 					if (!DisguiseAPI.isDisguised(p))
@@ -218,7 +219,7 @@ public class Runnables {
 
 	@SuppressWarnings("deprecation")
     public static void burning(final Plugin pl) {
-        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(pl, new BukkitRunnable() {
+        Bukkit.getServer().getScheduler().runTaskTimer(pl, new Runnable() {
             public void run() {
                 for (Player p : Bukkit.getServer().getOnlinePlayers()) {
                     if (DisguiseAPI.isDisguised(p)) {
@@ -292,7 +293,7 @@ public class Runnables {
             if (ManaManager.version.equalsIgnoreCase("v1_8_R3"))
                 return;
         }
-        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Morph.pl, new Runnable() {
+        Bukkit.getServer().getScheduler().runTaskTimer(Morph.pl, new Runnable() {
 			@Override
 			public void run() {
                 for (Player p : Bukkit.getServer().getOnlinePlayers()) {

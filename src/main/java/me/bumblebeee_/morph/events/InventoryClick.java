@@ -33,8 +33,8 @@ public class InventoryClick implements Listener {
     public void onClick(InventoryClickEvent e) {
         String morphedTitle = m.getMessage("morphedTitle").replace("{mob}", "");
         String unmorphedTitle = m.getMessage("unmorphedTitle");
-        if (e.getInventory().getName().startsWith(morphedTitle) ||
-                e.getInventory().getName().equalsIgnoreCase(unmorphedTitle)) {
+        if (e.getView().getTitle().startsWith(morphedTitle) ||
+                e.getView().getTitle().equalsIgnoreCase(unmorphedTitle)) {
             e.setCancelled(true);
 
             if (e.getCurrentItem() == null) return;
@@ -242,7 +242,7 @@ public class InventoryClick implements Listener {
 
                 morph.morphPlayer(p, type, false, baby);
             }
-        } else if (e.getInventory().getName().equalsIgnoreCase("Morph Options")) {
+        } else if (e.getView().getTitle().equalsIgnoreCase("Morph Options")) {
             e.setCancelled(true);
 
             if (e.getCurrentItem() == null) return;
