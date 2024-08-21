@@ -80,6 +80,8 @@ permissions:
             morph.into.frog: true
             morph.into.tadpole: true
             morph.into.warden: true
+            morph.into.camel: true
+            morph.into.sniffer: true
     morph.bypasskill.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -144,6 +146,8 @@ permissions:
             morph.into.frog: false
             morph.into.tadpole: false
             morph.into.warden: false
+            morph.into.camel: false
+            morph.into.sniffer: false
     morph.bypassreset.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -209,6 +213,8 @@ permissions:
             morph.bypassreset.frog: false
             morph.bypassreset.tadpole: false
             morph.bypassreset.warden: false
+            morph.bypassreset.camel: false
+            morph.bypassreset.sniffer: false
     morph.bypasstime.*:
         description: Bypass the time limit on unmorphing
         children:
@@ -274,6 +280,8 @@ permissions:
             morph.bypasstime.frog: false
             morph.bypasstime.tadpole: false
             morph.bypasstime.warden: false
+            morph.bypasstime.camel: false
+            morph.bypasstime.sniffer: false
     morph.morph:
         description: Main permission
         default: false

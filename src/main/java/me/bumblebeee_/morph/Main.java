@@ -137,6 +137,10 @@ public class Main extends JavaPlugin implements Listener {
 			morphManager.registerMorph(new TadpoleMorph());
 			morphManager.registerMorph(new WardenMorph());
 		}
+		if (version >= 1.20) {
+			morphManager.registerMorph(new CamelMorph());
+			morphManager.registerMorph(new SnifferMorph());
+		}
 
 		m.setup();
 		Runnables.potionEffects();

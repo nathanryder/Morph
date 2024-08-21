@@ -31,8 +31,6 @@ public class ManaManager {
             return false;
         }
 
-        System.out.println("Version: " + version);
-
         if (version.equals("v1_11_R1"))
             ab = new Actionbar_1_11_R1();
         else if (version.equalsIgnoreCase("v1_9_R1"))

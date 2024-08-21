@@ -556,3 +556,17 @@ warden:
   morph-cooldown: 0
   ability-cooldown: 10
   sonicBoom: true
+camel:
+  enabled: true
+  health: 32
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+  ability-cooldown: 10
+sniffer:
+  enabled: true
+  health: 14
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+  ability-cooldown: 10
