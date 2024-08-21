@@ -190,11 +190,8 @@ public class EntityDeath implements Listener {
 						}
 						break;
 					case "craftcow":
-						System.out.println("Is cow");
 						if (!killer.hasPermission("morph.bypasskill.cow")) {
-							System.out.println("Doesn't have bypass");
 							if (killer.hasPermission("morph.into.cow")) {
-								System.out.println("Has into");
 								Cow c = (Cow) ev.getEntity();
 								if (c.isAdult()) {
 									if (!stringList.contains("cow")) {
@@ -206,7 +203,6 @@ public class EntityDeath implements Listener {
 											e.printStackTrace();
 										}
 										killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a cow!");
-										System.out.println("END 1");
 										break;
 									}
 								} else {
@@ -219,13 +215,11 @@ public class EntityDeath implements Listener {
 											e.printStackTrace();
 										}
 										killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a baby cow!");
-										System.out.println("END 2");
 										break;
 									}
 								}
 							}
 						}
-						System.out.println("END 3");
 						break;
 					case "craftwitherskeleton":
 						if (!killer.hasPermission("morph.bypasskill.wither_skeleton")) {
