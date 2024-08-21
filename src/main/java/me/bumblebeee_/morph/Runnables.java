@@ -46,21 +46,21 @@ public class Runnables {
 						if (p.isSneaking()) {
 							Location l = p.getLocation().add(0, 1, 0);
 							if (!blocked.contains(l.clone().add(0.5, 0, 0).getBlock().getType())) {
-								p.setVelocity(p.getVelocity().setY(0.1F));
+								p.setVelocity(p.getVelocity().setY(-0.1F));
 							} else if (!blocked.contains(l.clone().add(0, 0, 0.5).getBlock().getType())) {
-								p.setVelocity(p.getVelocity().setY(0.1F));
+								p.setVelocity(p.getVelocity().setY(-0.1F));
 							} else if (!blocked.contains(l.clone().add(-0.5, 0, 0).getBlock().getType())) {
-								p.setVelocity(p.getVelocity().setY(0.1F));
+								p.setVelocity(p.getVelocity().setY(-0.1F));
 							} else if (!blocked.contains(l.clone().add(0, 0, -0.5).getBlock().getType())) {
-								p.setVelocity(p.getVelocity().setY(0.1F));
+								p.setVelocity(p.getVelocity().setY(-0.1F));
 							} else if (!blocked.contains(l.clone().add(0.5, 0, 0.5).getBlock().getType())) {
-								p.setVelocity(p.getVelocity().setY(0.1F));
+								p.setVelocity(p.getVelocity().setY(-0.1F));
 							} else if (!blocked.contains(l.clone().add(-0.5, 0, 0.5).getBlock().getType())) {
-								p.setVelocity(p.getVelocity().setY(0.1F));
+								p.setVelocity(p.getVelocity().setY(-0.1F));
 							} else if (!blocked.contains(l.clone().add(0.5, 0, -0.5).getBlock().getType())) {
-								p.setVelocity(p.getVelocity().setY(0.1F));
+								p.setVelocity(p.getVelocity().setY(-0.1F));
 							} else if (!blocked.contains(l.clone().add(-0.5, 0, -0.5).getBlock().getType())) {
-								p.setVelocity(p.getVelocity().setY(0.1F));
+								p.setVelocity(p.getVelocity().setY(-0.1F));
 							}
 						} else {
 							Location l = p.getLocation().add(0, 1, 0);
@@ -348,24 +348,18 @@ public class Runnables {
             @Override
             public void run() {
                 for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-                    System.out.println("1");
                     if (!mana.getManaPlayers().containsKey(p.getUniqueId()))
                         continue;
-                    System.out.println("2");
                     if (!hasFlyingAbility(p))
                         continue;
-                    System.out.println("3");
                     if (!Morph.pl.getConfig().getBoolean("morph-power"))
                         continue;
-                    System.out.println("4");
                     if (MorphManager.morphTimeout.get(p.getUniqueId()) != null) {
                         if (MorphManager.morphTimeout.get(p.getUniqueId()) <= 30)
                             continue;
                     }
-                    System.out.println("5");
 
                     if (p.isFlying()) {
-                        System.out.println("6");
                         if (mana.getMana(p) < 0) {
                             p.setFlying(false);
                             p.setAllowFlight(false);
