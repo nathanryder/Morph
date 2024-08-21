@@ -2,6 +2,7 @@ package me.bumblebeee_.morph;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import me.bumblebeee_.morph.morphs.Morph;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -83,7 +84,13 @@ public class Inventorys {
                             continue;
                         if (!p.hasPermission("morph.bypasskill." + mobs.get(i).toLowerCase())) {
                             String mob = mobs.get(i);
-                            String mobName = Main.getMorphManager().getMorphType(mob.split(":")[0]).toFriendly();
+                            Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
+                            if (morphType == null) {
+                                Main.pl.getLogger().severe("Failed to find type for " + mob.split(":")[0] + "("+mob+")");
+                                continue;
+                            }
+
+                            String mobName = morphType.toFriendly();
 
                             if (mob.split(":").length > 1) {
                                 mobName = "Baby " + mobName.split(":")[0];
@@ -103,6 +110,7 @@ public class Inventorys {
                         if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
                             String m = owners.get(s);
                             String mob = getMobName(m);
+                            System.out.println("Find mob: " + mob.split(":")[0]);
                             String mobName = Main.getMorphManager().getMorphType(mob.split(":")[0]).toFriendly();
 
                             if (m.split(":").length > 1) {

@@ -451,7 +451,11 @@ public class MorphManager {
     }
 
     public Sound playSound(Player p) {
-        return Sound.ENTITY_LIGHTNING_BOLT_IMPACT;
+        Morph morph = getUsingMorph(p);
+        if (morph == null) {
+            return Sound.BLOCK_NOTE_BLOCK_BASEDRUM;
+        }
+        return morph.getSound();
     }
 
 }
