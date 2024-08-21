@@ -53,19 +53,26 @@ public class InventoryClick implements Listener {
                     Inventorys.pages.remove(p.getUniqueId());
                     if (page == 1) {
                         Inventorys.pages.put(p.getUniqueId(), 2);
+                        inv.openMorph(p, 3);
+                    } else if (page == 3) {
+                        Inventorys.pages.put(p.getUniqueId(), 2);
                         inv.openMorph(p, 2);
                     } else {
                         Inventorys.pages.put(p.getUniqueId(), 1);
                         inv.openMorph(p, 1);
                     }
                 } else {
-                    Inventorys.pages.put(p.getUniqueId(), 2);
-                    inv.openMorph(p, 2);
+                    Inventorys.pages.put(p.getUniqueId(), 3);
+                    inv.openMorph(p, 3);
                 }
             } else if (dis.equalsIgnoreCase("Next")) {
                 if (Inventorys.pages.containsKey(p.getUniqueId())) {
                     int page = Inventorys.pages.get(p.getUniqueId());
                     if (page == 2) {
+                        Inventorys.pages.remove(p.getUniqueId());
+                        Inventorys.pages.put(p.getUniqueId(), 3);
+                        inv.openMorph(p, 3);
+                    } else if (page == 3) {
                         Inventorys.pages.remove(p.getUniqueId());
                         Inventorys.pages.put(p.getUniqueId(), 1);
                         inv.openMorph(p, 1);

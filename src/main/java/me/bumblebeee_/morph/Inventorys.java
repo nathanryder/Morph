@@ -1,6 +1,8 @@
 package me.bumblebeee_.morph;
 
 import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.properties.Property;
+import org.apache.commons.codec.binary.Base64;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -13,6 +15,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.util.*;
 
 public class Inventorys {
@@ -32,7 +35,7 @@ public class Inventorys {
         owners.put("enderman", "MHF_Enderman");
         owners.put("ghast", "MHF_Ghast");
         owners.put("iron_golem", "MHF_Golem");
-        owners.put("horse", "gavertoso");
+        owners.put("horse", "be78c4762674dde8b1a5a1e873b33f28e13e7c102b193f683549b38dc70e0");
         owners.put("magma_cube", "MHF_LavaSlime");
         owners.put("mushroom_cow", "MHF_MushroomCow");
         owners.put("ocelot", "MHF_Ocelot");
@@ -49,24 +52,24 @@ public class Inventorys {
         owners.put("snowman", "MHF_Pumpkin");
         owners.put("wolf", "MHF_Wolf");
         owners.put("rabbit", "MHF_Rabbit");
-        owners.put("husk", "MHF_Husk");
+        owners.put("husk", "d674c63c8db5f4ca628d69a3b1f8a36e29d8fd775e1a6bdb6cabb4be4db121");
         owners.put("stray", "MHF_Stray");
-        owners.put("polar_bear", "MHF_PolarBear");
-        owners.put("donkey", "MHF_Donkey");
-        owners.put("Mule", "MHF_Mule");
+        owners.put("polar_bear", "442123ac15effa1ba46462472871b88f1b09c1db467621376e2f71656d3fbc");
+        owners.put("donkey", "63a976c047f412ebc5cb197131ebef30c004c0faf49d8dd4105fca1207edaff3");
+        owners.put("Mule", "a0486a742e7dda0bae61ce2f55fa13527f1c3b334c57c034bb4cf132fb5f5f");
         owners.put("zombie_villager", "MHF_ZombieVillager");
-        owners.put("vindicator", "MHF_Vindicator");
+        owners.put("vindicator", "6deaec344ab095b48cead7527f7dee61b063ff791f76a8fa76642c8676e2173");
         owners.put("evoker", "MHF_Evoker");
         owners.put("vex", "MHF_Vex");
-        owners.put("llama", "MHF_Llama");
+        owners.put("llama", "c2b1ecff77ffe3b503c30a548eb23a1a08fa26fd67cdff389855d74921368");
         owners.put("parrot", "MHF_Parrot");
-        owners.put("illusioner", "MHF_Illusioner");
+        owners.put("illusioner", "512512e7d016a2343a7bff1a4cd15357ab851579f1389bd4e3a24cbeb88b");
         owners.put("guardian", "MHF_Guardian");
-        owners.put("silverfish", "MHF_SilverFish");
-        owners.put("dolphin", "MHF_Dolphin");
+        owners.put("silverfish", "da91dab8391af5fda54acd2c0b18fbd819b865e1a8f1d623813fa761e924540");
+        owners.put("dolphin", "8e9688b950d880b55b7aa2cfcd76e5a0fa94aac6d16f78e833f7443ea29fed3");
         owners.put("drowned", "MHF_Drowned");
-        owners.put("cod", "MHF_Cod");
-        owners.put("salmon", "MHF_Salmon");
+        owners.put("cod", "7892d7dd6aadf35f86da27fb63da4edda211df96d2829f691462a4fb1cab0");
+        owners.put("salmon", "8aeb21a25e46806ce8537fbd6668281cf176ceafe95af90e94a5fd84924878");
         owners.put("pufferfish", "MHF_PufferFish");
         owners.put("tropicalfish", "MHF_TropicalFish");
         owners.put("phantom", "MHF_Phantom");
@@ -88,11 +91,11 @@ public class Inventorys {
         owners.put("baby_rabbit", "MHF_Rabbit:baby");
         owners.put("baby_ocelot", "MHF_Ocelot:baby");
         owners.put("baby_villager", "MHF_Villager:baby");
-        owners.put("baby_horse", "MHF_Horse:baby");
-        owners.put("baby_donkey", "MHF_Donkey:baby");
-        owners.put("baby_mule", "MHF_Mule:baby");
-        owners.put("baby_polar_bear", "MHF_PolarBear:baby");
-        owners.put("baby_husk", "MHF_Husk:baby");
+        owners.put("baby_horse", "be78c4762674dde8b1a5a1e873b33f28e13e7c102b193f683549b38dc70e0:baby");
+        owners.put("baby_donkey", "63a976c047f412ebc5cb197131ebef30c004c0faf49d8dd4105fca1207edaff3:baby");
+        owners.put("baby_mule", "a0486a742e7dda0bae61ce2f55fa13527f1c3b334c57c034bb4cf132fb5f5f:baby");
+        owners.put("baby_polar_bear", "442123ac15effa1ba46462472871b88f1b09c1db467621376e2f71656d3fbc:baby");
+        owners.put("baby_husk", "d674c63c8db5f4ca628d69a3b1f8a36e29d8fd775e1a6bdb6cabb4be4db121:baby");
     }
 
     public void openMorph(final Player p, int page) {
@@ -161,10 +164,30 @@ public class Inventorys {
                     pos++;
                 }
             }
-        } else {
+        } else if (page == 2) {
             int i = 0;
             for (String s : owners.keySet()) {
-                if (i >= 26) {
+                if (i >= 26 && i < 52) {
+                    if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
+                        String m = owners.get(s);
+                        String mob = getMobName(m);
+                        String l1 = mob.substring(0, 1).toUpperCase();
+                        String mobName = l1 + mob.substring(1);
+                        if (mobName.split("_").length > 1) {
+                            mobName = mobName.split("_")[0] + " " + mobName.split("_")[1];
+                        }
+
+                        String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
+                        inv.setItem(pos, createHead(mob, display));
+                        pos++;
+                    }
+                }
+                i++;
+            }
+        } else if (page == 3) {
+            int i = 0;
+            for (String s : owners.keySet()) {
+                if (i >= 52) {
                     if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
                         String m = owners.get(s);
                         String mob = getMobName(m);
@@ -301,7 +324,7 @@ public class Inventorys {
 
     public ItemStack createHead(String mobName, String display) {
         if (mobName.equalsIgnoreCase("ender_dragon")) {
-            ItemStack i = new ItemStack(Material.PLAYER_HEAD, 1, (short) 5);
+            ItemStack i = new ItemStack(Material.DRAGON_HEAD, 1);
             ItemMeta im = i.getItemMeta();
             im.setDisplayName(display);
             i.setItemMeta(im);
@@ -331,6 +354,16 @@ public class Inventorys {
             owner = owner.split(":")[0];
         }
 
+        //TODO
+        System.out.println("Owner: " + owner);
+        if (!owner.split("_")[0].equalsIgnoreCase("MHF")) {
+            ItemStack i = getHeadTest(owner, "Name");
+            SkullMeta sm = (SkullMeta) i.getItemMeta();
+            sm.setDisplayName(display);
+            i.setItemMeta(sm);
+            return i;
+        }
+
         ItemStack i = new ItemStack(Material.PLAYER_HEAD);
         i.setDurability((short) 3);
         SkullMeta sm = (SkullMeta) i.getItemMeta();
@@ -338,6 +371,30 @@ public class Inventorys {
         sm.setDisplayName(display);
         i.setItemMeta(sm);
         return i;
+    }
+
+    public static ItemStack getHeadTest(String playerSkullTexture, String nom) {
+        playerSkullTexture = "http://textures.minecraft.net/texture/" + playerSkullTexture;
+        ItemStack skull = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
+        SkullMeta sk = (SkullMeta) skull.getItemMeta();
+        if (!nom.equalsIgnoreCase("")) {
+            sk.setDisplayName(nom);
+        }
+
+        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
+        byte[] encodedData = Base64.encodeBase64(String.format("{textures:{SKIN:{url:\"%s\"}}}", playerSkullTexture).getBytes());
+        profile.getProperties().put("textures", new Property("textures", new String(encodedData)));
+        Field profileField;
+        try {
+            profileField = sk.getClass().getDeclaredField("profile");
+            profileField.setAccessible(true);
+            profileField.set(sk, profile);
+        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e1) {
+            e1.printStackTrace();
+        }
+        skull.setItemMeta(sk);
+
+        return skull;
     }
 
     public String getMobName(String owner) {
