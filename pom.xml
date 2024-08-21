@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.bumblebeee_.morph</groupId>
     <artifactId>Morph</artifactId>
-    <version>3.0</version>
+    <version>3.0-DEV</version>
     <packaging>jar</packaging>
 
     <properties>
