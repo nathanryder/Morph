@@ -2,6 +2,7 @@ package me.bumblebeee_.morph;
 
 import me.bumblebeee_.morph.events.RegisterEvents;
 import me.libraryaddict.disguise.DisguiseAPI;
+import me.libraryaddict.disguise.LibsDisguises;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -62,6 +63,14 @@ public class Morph extends JavaPlugin implements Listener {
 			boolean sound = c.getString("sounds") == null || c.getBoolean("sounds");
 			if (!sound)
 				MorphManager.soundDisabled.add(p.getUniqueId());
+		}
+
+		String[] libsVersion = LibsDisguises.getInstance().getDescription().getVersion().split("\\.");
+		System.out.println("Ver: " + libsVersion[2]);
+		if (Integer.parseInt(libsVersion[2]) < 25) {
+			getLogger().warning(" ");
+			getLogger().warning("It is recommended to update LibsDisguises to at least version 10.0.25 to prevent any errors!");
+			getLogger().warning(" ");
 		}
 	}
 
