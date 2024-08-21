@@ -1,22 +1,14 @@
 package me.bumblebeee_.morph;
 
+import me.bumblebeee_.morph.events.EntityDamageByEntityListener;
 import me.bumblebeee_.morph.morphs.Morph;
-import me.libraryaddict.disguise.DisguiseAPI;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class Runnables {
 
@@ -139,6 +131,28 @@ public class Runnables {
                 }
             }
         }.runTaskTimer(Main.pl, 20, 20);
+    }
+
+    public static void agroMobs() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Map<UUID, Map<UUID, Integer>> newAttacking = new HashMap<>();
+                for (UUID uuid : EntityDamageByEntityListener.attacking.keySet()) {
+                    Map<UUID, Integer> entities = EntityDamageByEntityListener.attacking.get(uuid);
+                    Map<UUID, Integer> newEntities = new HashMap<>();
+                    for (UUID en : entities.keySet()) {
+                        if (entities.get(en) > 1) {
+                            newEntities.put(en, entities.get(en) - 1);
+                        }
+                    }
+
+                    newAttacking.put(uuid, newEntities);
+                }
+
+                EntityDamageByEntityListener.attacking = newAttacking;
+            }
+        }.runTaskTimer(Main.pl, 0, 20);
     }
 
     public static boolean hasFlyingAbility(Player p) {

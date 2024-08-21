@@ -1,5 +1,6 @@
 package me.bumblebeee_.morph.events;
 
+import me.bumblebeee_.morph.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
@@ -15,9 +16,13 @@ public class RegisterEvents {
 		Bukkit.getServer().getPluginManager().registerEvents(new WeatherChange(), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new InventoryClick(), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new RespawnEvent(pl), pl);
-		Bukkit.getServer().getPluginManager().registerEvents(new EntityTarget(), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new PlayerUndisguise(), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new PlayerSwapHandItems(), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new ItemDrop(), pl);
+
+		if (Main.pl.getConfig().getBoolean("ignoreMobsWhenMorphed")) {
+			Bukkit.getServer().getPluginManager().registerEvents(new EntityTarget(), pl);
+			Bukkit.getServer().getPluginManager().registerEvents(new EntityDamageByEntityListener(), pl);
+		}
 	}
 }

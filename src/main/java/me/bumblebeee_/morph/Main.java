@@ -123,6 +123,9 @@ public class Main extends JavaPlugin implements Listener {
 		if (getConfig().getBoolean("morph-power")) {
 			Runnables.morphPower();
 		}
+		if (getConfig().getBoolean("ignoreMobsWhenMorphed")) {
+			Runnables.agroMobs();
+		}
 		mana.setup();
         Runnables.mobSounds();
 
