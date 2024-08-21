@@ -79,6 +79,9 @@ public class InteractWithEntity implements Listener {
                 return;
 
             if (!(beecd.containsKey(p))) {
+                if (!(t instanceof LivingEntity))
+                    return;
+
                 LivingEntity le = (LivingEntity) t;
                 PotionEffect poison = PotionEffectType.POISON.createEffect(15*20, 2);
                 le.addPotionEffect(poison);
