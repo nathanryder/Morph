@@ -13,7 +13,6 @@ import java.util.UUID;
 
 public class PlayerUndisguise implements Listener {
 
-    MorphManager morph = new MorphManager();
     public static ArrayList<UUID> blow = new ArrayList<>();
 
     @EventHandler
@@ -41,7 +40,7 @@ public class PlayerUndisguise implements Listener {
             if (!Main.using.containsKey(p.getUniqueId()))
                 return;
 
-            morph.unmorphPlayer(p, false, false);
+            Main.getMorphManager().unmorphPlayer(p, false, false);
             blow.remove(e.getDisguised().getUniqueId());
         }
     }

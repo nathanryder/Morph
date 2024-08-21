@@ -21,7 +21,6 @@ import java.io.IOException;
 public class PlayerJoin implements Listener { 
 
 	ManaManager mana = new ManaManager();
-	MorphManager morph = new MorphManager();
 	Messages msgs = new Messages();
 
 	Plugin pl = null;
@@ -68,7 +67,7 @@ public class PlayerJoin implements Listener {
         //Give morph item
 		FileConfiguration conf = Main.pl.getConfig();
 		if (conf.getBoolean("morphItem.giveOnJoin")) {
-			ItemStack item = morph.getMorphItem();
+			ItemStack item = Main.getMorphManager().getMorphItem();
 			int slot = conf.getInt("morphItem.slot");
 			boolean give = true;
 
@@ -90,7 +89,7 @@ public class PlayerJoin implements Listener {
 				Morph type = Main.getMorphManager().getMorphType(typeStr);
 				boolean isBaby = data.length > 1 && data[1].equals("baby");
 
-				morph.morphPlayer(p, type, false, isBaby);
+				Main.getMorphManager().morphPlayer(p, type, false, isBaby);
 
 				c.set("lastMorph", null);
 				try {

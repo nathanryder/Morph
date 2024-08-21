@@ -20,7 +20,6 @@ import java.util.UUID;
 
 public class Runnables {
 
-    static MorphManager morph = new MorphManager();
     static ManaManager mana = new ManaManager();
     static Messages m = new Messages();
 
@@ -36,7 +35,7 @@ public class Runnables {
                     if (!Main.using.containsKey(p.getUniqueId()))
                         continue;
 
-                    String using = morph.getUsing(p);
+                    String using = Main.getMorphManager().getUsing(p);
                     Morph morph = Main.getMorphManager().getMorphType(using);
 
                     for (PotionEffect effect : morph.getEffects()) {
@@ -65,7 +64,7 @@ public class Runnables {
                         continue;
 
                     if (sounds.contains(p.getUniqueId())) {
-                        Sound s = morph.playSound(p);
+                        Sound s = Main.getMorphManager().playSound(p);
                         if (s != null)
                             p.getWorld().playSound(p.getLocation(), s, 2, 1);
                         sounds.remove(p.getUniqueId());

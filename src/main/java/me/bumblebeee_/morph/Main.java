@@ -35,19 +35,6 @@ public class Main extends JavaPlugin implements Listener {
 
 	public static @Getter MorphManager morphManager;
 
-	//	TODO
-	//	Look into changing morph menu title breaking click events
-	//
-	//	Fixed some mobs not having abilities
-	//	Fixed some mobs not displaying in the morph menu
-	//	Fixed some mobs having incorrect head in morph menu
-	//	Fixed player morphs not appearing in the morph menu
-	//	Fixed some morphs not having a sound
-	//	Fixed formatting on /morph list
-	//	Fixed some /morph info descriptions not accurate
-	//	Added some abilities to some mobs
-	//	Added list to blacklist certain players from being morphed into
-
 	public void onEnable() {
 		pl = this;
 

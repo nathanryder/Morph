@@ -24,11 +24,11 @@ public class MorphCommand implements CommandExecutor {
 
     Messages m = new Messages();
     Inventorys inv = new Inventorys();
-    MorphManager morph = new MorphManager();
     Plugin pl = Main.pl;
 
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+        MorphManager morph = Main.getMorphManager();
         String prefix = m.getMessage("prefix");
         if (cmd.getName().equalsIgnoreCase("delmorph")) {
             if (!sender.hasPermission("morph.morph.modify")) {

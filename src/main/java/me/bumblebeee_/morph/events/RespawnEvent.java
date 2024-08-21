@@ -19,8 +19,6 @@ import me.libraryaddict.disguise.DisguiseAPI;
 
 public class RespawnEvent implements Listener {
 
-    MorphManager mm = new MorphManager();
-
     Plugin pl = null;
     public RespawnEvent(Plugin plugin) {
         pl = plugin;
@@ -37,7 +35,7 @@ public class RespawnEvent implements Listener {
                 isBaby = true;
             }
 
-            mm.morphPlayer(p, Main.getMorphManager().getMorphType(mobDis.split(":")[0]), true, isBaby);
+            Main.getMorphManager().morphPlayer(p, Main.getMorphManager().getMorphType(mobDis.split(":")[0]), true, isBaby);
             Main.respawnBuffer.remove(p.getUniqueId());
         } else {
             if (Main.health) {

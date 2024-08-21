@@ -27,11 +27,11 @@ public class InventoryClick implements Listener {
 
     Inventorys inv = new Inventorys();
     Messages m = new Messages();
-    MorphManager morph = new MorphManager();
     String prefix = m.getMessage("prefix");
 
     @EventHandler (priority = EventPriority.LOWEST)
     public void onClick(InventoryClickEvent e) {
+        MorphManager morph = Main.getMorphManager();
         String morphedTitle = m.getMessage("morphedTitle").replace("{mob}", "");
         String unmorphedTitle = m.getMessage("unmorphedTitle");
         if (e.getView().getTitle().startsWith(morphedTitle) ||

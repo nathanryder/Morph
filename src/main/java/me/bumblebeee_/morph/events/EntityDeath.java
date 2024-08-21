@@ -22,7 +22,6 @@ public class EntityDeath implements Listener {
 
 	Plugin pl = null;
 	Messages msgs = new Messages();
-	MorphManager morph = new MorphManager();
 
 	public EntityDeath(Plugin plugin) {
 		pl = plugin;
@@ -136,7 +135,7 @@ public class EntityDeath implements Listener {
 		}
 
 		if (pl.getConfig().getBoolean("morphOnKill")) {
-			morph.morphPlayer(killer, morphType, false, isBaby);
+			Main.getMorphManager().morphPlayer(killer, morphType, false, isBaby);
 		}
 	}
 }

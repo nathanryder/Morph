@@ -21,7 +21,6 @@ import java.util.Random;
 
 public class PlayerDeath implements Listener {
 
-	MorphManager mm = new MorphManager();
 	Messages m = new Messages();
 	String prefix = m.getMessage("prefix");
 	
@@ -66,7 +65,7 @@ public class PlayerDeath implements Listener {
 
 		File userFile = new File(pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
 		FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
-		String using = mm.getUsing(p);
+		String using = Main.getMorphManager().getUsing(p);
 		List<String> stringList = fileConfig.getStringList("Mobs");
 
 		if (k != null) {

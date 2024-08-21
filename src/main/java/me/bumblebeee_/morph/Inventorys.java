@@ -21,7 +21,6 @@ import static me.bumblebeee_.morph.MorphCommand.send;
 
 public class Inventorys {
 
-    MorphManager mm = new MorphManager();
     Messages msgs = new Messages();
 
     public static HashMap<UUID, Integer> pages = new HashMap<>();
@@ -56,7 +55,7 @@ public class Inventorys {
                 FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
                 String using = "none";
                 if (Main.using.containsKey(p.getUniqueId())) {
-                    using = mm.getUsing(p);
+                    using = Main.getMorphManager().getUsing(p);
                 }
                 List<String> mobs = fileConfig.getStringList("Mobs");
                 List<String> players = fileConfig.getStringList("Players");

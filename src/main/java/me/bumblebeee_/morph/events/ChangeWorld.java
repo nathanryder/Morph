@@ -18,7 +18,6 @@ public class ChangeWorld implements Listener {
 	
 	Plugin pl = null;
 	Messages m = new Messages();
-	MorphManager morph = new MorphManager();
 	public ChangeWorld(Plugin plugin) {
 		pl = plugin;
 	}
@@ -53,7 +52,7 @@ public class ChangeWorld implements Listener {
 		} else {
 			if (!DisguiseAPI.isDisguised(p))
 				return;
-			if (morph.getViewMorph(p))
+			if (Main.getMorphManager().getViewMorph(p))
 				return;
 
 			Bukkit.getServer().getScheduler().runTaskLater(Main.pl, new Runnable() {
