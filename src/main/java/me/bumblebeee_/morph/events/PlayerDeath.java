@@ -110,8 +110,9 @@ public class PlayerDeath implements Listener {
                     ex.printStackTrace();
                     p.sendMessage(prefix + " " + "An error has occured. Please report this to a Admin");
                 }
+
                 p.sendMessage(prefix + " " + m.getMessage("diedLostAll", e.getEntity().getDisplayName(), "", "", ""));
-            }
+			}
 		} else if (pl.getConfig().getBoolean("death-reset-current")) {
 			if (!p.hasPermission("morph.bypassreset." + mob)) {
 				stringList.remove(mob);
@@ -128,13 +129,19 @@ public class PlayerDeath implements Listener {
                 } else {
                     p.sendMessage(prefix + " " + m.getMessage("diedLostCurrent", k.getDisplayName(), p.getDisplayName(), using, ""));
                 }
+
             }
 		}
 
 		if (pl.getConfig().getBoolean("stayMorphedOnDeath")) {
-			Main.respawnBuffer.put(p.getUniqueId(), Main.using.get(p.getUniqueId()));
+			if (pl.getConfig().getBoolean("death-reset-current")) {
+				Main.getMorphManager().unmorphPlayer(p, false, false);
+			} else if (pl.getConfig().getBoolean("death-reset-all")) {
+				Main.getMorphManager().unmorphPlayer(p, false, false);
+			} else {
+				Main.respawnBuffer.put(p.getUniqueId(), Main.using.get(p.getUniqueId()));
+			}
 		} else {
-
 			if (Main.health) {
 				p.setHealthScale(20.0);
 				p.setMaxHealth(20.0);
