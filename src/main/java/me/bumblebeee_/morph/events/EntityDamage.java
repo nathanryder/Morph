@@ -46,7 +46,7 @@ public class EntityDamage implements Listener {
                 ev.setCancelled(true);
             }
         } else if (using.contains("slime")) {
-            if (!Morph.pl.getConfig().getBoolean("slime-split"))
+            if (!Morph.pl.getConfig().getBoolean("slime.split"))
                 return;
             if (p.getHealth()-ev.getFinalDamage() < 1) {
                 ev.setCancelled(true);
@@ -67,7 +67,7 @@ public class EntityDamage implements Listener {
                 }
             }
         } else if (using.contains("husk")) {
-            if (!Morph.pl.getConfig().getBoolean("husk-hunger"))
+            if (!Morph.pl.getConfig().getBoolean("husk.hunger"))
                 return;
         }
 	}

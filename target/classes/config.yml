@@ -49,113 +49,161 @@ swapMenu: true
 #Only open the menu when there is nothing in the players main hand?
 onlyIfEmptyHand: false
 
-#Abilities
-creeper-explosion: true
-creeper-explosion-damage: false
+#Abilities Configuration
+#
+#morph-cooldown is how often you can morph back into the mob after unmorphing from that particular mob
+#ability-cooldown is the cooldown on the given ability of the mob
+#
+#Enable flying?
 flying: true
-jump-boost: true
-skeleton-shoot: true
-enderman-teleport: true
-squid-waterbreathing: true
-ghast-fireball: true
-horse-speed: true
-ocelot-speed: true
-snowman-snow: true
-irongolem-strength: true
-blaze-fire: true
-zombie-eat: true
-pigzombie-speed: true
-snowmen-shoot: true
-spider-climb: true
-giant-throw: true
-enderdragon-fireball: true
-evoker-attack: true
-evoker-spawnVex: true
-vex-phase: true
-chicken-egg: true
-slime-split: true
-llama-spit: true
-spider-web: true
-stray-slow: true
-husk-hunger: true
 
-giant-enabled: true
-enderdragon-enabled: true
-
-#This increases how high giants can throw people
-giant-force: 2
-#Enables the giant to 'throw' blocks as he walks
-#NOTE: This can cause random blocks to be placed/broken if enabled
-giant-walk-throw: false
-#The amount of blocks vex can phase through
-vex-max-layers: 2
-#Remove spider webs after they are shot?
-removeSpiderWeb: true
-#How long (seconds) should webs stay for before despawning
-spiderWebRemove: 30
-
-#Abilities cooldown (seconds)
-cooldowns:
-  blaze: 5
-  ghast: 5
-  enderman: 5
-  snowman: 0
-  skeleton: 0
-  stray: 0
-  giant: 5
-  enderdragon: 5
-  evoker-attack: 5
-  evoker-spawnVex: 30
-  vex: 30
-  chicken: 120
-  llama: 0
-  spider: 0
-  illusioner: 120
-
-#Limit the amount of time people can be morphed for - set to 0 to disable
-time-limits:
-  horse: 0
-  wolf: 0
-  ocelot: 0
-  cow: 0
-  pig: 0
-  wither_skeleton: 0
-  bat: 0
-  blaze: 0
-  cave_spider: 0
-  chicken: 0
-  creeper: 0
-  enderman: 0
-  endermite: 0
-  ghast: 0
-  guardian: 0
-  iron_golem: 0
-  magma_cube: 0
-  mushroom_cow: 0
-  pig_zombie: 0
-  sheep: 0
-  silverfish: 0
-  skeleton: 0
-  slime: 0
-  snowman: 0
-  spider: 0
-  squid: 0
-  villager: 0
-  witch: 0
-  wither: 0
-  llama: 0
-  vex: 0
-  vindicator: 0
-  evoker: 0
-  zombie: 0
-  rabbit: 0
-  giant: 0
-  enderdragon: 0
-  mule: 0
-  donkey: 0
-  zombie_villager: 0
-  parrot: 0
-  illusioner: 0
+horse:
+  morph-cooldown: 0
+  speed: true
+wolf:
+  morph-cooldown: 0
+ocelot:
+  morph-cooldown: 0
+  speed: true
+cow:
+  morph-cooldown: 0
+pig:
+  morph-cooldown: 0
+wither_skeleton:
+  morph-cooldown: 0
+  ability-cooldown: 0
+bat:
+  morph-cooldown: 0
+blaze:
+  morph-cooldown: 0
+  fire: true
+  ability-cooldown: 5
+cave_spider:
+  morph-cooldown: 0
+  spider-climb: true
+  ability-cooldown: 0
+chicken:
+  morph-cooldown: 0
+  egg: true
+  ability-cooldown: 120
+creeper:
+  morph-cooldown: 0
+  explosion: true
+  explosion-damage: false
+enderman:
+  morph-cooldown: 0
+  teleport: true
+  ability-cooldown: 5
+endermite:
+  morph-cooldown: 0
+ghast:
+  morph-cooldown: 0
+  fireball: true
+  ability-cooldown: 5
+guardian:
+  morph-cooldown: 0
+iron_golem:
+  morph-cooldown: 0
+  strength: true
+magma_cube:
+  morph-cooldown: 0
+mushroom_cow:
+  morph-cooldown: 0
+pig_zombie:
+  morph-cooldown: 0
+  eat: true
+  speed: true
+sheep:
+  morph-cooldown: 0
+silverfish:
+  morph-cooldown: 0
+skeleton:
+  morph-cooldown: 0
+  shoot: true
+slime:
+  morph-cooldown: 0
+  jump-boost: true
+  split: true
+snowman:
+  morph-cooldown: 0
+  snow: true
+  shoot: true
+  ability-cooldown: 0
+spider:
+  morph-cooldown: 0
+  spider-climb: true
+  web: true
+  #Remove spider webs after they are shot?
+  removeSpiderWeb: true
+  #How long (seconds) should webs stay for before despawning
+  spiderWebRemove: 30
+  ability-cooldown: 0
+squid:
+  morph-cooldown: 0
+  waterbreathing: true
+villager:
+  morph-cooldown: 0
+witch:
+  morph-cooldown: 0
+wither:
+  morph-cooldown: 0
+llama:
+  morph-cooldown: 0
+  spit: true
+  ability-cooldown: 0
+vex:
+  morph-cooldown: 0
+  phase: true
+  #The amount of blocks vex can phase through
+  max-layers: 2
+  ability-cooldown: 30
+vindicator:
+  morph-cooldown: 0
+evoker:
+  morph-cooldown: 0
+  attack: true
+  spawnVex: true
+  attack-cooldown: 5
+  spawnVex-cooldown: 30
+zombie:
+  morph-cooldown: 0
+  eat: true
+rabbit:
+  morph-cooldown: 0
+  jump-boost: true
+giant:
+  enabled: true
+  morph-cooldown: 0
+  throw: true
+  #This increases how high giants can throw people
+  force: 2
+  #Enables the giant to 'throw' blocks as he walks
+  #NOTE: This might cause random blocks to be placed/broken if enabled
+  giant-walk-throw: false
+  ability-cooldown: 0
+enderdragon:
+  enabled: true
+  morph-cooldown: 0
+  fireball: true
+  ability-cooldown: 0
+mule:
+  morph-cooldown: 0
+donkey:
+  morph-cooldown: 0
+zombie_villager:
+  morph-cooldown: 0
+parrot:
+  morph-cooldown: 0
+illusioner:
+  morph-cooldown: 0
+  ability-cooldown: 0
+stray:
+  morph-cooldown: 0
+  slow: true
+  ability-cooldown: 0
+husk:
+  morph-cooldown: 0
+  hunger: true
 
 disableHealthSystem: false
 checkForUpdates: true

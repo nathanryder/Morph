@@ -87,7 +87,7 @@ public class InteractEvent implements Listener {
 
 		if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
 			if (using.equalsIgnoreCase("enderman")) {
-				if (pl.getConfig().getString("enderman-teleport").equalsIgnoreCase("true")) {
+				if (pl.getConfig().getString("enderman.teleport").equalsIgnoreCase("true")) {
 					if (p.isSneaking()) {
 						if (!(endercd.containsKey(p))) {
 							float pitch = p.getLocation().getPitch();
@@ -123,7 +123,7 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("skeleton")) {
-				if (pl.getConfig().getString("skeleton-shoot").equalsIgnoreCase("true")) {
+				if (pl.getConfig().getString("skeleton.shoot").equalsIgnoreCase("true")) {
 					if (p.isSneaking()) {
 						if (!(skeletoncd.containsKey(p))) {
 							Arrow a = p.launchProjectile(Arrow.class);
@@ -150,8 +150,8 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("stray")) {
-				if (pl.getConfig().getString("skeleton-shoot").equalsIgnoreCase("true")) {
-					if (pl.getConfig().getString("stray-slow").equalsIgnoreCase("true")) {
+				if (pl.getConfig().getString("stray.shoot").equalsIgnoreCase("true")) {
+					if (pl.getConfig().getString("stray.slow").equalsIgnoreCase("true")) {
 						if (p.isSneaking()) {
 							if (!(straycd.containsKey(p))) {
 								Arrow a = p.launchProjectile(Arrow.class);
@@ -209,7 +209,7 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("ghast")) {
-				if (pl.getConfig().getString("ghast-fireball").equalsIgnoreCase("true")) {
+				if (pl.getConfig().getString("ghast.fireball").equalsIgnoreCase("true")) {
 					if (p.isSneaking()) {
 						if (!(ghastcd.containsKey(p))) {
 							p.launchProjectile(Fireball.class);
@@ -307,7 +307,7 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("blaze")) {
-				if (pl.getConfig().getString("blaze-fire").equalsIgnoreCase("true")) {
+				if (pl.getConfig().getString("blaze.fire").equalsIgnoreCase("true")) {
 					if (p.isSneaking()) {
 						if (!(blazecd.containsKey(p))) {
 							Fireball f = p.launchProjectile(Fireball.class);
@@ -345,7 +345,7 @@ public class InteractEvent implements Listener {
 					p.setFoodLevel(flevel + 2);
 				}
 			} else if (using.equalsIgnoreCase("ender_dragon")) {
-				if (!pl.getConfig().getBoolean("enderdragon-fireball"))
+				if (!pl.getConfig().getBoolean("enderdragon.fireball"))
 					return;
 				if (p.isSneaking()) {
 					if (!(dragoncd.containsKey(p))) {
@@ -375,7 +375,7 @@ public class InteractEvent implements Listener {
 					}
 				}
 			} else if (using.equalsIgnoreCase("evoker")) {
-				if (!pl.getConfig().getBoolean("evoker-attack"))
+				if (!pl.getConfig().getBoolean("evoker.attack"))
 					return;
 				if (!p.isSneaking())
 					return;
@@ -410,7 +410,7 @@ public class InteractEvent implements Listener {
 					p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, evokerAttackcd.get(p)));
 				}
 			} else if (using.equalsIgnoreCase("vex")) {
-				if (!pl.getConfig().getBoolean("vex-phase"))
+				if (!pl.getConfig().getBoolean("vex.phase"))
 					return;
 				if (!p.isSneaking())
 					return;
@@ -425,7 +425,7 @@ public class InteractEvent implements Listener {
 						return;
 
 					Location tp = null;
-					int maxLayers = Morph.pl.getConfig().getInt("vex-max-layers");
+					int maxLayers = Morph.pl.getConfig().getInt("vex.max-layers");
 					for (int i = 0; i <= maxLayers; i++) {
 						if (tp != null)
 							continue;
@@ -462,7 +462,7 @@ public class InteractEvent implements Listener {
 					p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, vexcd.get(p)));
 				}
 			} else if (using.equalsIgnoreCase("chicken")) {
-				if (!pl.getConfig().getBoolean("chicken-egg"))
+				if (!pl.getConfig().getBoolean("chicken.egg"))
 					return;
 				if (!p.isSneaking())
 					return;
@@ -496,7 +496,7 @@ public class InteractEvent implements Listener {
 
 				p.setHealth(0);
 			} else if (using.equalsIgnoreCase("llama")) {
-				if (!pl.getConfig().getBoolean("llama-spit"))
+				if (!pl.getConfig().getBoolean("llama.spit"))
 					return;
 				if (!p.isSneaking())
 					return;
@@ -525,7 +525,7 @@ public class InteractEvent implements Listener {
 					p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, llamacd.get(p)));
 				}
 			} else if (using.equalsIgnoreCase("spider")) {
-				if (!pl.getConfig().getBoolean("spider-web"))
+				if (!pl.getConfig().getBoolean("spider.web"))
 					return;
 				if (!p.isSneaking())
 					return;
@@ -534,8 +534,8 @@ public class InteractEvent implements Listener {
 					final FallingBlock b = p.getWorld().spawnFallingBlock(p.getEyeLocation(), new MaterialData(Material.WEB));
 					b.setVelocity(p.getEyeLocation().getDirection().multiply(2));
 
-					if (Morph.pl.getConfig().getBoolean("removeSpiderWeb")) {
-						int time = Morph.pl.getConfig().getInt("spiderWebRemove");
+					if (Morph.pl.getConfig().getBoolean("spider.removeSpiderWeb")) {
+						int time = Morph.pl.getConfig().getInt("spider.spiderWebRemove");
 						Bukkit.getServer().getScheduler().runTaskLater(Morph.pl, new Runnable() {
 							@Override
 							public void run() {
@@ -569,7 +569,7 @@ public class InteractEvent implements Listener {
 			}
 		} else if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
 			if (using.equalsIgnoreCase("evoker")) {
-				if (!pl.getConfig().getBoolean("evoker-spawnVex"))
+				if (!pl.getConfig().getBoolean("evoker.spawnVex"))
 					return;
 				if (!p.isSneaking())
 					return;

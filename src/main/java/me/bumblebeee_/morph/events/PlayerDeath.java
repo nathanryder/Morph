@@ -72,8 +72,8 @@ public class PlayerDeath implements Listener {
 		}
 		
 		if (using.equalsIgnoreCase("creeper")) {
-			if (pl.getConfig().getBoolean("creeper-explosion")) {
-				w.createExplosion(p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), 2.0F, false, pl.getConfig().getBoolean("creeper-explosion-damage"));
+			if (pl.getConfig().getBoolean("creeper.explosion")) {
+				w.createExplosion(p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), 2.0F, false, pl.getConfig().getBoolean("creeper.explosion-damage"));
 				p.sendMessage(prefix + " " + m.getMessage("creeperExploded", "", p.getDisplayName(), "", ""));
 			}
 		}
