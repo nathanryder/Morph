@@ -21,7 +21,7 @@ public class FrogMorph extends Morph {
                 .headId("d0edcb898356fd400c205c6134e098610bafbbc50417729a155ce77d7bca98d4");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".jump-boost")) {
-            PotionEffect jump = PotionEffectType.JUMP.createEffect(999999, 5);
+            PotionEffect jump = new PotionEffect(PotionEffectType.JUMP, 999999, 5, false ,false);
             this.potionEffect(jump);
         }
     }

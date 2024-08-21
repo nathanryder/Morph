@@ -22,8 +22,8 @@ public class GuardianMorph extends Morph {
                 .abilityInfo("&5Passive: &eWater breathing 8 and night vision 3");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".waterbreathing")) {
-            PotionEffect waterbreathing = PotionEffectType.WATER_BREATHING.createEffect(200, 7);
-            PotionEffect nightVision = PotionEffectType.NIGHT_VISION.createEffect(999999, 2);
+            PotionEffect nightVision = new PotionEffect(PotionEffectType.NIGHT_VISION, 999999, 2, false ,false);
+            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.WATER_BREATHING, 200, 2, false ,false);
             this.potionEffect(waterbreathing).potionEffect(nightVision);
         }
 

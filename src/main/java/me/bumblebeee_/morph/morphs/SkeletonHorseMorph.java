@@ -21,7 +21,7 @@ public class SkeletonHorseMorph extends Morph {
                 .headId("47effce35132c86ff72bcae77dfbb1d22587e94df3cbc2570ed17cf8973a");
 
         if (Config.MOB_CONFIG.isSettingTrue("skeleton_horse.speed")) {
-            PotionEffect horseSpeed = PotionEffectType.SPEED.createEffect(999999, 3);
+            PotionEffect horseSpeed = new PotionEffect(PotionEffectType.SPEED, 999999, 3, false ,false);
             this.potionEffect(horseSpeed);
         }
     }

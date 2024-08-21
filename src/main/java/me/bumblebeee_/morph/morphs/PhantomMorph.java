@@ -43,7 +43,7 @@ public class PhantomMorph extends Morph implements Flyable {
                 }, 20);
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".nightvision")) {
-            PotionEffect nightVision = PotionEffectType.NIGHT_VISION.createEffect(999999, 2);
+            PotionEffect nightVision = new PotionEffect(PotionEffectType.NIGHT_VISION, 999999, 2, false ,false);
             this.potionEffect(nightVision);
         }
     }

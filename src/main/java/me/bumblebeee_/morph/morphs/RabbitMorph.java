@@ -22,7 +22,7 @@ public class RabbitMorph extends Morph {
                 .abilityInfo("&5Passive: &eJump boost 6");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".jump-boost")) {
-            PotionEffect jump = PotionEffectType.JUMP.createEffect(999999, 5);
+            PotionEffect jump = new PotionEffect(PotionEffectType.JUMP, 999999, 5, false ,false);
             this.potionEffect(jump);
         }
     }

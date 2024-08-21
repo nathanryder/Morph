@@ -60,7 +60,7 @@ public class BeeMorph extends Morph implements Flyable, Listener {
         }
 
         LivingEntity le = (LivingEntity) t;
-        PotionEffect poison = PotionEffectType.POISON.createEffect(15*20, 2);
+        PotionEffect poison = new PotionEffect(PotionEffectType.POISON, 15*20, 2, false ,false);
         le.addPotionEffect(poison);
 
         int cd = Config.MOB_CONFIG.getConfig().getInt(getMorphName() + ".ability-cooldown");

@@ -59,12 +59,12 @@ public class PufferFishMorph  extends Morph {
                 }, 20);
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".grace")) {
-            PotionEffect grace = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 0);
+            PotionEffect grace = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 0, false ,false);
             this.potionEffect(grace);
         }
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".waterbreathing")) {
-            PotionEffect waterbreathing = PotionEffectType.WATER_BREATHING.createEffect(200, 7);
+            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.WATER_BREATHING, 200, 7, false ,false);
             this.potionEffect(waterbreathing);
         }
 
@@ -90,7 +90,7 @@ public class PufferFishMorph  extends Morph {
                 return;
             }
 
-            PotionEffect poison = new PotionEffect(PotionEffectType.POISON, 150, 0);
+            PotionEffect poison = new PotionEffect(PotionEffectType.POISON, 150, 0, false ,false);
             for (Entity near : p.getNearbyEntities(8, 8, 8)) {
                 if (!(near instanceof LivingEntity))
                     continue;

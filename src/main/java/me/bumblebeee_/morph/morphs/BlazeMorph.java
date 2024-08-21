@@ -59,7 +59,7 @@ public class BlazeMorph extends Morph implements Flyable, Listener {
                 }, 20);
 
         if (Config.MOB_CONFIG.isSettingTrue("blaze.fire")) {
-            PotionEffect fireres = PotionEffectType.FIRE_RESISTANCE.createEffect(999999, 7);
+            PotionEffect fireres = new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 999999, 7, false ,false);
             this.potionEffect(fireres);
         }
 

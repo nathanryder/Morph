@@ -53,7 +53,8 @@ public class HuskMorph extends Morph implements Listener {
                 if (pe.getType() == PotionEffectType.HUNGER)
                     ta.removePotionEffect(PotionEffectType.HUNGER);
             }
-            ta.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 20*7, 0));
+            PotionEffect hunger = new PotionEffect(PotionEffectType.HUNGER, 20*7, 0, false ,false);
+            ta.addPotionEffect(hunger);
         }
 
     }

@@ -3,6 +3,8 @@ package me.bumblebeee_.morph.events;
 import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.MorphManager;
 import me.libraryaddict.disguise.DisguiseAPI;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -37,7 +39,13 @@ public class PlayerLeave implements Listener {
 			if (Main.health) {
 				p.setHealthScale(20.0);
 				p.setMaxHealth(20.0);
-				p.setHealth(20.0);
+
+				AttributeInstance healthAttr = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+				double maxHealth = 20.0;
+				if (healthAttr != null) {
+					maxHealth = healthAttr.getValue();
+				}
+				p.setHealth(maxHealth);
 			}
 			if (!p.hasPermission("morph.fly")) {
 				p.setAllowFlight(false);

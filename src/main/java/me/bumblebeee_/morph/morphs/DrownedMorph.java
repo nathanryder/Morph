@@ -48,11 +48,11 @@ public class DrownedMorph extends Morph {
             }, 20);
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".waterbreathing")) {
-            PotionEffect waterbreathing = PotionEffectType.WATER_BREATHING.createEffect(200, 7);
+            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.WATER_BREATHING, 200, 7, false ,false);
             this.potionEffect(waterbreathing);
         }
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".grace")) {
-            PotionEffect grace = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 2);
+            PotionEffect grace = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 2, false ,false);
             this.potionEffect(grace);
         }
 

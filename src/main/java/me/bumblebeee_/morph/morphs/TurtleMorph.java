@@ -22,15 +22,15 @@ public class TurtleMorph extends Morph {
                 .headId("MHF_Turtle");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".waterbreathing")) {
-            PotionEffect waterbreathing = PotionEffectType.WATER_BREATHING.createEffect(200, 7);
+            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.WATER_BREATHING, 200, 7, false ,false);
             this.potionEffect(waterbreathing);
         }
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".damageresistance")) {
-            PotionEffect waterbreathing = PotionEffectType.WATER_BREATHING.createEffect(200, 7);
+            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 200, 7, false ,false);
             this.potionEffect(waterbreathing);
         }
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".nightvision")) {
-            PotionEffect waterbreathing = PotionEffectType.WATER_BREATHING.createEffect(200, 7);
+            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.NIGHT_VISION, 200, 7, false ,false);
             this.potionEffect(waterbreathing);
         }
     }

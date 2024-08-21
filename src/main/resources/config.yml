@@ -85,6 +85,83 @@ morphItem:
   giveOnJoin: false
   slot: 0
 
+randomMorph:
+  horse: 20
+  skeleton_horse: 20
+  wolf: 20
+  ocelot: 20
+  cow: 20
+  pig: 20
+  wither_skeleton: 20
+  bat: 20
+  blaze: 20
+  cave_spider: 20
+  chicken: 20
+  creeper: 20
+  enderman: 20
+  endermite: 20
+  ghast: 20
+  guardian: 20
+  iron_golem: 20
+  magma_cube: 20
+  mushroom_cow: 20
+  zombified_piglin: 20
+  sheep: 20
+  silverfish: 20
+  skeleton: 20
+  slime: 20
+  snowman: 20
+  spider: 20
+  squid: 20
+  villager: 20
+  witch: 20
+  wither: 1
+  llama: 20
+  vex: 20
+  vindicator: 20
+  evoker: 20
+  zombie: 20
+  rabbit: 20
+  giant: 20
+  ender_dragon: 1
+  mule: 20
+  donkey: 20
+  zombie_villager: 20
+  parrot: 20
+  illusioner: 20
+  stray: 20
+  husk: 20
+  dolphin: 20
+  drowned: 20
+  cod: 20
+  salmon: 20
+  tropical_fish: 20
+  pufferfish: 20
+  phantom: 20
+  turtle: 20
+  bee: 20
+  strider: 20
+  hoglin: 20
+  zoglin: 20
+  shulker: 20
+  polar_bear: 20
+  cat: 20
+  fox: 20
+  panda: 20
+  pillager: 20
+  piglinbrute: 20
+  piglin: 20
+  ravager: 20
+  goat: 20
+  glow_squid: 20
+  axolotl: 20
+  allay: 20
+  frog: 20
+  tadpole: 20
+  warden: 20
+  camel: 20
+  sniffer: 20
+
 disableHealthSystem: false
 checkForUpdates: true
 debug: false

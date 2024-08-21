@@ -21,7 +21,7 @@ public class TadpoleMorph extends Morph {
                 .headId("987035f5352334c2cba6ac4c65c2b9059739d6d0e839c1dd98d75d2e77957847");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".waterbreathing")) {
-            PotionEffect waterbreathing = PotionEffectType.WATER_BREATHING.createEffect(200, 7);
+            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.WATER_BREATHING, 200, 7, false ,false);
             this.potionEffect(waterbreathing);
         }
     }

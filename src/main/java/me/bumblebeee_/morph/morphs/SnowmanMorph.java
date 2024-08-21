@@ -24,7 +24,7 @@ public class SnowmanMorph extends Morph implements Listener {
         this.morphName("snowman")
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
-                .disguiseType(DisguiseType.SNOWBALL)
+                .disguiseType(DisguiseType.SNOWMAN)
                 .health(Config.MOB_CONFIG.getHealth(getMorphName()))
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))

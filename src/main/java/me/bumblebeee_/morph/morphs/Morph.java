@@ -22,6 +22,7 @@ public abstract class Morph {
 
     private @Getter String internalName;
     private @Getter String morphName;
+//    private @Getter String displayName; Manual getter
     private @Getter boolean enabled;
     private @Getter int health;
     private @Getter int requiredKills;
@@ -37,7 +38,7 @@ public abstract class Morph {
 
     public String toFriendly() {
         StringBuilder friendly = new StringBuilder();
-        String[] data = getMorphName().replace("_", " ").split("");
+        String[] data = getDisplayName().replace("_", " ").split("");
 
         for (int i = 0; i < data.length; i++) {
             if (i == 0) {
@@ -68,6 +69,11 @@ public abstract class Morph {
             return false;
 
         return true;
+    }
+
+    public String getDisplayName() {
+        String displayName = Main.getMessages().getMessage("mobNames." + getMorphName());
+        return displayName != null ? displayName : getMorphName();
     }
 
     public Morph abilityInfo(String... message) {
@@ -122,6 +128,7 @@ public abstract class Morph {
 
     public Morph headId(String headID) {
         Inventorys.addHead(getMorphName(), headID);
+//        Inventorys.addHead(getMorphName() + ":baby", headID);
         return this;
     }
 

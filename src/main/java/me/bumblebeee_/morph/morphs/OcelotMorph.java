@@ -22,7 +22,7 @@ public class OcelotMorph extends Morph {
                 .abilityInfo("&5Passive: &eSpeed 7");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".speed")) {
-            PotionEffect ocelotSpeed = PotionEffectType.SPEED.createEffect(999999, 6);
+            PotionEffect ocelotSpeed = new PotionEffect(PotionEffectType.SPEED, 999999, 6, false ,false);
             this.potionEffect(ocelotSpeed);
         }
     }

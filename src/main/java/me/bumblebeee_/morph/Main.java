@@ -24,7 +24,6 @@ public class Main extends JavaPlugin implements Listener {
 
 	public static Plugin pl = null;
 
-	Messages m = new Messages();
     ManaManager mana = new ManaManager();
 
 	public static boolean health;
@@ -32,10 +31,12 @@ public class Main extends JavaPlugin implements Listener {
 	public static List<UUID> undisguiseBuffer = new ArrayList<>();
 	public static HashMap<UUID, String> respawnBuffer = new HashMap<>();
 
+	public static @Getter Messages messages;
 	public static @Getter MorphManager morphManager;
 
 	public void onEnable() {
 		pl = this;
+		messages = new Messages();
 
         setupFiles();
         setupCommands();
@@ -48,9 +49,9 @@ public class Main extends JavaPlugin implements Listener {
 		} catch (ArrayIndexOutOfBoundsException e) {
 			version = 1.19;
 		}
-		Bukkit.getServer().getLogger().info("Version: " + version);
 
-        morphManager = new MorphManager();
+		messages.setup();
+		morphManager = new MorphManager();
 		morphManager.registerMorph(new BlazeMorph());
 		morphManager.registerMorph(new SkeletonHorseMorph());
 		morphManager.registerMorph(new HorseMorph());
@@ -142,10 +143,9 @@ public class Main extends JavaPlugin implements Listener {
 			morphManager.registerMorph(new SnifferMorph());
 		}
 
-		m.setup();
 		Runnables.potionEffects();
-
         RegisterEvents.register(this);
+
 		if (getConfig().getBoolean("morph-power")) {
 			Runnables.morphPower();
 		}
@@ -205,6 +205,7 @@ public class Main extends JavaPlugin implements Listener {
 		Bukkit.getServer().getPluginCommand("addmorph").setExecutor(new MorphCommand());
 		Bukkit.getServer().getPluginCommand("delmorph").setExecutor(new MorphCommand());
 		Bukkit.getServer().getPluginCommand("forcemorph").setExecutor(new MorphCommand());
+		Bukkit.getServer().getPluginCommand("randommorph").setExecutor(new MorphCommand());
 	}
 
 	public void setupFiles() {
@@ -223,7 +224,7 @@ public class Main extends JavaPlugin implements Listener {
 	public void checkReload() {
 		if (!(Bukkit.getServer().getOnlinePlayers().size() > 0))
 			return;
-		String prefix = m.getMessage("prefix");
+		String prefix = messages.getMessage("prefix");
 
 		for (Player p : Bukkit.getServer().getOnlinePlayers()) {
 			if (!DisguiseAPI.isDisguised(p))
@@ -243,7 +244,7 @@ public class Main extends JavaPlugin implements Listener {
 				p.removePotionEffect(effect.getType());
 
 			mana.getManaPlayers().put(p.getUniqueId(), 100.0);
-			p.sendMessage(prefix + " " + m.getMessage("unmorphedByStaff"));
+			p.sendMessage(prefix + " " + messages.getMessage("unmorphedByStaff"));
 		}
 	}
 }

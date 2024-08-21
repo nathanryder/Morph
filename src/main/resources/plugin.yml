@@ -1,5 +1,5 @@
 name: Morphy
-version: 3.2
+version: 3.6-SNAPSHOT
 main: me.bumblebeee_.morph.Main
 description: Morphing plugin
 depend: [LibsDisguises]
@@ -16,6 +16,8 @@ commands:
         description: remove a mob from a player
     forcemorph:
         description: Force a player to morph as a certain mob
+    randommorph:
+        description: Morph into a random mob
 permissions:
     morph.into.*:
         description: Morph into all mobs
@@ -295,6 +297,7 @@ permissions:
             morph.toggle: true
             morph.forcemorph: true
             morph.morph.modify: true
+            morph.randommorph: true
             morph.into.*: true
             morph.bypasskill.*: true
             morph.bypassreset.*: true

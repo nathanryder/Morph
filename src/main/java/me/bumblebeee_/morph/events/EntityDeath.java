@@ -127,7 +127,7 @@ public class EntityDeath implements Listener {
 			e.printStackTrace();
 		}
 
-		String msgType = isBaby ? "baby " + type : type;
+		String msgType = isBaby ? "baby " + morphType.toFriendly() : morphType.toFriendly();
 		//Just incase the key doesn't exist, I forget it in earlier versions
 		String msg = msgs.getMessage("youCanNowMorph", msgType, "", "");
 		if (msg != null) {

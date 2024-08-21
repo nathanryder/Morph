@@ -32,9 +32,9 @@ public class StriderMorph extends Morph implements Listener {
                 .headId("d7e4eb0fb489d6f250c607d28d672f127ebaede8e007fa6cd34e2bbc0c2fc33a")
                 .abilityInfo("&5Passive: &eSpeed and fire resistance when in lava","&5Weakness: Slowness 4 when not in lava")
                 .runnable(new BukkitRunnable() {
-                    PotionEffect ocelotSpeed = PotionEffectType.SPEED.createEffect(999999, 6);
-                    PotionEffect fireres = PotionEffectType.FIRE_RESISTANCE.createEffect(999999, 7);
-                    PotionEffect squidSlow = PotionEffectType.SLOW.createEffect(999999, 3);
+                    PotionEffect ocelotSpeed = new PotionEffect(PotionEffectType.SPEED, 999999, 6, false ,false);
+                    PotionEffect fireres = new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 999999, 7, false ,false);
+                    PotionEffect squidSlow = new PotionEffect(PotionEffectType.SLOW, 999999, 3, false ,false);
 
                     @Override
                     public void run() {

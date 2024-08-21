@@ -22,7 +22,7 @@ public class MagmaCubeMorph extends Morph {
                 .abilityInfo("&cNo abilities found");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".fireresistance")) {
-            PotionEffect fireres = PotionEffectType.FIRE_RESISTANCE.createEffect(999999, 7);
+            PotionEffect fireres = new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 999999, 7, false ,false);
             this.potionEffect(fireres);
         }
 

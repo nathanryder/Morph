@@ -105,7 +105,8 @@ public class StrayMorph extends Morph implements Listener {
                     if (p.getType() == PotionEffectType.SLOW)
                         t.removePotionEffect(PotionEffectType.SLOW);
                 }
-                t.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 600, 0));
+                PotionEffect slow = new PotionEffect(PotionEffectType.SLOW, 600, 0, false ,false);
+                t.addPotionEffect(slow);
             }
         }
         a.remove();

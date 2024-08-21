@@ -22,7 +22,7 @@ public class HorseMorph extends Morph {
                 .abilityInfo("&5Passive: &eSpeed 4");
 
         if (Config.MOB_CONFIG.isSettingTrue("horse.speed")) {
-            PotionEffect horseSpeed = PotionEffectType.SPEED.createEffect(999999, 3);
+            PotionEffect horseSpeed = new PotionEffect(PotionEffectType.SPEED, 999999, 3, false ,false);
             this.potionEffect(horseSpeed);
         }
     }

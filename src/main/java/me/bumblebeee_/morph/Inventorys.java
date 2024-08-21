@@ -6,6 +6,7 @@ import me.bumblebeee_.morph.morphs.Morph;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -13,6 +14,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -309,9 +311,10 @@ public class Inventorys {
     public ItemStack createHead(String mobName, String display) {
         if (mobName.equalsIgnoreCase("ender_dragon")) {
             ItemStack i = new ItemStack(Material.DRAGON_HEAD, 1);
-            ItemMeta im = i.getItemMeta();
-            im.setDisplayName(display);
-            i.setItemMeta(im);
+            SkullMeta sm = (SkullMeta) i.getItemMeta();
+            sm.getPersistentDataContainer().set(new NamespacedKey(Main.pl, "mobName"), PersistentDataType.STRING, mobName);
+            sm.setDisplayName(display);
+            i.setItemMeta(sm);
 
             return i;
         } else if (mobName.contains("player:")) {
@@ -332,9 +335,9 @@ public class Inventorys {
             }
 
             if (owner == null) {
-                return getHead(mobName, display);
+                return getHead(mobName, display, mobName);
             }
-            return getHead(owner, display);
+            return getHead(owner, display, mobName);
         }
     }
 
@@ -342,7 +345,7 @@ public class Inventorys {
         return owners.get(mob.toLowerCase());
     }
 
-    public ItemStack getHead(String owner, String display) {
+    public ItemStack getHead(String owner, String display, String mobName) {
         boolean baby = false;
         if (owner.split(":").length > 1) {
             owner = owner.split(":")[0];
@@ -351,6 +354,7 @@ public class Inventorys {
         if (!owner.split("_")[0].equalsIgnoreCase("MHF")) {
             ItemStack i = getHeadTest(owner, "Name");
             SkullMeta sm = (SkullMeta) i.getItemMeta();
+            sm.getPersistentDataContainer().set(new NamespacedKey(Main.pl, "mobName"), PersistentDataType.STRING, mobName);
             sm.setDisplayName(display);
             i.setItemMeta(sm);
             return i;
@@ -359,6 +363,7 @@ public class Inventorys {
         ItemStack i = new ItemStack(Material.PLAYER_HEAD);
         i.setDurability((short) 3);
         SkullMeta sm = (SkullMeta) i.getItemMeta();
+        sm.getPersistentDataContainer().set(new NamespacedKey(Main.pl, "mobName"), PersistentDataType.STRING, mobName);
         sm.setOwner(owner);
         sm.setDisplayName(display);
         i.setItemMeta(sm);
@@ -373,7 +378,7 @@ public class Inventorys {
             sk.setDisplayName(nom);
         }
 
-        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
+        GameProfile profile = new GameProfile(UUID.randomUUID(), "Morphy");
         byte[] encodedData = Base64.getEncoder().encode(String.format("{textures:{SKIN:{url:\"%s\"}}}", playerSkullTexture).getBytes());
         profile.getProperties().put("textures", new Property("textures", new String(encodedData)));
         Field profileField;

@@ -27,8 +27,8 @@ public class SquidMorph extends Morph {
                 .headId("d8705624daa2956aa45956c81bab5f4fdb2c74a596051e24192039aea3a8b8")
                 .abilityInfo("&5Passive: &5Waterbreathing and night vision while in water", "&5Weakness: Squids are very slow and can't see very far out of water")
                 .runnable(new BukkitRunnable() {
-                    PotionEffect squidBlind = PotionEffectType.BLINDNESS.createEffect(999999, 1);
-                    PotionEffect squidSlow = PotionEffectType.SLOW.createEffect(999999, 3);
+                    PotionEffect squidBlind = new PotionEffect(PotionEffectType.BLINDNESS, 999999, 1, false ,false);
+                    PotionEffect squidSlow = new PotionEffect(PotionEffectType.SLOW, 999999, 3, false ,false);
 
                     @Override
                     public void run() {
@@ -52,8 +52,8 @@ public class SquidMorph extends Morph {
                 }, 20);;
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".waterbreathing")) {
-            PotionEffect waterbreathing = PotionEffectType.WATER_BREATHING.createEffect(200, 7);
-            PotionEffect nightVision = PotionEffectType.NIGHT_VISION.createEffect(999999, 2);
+            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.WATER_BREATHING, 200, 7, false ,false);
+            PotionEffect nightVision = new PotionEffect(PotionEffectType.NIGHT_VISION, 999999, 2, false ,false);
 
             this.potionEffect(waterbreathing);
             this.potionEffect(nightVision);

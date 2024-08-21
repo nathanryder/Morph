@@ -19,6 +19,9 @@ import org.bukkit.plugin.Plugin;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.NavigableMap;
+import java.util.Random;
+import java.util.TreeMap;
 
 public class MorphCommand implements CommandExecutor {
 
@@ -710,8 +713,128 @@ public class MorphCommand implements CommandExecutor {
             morph.unmorphPlayer(p, false, false);
             return true;
 
+        } else if (cmd.getName().equalsIgnoreCase("randommorph")) {
+            if (!(sender instanceof Player)) {
+                sender.sendMessage(prefix + " " + "You cannot use this command!");
+                return true;
+            }
+            Player p = (Player) sender;
+
+            if (!sender.hasPermission("morph.randommorph")) {
+                sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
+                return true;
+            }
+
+            List<String> mobs = pl.getConfig().getStringList("randomMorph");
+            NavigableMap<Integer, Morph> weighedMap = new TreeMap<>();
+            int totalWeight = 0;
+            for (String mob : mobs) {
+                Morph type = Main.getMorphManager().getMorphs().get(mob);
+                if (type == null) {
+                    Bukkit.getServer().getLogger().warning("Failed to find a morph named " + mob + " while trying to pick a random morph");
+                    continue;
+                }
+
+                totalWeight += pl.getConfig().getInt("randomMorph." + mob);
+                weighedMap.put(totalWeight, type);
+            }
+
+            if (totalWeight == 0) {
+                weighedMap = getDefaultRandomMorphs();
+                totalWeight = weighedMap.lastEntry().getKey();
+            }
+
+            Random rand = new Random();
+            int pick = rand.nextInt(totalWeight);
+            Morph choice = weighedMap.higherEntry(pick).getValue();
+
+            Main.getMorphManager().morphPlayer(p, choice, false, false);
+            return true;
         }
         return true;
+    }
+
+    public NavigableMap<Integer, Morph> getDefaultRandomMorphs() {
+        NavigableMap<Integer, Morph> weighedMap = new TreeMap<>();
+        int weight = 0;
+
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("horse"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("skeleton_horse"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("wolf"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("ocelot"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("cow"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("pig"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("wither_skeleton"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("bat"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("blaze"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("cave_spider"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("chicken"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("creeper"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("enderman"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("endermite"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("ghast"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("guardian"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("iron_golem"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("magma_cube"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("mushroom_cow"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("zombified_piglin"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("sheep"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("silverfish"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("skeleton"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("slime"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("snowman"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("spider"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("squid"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("villager"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("witch"));
+        weighedMap.put(weight += 1, Main.getMorphManager().getMorphType("wither"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("llama"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("vex"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("vindicator"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("evoker"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("zombie"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("rabbit"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("giant"));
+        weighedMap.put(weight += 1, Main.getMorphManager().getMorphType("ender_dragon"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("mule"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("donkey"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("zombie_villager"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("parrot"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("illusioner"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("stray"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("husk"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("dolphin"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("drowned"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("cod"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("salmon"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("tropical_fish"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("pufferfish"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("phantom"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("turtle"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("bee"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("strider"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("hoglin"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("zoglin"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("shulker"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("polar_bear"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("cat"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("fox"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("panda"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("pillager"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("piglinbrute"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("piglin"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("ravager"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("goat"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("glow_squid"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("axolotl"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("allay"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("frog"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("tadpole"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("warden"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("camel"));
+        weighedMap.put(weight += 20, Main.getMorphManager().getMorphType("sniffer"));
+
+        return weighedMap;
     }
 
     public static void send(Player p, String s) {

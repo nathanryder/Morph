@@ -9,6 +9,7 @@ import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.disguisetypes.PlayerDisguise;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.NamespacedKey;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -18,6 +19,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.io.File;
 import java.util.List;
@@ -112,12 +114,18 @@ public class InventoryClick implements Listener {
                 List<String> players = fileConfig.getStringList("Players");
                 Inventorys.pages.remove(p.getUniqueId());
 
-                Pattern pattern = Pattern.compile(display);
-                Matcher match = pattern.matcher(dis);
-                if (!match.find())
-                    return;
+//                Pattern pattern = Pattern.compile(display);
+//                Matcher match = pattern.matcher(dis);
+//                if (!match.find())
+//                    return;
 
-                String mobType = match.group(1).replace(" ", "_");
+                String mobName = i.getItemMeta().getPersistentDataContainer().get(new NamespacedKey(Main.pl, "mobName"), PersistentDataType.STRING);
+                if (mobName == null) {
+                    Bukkit.getServer().getLogger().warning("Failed to find mobname when clicking item (" + mobName + ")");
+                    return;
+                }
+
+                String mobType = mobName.replace(" ", "_");
                 boolean baby = false;
 
                 if (mobType.split("_").length > 1) {
@@ -226,7 +234,6 @@ public class InventoryClick implements Listener {
                         }
                     }
                 }
-
                 if (!p.hasPermission("morph.bypasskill." + perm)) {
                     if (!stringList.contains(type.getMorphName())) {
                         if (baby)

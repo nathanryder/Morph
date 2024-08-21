@@ -1,6 +1,7 @@
 package me.bumblebeee_.morph.morphs;
 
 import me.bumblebeee_.morph.Config;
+import me.bumblebeee_.morph.Main;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Sound;
 

@@ -40,7 +40,7 @@ public class GiantMorph extends Morph implements Listener {
                 .abilityInfo("&5Passive: &eSlowness 3 and throws blocks wherever you walk","&5Ability: &eThrows players away from you");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".slow")) {
-            PotionEffect slow = new PotionEffect(PotionEffectType.SLOW, 99999, 2);
+            PotionEffect slow = new PotionEffect(PotionEffectType.SLOW, 99999, 2, false ,false);
             this.potionEffect(slow);
         }
 

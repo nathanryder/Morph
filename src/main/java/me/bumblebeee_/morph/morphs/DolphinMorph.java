@@ -22,7 +22,7 @@ public class DolphinMorph extends Morph {
                 .abilityInfo("&5Passive: &eDolphins grace 2");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".grace")) {
-            PotionEffect dolphinGrace = PotionEffectType.DOLPHINS_GRACE.createEffect(999999, 1);
+            PotionEffect dolphinGrace = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 999999, 1, false ,false);
             this.potionEffect(dolphinGrace);
         }
     }

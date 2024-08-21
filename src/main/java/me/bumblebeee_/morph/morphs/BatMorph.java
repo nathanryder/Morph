@@ -22,7 +22,7 @@ public class BatMorph extends Morph implements Flyable {
                 .abilityInfo("&5Passive: &eFlying and night vision 3");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".nightVision")) {
-            PotionEffect nightVision = PotionEffectType.NIGHT_VISION.createEffect(999999, 2);
+            PotionEffect nightVision = new PotionEffect(PotionEffectType.NIGHT_VISION, 999999, 2, false ,false);
             this.potionEffect(nightVision);
         }
     }

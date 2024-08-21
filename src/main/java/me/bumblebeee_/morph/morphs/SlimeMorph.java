@@ -40,7 +40,7 @@ public class SlimeMorph extends Morph implements Listener {
                 .abilityInfo("&5Passive: &eJump boost 4 and splits into multiple slimes when taking damage");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".jump-boost")) {
-            PotionEffect slimeJump = PotionEffectType.JUMP.createEffect(999999, 3);
+            PotionEffect slimeJump = new PotionEffect(PotionEffectType.JUMP, 999999, 3, false ,false);
             this.potionEffect(slimeJump);
         }
 

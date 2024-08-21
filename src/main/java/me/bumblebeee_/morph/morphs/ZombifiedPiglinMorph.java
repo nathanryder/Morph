@@ -30,7 +30,7 @@ public class ZombifiedPiglinMorph extends Morph implements Listener {
                 .abilityInfo("&5Passive: &eSpeed 2 and can safely eat rotten flesh");
 
         if (Config.MOB_CONFIG.isSettingTrue("pig_zombie.speed")) {
-            PotionEffect zombieSpeed = PotionEffectType.SPEED.createEffect(999999, 1);
+            PotionEffect zombieSpeed = new PotionEffect(PotionEffectType.SPEED, 999999, 1, false ,false);
             this.potionEffect(zombieSpeed);
         }
 
