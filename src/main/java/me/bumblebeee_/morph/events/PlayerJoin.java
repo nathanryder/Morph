@@ -12,6 +12,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 
@@ -22,6 +23,7 @@ public class PlayerJoin implements Listener {
 
 	UpdateChecker uc = new UpdateChecker();
 	ManaManager mana = new ManaManager();
+	MorphManager morph = new MorphManager();
 
 	Plugin pl = null;
 	public PlayerJoin(Plugin plugin) {
@@ -70,6 +72,23 @@ public class PlayerJoin implements Listener {
 	    for (PotionEffect effect : p.getActivePotionEffects())
 	        p.removePotionEffect(effect.getType());
         mana.getManaPlayers().put(p.getUniqueId(), 100.0);
+
+        //Give morph item
+		FileConfiguration conf = Morph.pl.getConfig();
+		if (conf.getBoolean("morphItem.giveOnJoin")) {
+			ItemStack item = morph.getMorphItem();
+			int slot = conf.getInt("morphItem.slot");
+			boolean give = true;
+
+
+			for (ItemStack i : p.getInventory()) {
+				if (item.isSimilar(i))
+					give = false;
+			}
+
+			if (give)
+				p.getInventory().setItem(slot, item);
+		}
 	}
 
 }

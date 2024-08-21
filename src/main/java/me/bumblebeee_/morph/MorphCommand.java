@@ -198,6 +198,14 @@ public class MorphCommand implements CommandExecutor {
                         p.sendMessage(prefix + " " + m.getMessage("reloadedConfig"));
                     }
                     return true;
+                } else if (args[0].equalsIgnoreCase("giveitem")) {
+                    if (!sender.hasPermission("morph.giveitem")) {
+                        sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
+                        return false;
+                    }
+
+                    p.getInventory().addItem(morph.getMorphItem());
+                    return true;
                 }
             }
 

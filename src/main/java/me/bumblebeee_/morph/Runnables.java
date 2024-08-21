@@ -28,8 +28,7 @@ public class Runnables {
     public static List<UUID> sounds = new ArrayList<>();
 
 	public static void spider(final Plugin pl) {
-		final ArrayList<Material> blocked = new ArrayList<>(Arrays.asList(Material.AIR, Material.LAVA, Material.STATIONARY_LAVA,
-				Material.WATER, Material.STATIONARY_WATER, Material.DOUBLE_PLANT));
+		final ArrayList<Material> blocked = new ArrayList<>(Arrays.asList(Material.AIR, Material.LAVA, Material.LEGACY_DOUBLE_PLANT));
 		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(pl, new Runnable() {
 			@Override
 			public void run() {
@@ -115,7 +114,7 @@ public class Runnables {
                             p.addPotionEffect(nightVision);
                         }
                         Block b = p.getLocation().getBlock();
-                        if (b.getType() == Material.STATIONARY_WATER || b.getType() == Material.WATER) {
+                        if (b.getType() == Material.WATER) {
                             p.removePotionEffect(PotionEffectType.SLOW);
                             p.removePotionEffect(PotionEffectType.BLINDNESS);
                         } else {
@@ -127,7 +126,7 @@ public class Runnables {
                     } else if (using.equalsIgnoreCase("blaze")) {
                         p.addPotionEffect(fireres, true);
                         Block b = p.getLocation().getBlock();
-                        if (b.getType() == Material.STATIONARY_WATER || b.getType() == Material.WATER) {
+                        if (b.getType() == Material.WATER) {
                             double health = p.getHealth();
                             if (health-1 <= 0) {
                                 p.setHealth(0);

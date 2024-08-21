@@ -43,6 +43,10 @@ public class ManaManager {
             ab = new Actionbar_1_8_R1();
         else if (version.equalsIgnoreCase("v1_12_R1"))
             ab = new Actionbar_1_12_R1();
+        else if (version.equalsIgnoreCase("v1_13_R1"))
+            ab = new Actionbar_1_13_R1();
+        else if (version.equalsIgnoreCase("V1_13_R2"))
+            ab = new Actionbar_1_13_R2();
         return ab != null;
     }
 

@@ -30,9 +30,11 @@ me/bumblebeee_/morph/Inventorys.class
 me/bumblebeee_/morph/Stats$1.class
 me/bumblebeee_/morph/Runnables$3.class
 me/bumblebeee_/morph/events/MoveEvent.class
+me/bumblebeee_/morph/events/ItemDrop.class
 me/bumblebeee_/morph/Metrics$MultiLineChart.class
 me/bumblebeee_/morph/events/PlayerJoin.class
 me/bumblebeee_/morph/events/InteractEvent$6.class
+me/bumblebeee_/morph/versions/Actionbar_1_13_R2.class
 me/bumblebeee_/morph/ManaManager.class
 me/bumblebeee_/morph/events/InteractEvent$11.class
 me/bumblebeee_/morph/MorphManager$2.class
@@ -68,6 +70,7 @@ me/bumblebeee_/morph/Metrics$1$1.class
 me/bumblebeee_/morph/Runnables.class
 me/bumblebeee_/morph/events/InteractEvent$1.class
 me/bumblebeee_/morph/events/InteractEvent$16.class
+me/bumblebeee_/morph/versions/Actionbar_1_13_R1.class
 me/bumblebeee_/morph/Messages.class
 me/bumblebeee_/morph/versions/Actionbar_1_9_R2.class
 me/bumblebeee_/morph/Stats.class

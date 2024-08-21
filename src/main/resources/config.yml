@@ -59,6 +59,17 @@ deathMessages:
 - "{killer} killed {victim} while morphed as a {killerMob}"
 - "{victim} was killed by a {killerMob}"
 
+morphItem:
+  type: BLAZE_ROD
+  data: 0
+  name: "&aMorph Menu"
+  lore:
+  - "&5Click to open the morph menu"
+  dropItem: false
+  giveOnJoin: false
+  slot: 0
+
+
 #Abilities Configuration
 #
 #morph-time is how long you can stay morphed as a certain mob - set to 0 to disable

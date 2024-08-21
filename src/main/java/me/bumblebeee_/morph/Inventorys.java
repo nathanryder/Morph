@@ -87,6 +87,7 @@ public class Inventorys {
     }
 
     public void openMorph(final Player p, int page) {
+        p.closeInventory();
         if (owners.isEmpty())
             setupOwners();
         File userFile = new File(Morph.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
@@ -105,7 +106,7 @@ public class Inventorys {
 
         Inventory inv = Bukkit.getServer().createInventory(null, 36, title);
 
-        ItemStack owner = new ItemStack(Material.SKULL_ITEM);
+        ItemStack owner = new ItemStack(Material.SKELETON_SKULL);
         owner.setDurability((short) 3);
         SkullMeta sm = (SkullMeta) owner.getItemMeta();
         sm.setOwner(p.getName());
@@ -190,17 +191,17 @@ public class Inventorys {
         cm.setDisplayName(ChatColor.RED + "Close");
         close.setItemMeta(cm);
 
-        ItemStack lp = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
+        ItemStack lp = new ItemStack(Material.LIME_STAINED_GLASS_PANE, 1, (short) 5);
         ItemMeta lm = lp.getItemMeta();
         lm.setDisplayName(ChatColor.GREEN + "Previous");
         lp.setItemMeta(lm);
 
-        ItemStack np = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
+        ItemStack np = new ItemStack(Material.LIME_STAINED_GLASS_PANE, 1, (short) 5);
         ItemMeta pm = np.getItemMeta();
         pm.setDisplayName(ChatColor.GREEN + "Next");
         np.setItemMeta(pm);
 
-        ItemStack r = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
+        ItemStack r = new ItemStack(Material.RED_STAINED_GLASS_PANE, 1, (short) 14);
         ItemMeta rm = r.getItemMeta();
         rm.setDisplayName(" ");
         r.setItemMeta(rm);
@@ -235,8 +236,7 @@ public class Inventorys {
         if (c.getString("sounds") == null)
             sound = true;
 
-        ItemStack bottomFiller = new ItemStack(Material.STAINED_GLASS_PANE);
-        bottomFiller.setDurability((short) 14);
+        ItemStack bottomFiller = new ItemStack(Material.RED_STAINED_GLASS_PANE);
         ItemMeta bm = bottomFiller.getItemMeta();
         bm.setDisplayName(" ");
         bottomFiller.setItemMeta(bm);
@@ -246,13 +246,12 @@ public class Inventorys {
         cm.setDisplayName(ChatColor.RED + "Close");
         close.setItemMeta(cm);
 
-        ItemStack filler = new ItemStack(Material.STAINED_GLASS_PANE);
-        filler.setDurability((short) 8);
+        ItemStack filler = new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE);
         ItemMeta fm = filler.getItemMeta();
         fm.setDisplayName(" ");
         filler.setItemMeta(fm);
 
-        ItemStack view = new ItemStack(Material.SKULL_ITEM);
+        ItemStack view = new ItemStack(Material.SKELETON_SKULL);
         view.setDurability((short) 3);
         SkullMeta sm = (SkullMeta) view.getItemMeta();
         sm.setOwner(p.getName());
@@ -293,7 +292,7 @@ public class Inventorys {
 
     public ItemStack createHead(String mobName, String display) {
         if (mobName.equalsIgnoreCase("ender_dragon")) {
-            ItemStack i = new ItemStack(Material.SKULL_ITEM, 1, (short) 5);
+            ItemStack i = new ItemStack(Material.SKELETON_SKULL, 1, (short) 5);
             ItemMeta im = i.getItemMeta();
             im.setDisplayName(display);
             i.setItemMeta(im);
@@ -323,7 +322,7 @@ public class Inventorys {
             owner = owner.split(":")[0];
         }
 
-        ItemStack i = new ItemStack(Material.SKULL_ITEM);
+        ItemStack i = new ItemStack(Material.SKELETON_SKULL);
         i.setDurability((short) 3);
         SkullMeta sm = (SkullMeta) i.getItemMeta();
         sm.setOwner(owner);
