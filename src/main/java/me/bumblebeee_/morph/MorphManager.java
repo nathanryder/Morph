@@ -117,7 +117,7 @@ public class MorphManager {
 
             if (Morph.health) {
                 p.setHealthScale(20);
-                p.setMaxHealth(20);
+                p.resetMaxHealth();
             }
             return;
         }
@@ -175,9 +175,9 @@ public class MorphManager {
             Morph.using.put(p.getUniqueId(), type.toString().toLowerCase());
 
         String using = getUsing(p);
-        if (Morph.health) {
-            p.setHealth(p.getMaxHealth()-1);
-        }
+//        if (Morph.health) {
+//            p.setHealth(p.getMaxHealth()-1);
+//        }
 
         p.setAllowFlight(false);
         p.setFlying(false);
@@ -191,6 +191,11 @@ public class MorphManager {
         }
 
         if (using.equalsIgnoreCase("bat")) {
+            if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
+                p.setAllowFlight(true);
+                p.setFlying(true);
+            }
+        }else if (using.equalsIgnoreCase("phantom")) {
             if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
@@ -341,6 +346,8 @@ public class MorphManager {
             return true;
         else if (type.equalsIgnoreCase("bee"))
             return true;
+        else if (type.equalsIgnoreCase("phantom"))
+            return true;
 
         return false;
     }
@@ -354,7 +361,7 @@ public class MorphManager {
 
         if (Morph.health) {
             p.setHealthScale(20.0);
-            p.setMaxHealth(20.0);
+            p.resetMaxHealth();
         }
 
         p.setAllowFlight(false);

@@ -142,7 +142,7 @@ public class Runnables {
                             }
                         }
                     } else if (using.equalsIgnoreCase("iron_golem")) {
-                        if (Config.MOB_CONFIG.getConfig().getBoolean("irongolem.strength")) {
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("iron_golem.strength")) {
                             p.addPotionEffect(slow);
                             p.addPotionEffect(strength);
                         }
@@ -420,6 +420,7 @@ public class Runnables {
             case "blaze":
             case "wither":
             case "vex":
+            case "phantom":
                 return true;
         }
         return false;

@@ -389,6 +389,8 @@ bee:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  ability-cooldown: 15
+  sting: true
 strider:
   enabled: true
   health: 20

@@ -5,10 +5,13 @@ import me.bumblebeee_.morph.Messages;
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
@@ -21,10 +24,12 @@ public class InteractWithEntity implements Listener {
     String prefix = m.getMessage("prefix");
 
     private HashMap<Player, Integer> giantcd;
+    private HashMap<Player, Integer> beecd;
     private HashMap<Player, BukkitRunnable> cdTask;
 
     public InteractWithEntity() {
         giantcd = new HashMap<>();
+        beecd = new HashMap<>();
         cdTask = new HashMap<>();
     }
 
@@ -35,13 +40,14 @@ public class InteractWithEntity implements Listener {
         if (!Morph.using.containsKey(p.getUniqueId()))
             return;
         String using = mm.getUsing(p);
-        if (!Config.MOB_CONFIG.getConfig().getBoolean("giant.throw"))
-            return;
 
         if (MorphManager.toggled.contains(p.getUniqueId()))
             return;
 
         if (using.equalsIgnoreCase("giant")) {
+            if (!Config.MOB_CONFIG.getConfig().getBoolean("giant.throw"))
+                return;
+
             if (!(giantcd.containsKey(p))) {
                 int force = Config.MOB_CONFIG.getConfig().getInt("giant.force");
                 t.setVelocity(new Vector(0, force, 0));
@@ -64,6 +70,34 @@ public class InteractWithEntity implements Listener {
                 }
             } else {
                 p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, giantcd.get(p)));
+            }
+        } else if (using.equalsIgnoreCase("bee")) {
+            if (!Config.MOB_CONFIG.getConfig().getBoolean("bee.sting"))
+                return;
+
+            if (!(beecd.containsKey(p))) {
+                LivingEntity le = (LivingEntity) t;
+                PotionEffect poison = PotionEffectType.POISON.createEffect(15*20, 1);
+                le.addPotionEffect(poison);
+
+                if (Config.MOB_CONFIG.getConfig().getInt("bee.ability-cooldown") > 0) {
+                    beecd.put(p, Config.MOB_CONFIG.getConfig().getInt("bee.ability-cooldown"));
+                    cdTask.put(p, new BukkitRunnable() {
+
+                        public void run() {
+                            beecd.put(p, beecd.get(p) - 1);
+                            if (beecd.get(p) <= 0) {
+                                beecd.remove(p);
+                                cdTask.remove(p);
+                                cancel();
+                            }
+                        }
+
+                    });
+                    cdTask.get(p).runTaskTimer(Morph.pl, 20, 20);
+                }
+            } else {
+                p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, beecd.get(p)));
             }
         }
     }

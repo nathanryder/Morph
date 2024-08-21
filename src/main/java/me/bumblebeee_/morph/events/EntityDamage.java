@@ -70,6 +70,11 @@ public class EntityDamage implements Listener {
         } else if (using.contains("husk")) {
             if (!Config.MOB_CONFIG.getConfig().getBoolean("husk.hunger"))
                 return;
+        } else if (using.contains("strider")) {
+            if (ev.getCause() == DamageCause.LAVA || ev.getCause() == DamageCause.FIRE
+                    || ev.getCause() == DamageCause.FIRE_TICK) {
+                ev.setCancelled(true);
+            }
         }
 	}
 
