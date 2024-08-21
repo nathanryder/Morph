@@ -54,6 +54,7 @@ onlyIfEmptyHand: false
 #{victim} {killer} {killerMob} {world}
 overrideDeathMessage: true
 randomMessage: false
+creeperDeathMessage: false
 deathMessages:
 - "{killer} killed {victim} while morphed as a {killerMob}"
 - "{victim} was killed by a {killerMob}"
