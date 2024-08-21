@@ -315,6 +315,10 @@ public class MorphCommand implements CommandExecutor {
                     p.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.DARK_PURPLE + "-----------------------------------------");
                     return true;
                 } else if (args[0].equalsIgnoreCase("info")) {
+                    if (args.length < 2) {
+                        sender.sendMessage(prefix + " " + m.getMessage("invalidArguments"));
+                        return true;
+                    }
 
                     if (args[1].equalsIgnoreCase("irongolem")) {
                         args[1] = "iron_golem";

@@ -116,6 +116,7 @@ public class PlayerDeath implements Listener {
 		if (pl.getConfig().getBoolean("death-reset-all")) {
             if (!p.hasPermission("morph.bypassreset.all")) {
 				fileConfig.set("Mobs", null);
+				fileConfig.set("progress", null);
 				try {
                     fileConfig.save(userFile);
                 } catch (IOException ex) {
@@ -127,7 +128,8 @@ public class PlayerDeath implements Listener {
 		} else if (pl.getConfig().getBoolean("death-reset-current")) {
             if (!p.hasPermission("morph.bypassreset." + mob)) {
                 stringList.remove(mob);
-                fileConfig.set("Mobs", stringList);
+				fileConfig.set("Mobs", stringList);
+				fileConfig.set("progress." + mob, 0);
                 try {
                     fileConfig.save(userFile);
                 } catch (IOException ex) {
