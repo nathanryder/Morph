@@ -633,6 +633,8 @@ public class MorphManager {
                 return Sound.ENTITY_SNOW_GOLEM_AMBIENT;
             case "dolphin":
                 return Sound.ENTITY_DOLPHIN_AMBIENT;
+            case "drowned":
+                return Sound.ENTITY_DROWNED_AMBIENT;
         }
         return null;
     }

@@ -61,6 +61,7 @@ permissions:
             morph.into.parrot: true
             morph.into.illusioner: true
             morph.into.dolphin: true
+            morph.into.drowned: true
     morph.bypasskill.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -109,6 +110,7 @@ permissions:
             morph.into.parrot: false
             morph.into.illusioner: false
             morph.into.dolphin: false
+            morph.into.drowned: false
     morph.bypassreset.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -158,6 +160,7 @@ permissions:
             morph.bypassreset.parrot: false
             morph.bypassreset.illusioner: false
             morph.bypassreset.dolphin: false
+            morph.bypassreset.drowned: false
     morph.bypasstime.*:
         description: Bypass the time limit on unmorphing
         children:
@@ -207,6 +210,7 @@ permissions:
             morph.bypasstime.parrot: false
             morph.bypasstime.illusioner: false
             morph.bypasstime.dolphin: false
+            morph.bypasstime.drowned: false
     morph.morph:
         description: Main permission
         default: false

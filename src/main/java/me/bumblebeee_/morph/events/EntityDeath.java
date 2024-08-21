@@ -1106,6 +1106,23 @@ public class EntityDeath implements Listener {
 							}
 						}
 						break;
+					case "craftdrowned":
+						if (!killer.hasPermission("morph.bypasskill.drowned")) {
+							if (killer.hasPermission("morph.into.drowned")) {
+								if (!stringList.contains("drowned")) {
+									stringList.add("drowned");
+									fileConfig.set("Mobs", stringList);
+									try {
+										fileConfig.save(userFile);
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
+									killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a drowned zombie!");
+									break;
+								}
+							}
+						}
+						break;
                     case "craftrabbit{rabbittype=black_and_white}":
                         if (!killer.hasPermission("morph.bypasskill.rabbit")) {
                             if (killer.hasPermission("morph.into.rabbit")) {
