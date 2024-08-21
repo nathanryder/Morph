@@ -2,7 +2,6 @@ package me.bumblebeee_.morph;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-import org.apache.commons.codec.binary.Base64;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -217,7 +216,9 @@ public class Inventorys {
                 constructInventory(inv);
                 inv.setItem(0, owner);
 
-                p.openInventory(inv);
+                Bukkit.getScheduler().runTask(Morph.pl, () -> {
+                    p.openInventory(inv);
+                });
             }
         });
     }
@@ -330,7 +331,9 @@ public class Inventorys {
         inv.setItem(15, si);
         inv.setItem(31, close);
 
-        p.openInventory(inv);
+        Bukkit.getScheduler().runTask(Morph.pl, () -> {
+            p.openInventory(inv);
+        });
     }
 
     public ItemStack createHead(String mobName, String display) {
@@ -391,7 +394,7 @@ public class Inventorys {
         }
 
         GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-        byte[] encodedData = Base64.encodeBase64(String.format("{textures:{SKIN:{url:\"%s\"}}}", playerSkullTexture).getBytes());
+        byte[] encodedData = Base64.getEncoder().encode(String.format("{textures:{SKIN:{url:\"%s\"}}}", playerSkullTexture).getBytes());
         profile.getProperties().put("textures", new Property("textures", new String(encodedData)));
         Field profileField;
         try {

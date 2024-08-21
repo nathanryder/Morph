@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bdf9629-c58d-4b93-885b-2e770fa60a8d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_comphenix_protocol_ProtocolLib_4_4_0_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_comphenix_protocol_ProtocolLib_API_4_4_0_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Morph.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Morph.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/EntityDeath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/EntityDeath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Inventorys.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Inventorys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/ManaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/ManaManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Inventorys.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Inventorys.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/ManaManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/ManaManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/EntityDeath.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/EntityDeath.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -52,6 +54,11 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="me.bumblebeee_.morph.versions" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -134,7 +141,8 @@
       <workItem from="1563028174618" duration="2427000" />
       <workItem from="1563179261926" duration="490000" />
       <workItem from="1568318891915" duration="32000" />
-      <workItem from="1581359839092" duration="2532000" />
+      <workItem from="1581359839092" duration="8916000" />
+      <workItem from="1581381231756" duration="903000" />
     </task>
     <servers />
   </component>
@@ -146,7 +154,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

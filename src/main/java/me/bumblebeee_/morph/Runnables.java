@@ -29,7 +29,7 @@ public class Runnables {
 
 	public static void spider(final Plugin pl) {
 		final ArrayList<Material> blocked = new ArrayList<>(Arrays.asList(Material.AIR, Material.LAVA, Material.LEGACY_DOUBLE_PLANT));
-		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(pl, new Runnable() {
+		new BukkitRunnable() {
 			@Override
 			public void run() {
 				for (Player p : Bukkit.getServer().getOnlinePlayers()) {
@@ -81,12 +81,11 @@ public class Runnables {
 
 				}
 			}
-		}, 3, 3);
+		}.runTaskTimer(Morph.pl, 3, 3);
 	}
 
-	@SuppressWarnings("deprecation")
 	public static void setup(final Plugin pl) {
-		Bukkit.getServer().getScheduler().runTaskTimer(pl, new Runnable() {
+		new BukkitRunnable() {
 		    @Override
 			public void run() {
 				for (Player p : Bukkit.getServer().getOnlinePlayers()) {
@@ -214,12 +213,12 @@ public class Runnables {
                     }
                 }
 			}
-		}, 10, 20);
+		}.runTaskTimer(pl, 10, 20);
 	}
 
 	@SuppressWarnings("deprecation")
     public static void burning(final Plugin pl) {
-        Bukkit.getServer().getScheduler().runTaskTimer(pl, new Runnable() {
+        new BukkitRunnable() {
             public void run() {
                 for (Player p : Bukkit.getServer().getOnlinePlayers()) {
                     if (DisguiseAPI.isDisguised(p)) {
@@ -285,7 +284,7 @@ public class Runnables {
                     }
                 }
             }
-        }, 20, 20);
+        }.runTaskTimer(pl, 20, 20);
     }
 
 	public static void mobSounds() {
@@ -293,7 +292,7 @@ public class Runnables {
             if (ManaManager.version.equalsIgnoreCase("v1_8_R3"))
                 return;
         }
-        Bukkit.getServer().getScheduler().runTaskTimer(Morph.pl, new Runnable() {
+        new BukkitRunnable() {
 			@Override
 			public void run() {
                 for (Player p : Bukkit.getServer().getOnlinePlayers()) {
@@ -314,11 +313,11 @@ public class Runnables {
                     }
                 }
 			}
-		}, 0, 10);
+		}.runTaskTimer(Morph.pl, 0, 10);
 	}
 
     public static void morphPower() {
-        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Morph.pl, new Runnable() {
+        new BukkitRunnable() {
             @Override
             public void run() {
                 for (Player p : Bukkit.getServer().getOnlinePlayers()) {
@@ -379,7 +378,7 @@ public class Runnables {
                     }
                 }
             }
-        }, 20, 20);
+        }.runTaskTimer(Morph.pl, 20, 20);
     }
 
     public static boolean hasFlyingAbility(Player p) {
