@@ -2,97 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bdf9629-c58d-4b93-885b-2e770fa60a8d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_comphenix_protocol_ProtocolLib_4_4_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_comphenix_protocol_ProtocolLib_4_4_0_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_comphenix_protocol_ProtocolLib_API_4_4_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_comphenix_protocol_ProtocolLib_API_4_4_0_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Morph.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Morph.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/PlayerDeath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/PlayerDeath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Morph-2.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Inventorys.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Inventorys.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/ManaManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/ManaManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Messages.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Messages.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$AdvancedMapChart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$AdvancedMapChart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$AdvancedPie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$AdvancedPie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$Country.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$Country.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$CustomChart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$CustomChart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$MultiLineChart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$MultiLineChart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$SimpleMapChart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$SimpleMapChart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$SimplePie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$SimplePie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$SingleLineChart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics$SingleLineChart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Metrics.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Morph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Morph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/MorphManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Runnables.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Stats$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Stats$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Stats$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Stats$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Stats.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/Stats.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/UpdateChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/UpdateChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/ChangeWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/ChangeWorld.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/EntityDamage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/EntityDamage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/EntityDamage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/EntityDamage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/EntityDeath.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/EntityDeath.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/EntityTarget.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/EntityTarget.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractWithEntity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractWithEntity$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractWithEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InteractWithEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InventoryClick.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/InventoryClick.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/ItemConsume.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/ItemConsume.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/MoveEvent$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/MoveEvent$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/MoveEvent$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/MoveEvent$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/MoveEvent$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/MoveEvent$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/MoveEvent$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/MoveEvent$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/MoveEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/MoveEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/PlayerDeath.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/PlayerDeath.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/PlayerJoin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/PlayerJoin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/PlayerLeave.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/PlayerLeave.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/PlayerSwapHandItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/PlayerSwapHandItems.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/PlayerUndisguise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/PlayerUndisguise.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/ProjectileHit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/ProjectileHit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/RegisterEvents.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/RegisterEvents.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/RespawnEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/RespawnEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/WeatherChange.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/events/WeatherChange.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_10_R1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_10_R1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_11_R1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_11_R1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_12_R1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_12_R1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_8_R1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_8_R1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_9_R1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_9_R1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_9_R2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/bumblebeee_/morph/versions/Actionbar_1_9_R2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/ChangeWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/ChangeWorld.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -102,32 +14,31 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="config.yml" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/resources/config.yml">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="289">
-                    <caret line="55" column="18" lean-forward="true" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlayerDeath.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PlayerDeath.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/PlayerDeath.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="357">
+              <caret line="114" column="28" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChangeWorld.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/ChangeWorld.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="67" column="5" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MorphManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="796">
+              <caret line="135" selection-start-line="135" selection-end-line="136" />
             </state>
           </provider>
         </entry>
@@ -136,8 +47,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>blaze-fire</find>
-      <find>pigz</find>
       <find>spider-climb</find>
       <find>giant-throw</find>
       <find>evoker-attack</find>
@@ -166,6 +75,8 @@
       <find>slime</find>
       <find>2.12</find>
       <find>syste</find>
+      <find>view</find>
+      <find>morph.setV</find>
     </findStrings>
     <replaceStrings>
       <replace>unmorphPlayer(p, false, false)</replace>
@@ -189,13 +100,14 @@
         <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/PlayerLeave.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InteractEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/EntityDeath.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InventoryClick.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/PlayerDeath.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InventoryClick.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/ChangeWorld.java" />
       </list>
     </option>
   </component>
@@ -216,6 +128,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,9 +193,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -366,12 +278,13 @@
       <workItem from="1523554150766" duration="1377000" />
       <workItem from="1523909137781" duration="71000" />
       <workItem from="1524318237062" duration="163000" />
-      <workItem from="1527591502309" duration="2281000" />
+      <workItem from="1527591502309" duration="3375000" />
+      <workItem from="1527848071031" duration="1880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26033000" />
+    <option name="totallyTimeSpent" value="29007000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="0" width="1280" height="1024" extended-state="4" />
@@ -385,19 +298,19 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.40983605" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.40874317" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2421875" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -412,14 +325,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2023">
-          <caret line="119" column="22" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4350">
@@ -721,20 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InventoryClick.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="318" column="47" selection-start-line="318" selection-start-column="47" selection-end-line="318" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/Runnables.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
@@ -758,15 +655,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="55" column="18" lean-forward="true" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+        <state relative-caret-position="34">
+          <caret line="40" column="16" lean-forward="true" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/PlayerDeath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="357">
+          <caret line="114" column="28" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/InventoryClick.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="267" column="27" lean-forward="true" selection-start-line="267" selection-start-column="22" selection-end-line="267" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/MorphManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="796">
+          <caret line="135" selection-start-line="135" selection-end-line="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/bumblebeee_/morph/events/ChangeWorld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="67" column="5" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
         </state>
       </provider>
     </entry>

@@ -40,7 +40,7 @@ public class MorphManager {
         }
     }
 
-    public boolean canSeeOwnMorph(Player p) {
+    public boolean getViewMorph(Player p) {
         File userFile = new File(Morph.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
         FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
         return fileConfig.getBoolean("viewDisguise");
