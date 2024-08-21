@@ -18,6 +18,7 @@ import org.bukkit.potion.PotionEffect;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
 public class PlayerDeath implements Listener {
 
@@ -33,11 +34,36 @@ public class PlayerDeath implements Listener {
 	@EventHandler
 	public void onPlayerDeath(PlayerDeathEvent e) {
 		Player p = e.getEntity();
-		if (!Morph.using.containsKey(p.getUniqueId()))
-			return;
-
 		Player k = p.getKiller();
 		World w = p.getWorld();
+
+		if (k != null) {
+			if (Morph.using.containsKey(k.getUniqueId()) && Morph.pl.getConfig().getBoolean("overrideDeathMessage")) {
+				String victim = p.getName();
+				String killer = k.getName();
+				String killerMorph = Morph.using.get(k.getUniqueId());
+
+				List<String> messages = Morph.pl.getConfig().getStringList("deathMessages");
+				String msg = "An error has occurred with Morph selecting a death message";
+
+				if (Morph.pl.getConfig().getBoolean("randomMessage")) {
+					Random rand = new Random();
+					msg = messages.get(rand.nextInt(messages.size()));
+				} else {
+					msg = messages.get(0);
+				}
+
+				if (msg != null) {
+					msg = msg.replace("{victim}", victim).replace("{killer}", killer);
+					msg = msg.replace("{killerMob}", killerMorph).replace("{world}", w.getName());
+
+				}
+				e.setDeathMessage(msg);
+			}
+		}
+
+		if (!Morph.using.containsKey(p.getUniqueId()))
+		return;
 
 		File userFile = new File(pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
 		FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
@@ -121,7 +147,7 @@ public class PlayerDeath implements Listener {
 		}
 	    for (PotionEffect effect : p.getActivePotionEffects())
 	        p.removePotionEffect(effect.getType());
+
 		Morph.using.remove(p.getUniqueId());
 	}
-
 }

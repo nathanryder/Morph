@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Morph" target="1.7" />
+      <module name="Morph" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
