@@ -455,6 +455,9 @@ public class MorphCommand implements CommandExecutor {
                             return true;
                         }
 
+                        if (p.hasPermission("morph.blacklist.player." + off.getName())) {
+                            return true;
+                        }
 
                         if (!players.contains(off.getName())) {
                             send(p, prefix + " " + m.getMessage("unableToMorphAsPlayer", off.getName(), p.getDisplayName(), "", ""));
@@ -469,6 +472,10 @@ public class MorphCommand implements CommandExecutor {
 
                     } else if (t != null) {
                         on = Bukkit.getServer().getPlayer(args[1]);
+
+                        if (p.hasPermission("morph.blacklist.player." + on.getName())) {
+                            return true;
+                        }
 
                         if (!players.contains(on.getName())) {
                             send(p, prefix + " " + m.getMessage("unableToMorphAsPlayer", on.getName(), p.getDisplayName(), "", ""));

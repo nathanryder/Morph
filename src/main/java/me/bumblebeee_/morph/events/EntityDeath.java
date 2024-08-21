@@ -71,8 +71,13 @@ public class EntityDeath implements Listener {
 				} else if (ev.getEntity().toString().toLowerCase().contains("craftplayer")) {
 					if (pl.getConfig().getString("enable-players") == "true") {
 						if (killer.hasPermission("morph.into.player")) {
+
 							String t = ev.getEntity().getName();
 							if (!players.toString().contains(t)) {
+								if (killer.hasPermission("morph.blacklist.player." + t)) {
+									return;
+								}
+
 								players.add(t);
 								fileConfig.set("Players", players);
 								try {
@@ -87,7 +92,6 @@ public class EntityDeath implements Listener {
 					}
 				}
 
-				System.out.println("Type: " + ev.getEntity().toString().toLowerCase());
 				switch (ev.getEntity().toString().toLowerCase()) {
 					case "craftpig":
 						Pig p = (Pig) ev.getEntity();
@@ -163,12 +167,10 @@ public class EntityDeath implements Listener {
 						}
 						break;
 					case "craftpigzombie":
-						System.out.println("1");
 						PigZombie pz = (PigZombie) ev.getEntity();
 						if (pz.isBaby()) {
 							fullType = "zombified_piglin:baby";
 						} else {
-							System.out.println("2");
 							fullType = "zombified_piglin";
 						}
 						break;
