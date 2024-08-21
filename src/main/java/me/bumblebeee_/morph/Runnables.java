@@ -1,6 +1,7 @@
 package me.bumblebeee_.morph;
 
 import me.bumblebeee_.morph.events.EntityDamageByEntityListener;
+import me.bumblebeee_.morph.morphs.Flyable;
 import me.bumblebeee_.morph.morphs.Morph;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
@@ -156,7 +157,10 @@ public class Runnables {
     }
 
     public static boolean hasFlyingAbility(Player p) {
-        return false;
+        String using = Main.getMorphManager().getUsing(p);
+        Morph morph = Main.getMorphManager().getMorphType(using);
+
+        return morph instanceof Flyable;
     }
 
 }
