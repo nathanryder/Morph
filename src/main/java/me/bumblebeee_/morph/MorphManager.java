@@ -109,6 +109,11 @@ public class MorphManager {
     }
 
     public void morphPlayer(final Player p, DisguiseType type, boolean silent, boolean baby) {
+        if (!Config.MOB_CONFIG.getConfig().getBoolean(type.toString().toLowerCase() + ".enabled")) {
+            p.sendMessage(prefix + " " + m.getMessage("mobDisabled"));
+            return;
+        }
+
         if (typeCooldown.containsKey(p.getUniqueId())) {
             Map<String, Integer> cooldown = typeCooldown.get(p.getUniqueId());
             if (cooldown.containsKey(type.toString().toLowerCase())) {

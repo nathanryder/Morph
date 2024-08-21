@@ -8,103 +8,128 @@
 flying: true
 
 horse:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   speed: true
 wolf:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 ocelot:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   speed: true
 cow:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 pig:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 wither_skeleton:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   ability-cooldown: 0
 bat:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 blaze:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   fire: true
   ability-cooldown: 5
 cave_spider:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   spider-climb: true
   ability-cooldown: 0
 chicken:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   egg: true
   ability-cooldown: 120
 creeper:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   explosion: true
   explosion-damage: false
 enderman:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   teleport: true
   ability-cooldown: 5
 endermite:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 ghast:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   fireball: true
   ability-cooldown: 5
 guardian:
+  enabled: true
   morph-time: 0
   waterbreathing: true
   morph-cooldown: 0
 iron_golem:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   strength: true
 magma_cube:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 mushroom_cow:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 pig_zombie:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   eat: true
   speed: true
 sheep:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 silverfish:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 skeleton:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   shoot: true
 slime:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   jump-boost: true
   split: true
 snowman:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   snow: true
   shoot: true
   ability-cooldown: 0
 spider:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   climb: true
@@ -115,24 +140,30 @@ spider:
   spiderWebRemove: 30
   ability-cooldown: 0
 squid:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   waterbreathing: true
 villager:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 witch:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 wither:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 llama:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   spit: true
   ability-cooldown: 0
 vex:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   phase: true
@@ -140,9 +171,11 @@ vex:
   max-layers: 2
   ability-cooldown: 30
 vindicator:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 evoker:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   attack: true
@@ -150,16 +183,18 @@ evoker:
   attack-cooldown: 5
   spawnVex-cooldown: 30
 zombie:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   eat: true
 rabbit:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   jump-boost: true
 giant:
-  morph-time: 0
   enabled: true
+  morph-time: 0
   morph-cooldown: 0
   throw: true
   #This increases how high giants can throw people
@@ -169,72 +204,111 @@ giant:
   walk-throw: false
   ability-cooldown: 0
 enderdragon:
-  morph-time: 0
   enabled: true
+  morph-time: 0
   morph-cooldown: 0
   fireball: true
   ability-cooldown: 0
 mule:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 donkey:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 zombie_villager:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 parrot:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 illusioner:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   ability-cooldown: 0
 stray:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   slow: true
   shoot: true
   ability-cooldown: 0
 husk:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   hunger: true
 dolphin:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 drowned:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 cod:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 salmon:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 tropicalfish:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 pufferfish:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
   poison: true
   ability-cooldown: 15
 phantom:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 turtle:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 bee:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 strider:
-  morph-time: 0
-  morph-cooldown: 0
-zoglin:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0
 hoglin:
+  enabled: true
+  morph-time: 0
+  morph-cooldown: 0
+zoglin:
+  enabled: true
+  morph-time: 0
+  morph-cooldown: 0
+shulker:
+  enabled: true
+  morph-time: 0
+  morph-cooldown: 0
+polar_bear:
+  enabled: true
+  morph-time: 0
+  morph-cooldown: 0
+cat:
+  enabled: true
+  morph-time: 0
+  morph-cooldown: 0
+fox:
+  enabled: true
+  morph-time: 0
+  morph-cooldown: 0
+panda:
+  enabled: true
   morph-time: 0
   morph-cooldown: 0

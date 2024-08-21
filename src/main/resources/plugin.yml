@@ -40,6 +40,7 @@ permissions:
             morph.into.sheep: true
             morph.into.silverfish: true
             morph.into.skeleton: true
+            morph.into.skeleton_horse: true
             morph.into.slime: true
             morph.into.snowman: true
             morph.into.spider: true
@@ -98,6 +99,7 @@ permissions:
             morph.into.sheep: false
             morph.into.silverfish: false
             morph.into.skeleton: false
+            morph.into.skeleton_horse: false
             morph.into.slime: false
             morph.into.snowman: false
             morph.into.spider: false
@@ -157,6 +159,7 @@ permissions:
             morph.bypassreset.sheep: false
             morph.bypassreset.silverfish: false
             morph.bypassreset.skeleton: false
+            morph.bypassreset.skeleton_horse: false
             morph.bypassreset.slime: false
             morph.bypassreset.snowman: false
             morph.bypassreset.spider: false
@@ -217,6 +220,7 @@ permissions:
             morph.bypasstime.sheep: false
             morph.bypasstime.silverfish: false
             morph.bypasstime.skeleton: false
+            morph.bypasstime.skeleton_horse: false
             morph.bypasstime.slime: false
             morph.bypasstime.snowman: false
             morph.bypasstime.spider: false

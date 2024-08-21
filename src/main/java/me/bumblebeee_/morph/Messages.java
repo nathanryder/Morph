@@ -37,6 +37,7 @@ public class Messages {
             createMessage("nobodyNearby", "&eThere is nobody disguised near you!");
             createMessage("helpFormat", "&e{command}: {description}");
             createMessage("reloadedConfig", "&eSuccessfully reloaded config!");
+            createMessage("mobDisabled", "&eThis mob is not enabled!");
             createMessage("cannotMorphAsAnything", "&eYou cannot morph into anything yet! Go kill some mobs!");
             createMessage("currentlyMorphedAs", "&eYou are morphed as a {mob}");
             createMessage("canMorphInto", "&eYou can morph into: {canMorphAs}");
