@@ -165,6 +165,7 @@ sheep:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  ability-cooldown: 20
   dropWool: true
 silverfish:
   enabled: true

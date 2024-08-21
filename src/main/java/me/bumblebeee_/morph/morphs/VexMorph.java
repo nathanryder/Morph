@@ -45,7 +45,8 @@ public class VexMorph extends Morph implements Listener, Flyable {
         if (!p.isSneaking())
             return;
 
-        if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
+        e.setCancelled(true);
+        if (e.getAction() == Action.LEFT_CLICK_BLOCK) {
             int existingCd = Cooldown.getCooldown(p.getUniqueId(), getMorphName());
             if (existingCd >= 0) {
                 p.sendMessage(msgs.getMessage("prefix") + " " + msgs.getMessage("cooldown", "", p.getDisplayName(), toFriendly(), existingCd));

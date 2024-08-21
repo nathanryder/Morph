@@ -50,7 +50,12 @@ public class PlayerLeave implements Listener {
 			if (Main.pl.getConfig().getBoolean("persistMorphs")) {
 				File userFile = new File(pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
 				FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
-				fileConfig.set("lastMorph", Main.using.get(p.getUniqueId()));
+				String using = Main.using.get(p.getUniqueId());
+
+				if (using.contains("baby")) {
+					using = using.split(" ")[1] + ":" + using.split(" ")[0];
+				}
+				fileConfig.set("lastMorph", using);
 				try {
 					fileConfig.save(userFile);
 				} catch (IOException ioException) {

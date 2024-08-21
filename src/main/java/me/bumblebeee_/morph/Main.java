@@ -162,6 +162,10 @@ public class Main extends JavaPlugin implements Listener {
 			//store last used morph
 			for (UUID uuid : Main.using.keySet()) {
 				String mob = Main.using.get(uuid);
+				if (mob.contains("baby")) {
+					mob = mob.split(" ")[1] + ":" + mob.split(" ")[0];
+				}
+
 				File userFile = new File(pl.getDataFolder() + "/UserData/" + uuid + ".yml");
 				FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
 				fileConfig.set("lastMorph", mob);
