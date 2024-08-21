@@ -72,7 +72,7 @@ public class Messages {
             createMessage("unmorphedTitle", "You are not morphed as anything");
             createMessage("clickToMorph", "&bClick to morph into a {mob}");
             createMessage("morphPower", "&eMorph Power: &a");
-            createMessage("timeLeftAsMorph", "&eTime left as {mob}: {time}");
+            createMessage("timeLeftAsMorph", "&eTime left as {mob}: {min}:{second}");
 
             createMessage("commands.morph", "&eMorph into a mob");
             createMessage("commands.unmorph", "&eMorph back into yourself");
@@ -102,6 +102,10 @@ public class Messages {
 
     public String getMessage(String key, String target, String player, String mob, int time) {
         return getMessage(key).replace("{target}", target).replace("{player}", player).replace("{mob}", mob).replace("{time}", String.valueOf(time));
+    }
+
+    public String getMessage(String key, String mob, String mins, String seconds) {
+        return getMessage(key).replace("{mob}", mob).replace("{min}", String.valueOf(mins)).replace("{second}", String.valueOf(seconds));
     }
 
     public String getMessage(String key, String cmd, String desc) {
