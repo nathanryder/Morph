@@ -25,7 +25,7 @@ public class Inventorys {
     Messages msgs = new Messages();
 
     public static HashMap<UUID, Integer> pages = new HashMap<>();
-    static HashMap<String, String> owners = new HashMap<>();
+    static Map<String, String> owners = new TreeMap<>(new GUIComparator());
 
     public static void addHead(String mob, String headId) {
         owners.put(mob, headId);
