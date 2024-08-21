@@ -34,10 +34,19 @@ public class Main extends JavaPlugin implements Listener {
 	public static @Getter Messages messages;
 	public static @Getter MorphManager morphManager;
 
+	//Changelog
+	//
+	//TODO
+	//Iron golems
+	//Paging is fucked
+	//1.21 abilities
+	//Scaling hitbox?
+	//Console head spam?
+
 	public void onEnable() {
 		pl = this;
 		messages = new Messages();
-		double version = Utils.getVersion();
+		double version = Utils.getVersion(true);
 
         setupFiles();
         setupCommands();

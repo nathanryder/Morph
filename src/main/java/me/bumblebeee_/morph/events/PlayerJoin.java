@@ -39,7 +39,7 @@ public class PlayerJoin implements Listener {
 	        } catch (IOException ex) {
 	            ex.printStackTrace();
 	        }
-	        Bukkit.getServer().getLogger().info("[Morph] Creating new user file " + p.getUniqueId() + " for user " + p.getName());
+			Main.pl.getLogger().info("[Morph] Creating new user file " + p.getUniqueId() + " for user " + p.getName());
 	        FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
 	        fileConfig.createSection("Mobs");
 	    }

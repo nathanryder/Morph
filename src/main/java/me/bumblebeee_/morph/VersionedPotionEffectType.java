@@ -26,16 +26,7 @@ public enum VersionedPotionEffectType {
     private PotionEffectType potionEffectType;
 
     VersionedPotionEffectType(Map<Double, String> versionMap) {
-        double currVersion;
-        try {
-            String versionStr = Bukkit.getBukkitVersion().split("-")[0];
-            versionStr = versionStr.substring(2);
-
-            currVersion = Double.parseDouble(versionStr);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            Bukkit.getServer().getLogger().severe("Failed to find a valid server version! Report this to the developer immediately");
-            currVersion = 1.2;
-        }
+        double currVersion = Utils.getVersion(false);
 
         for (Double version : versionMap.keySet()) {
             if (currVersion < version) {

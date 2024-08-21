@@ -124,14 +124,21 @@ public class Utils {
         return axis[Math.round(yaw / 90f) & 0x3].getOppositeFace();
     }
 
-    public static double getVersion() {
+    public static double getVersion(boolean majorMinor) {
         double version;
         try {
-            String versionStr = Bukkit.getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3].replace("v", "");
-            versionStr = versionStr.substring(0, versionStr.length()-3).replace("_", ".");
+            String versionStr = Bukkit.getBukkitVersion().split("-")[0];
+
+            if (majorMinor) {
+                versionStr = versionStr.substring(0, 4);
+
+            } else {
+                versionStr = versionStr.substring(2);
+            }
+
             version = Double.parseDouble(versionStr);
         } catch (ArrayIndexOutOfBoundsException e) {
-            Bukkit.getServer().getLogger().severe("Failed to find a valid server version! Report this to the developer immediately");
+            Main.pl.getLogger().severe("Failed to find a valid server version! Report this to the developer immediately");
             version = 1.2;
         }
 

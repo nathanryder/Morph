@@ -114,7 +114,7 @@ public class InventoryClick implements Listener {
 
                 String mobName = i.getItemMeta().getPersistentDataContainer().get(new NamespacedKey(Main.pl, "mobName"), PersistentDataType.STRING);
                 if (mobName == null) {
-                    Bukkit.getServer().getLogger().warning("Failed to find mobname when clicking item (" + mobName + ")");
+                    Main.pl.getLogger().warning("Failed to find mobname when clicking item (" + mobName + ")");
                     return;
                 }
 

@@ -731,7 +731,7 @@ public class MorphCommand implements CommandExecutor {
             for (String mob : mobs) {
                 Morph type = Main.getMorphManager().getMorphs().get(mob);
                 if (type == null) {
-                    Bukkit.getServer().getLogger().warning("Failed to find a morph named " + mob + " while trying to pick a random morph");
+                    Main.pl.getLogger().warning("Failed to find a morph named " + mob + " while trying to pick a random morph");
                     continue;
                 }
 

@@ -79,4 +79,8 @@ public enum Config {
     public FileConfiguration getConfig() {
         return customConfig;
     }
+
+    public File getFile() {
+        return configFile;
+    }
 }

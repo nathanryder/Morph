@@ -17,8 +17,15 @@ public class BoggedMorph extends Morph {
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_BOGGED_AMBIENT)
                 .headId("a3b9003ba2d05562c75119b8a62185c67130e9282f7acbac4bc2824c21eb95d9")
-                .abilityInfo("UPDATE THIS");
+                .abilityInfo("TODO: This is a beta build");
 
+        this.setConfigOption(getMorphName() + ".enabled", true);
+        this.setConfigOption(getMorphName() + ".health", 16);
+        this.setConfigOption(getMorphName() + ".requiredKills", 1);
+        this.setConfigOption(getMorphName() + ".shoot", true);
+        this.setConfigOption(getMorphName() + ".morph-time", 0);
+        this.setConfigOption(getMorphName() + ".morph-cooldown", 0);
+        this.buildConfig();
 //        Bukkit.getServer().getPluginManager().registerEvents(this, Main.pl);
     }
 

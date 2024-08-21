@@ -26,11 +26,18 @@ public class ManaManager {
 
     public boolean setupActionbar() {
         try {
-            version = Bukkit.getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3];
+            String[] verData = Bukkit.getBukkitVersion().split("-");
+            version = "v" + verData[0].substring(0, 4).replace(".", "_");
+            version += "_R" + verData[1].split("\\.")[1];
         } catch (ArrayIndexOutOfBoundsException e) {
+            Main.pl.getLogger().warning("Failed to find server version");
             return false;
         }
 
+
+        if (Main.pl.getConfig().getBoolean("debug")) {
+            Main.pl.getLogger().info("FOUND VERSION: " + version);
+        }
         if (version.equals("v1_11_R1"))
             ab = new Actionbar_1_11_R1();
         else if (version.equalsIgnoreCase("v1_9_R1"))

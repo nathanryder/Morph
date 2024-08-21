@@ -1,23 +1,21 @@
 package me.bumblebeee_.morph.morphs;
 
 import lombok.Getter;
-import lombok.Setter;
 import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Inventorys;
 import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.Messages;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
-import org.bukkit.Bukkit;
 import org.bukkit.Sound;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
+import java.io.IOException;
+import java.util.*;
 
 public abstract class Morph {
 
@@ -33,6 +31,7 @@ public abstract class Morph {
     private @Getter DisguiseType disguiseType;
     private @Getter boolean babyType = true;
     private @Getter List<PotionEffect> effects = new ArrayList<>();
+    private @Getter Map<String, Object> configOpts = new HashMap<>();
 
     //Optional - use incase morph needs any initial setups
     public void initMorph(Player p) {
@@ -150,5 +149,25 @@ public abstract class Morph {
     public Morph disguiseType(DisguiseType type) {
         this.disguiseType = type;
         return this;
+    }
+
+    public void setConfigOption(String key, Object value) {
+        configOpts.put(key, value);
+    }
+
+    public void buildConfig() {
+        FileConfiguration config = Config.MOB_CONFIG.getConfig();
+        for (String key : configOpts.keySet()) {
+            Object value = configOpts.get(key);
+            if (config.get(key) == null) {
+                config.set(key, value);
+            }
+        }
+
+        try {
+            config.save(Config.MOB_CONFIG.getFile());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
