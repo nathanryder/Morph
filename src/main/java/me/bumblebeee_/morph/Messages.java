@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Messages {
@@ -78,6 +79,69 @@ public class Messages {
             createMessage("unmorphedByWorld", "&cYou have been unmorphed because morphing is disabled in this world");
             createMessage("GUIdisabled", "&cMorph GUI is disabled. For more help do /morph help");
 
+            createMessage("abilityInfo.title", "&eAbility information for {mob}");
+            createMessage("abilityInfo.horse", new ArrayList<>(Arrays.asList("&aPassive: &eSpeed 4")));
+            createMessage("abilityInfo.wolf", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.ocelot", new ArrayList<>(Arrays.asList("&aPassive: &eSpeed 7")));
+            createMessage("abilityInfo.cow", new ArrayList<>(Arrays.asList("&aAbility: &eEating grass restores hunger")));
+            createMessage("abilityInfo.pig", new ArrayList<>(Arrays.asList("&aAbility: &eEating grass restores hunger")));
+            createMessage("abilityInfo.wither_skeleton", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.bat", new ArrayList<>(Arrays.asList("&aPassive: &eFlying and night vision 3")));
+            createMessage("abilityInfo.blaze", new ArrayList<>(Arrays.asList("&aPassive: &eFlying and Fire resistance 8","&aAbility: &eShoots a fireball")));
+            createMessage("abilityInfo.cave_spider", new ArrayList<>(Arrays.asList("&aPassive: &eAllows you to climb walls")));
+            createMessage("abilityInfo.chicken", new ArrayList<>(Arrays.asList("&aAbility: &eAllows your wildest dreams to come true.. and lay an egg!")));
+            createMessage("abilityInfo.creeper", new ArrayList<>(Arrays.asList("&aPassive: &eBlows up when you die","&aAbility: &eMakes you explode, dying in the process")));
+            createMessage("abilityInfo.enderman", new ArrayList<>(Arrays.asList("&aAbility: &eAllows you to teleport","Weakness: Doesn't like standing in the rain")));
+            createMessage("abilityInfo.endermite", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.ghast", new ArrayList<>(Arrays.asList("&aAbility: &eShoots a fireball")));
+            createMessage("abilityInfo.guardian", new ArrayList<>(Arrays.asList("&aPassive: &eWater breathing 8 and night vision 3")));
+            createMessage("abilityInfo.iron_golem", new ArrayList<>(Arrays.asList("&aPassive: &eStrength 6","Weakness: Slowness 1")));
+            createMessage("abilityInfo.magma_cube", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.mushroom_cow", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.pig_zombie", new ArrayList<>(Arrays.asList("&aPassive: &eSpeed 2 and can safely eat rotten flesh")));
+            createMessage("abilityInfo.sheep", new ArrayList<>(Arrays.asList("&aAbility: &eEating grass restores hunger")));
+            createMessage("abilityInfo.silverfish", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.skeleton", new ArrayList<>(Arrays.asList("&aAbility: &eAllows you to shoot arrows","Weakness: Burns in daylight")));
+            createMessage("abilityInfo.slime", new ArrayList<>(Arrays.asList("&aPassive: &eJump boost 4 and splits into multiple slimes when taking damage")));
+            createMessage("abilityInfo.snowman", new ArrayList<>(Arrays.asList("&aPassive: &ePlaces snow down wherever you go","Weakness: Starts to melt when it is raining")));
+            createMessage("abilityInfo.spider", new ArrayList<>(Arrays.asList("&aAbility: &eAllows you to shoot webs","&aPassive: &eAllows you to climb walls")));
+            createMessage("abilityInfo.squid", new ArrayList<>(Arrays.asList("Weakness: Squids are very slow and can't see very far out of water")));
+            createMessage("abilityInfo.villager", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.witch", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.wither", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.llama", new ArrayList<>(Arrays.asList("&aAbility: &eDamages people by spitting at them")));
+            createMessage("abilityInfo.vex", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.vindicator", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.evoker", new ArrayList<>(Arrays.asList("&aAbility:&e")));
+            createMessage("abilityInfo.zombie", new ArrayList<>(Arrays.asList("&aPassive: &eCan safely eat rotten flesh","Weakness: Burns in daylight")));
+            createMessage("abilityInfo.rabbit", new ArrayList<>(Arrays.asList("&aPassive: &eJump boost 6")));
+            createMessage("abilityInfo.giant", new ArrayList<>(Arrays.asList("&aPassive: &eSlowness 3 and throws blocks wherever you walk","&aAbility: &eThrows players away from you")));
+            createMessage("abilityInfo.enderdragon", new ArrayList<>(Arrays.asList("&aPassive: &eAllows you to fly")));
+            createMessage("abilityInfo.mule", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.donkey", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.zombie_villager", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.parrot", new ArrayList<>(Arrays.asList("&aPassive: &eAllows you to fly")));
+            createMessage("abilityInfo.illusioner", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.stray", new ArrayList<>(Arrays.asList("&aAbility: &eShoots a slowness arrow","Weakness: Burns during the day")));
+            createMessage("abilityInfo.husk", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.dolphin", new ArrayList<>(Arrays.asList("&aPassive: &eDolphins grace 2")));
+            createMessage("abilityInfo.drowned", new ArrayList<>(Arrays.asList("&aPassive: &eDolphins grace 2 and water breathing 8")));
+            createMessage("abilityInfo.cod", new ArrayList<>(Arrays.asList("&aPassive: &eDolphins grace 2")));
+            createMessage("abilityInfo.salmon", new ArrayList<>(Arrays.asList("&aPassive: &eDolphins grace 2")));
+            createMessage("abilityInfo.tropicalfish", new ArrayList<>(Arrays.asList("&aPassive: &eDolphins grace 2")));
+            createMessage("abilityInfo.pufferfish", new ArrayList<>(Arrays.asList("&aPassive: &eDolphins grace 2")));
+            createMessage("abilityInfo.phantom", new ArrayList<>(Arrays.asList("&aPassive: &eNight vision 3")));
+            createMessage("abilityInfo.turtle", new ArrayList<>(Arrays.asList("&aPassive: &eWater breathing 8, slowness 1 and damage resistance 3")));
+            createMessage("abilityInfo.bee", new ArrayList<>(Arrays.asList("&aPassive: &eAllows you to fly")));
+            createMessage("abilityInfo.strider", new ArrayList<>(Arrays.asList("&aPassive: &eSpeed and fire resistance when in lava","Weakness: Slowness 4 when not in lava")));
+            createMessage("abilityInfo.hoglin", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.zoglin", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.shulker", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.polar_bear", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.cat", new ArrayList<>(Arrays.asList("&aPassive: &eStops phantoms from targeting you")));
+            createMessage("abilityInfo.fox", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+            createMessage("abilityInfo.panda", new ArrayList<>(Arrays.asList("&cNo abilities found")));
+
             createMessage("commands.morph", "&eMorph into a mob");
             createMessage("commands.unmorph", "&eMorph back into yourself");
             createMessage("commands.unmorph <all:player>", "&eUnmorph all players or a certain player");
@@ -97,6 +161,10 @@ public class Messages {
     }
 
     public void createMessage(String key, String value) {
+        c.set(key, value);
+    }
+
+    public void createMessage(String key, ArrayList<String> value) {
         c.set(key, value);
     }
 
@@ -127,6 +195,19 @@ public class Messages {
             return ChatColor.translateAlternateColorCodes('&', "&cFailed to find message! Please report this to a server admin.");
         }
         return ChatColor.translateAlternateColorCodes('&', msg);
+    }
+
+    public List<String> getListMessage(String key) {
+        f = new File(Morph.pl.getDataFolder() + File.separator + "messages.yml");
+        c = YamlConfiguration.loadConfiguration(f);
+
+        List<String> msg = new ArrayList<>();
+        List<String> temp = c.getStringList(key);
+        for (String line : temp) {
+            msg.add(ChatColor.translateAlternateColorCodes('&', line));
+        }
+
+        return msg;
     }
 
     public List<String> getCommands() {

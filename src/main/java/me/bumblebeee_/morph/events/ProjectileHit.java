@@ -22,7 +22,7 @@ public class ProjectileHit implements Listener {
         if (!(v.size() > 0))
             return;
 
-        if (v.get(0).value().equals("yes:husk")) {
+        if (v.get(0).value().equals("yes:stray")) {
             if (e.getHitEntity() != null) {
                 if (e.getHitEntity() instanceof Animals) {
                     Animals t = (Animals) e.getHitEntity();

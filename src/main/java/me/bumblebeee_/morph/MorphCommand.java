@@ -17,6 +17,7 @@ import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class MorphCommand implements CommandExecutor {
@@ -289,68 +290,108 @@ public class MorphCommand implements CommandExecutor {
             DisguiseType type = getDisguiseType(args[0]);
 
             if (type == null) {
-                if (args.length >= 1) {
-                    if (args[0].equalsIgnoreCase("near")) {
-                        int radius = Morph.pl.getConfig().getInt("near-radius");
-                        List<Entity> near = p.getNearbyEntities(radius, radius, radius);
-                        if (near.toString().contains("CraftPlayer")) {
-                            for (Entity e : near) {
-                                if (e instanceof Player) {
-                                    if (DisguiseAPI.isDisguised(e)) {
-                                        p.sendMessage(prefix + " " + m.getMessage("morphedNearby", e.getName(), p.getDisplayName(), DisguiseAPI.getDisguise(e).getType().toString().toLowerCase(), ""));
-                                        return true;
-                                    }
+                if (args[0].equalsIgnoreCase("near")) {
+                    int radius = Morph.pl.getConfig().getInt("near-radius");
+                    List<Entity> near = p.getNearbyEntities(radius, radius, radius);
+                    if (near.toString().contains("CraftPlayer")) {
+                        for (Entity e : near) {
+                            if (e instanceof Player) {
+                                if (DisguiseAPI.isDisguised(e)) {
+                                    p.sendMessage(prefix + " " + m.getMessage("morphedNearby", e.getName(), p.getDisplayName(), DisguiseAPI.getDisguise(e).getType().toString().toLowerCase(), ""));
+                                    return true;
                                 }
                             }
-                        } else {
-                            p.sendMessage(prefix + " " + m.getMessage("nobodyNearby", "", p.getDisplayName(), "", ""));
-                            return true;
                         }
+                    } else {
+                        p.sendMessage(prefix + " " + m.getMessage("nobodyNearby", "", p.getDisplayName(), "", ""));
                         return true;
-                    } else if (args[0].equalsIgnoreCase("help")) {
-                        p.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.DARK_PURPLE + "-----------------------------------------");
-                        for (String cmmd : m.getCommands()) {
-                            p.sendMessage(prefix + " /" + m.getMessage("helpFormat", cmmd, m.getMessage("commands." + cmmd)));
-                        }
-                        p.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.DARK_PURPLE + "-----------------------------------------");
-                        return true;
-                    } else if (args[0].equalsIgnoreCase("toggle")) {
-                        if (p.hasPermission("morph.toggle")) {
-                            morph.toggleAbilty(p);
-                            return true;
-                        }
-                    } else if (args[0].equalsIgnoreCase("view")) {
-                        boolean playerChangeView = Morph.pl.getConfig().getBoolean("canChangeView");
+                    }
+                    return true;
+                } else if (args[0].equalsIgnoreCase("help")) {
+                    p.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.DARK_PURPLE + "-----------------------------------------");
+                    for (String cmmd : m.getCommands()) {
+                        p.sendMessage(prefix + " /" + m.getMessage("helpFormat", cmmd, m.getMessage("commands." + cmmd)));
+                    }
+                    p.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.DARK_PURPLE + "-----------------------------------------");
+                    return true;
+                } else if (args[0].equalsIgnoreCase("info")) {
 
-                        if (!playerChangeView) {
-                            p.sendMessage(m.getMessage("unableToChangeView"));
+                    if (args[1].equalsIgnoreCase("irongolem")) {
+                        args[1] = "iron_golem";
+                    } else if (args[1].equalsIgnoreCase("polar")) {
+                        args[1] = "polar_bear";
+                    } else if (args[1].equalsIgnoreCase("polarbear")) {
+                        args[1] = "polar_bear";
+                    } else if (args[1].equalsIgnoreCase("bear")) {
+                        args[1] = "polar_bear";
+                    } else if (args[1].equalsIgnoreCase("pigzombie")) {
+                        args[1] = "pig_zombie";
+                    } else if (args[1].equalsIgnoreCase("zombiepig")) {
+                        args[1] = "pig_zombie";
+                    } else if (args[1].equalsIgnoreCase("zombiepigman")) {
+                        args[1] = "pig_zombie";
+                    } else if (args[1].equalsIgnoreCase("dragon")) {
+                        args[1] = "ender_dragon";
+                    } else if (args[1].equalsIgnoreCase("enderdragon")) {
+                        args[1] = "ender_dragon";
+                    } else if (args[1].equalsIgnoreCase("mushroom")) {
+                        args[1] = "mushroom_cow";
+                    } else if (args[1].equalsIgnoreCase("mushroomcow")) {
+                        args[1] = "mushroom_cow";
+                    } else if (args[1].equalsIgnoreCase("zombievillager")) {
+                        args[1] = "zombie_villager";
+                    }
+
+                    DisguiseType check = getDisguiseType(args[1]);
+                    if (check == null) {
+                        p.sendMessage(prefix + " " + m.getMessage("invalidMorph"));
+                        return true;
+                    }
+
+                    p.sendMessage(prefix + " " + m.getMessage("abilityInfo.title", args[1].toLowerCase(), "", ""));
+
+                    List<String> info = m.getListMessage("abilityInfo." + args[1].toLowerCase());
+                    for (String line : info) {
+                        p.sendMessage(prefix + " " + ChatColor.translateAlternateColorCodes('&', line));
+                    }
+
+                    return true;
+                } else if (args[0].equalsIgnoreCase("toggle")) {
+                    if (p.hasPermission("morph.toggle")) {
+                        morph.toggleAbilty(p);
+                        return true;
+                    }
+                } else if (args[0].equalsIgnoreCase("view")) {
+                    boolean playerChangeView = Morph.pl.getConfig().getBoolean("canChangeView");
+
+                    if (!playerChangeView) {
+                        p.sendMessage(prefix + " " + m.getMessage("unableToChangeView"));
+                        return false;
+                    }
+
+                    if (!p.hasPermission("morph.changeview")) {
+                        p.sendMessage(prefix + " " + m.getMessage("noPermissions"));
+                        return true;
+                    }
+
+                    if (!(args.length > 1)) {
+                        boolean ownView = fileConfig.getBoolean("viewDisguise");
+                        if (fileConfig.getString("viewDisguise") == null)
+                            ownView = Morph.pl.getConfig().getBoolean("viewSelfDisguise");
+
+                        morph.setViewMorph(p, !ownView);
+                        return true;
+                    } else {
+                        boolean view;
+                        try {
+                            view = Boolean.parseBoolean(args[1]);
+                        } catch (Exception e) {
+                            sender.sendMessage(prefix + " " + m.getMessage("invalidArguments"));
                             return false;
                         }
 
-                        if (!p.hasPermission("morph.changeview")) {
-                            p.sendMessage(prefix + " " + m.getMessage("noPermissions"));
-                            return true;
-                        }
-
-                        if (!(args.length > 1)) {
-                            boolean ownView = fileConfig.getBoolean("viewDisguise");
-                            if (fileConfig.getString("viewDisguise") == null)
-                                ownView = Morph.pl.getConfig().getBoolean("viewSelfDisguise");
-
-                            morph.setViewMorph(p, !ownView);
-                            return true;
-                        } else {
-                            boolean view;
-                            try {
-                                view = Boolean.parseBoolean(args[1]);
-                            } catch (Exception e) {
-                                sender.sendMessage(prefix + " " + m.getMessage("invalidArguments"));
-                                return false;
-                            }
-
-                            morph.setViewMorph(p, view);
-                            return true;
-                        }
+                        morph.setViewMorph(p, view);
+                        return true;
                     }
                 }
 
