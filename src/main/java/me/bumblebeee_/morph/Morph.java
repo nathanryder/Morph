@@ -66,7 +66,6 @@ public class Morph extends JavaPlugin implements Listener {
 		}
 
 		String[] libsVersion = LibsDisguises.getInstance().getDescription().getVersion().split("\\.");
-		System.out.println("Ver: " + libsVersion[2]);
 		if (Integer.parseInt(libsVersion[2]) < 25) {
 			getLogger().warning(" ");
 			getLogger().warning("It is recommended to update LibsDisguises to at least version 10.0.25 to prevent any errors!");
