@@ -1,5 +1,5 @@
 name: Morphy
-version: 2.20.2
+version: 2.20.3
 main: me.bumblebeee_.morph.Morph
 description: Morphing plugin
 depend: [LibsDisguises]
@@ -55,7 +55,7 @@ permissions:
             morph.into.zombie: true
             morph.into.rabbit: true
             morph.into.giant: true
-            morph.into.enderdragon: true
+            morph.into.ender_dragon: true
             morph.into.mule: true
             morph.into.donkey: true
             morph.into.zombie_villager: true
@@ -114,7 +114,7 @@ permissions:
             morph.into.evoker: false
             morph.into.rabbit: false
             morph.into.giant: false
-            morph.into.enderdragon: false
+            morph.into.ender_dragon: false
             morph.into.mule: false
             morph.into.donkey: false
             morph.into.zombie_villager: false
@@ -174,7 +174,7 @@ permissions:
             morph.bypassreset.evoker: false
             morph.bypassreset.rabbit: false
             morph.bypassreset.giant: false
-            morph.bypassreset.enderdragon: false
+            morph.bypassreset.ender_dragon: false
             morph.bypassreset.all: false
             morph.bypassreset.mule: false
             morph.bypassreset.donkey: false
@@ -235,7 +235,7 @@ permissions:
             morph.bypasstime.evoker: false
             morph.bypasstime.rabbit: false
             morph.bypasstime.giant: false
-            morph.bypasstime.enderdragon: false
+            morph.bypasstime.ender_dragon: false
             morph.bypasstime.all: false
             morph.bypasstime.mule: false
             morph.bypasstime.donkey: false

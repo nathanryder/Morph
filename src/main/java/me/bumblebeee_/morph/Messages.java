@@ -18,7 +18,6 @@ public class Messages {
     public void setup() {
 
         stringMsgs.put("prefix", "&a[Morph]&e");
-        stringMsgs.put("prefix", "&a[Morph]&e");
         stringMsgs.put("noPermissions", "&cYou do not have the required permissions");
         stringMsgs.put("youCanNowMorph", "&eYou can now morph into a {mob}!");
         stringMsgs.put("invalidArguments", "&eInvalid arguments! Type /morph help for help");

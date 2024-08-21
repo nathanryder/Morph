@@ -170,6 +170,9 @@ public class MorphCommand implements CommandExecutor {
                     if (args[0].equalsIgnoreCase("reload")) {
                         if (sender.hasPermission("morph.reload")) {
                             pl.reloadConfig();
+                            for (Config config : Config.values()) {
+                                config.createOrLoad();
+                            }
                             m.setup();
                             Morph.health = !pl.getConfig().getBoolean("disableHealthSystem");
                             sender.sendMessage(prefix + " " + m.getMessage("reloadedConfig"));
@@ -288,6 +291,7 @@ public class MorphCommand implements CommandExecutor {
             }
 
             DisguiseType type = getDisguiseType(args[0]);
+            DisguiseType asd = DisguiseType.CHICKEN;
 
             if (type == null) {
                 if (args[0].equalsIgnoreCase("near")) {
@@ -308,11 +312,11 @@ public class MorphCommand implements CommandExecutor {
                     }
                     return true;
                 } else if (args[0].equalsIgnoreCase("help")) {
-                    p.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.DARK_PURPLE + "-----------------------------------------");
+                    p.sendMessage(prefix + " " + ChatColor.DARK_PURPLE + "-----------------------------------------");
                     for (String cmmd : m.getCommands()) {
                         p.sendMessage(prefix + " /" + m.getMessage("helpFormat", cmmd, m.getMessage("commands." + cmmd)));
                     }
-                    p.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.DARK_PURPLE + "-----------------------------------------");
+                    p.sendMessage(prefix + " " + ChatColor.DARK_PURPLE + "-----------------------------------------");
                     return true;
                 } else if (args[0].equalsIgnoreCase("info")) {
                     if (args.length < 2) {

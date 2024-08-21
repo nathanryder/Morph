@@ -144,7 +144,7 @@ public class InteractEvent implements Listener {
 							tploc.setYaw(yaw);
 							e.getPlayer().teleport(tploc);
 
-							int cd = Config.MOB_CONFIG.getConfig().getInt("ender.ability-cooldown");
+							int cd = Config.MOB_CONFIG.getConfig().getInt("enderman.ability-cooldown");
 							if (cd != 0) {
 								endercd.put(p, cd);
 								cdTask.put(p, new BukkitRunnable() {

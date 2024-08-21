@@ -76,7 +76,8 @@ public class EntityDeath implements Listener {
 								} catch (IOException e) {
 									e.printStackTrace();
 								}
-								killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into " + t + "!");
+								String msg = msgs.getMessage("youCanNowMorph", t, "", "");
+								killer.sendMessage(prefix + " " + msg);
 							}
 						}
 					}

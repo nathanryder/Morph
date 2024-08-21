@@ -25,7 +25,6 @@ import java.util.*;
 public class MorphManager {
 
     Messages m = new Messages();
-    String prefix = m.getMessage("prefix");
     public static List<UUID> toggled = new ArrayList<>();
     public static List<UUID> viewMorphBuffer = new ArrayList<>();
     public static List<UUID> soundDisabled = new ArrayList<>();
@@ -34,6 +33,7 @@ public class MorphManager {
     public static List<UUID> removeFromTimeout = new ArrayList<>();
 
     public void toggleAbilty(Player p) {
+        String prefix = m.getMessage("prefix");
         if (toggled.contains(p.getUniqueId())) {
             toggled.remove(p.getUniqueId());
             p.sendMessage(prefix + " " + m.getMessage("abilityToggledOn"));
@@ -60,6 +60,7 @@ public class MorphManager {
             e.printStackTrace();
         }
 
+        String prefix = m.getMessage("prefix");
         if (ownView)
             p.sendMessage(prefix + " " + m.getMessage("changeViewSuccess").replace("%status%", "now"));
         else
@@ -83,6 +84,7 @@ public class MorphManager {
             e.printStackTrace();
         }
 
+        String prefix = m.getMessage("prefix");
         if (status) {
             p.sendMessage(prefix + " " + m.getMessage("changeSoundVolSuccess").replace("%statusColor%", ChatColor.GREEN + "enabled"));
             soundDisabled.remove(p.getUniqueId());
@@ -109,6 +111,7 @@ public class MorphManager {
     }
 
     public void morphPlayer(final Player p, DisguiseType type, boolean silent, boolean baby) {
+        String prefix = m.getMessage("prefix");
         if (!Config.MOB_CONFIG.getConfig().getBoolean(type.toString().toLowerCase() + ".enabled")) {
             p.sendMessage(prefix + " " + m.getMessage("mobDisabled"));
 
@@ -343,6 +346,7 @@ public class MorphManager {
     }
 
     public void unmorphPlayer(final Player p, boolean staff, boolean time) {
+        String prefix = m.getMessage("prefix");
         if (!DisguiseAPI.isDisguised(p)) {
             p.sendMessage(prefix + " " +  m.getMessage("notMorphedAsAnything"));
             return;
@@ -352,10 +356,9 @@ public class MorphManager {
             p.setHealthScale(20.0);
             p.setMaxHealth(20.0);
         }
-        if (!p.hasPermission("morph.fly")) {
-            p.setAllowFlight(false);
-            p.setFlying(false);
-        }
+
+        p.setAllowFlight(false);
+        p.setFlying(false);
         for (PotionEffect effect : p.getActivePotionEffects())
             p.removePotionEffect(effect.getType());
 

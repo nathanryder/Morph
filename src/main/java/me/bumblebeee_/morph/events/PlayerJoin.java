@@ -1,9 +1,6 @@
 package me.bumblebeee_.morph.events;
 
-import me.bumblebeee_.morph.ManaManager;
-import me.bumblebeee_.morph.Morph;
-import me.bumblebeee_.morph.MorphManager;
-import me.bumblebeee_.morph.UpdateChecker;
+import me.bumblebeee_.morph.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -24,6 +21,7 @@ public class PlayerJoin implements Listener {
 	UpdateChecker uc = new UpdateChecker();
 	ManaManager mana = new ManaManager();
 	MorphManager morph = new MorphManager();
+	Messages msgs = new Messages();
 
 	Plugin pl = null;
 	public PlayerJoin(Plugin plugin) {
@@ -47,8 +45,9 @@ public class PlayerJoin implements Listener {
 
 		if (p.isOp()) {
 			if (UpdateChecker.update) {
-				p.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "A update is available for Morph!");
-				p.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "The latest version is " + uc.getUpdatedVersion("8846") + ". You are running version " + uc.getVersion());
+				String prefix = msgs.getMessage("prefix");
+				p.sendMessage(prefix + " " + ChatColor.YELLOW + "A update is available for Morph!");
+				p.sendMessage(prefix + " " + ChatColor.YELLOW + "The latest version is " + uc.getUpdatedVersion("8846") + ". You are running version " + uc.getVersion());
 			}
 		}
 
