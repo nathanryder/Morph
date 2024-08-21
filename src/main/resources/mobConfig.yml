@@ -217,6 +217,8 @@ wither:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  ability-cooldown: 0
+  shoot: true
 llama:
   enabled: true
   health: 20

@@ -47,6 +47,7 @@ public class InteractEvent implements Listener {
 	private HashMap<Player, Integer> straycd;
 	private HashMap<Player, Integer> illusionercd;
 	private HashMap<Player, Integer> puffercd;
+	private HashMap<Player, Integer> withercd;
 	private HashMap<Player, BukkitRunnable> cdTask;
 	
 	Plugin pl = null;
@@ -69,6 +70,7 @@ public class InteractEvent implements Listener {
 		evokerSpawncd = new HashMap<>();
 		illusionercd = new HashMap<>();
 		puffercd = new HashMap<>();
+		withercd = new HashMap<>();
 		cdTask = new HashMap<>();
 	}
 	
@@ -126,6 +128,36 @@ public class InteractEvent implements Listener {
 							}
 						} else {
 							p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, puffercd.get(p)));
+						}
+					}
+				}
+
+			} else if (using.equalsIgnoreCase("wither")) {
+				if (Config.MOB_CONFIG.getConfig().getBoolean("wither.shoot")) {
+					if (p.isSneaking()) {
+						if (!(puffercd.containsKey(p))) {
+							//Do ability
+							p.launchProjectile(WitherSkull.class);
+
+							int cd = Config.MOB_CONFIG.getConfig().getInt("wither.ability-cooldown");
+							if (cd != 0) {
+								withercd.put(p, cd);
+								cdTask.put(p, new BukkitRunnable() {
+
+									public void run() {
+										withercd.put(p, withercd.get(p) - 1);
+										if (withercd.get(p) <= 1) {
+											withercd.remove(p);
+											cdTask.remove(p);
+											cancel();
+										}
+									}
+
+								});
+								cdTask.get(p).runTaskTimer(pl, 20, 20);
+							}
+						} else {
+							p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, withercd.get(p)));
 						}
 					}
 				}
