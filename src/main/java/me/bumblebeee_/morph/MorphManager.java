@@ -584,6 +584,12 @@ public class MorphManager {
                 return Sound.ENTITY_STRIDER_AMBIENT;
             case "zoglin":
                 return Sound.ENTITY_ZOGLIN_AMBIENT;
+            case "glowsquid":
+                return Sound.ENTITY_GLOW_SQUID_AMBIENT;
+            case "axolotl":
+                return Sound.ENTITY_AXOLOTL_IDLE_WATER;
+            case "goat":
+                return Sound.ENTITY_GOAT_AMBIENT;
         }
         return null;
     }

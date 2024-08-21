@@ -83,6 +83,9 @@ public class Inventorys {
         owners.put("strider", "d7e4eb0fb489d6f250c607d28d672f127ebaede8e007fa6cd34e2bbc0c2fc33a");
         owners.put("zoglin", "c19b7b5e9ffd4e22b890ab778b4795b662faff2b4978bf815574e48b0e52b301");
         owners.put("hoglin", "9bb9bc0f01dbd762a08d9e77c08069ed7c95364aa30ca1072208561b730e8d75");
+        owners.put("axolotl", "e8a8a2d7ccf0c3746e23ab5491070e0923f05b235f9a2f5d53d384353853bddc");
+        owners.put("glowsquid", "3e94a1bb1cb00aaa153a74daf4b0eea20b8974522fe9901eb55aef478ebeff0d");
+        owners.put("goat", "a662336d8ae092407e58f7cc80d20f20e7650357a454ce16e3307619a0110648");
 
         owners.put("giant", "MHF_Giant");
         owners.put("ender_dragon", "ender_dragon");

@@ -385,6 +385,8 @@ public class MorphCommand implements CommandExecutor {
                     args[0] = "zombie_villager:baby";
                 } else if (args[0].equalsIgnoreCase("piglinbrute")) {
                     args[0] = "piglin_brute";
+                } else if (args[0].equalsIgnoreCase("glowsquid")) {
+                    args[0] = "glow_squid";
                 }
             } else {
                 if (args[0].equalsIgnoreCase("irongolem")) {
@@ -413,6 +415,8 @@ public class MorphCommand implements CommandExecutor {
                         args[0] = "zombie_villager";
                 } else if (args[0].equalsIgnoreCase("piglinbrute")) {
                     args[0] = "piglin_brute";
+                } else if (args[0].equalsIgnoreCase("glowsquid")) {
+                    args[0] = "glow_squid";
                 }
             }
 

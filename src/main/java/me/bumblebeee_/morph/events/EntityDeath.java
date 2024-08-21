@@ -362,6 +362,15 @@ public class EntityDeath implements Listener {
 					case "craftravager":
 						fullType = "ravager";
 						break;
+					case "craftgoat":
+						fullType = "goat";
+						break;
+					case "craftglowsquid":
+						fullType = "glow_squid";
+						break;
+					case "craftaxolotl":
+						fullType = "axolotl";
+						break;
 				}
 
 				if (fullType == null)
@@ -371,7 +380,8 @@ public class EntityDeath implements Listener {
 				String type = split[0];
 				boolean isBaby = split.length > 1 && split[1].equals("baby");
 
-				if (!Config.MOB_CONFIG.getConfig().getBoolean(type + ".enabled"))
+				String exists = Config.MOB_CONFIG.getConfig().getString(type);
+				if (exists != null && !Config.MOB_CONFIG.getConfig().getBoolean(type + ".enabled"))
 					return;
 
 				if (killer.hasPermission("morph.bypasskill." + type))

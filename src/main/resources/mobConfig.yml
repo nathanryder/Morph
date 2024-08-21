@@ -470,3 +470,23 @@ ravager:
   ability-cooldown: 0
   slowness: true
   strength: true
+goat:
+  enabled: true
+  health: 10
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+  throw: true
+  force: 3
+glow_squid:
+  enabled: true
+  health: 10
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+axolotl:
+  enabled: true
+  health: 14
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
