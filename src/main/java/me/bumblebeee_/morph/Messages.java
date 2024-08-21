@@ -198,7 +198,11 @@ public class Messages {
     }
 
     public String getMessage(String key, int currKills, int killsRequired, String type) {
-        return getMessage(key).replace("{kills}", String.valueOf(currKills))
+        String msg = getMessage(key);
+        if (msg == null)
+            return null;
+
+        return msg.replace("{kills}", String.valueOf(currKills))
                 .replace("{requiredKills}", String.valueOf(killsRequired))
                 .replace("{mob}", type);
     }
@@ -209,6 +213,9 @@ public class Messages {
 
         String msg = c.getString(key);
         if (msg == null) {
+            if (key.equalsIgnoreCase("morphProgress") || key.equalsIgnoreCase("youCanNowMorph")) {
+                return null;
+            }
             return ChatColor.translateAlternateColorCodes('&', stringMsgs.get(key));
         }
         return ChatColor.translateAlternateColorCodes('&', msg);

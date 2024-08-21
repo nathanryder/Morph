@@ -7,6 +7,8 @@ import java.util.List;
 import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Messages;
 import me.bumblebeee_.morph.Morph;
+import me.bumblebeee_.morph.MorphManager;
+import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.RabbitType;
 import me.libraryaddict.disguise.disguisetypes.watchers.RabbitWatcher;
 import org.bukkit.ChatColor;
@@ -22,6 +24,8 @@ public class EntityDeath implements Listener {
 
 	Plugin pl = null;
 	Messages msgs = new Messages();
+	MorphManager morph = new MorphManager();
+
 	public EntityDeath(Plugin plugin) {
 		pl = plugin;
 	}
@@ -360,8 +364,6 @@ public class EntityDeath implements Listener {
 				if (stringList.contains(type))
 					return;
 
-				//
-
 				int killsRequired = Config.MOB_CONFIG.getConfig().getInt(type + ".requiredKills");
 				int currKills = 0;
 				if (fileConfig.get("progress." + type) != null) {
@@ -370,7 +372,10 @@ public class EntityDeath implements Listener {
 				currKills++;
 
 				if (currKills < killsRequired) {
-					killer.sendMessage(prefix + " " + msgs.getMessage("morphProgress", currKills, killsRequired, type));
+					String msg = msgs.getMessage("morphProgress", currKills, killsRequired, type);
+					if (msg != null) {
+						killer.sendMessage(prefix + " " + msg);
+					}
 					fileConfig.set("progress." + type, currKills);
 
 					try {
@@ -390,10 +395,15 @@ public class EntityDeath implements Listener {
 				}
 
 				String msgType = isBaby ? "baby " + type : type;
-
 				//Just incase the key doesn't exist, I forget it in earlier versions
 				String msg = msgs.getMessage("youCanNowMorph", msgType, "", "");
-				killer.sendMessage(prefix + " " + msg);
+				if (msg != null) {
+					killer.sendMessage(prefix + " " + msg);
+				}
+
+				if (pl.getConfig().getBoolean("morph-on-kill")) {
+					morph.morphPlayer(killer, DisguiseType.valueOf(type.toUpperCase()), false, isBaby);
+				}
 			}
 		}
 	}

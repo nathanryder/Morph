@@ -36,8 +36,8 @@ public class Morph extends JavaPlugin implements Listener {
         RegisterEvents.register(this);
 		if (getConfig().getBoolean("morph-power")) {
 			Runnables.morphPower();
-			mana.setup();
 		}
+		mana.setup();
         Runnables.setup(this);
         Runnables.burning(this);
         Runnables.mobSounds();

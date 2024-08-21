@@ -30,6 +30,7 @@ enabled-worlds:
 death-reset-all: false
 #Reset only the morph they died as
 death-reset-current: true
+morph-on-kill: false
 
 #When a player kills a morphed player, should they get the morph?
 steal-morphs: true
@@ -44,7 +45,7 @@ morphPower-regain: 1
 #The radius /morph near looks at
 near-radius: 10
 
-#Hand swap menu status
+#Use Crouch+F to open the morph menu?
 swapMenu: true
 #Only open the menu when there is nothing in the players main hand?
 onlyIfEmptyHand: false

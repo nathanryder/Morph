@@ -4,6 +4,7 @@ import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Messages;
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
+import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -77,7 +78,7 @@ public class InteractWithEntity implements Listener {
 
             if (!(beecd.containsKey(p))) {
                 LivingEntity le = (LivingEntity) t;
-                PotionEffect poison = PotionEffectType.POISON.createEffect(15*20, 1);
+                PotionEffect poison = PotionEffectType.POISON.createEffect(15*20, 2);
                 le.addPotionEffect(poison);
 
                 if (Config.MOB_CONFIG.getConfig().getInt("bee.ability-cooldown") > 0) {

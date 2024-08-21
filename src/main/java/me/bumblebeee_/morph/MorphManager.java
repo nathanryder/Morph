@@ -132,7 +132,6 @@ public class MorphManager {
         }
 
         Morph.undisguiseBuffer.add(p.getUniqueId());
-
         if (DisguiseAPI.isDisguised(p)) {
             DisguiseAPI.undisguiseToAll(p);
         }
