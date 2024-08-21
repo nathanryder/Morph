@@ -1,5 +1,5 @@
 name: Morphy
-version: 2.13
+version: 2.14-SNAPSHOT
 api-version: 1.13
 main: me.bumblebeee_.morph.Morph
 description: Morphing plugin
@@ -60,6 +60,7 @@ permissions:
             morph.into.zombie_villager: true
             morph.into.parrot: true
             morph.into.illusioner: true
+            morph.into.dolphin: true
     morph.bypasskill.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -107,6 +108,7 @@ permissions:
             morph.into.husk: false
             morph.into.parrot: false
             morph.into.illusioner: false
+            morph.into.dolphin: false
     morph.bypassreset.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -155,6 +157,7 @@ permissions:
             morph.bypassreset.husk: false
             morph.bypassreset.parrot: false
             morph.bypassreset.illusioner: false
+            morph.bypassreset.dolphin: false
     morph.bypasstime.*:
         description: Bypass the time limit on unmorphing
         children:
@@ -203,6 +206,7 @@ permissions:
             morph.bypasstime.husk: false
             morph.bypasstime.parrot: false
             morph.bypasstime.illusioner: false
+            morph.bypasstime.dolphin: false
     morph.morph:
         description: Main permission
         default: false

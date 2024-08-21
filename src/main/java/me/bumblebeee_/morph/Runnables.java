@@ -107,6 +107,7 @@ public class Runnables {
                     PotionEffect zombieSpeed = PotionEffectType.SPEED.createEffect(999999, 1);
                     PotionEffect ocelotSpeed = PotionEffectType.SPEED.createEffect(999999, 6);
                     PotionEffect fireres = PotionEffectType.FIRE_RESISTANCE.createEffect(999999, 7);
+                    PotionEffect dolphinGrace = PotionEffectType.DOLPHINS_GRACE.createEffect(999999, 1);
 
                     if (using.equalsIgnoreCase("squid")) {
                         if (pl.getConfig().getBoolean("squid.waterbreathing")) {
@@ -172,7 +173,9 @@ public class Runnables {
                         }
                     } else if (using.equalsIgnoreCase("giant")) {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 99999, 2));
-					}
+					} else if (using.equalsIgnoreCase("dolphin")) {
+                        p.addPotionEffect(dolphinGrace, true);
+                    }
                 }
 			}
 		}, 10, 20);

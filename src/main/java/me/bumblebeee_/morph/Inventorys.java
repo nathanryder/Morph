@@ -1,5 +1,7 @@
 package me.bumblebeee_.morph;
 
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.properties.Property;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -12,6 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.util.*;
 
 public class Inventorys {
@@ -62,6 +65,7 @@ public class Inventorys {
         owners.put("illusioner", "MHF_Illusioner");
         owners.put("guardian", "MHF_Guardian");
         owners.put("silverfish", "MHF_SilverFish");
+        owners.put("dolphin", "textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGU5Njg4Yjk1MGQ4ODBiNTViN2FhMmNmY2Q3NmU1YTBmYTk0YWFjNmQxNmY3OGU4MzNmNzQ0M2VhMjlmZWQzIn19fQ==");
 
         owners.put("giant", "MHF_Giant");
         owners.put("ender_dragon", "ender_dragon");
@@ -106,7 +110,7 @@ public class Inventorys {
 
         Inventory inv = Bukkit.getServer().createInventory(null, 36, title);
 
-        ItemStack owner = new ItemStack(Material.SKELETON_SKULL);
+        ItemStack owner = new ItemStack(Material.PLAYER_HEAD);
         owner.setDurability((short) 3);
         SkullMeta sm = (SkullMeta) owner.getItemMeta();
         sm.setOwner(p.getName());
@@ -251,7 +255,7 @@ public class Inventorys {
         fm.setDisplayName(" ");
         filler.setItemMeta(fm);
 
-        ItemStack view = new ItemStack(Material.SKELETON_SKULL);
+        ItemStack view = new ItemStack(Material.PLAYER_HEAD);
         view.setDurability((short) 3);
         SkullMeta sm = (SkullMeta) view.getItemMeta();
         sm.setOwner(p.getName());
@@ -292,7 +296,7 @@ public class Inventorys {
 
     public ItemStack createHead(String mobName, String display) {
         if (mobName.equalsIgnoreCase("ender_dragon")) {
-            ItemStack i = new ItemStack(Material.SKELETON_SKULL, 1, (short) 5);
+            ItemStack i = new ItemStack(Material.PLAYER_HEAD, 1, (short) 5);
             ItemMeta im = i.getItemMeta();
             im.setDisplayName(display);
             i.setItemMeta(im);
@@ -317,12 +321,11 @@ public class Inventorys {
     }
 
     public ItemStack getHead(String owner, String display) {
-        boolean baby = false;
         if (owner.split(":").length > 1) {
             owner = owner.split(":")[0];
         }
 
-        ItemStack i = new ItemStack(Material.SKELETON_SKULL);
+        ItemStack i = new ItemStack(Material.PLAYER_HEAD);
         i.setDurability((short) 3);
         SkullMeta sm = (SkullMeta) i.getItemMeta();
         sm.setOwner(owner);

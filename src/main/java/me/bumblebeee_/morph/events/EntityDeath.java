@@ -32,6 +32,8 @@ public class EntityDeath implements Listener {
 				FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
 				List<String> stringList = fileConfig.getStringList("Mobs");
 				List<String> players = fileConfig.getStringList("Players");
+
+				System.out.println(ev.getEntity().toString().toLowerCase());
 				if (pl.getConfig().getList("enabled-worlds").contains(killer.getWorld().getName()) || pl.getConfig().getList("enabled-worlds").contains("<all>")) {
 					if (ev.getEntity().toString().toLowerCase().startsWith("crafthorse{variant=skeleton_horse")) {
 						if (killer.hasPermission("morph.into.skeleton_horse")) {
@@ -1082,6 +1084,23 @@ public class EntityDeath implements Listener {
 										e.printStackTrace();
 									}
 									killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a parrot!");
+									break;
+								}
+							}
+						}
+						break;
+					case "craftdolphin":
+						if (!killer.hasPermission("morph.bypasskill.dolphin")) {
+							if (killer.hasPermission("morph.into.dolphin")) {
+								if (!stringList.contains("dolphin")) {
+									stringList.add("dolphin");
+									fileConfig.set("Mobs", stringList);
+									try {
+										fileConfig.save(userFile);
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
+									killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a dolphin!");
 									break;
 								}
 							}
