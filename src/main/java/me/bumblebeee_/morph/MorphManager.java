@@ -643,6 +643,8 @@ public class MorphManager {
                 return Sound.ENTITY_PUFFER_FISH_AMBIENT;
             case "tropicalfish":
                 return Sound.ENTITY_TROPICAL_FISH_AMBIENT;
+            case "phantom":
+                return Sound.ENTITY_PHANTOM_AMBIENT;
         }
         return null;
     }

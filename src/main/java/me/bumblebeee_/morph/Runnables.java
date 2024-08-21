@@ -202,6 +202,8 @@ public class Runnables {
                                 p.setHealth(p.getHealth() - 0.5);
                             }
                         }
+                    } else if (using.equalsIgnoreCase("phantom")) {
+                        p.addPotionEffect(nightVision);
                     }
                 }
 			}
@@ -264,6 +266,12 @@ public class Runnables {
                                     p.setHealth(0);
                                 } else {
                                     p.setHealth(p.getHealth() - 0.5);
+                                }
+                            }
+                        } else if (using.equalsIgnoreCase("phantom")) {
+                            if (p.getWorld().getTime() >= 0 && p.getWorld().getTime() < 13000) {
+                                if (p.getLocation().getBlock().getLightFromSky() > 12) {
+                                    p.setFireTicks(60);
                                 }
                             }
                         }
