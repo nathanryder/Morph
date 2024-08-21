@@ -23,12 +23,12 @@ public class MorphCommand implements CommandExecutor {
 
     Messages m = new Messages();
     Inventorys inv = new Inventorys();
-    String prefix = m.getMessage("prefix");
     MorphManager morph = new MorphManager();
     Plugin pl = Morph.pl;
 
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+        String prefix = m.getMessage("prefix");
         if (cmd.getName().equalsIgnoreCase("delmorph")) {
             if (!sender.hasPermission("morph.morph.modify")) {
                 sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
@@ -169,6 +169,7 @@ public class MorphCommand implements CommandExecutor {
                     if (args[0].equalsIgnoreCase("reload")) {
                         if (sender.hasPermission("morph.reload")) {
                             pl.reloadConfig();
+                            m.setup();
                             Morph.health = !pl.getConfig().getBoolean("disableHealthSystem");
                             sender.sendMessage(prefix + " " + m.getMessage("reloadedConfig"));
                             return true;
