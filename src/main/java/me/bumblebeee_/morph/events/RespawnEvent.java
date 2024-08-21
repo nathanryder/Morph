@@ -29,6 +29,9 @@ public class RespawnEvent implements Listener {
         Player p = e.getPlayer();
 
         if (pl.getConfig().getBoolean("stayMorphedOnDeath")) {
+            if (!Main.respawnBuffer.containsKey(p.getUniqueId()))
+                return;
+
             boolean isBaby = false;
             String mobDis = Main.respawnBuffer.get(p.getUniqueId());
             if (mobDis.contains("baby")) {
