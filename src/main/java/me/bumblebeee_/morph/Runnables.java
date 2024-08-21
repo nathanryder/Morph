@@ -186,42 +186,65 @@ public class Runnables {
                             p.addPotionEffect(zombieSpeed, true);
                         }
                     } else if (using.equalsIgnoreCase("giant")) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 99999, 2));
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("giant.slow")) {
+                            p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 99999, 2));
+                        }
 					} else if (using.equalsIgnoreCase("dolphin")) {
-                        PotionEffect dolphinGrace = PotionEffectType.DOLPHINS_GRACE.createEffect(999999, 1);
-                        p.addPotionEffect(dolphinGrace, true);
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("dolphin.grace")) {
+                            PotionEffect dolphinGrace = PotionEffectType.DOLPHINS_GRACE.createEffect(999999, 1);
+                            p.addPotionEffect(dolphinGrace, true);
+                        }
                     } else if (using.equalsIgnoreCase("drowned")) {
-                        p.addPotionEffect(waterbreathing, true);
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("drowned.waterbreathing")) {
+                            p.addPotionEffect(waterbreathing, true);
+                        }
 
-                        Block below = p.getLocation().subtract(0, 1, 0).getBlock();
-                        Block in = p.getLocation().getBlock();
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("drowned.grace")) {
+                            Block below = p.getLocation().subtract(0, 1, 0).getBlock();
+                            Block in = p.getLocation().getBlock();
 
-                        if (below.getType().isSolid() && in.getType() == Material.WATER) {
-                            PotionEffect potion = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 2);
-                            p.addPotionEffect(potion);
+                            if (below.getType().isSolid() && in.getType() == Material.WATER) {
+                                PotionEffect potion = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 2);
+                                p.addPotionEffect(potion);
+                            }
                         }
                     } else if (using.equalsIgnoreCase("cod") || using.equalsIgnoreCase("salmon")
                             || using.equalsIgnoreCase("pufferfish") || using.equalsIgnoreCase("tropicalfish")) {
 
-                        Block in = p.getLocation().getBlock();
-                        if (in.getType() == Material.WATER) {
-                            PotionEffect potion = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 0);
+                        if (Config.MOB_CONFIG.getConfig().getBoolean(using + ".grace")) {
+                            Block in = p.getLocation().getBlock();
+                            if (in.getType() == Material.WATER) {
+                                PotionEffect potion = new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 100, 0);
 
-                            p.addPotionEffect(waterbreathing, true);
-                            p.addPotionEffect(potion);
+                                p.addPotionEffect(waterbreathing, true);
+                                p.addPotionEffect(potion);
+                            }
                         }
                     } else if (using.equalsIgnoreCase("phantom")) {
-                        p.addPotionEffect(nightVision);
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("phantom.nightvision")) {
+                            p.addPotionEffect(nightVision);
+                        }
                     } else if (using.equalsIgnoreCase("turtle")) {
-                        p.addPotionEffect(waterbreathing);
-                        p.addPotionEffect(dmgRes);
-                        p.addPotionEffect(turtleSlow);
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("turtle.waterbreathing")) {
+                            p.addPotionEffect(waterbreathing);
+                        }
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("turtle.damageresistance")) {
+                            p.addPotionEffect(dmgRes);
+                        }
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("turtle.nightvision")) {
+                            p.addPotionEffect(turtleSlow);
+                        }
                     } else if (using.equalsIgnoreCase("strider")) {
                         Block b = p.getLocation().getBlock();
                         if (b.getType() == Material.LAVA) {
                             p.removePotionEffect(PotionEffectType.SLOW);
-                            p.addPotionEffect(ocelotSpeed, true);
-                            p.addPotionEffect(fireres, true);
+
+                            if (Config.MOB_CONFIG.getConfig().getBoolean("strider.speed")) {
+                                p.addPotionEffect(ocelotSpeed, true);
+                            }
+                            if (Config.MOB_CONFIG.getConfig().getBoolean("strider.fireresistance")) {
+                                p.addPotionEffect(fireres, true);
+                            }
                         } else {
                             p.addPotionEffect(squidSlow, true);
                             p.removePotionEffect(PotionEffectType.SPEED);

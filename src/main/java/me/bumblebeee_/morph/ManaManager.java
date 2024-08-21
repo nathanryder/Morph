@@ -31,6 +31,8 @@ public class ManaManager {
             return false;
         }
 
+        System.out.println("VERSION: " + version);
+
         if (version.equals("v1_11_R1"))
             ab = new Actionbar_1_11_R1();
         else if (version.equalsIgnoreCase("v1_10_R1"))
@@ -59,6 +61,9 @@ public class ManaManager {
             ab = new Actionbar_1_16_R3();
         else if (version.equalsIgnoreCase("v1_17_R1"))
             ab = new Actionbar_1_17_R1();
+//        else if (version.equalsIgnoreCase("v1_18_R1"))
+        else
+            ab = new Actionbar_1_18_R1();
 
         return ab != null;
     }

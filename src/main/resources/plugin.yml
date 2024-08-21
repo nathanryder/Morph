@@ -1,5 +1,5 @@
 name: Morphy
-version: 2.21-SNAPSHOT
+version: 2.23
 main: me.bumblebeee_.morph.Morph
 description: Morphing plugin
 depend: [LibsDisguises]
@@ -261,7 +261,6 @@ permissions:
         description: Main permission
         default: false
         children:
-            morph.into.*: true
             morph.toggle: true
             morph.changeview: true
     morph.*:

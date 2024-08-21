@@ -138,7 +138,7 @@ public class InteractEvent implements Listener {
 			} else if (using.equalsIgnoreCase("wither")) {
 				if (Config.MOB_CONFIG.getConfig().getBoolean("wither.shoot")) {
 					if (p.isSneaking()) {
-						if (!(puffercd.containsKey(p))) {
+						if (!(withercd.containsKey(p))) {
 							//Do ability
 							p.launchProjectile(WitherSkull.class);
 

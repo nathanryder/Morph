@@ -32,6 +32,8 @@ death-reset-all: false
 death-reset-current: true
 #Change morph as soon as you gain access to a new morph
 morphOnKill: false
+#Should the player keep their morphed form when they die?
+stayMorphedOnDeath: false
 
 #Keep morphs through login sessions
 persistMorphs: true

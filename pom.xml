@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.bumblebeee_.morph</groupId>
     <artifactId>Morph</artifactId>
-    <version>2.21-SNAPSHOT</version>
+    <version>2.23</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -21,6 +21,13 @@
             <!--<scope>provided</scope>-->
         <!--</dependency>-->
 
+        <dependency>
+            <groupId>sun.jdk</groupId>
+            <artifactId>1p18</artifactId>
+            <version>1.5.0</version>
+            <scope>system</scope>
+            <systemPath>/mnt/c/Users/natha/Documents/buildPaths/spigot-1.18-api.jar</systemPath>
+        </dependency>
         <dependency>
             <groupId>sun.jdk</groupId>
             <artifactId>1p17</artifactId>
@@ -127,11 +134,18 @@
             <systemPath>/mnt/c/Users/natha/Documents/1.15/plugins/ProtocolLib.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>LibsDisguises</groupId>
-            <artifactId>LibsDisguises</artifactId>
-            <version>LATEST</version>
-            <scope>provided</scope>
+            <groupId>sun.jdk</groupId>
+            <artifactId>libsdisguise</artifactId>
+            <version>1.5.0</version>
+            <scope>system</scope>
+            <systemPath>/mnt/c/Users/natha/Documents/1.15/plugins/LibsDisguises.jar</systemPath>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>LibsDisguises</groupId>-->
+<!--            <artifactId>LibsDisguises</artifactId>-->
+<!--            <version>LATEST</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
     <repositories>

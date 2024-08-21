@@ -18,7 +18,7 @@ public class RegisterEvents {
 		Bukkit.getServer().getPluginManager().registerEvents(new WeatherChange(), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new InventoryClick(), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new ProjectileHit(), pl);
-		Bukkit.getServer().getPluginManager().registerEvents(new RespawnEvent(), pl);
+		Bukkit.getServer().getPluginManager().registerEvents(new RespawnEvent(pl), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new InteractWithEntity(), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new EntityTarget(), pl);
 		Bukkit.getServer().getPluginManager().registerEvents(new PlayerUndisguise(), pl);

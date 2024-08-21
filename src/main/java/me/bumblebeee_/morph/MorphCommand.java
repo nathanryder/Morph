@@ -684,11 +684,12 @@ public class MorphCommand implements CommandExecutor {
 
 
             if (args.length >= 1) {
+                if (!sender.hasPermission("morph.morph.modify")) {
+                    sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
+                    return true;
+                }
+                
                 if (args[0].equalsIgnoreCase("all")) {
-                    if (!sender.hasPermission("morph.morph.modify")) {
-                        sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
-                        return true;
-                    }
                     for (Player pl : Bukkit.getServer().getOnlinePlayers()) {
                         morph.unmorphPlayer(pl, true, false);
                     }

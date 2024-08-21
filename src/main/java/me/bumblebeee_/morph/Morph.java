@@ -3,6 +3,7 @@ package me.bumblebeee_.morph;
 import me.bumblebeee_.morph.events.RegisterEvents;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.LibsDisguises;
+import me.libraryaddict.disguise.disguisetypes.MobDisguise;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -30,6 +31,7 @@ public class Morph extends JavaPlugin implements Listener {
 	public static boolean health;
 	public static HashMap<UUID, String> using = new HashMap<>();
 	public static List<UUID> undisguiseBuffer = new ArrayList<>();
+	public static HashMap<UUID, MobDisguise> respawnBuffer = new HashMap<>();
 
 	public void onEnable() {
 		pl = this;

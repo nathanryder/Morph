@@ -273,6 +273,7 @@ giant:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  slow: true
   throw: true
   #This increases how high giants can throw people
   force: 2
@@ -341,30 +342,36 @@ dolphin:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  grace: true
 drowned:
   enabled: true
   health: 20
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  waterbreathing: true
+  grace: true
 cod:
   enabled: true
   health: 3
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  grace: true
 salmon:
   enabled: true
   health: 3
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
-tropicalfish:
+  grace: true
+tropical_fish:
   enabled: true
   health: 3
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  grace: true
 pufferfish:
   enabled: true
   health: 3
@@ -373,18 +380,23 @@ pufferfish:
   morph-cooldown: 0
   poison: true
   ability-cooldown: 15
+  grace: true
 phantom:
   enabled: true
   health: 20
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  nightvision: true
 turtle:
   enabled: true
   health: 30
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  waterbreathing: true
+  damageresistance: true
+  nightvision: true
 bee:
   enabled: true
   health: 10
@@ -399,6 +411,8 @@ strider:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  speed: true
+  fireresistance: true
 hoglin:
   enabled: true
   health: 40

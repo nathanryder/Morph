@@ -5,7 +5,9 @@ import me.bumblebeee_.morph.Messages;
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
 import me.libraryaddict.disguise.DisguiseAPI;
-import me.libraryaddict.disguise.disguisetypes.DisguiseType;
+import me.libraryaddict.disguise.disguisetypes.MobDisguise;
+import me.libraryaddict.disguise.disguisetypes.watchers.AgeableWatcher;
+import me.libraryaddict.disguise.disguisetypes.watchers.ZombieWatcher;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -18,10 +20,8 @@ import org.bukkit.potion.PotionEffect;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 
 public class PlayerDeath implements Listener {
 
@@ -82,17 +82,17 @@ public class PlayerDeath implements Listener {
 					Morph.using.remove(k.getUniqueId());
 					stringList.remove(using);
 					stringListk.add(using);
-					
+
 					fileConfig.set("Mobs", stringList);
 					fileConfigk.set("Mobs", stringListk);
-					
+
 					try {
 						fileConfig.save(userFile);
 						fileConfigk.save(userFilek);
 					} catch (IOException ex1) {
 						ex1.printStackTrace();
 					}
-					
+
 					if (!stringListk.contains(using)) {
 						k.sendMessage(prefix + " " + m.getMessage("getMorphByKill", p.getDisplayName(), k.getDisplayName(), using, ""));
 					}
@@ -114,7 +114,7 @@ public class PlayerDeath implements Listener {
         String mob = DisguiseAPI.getDisguise(p).getType().toString().toLowerCase();
 
 		if (pl.getConfig().getBoolean("death-reset-all")) {
-            if (!p.hasPermission("morph.bypassreset.all")) {
+			if (!p.hasPermission("morph.bypassreset.all")) {
 				fileConfig.set("Mobs", null);
 				fileConfig.set("progress", null);
 				try {
@@ -126,8 +126,8 @@ public class PlayerDeath implements Listener {
                 p.sendMessage(prefix + " " + m.getMessage("diedLostAll", e.getEntity().getDisplayName(), "", "", ""));
             }
 		} else if (pl.getConfig().getBoolean("death-reset-current")) {
-            if (!p.hasPermission("morph.bypassreset." + mob)) {
-                stringList.remove(mob);
+			if (!p.hasPermission("morph.bypassreset." + mob)) {
+				stringList.remove(mob);
 				fileConfig.set("Mobs", stringList);
 				fileConfig.set("progress." + mob, 0);
                 try {
@@ -144,17 +144,23 @@ public class PlayerDeath implements Listener {
             }
 		}
 
-		if (Morph.health) {
-			p.setHealthScale(20.0);
-			p.setMaxHealth(20.0);
-		}
-		if (!p.hasPermission("morph.fly")) {
-			p.setAllowFlight(false);
-			p.setFlying(false);
-		}
-	    for (PotionEffect effect : p.getActivePotionEffects())
-	        p.removePotionEffect(effect.getType());
+		if (pl.getConfig().getBoolean("stayMorphedOnDeath")) {
+			Morph.respawnBuffer.put(p.getUniqueId(), (MobDisguise) DisguiseAPI.getDisguise(p));
+		} else {
 
-		Morph.using.remove(p.getUniqueId());
+			if (Morph.health) {
+				p.setHealthScale(20.0);
+				p.setMaxHealth(20.0);
+			}
+			if (!p.hasPermission("morph.fly")) {
+				p.setAllowFlight(false);
+				p.setFlying(false);
+			}
+			for (PotionEffect effect : p.getActivePotionEffects())
+				p.removePotionEffect(effect.getType());
+
+			Morph.using.remove(p.getUniqueId());
+		}
+
 	}
 }
