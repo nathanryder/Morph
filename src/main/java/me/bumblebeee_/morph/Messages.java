@@ -72,6 +72,7 @@ public class Messages {
             createMessage("unmorphedTitle", "You are not morphed as anything");
             createMessage("clickToMorph", "&bClick to morph into a {mob}");
             createMessage("morphPower", "&eMorph Power: &a");
+            createMessage("timeLeftAsMorph", "&eTime left as {mob}: {time}");
 
             createMessage("commands.morph", "&eMorph into a mob");
             createMessage("commands.unmorph", "&eMorph back into yourself");

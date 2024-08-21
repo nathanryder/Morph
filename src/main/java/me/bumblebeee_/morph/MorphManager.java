@@ -13,6 +13,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +27,7 @@ public class MorphManager {
     public static List<UUID> viewMorphBuffer = new ArrayList<>();
     public static List<UUID> soundDisabled = new ArrayList<>();
     public static Map<UUID, Map<String, Integer>> typeCooldown = new HashMap();
+    public static Map<UUID, Integer> morphTimeout = new HashMap();
 
     public void toggleAbilty(Player p) {
         if (toggled.contains(p.getUniqueId())) {
@@ -328,18 +330,28 @@ public class MorphManager {
 
         Morph.undisguiseBuffer.remove(p.getUniqueId());
         final String typeStr = type.toString().toLowerCase();
-        int timeLimit = Morph.pl.getConfig().getInt(typeStr + ".morph-time");
+        final int timeLimit = Morph.pl.getConfig().getInt(typeStr + ".morph-time");
 
         if (timeLimit > 0 && !p.hasPermission("morph.bypasstime." + typeStr)) {
-            Bukkit.getServer().getScheduler().runTaskLater(Morph.pl, new Runnable() {
+            morphTimeout.put(p.getUniqueId(), timeLimit+1);
+            new BukkitRunnable() {
                 @Override
                 public void run() {
-                    if (!DisguiseAPI.isDisguised(p))
-                        return;
+                    int time = morphTimeout.get(p.getUniqueId())-1;
+                    morphTimeout.remove(p.getUniqueId());
 
-                    unmorphPlayer(p, false, true);
+                    if (time == 0) {
+                        unmorphPlayer(p, false, true);
+                        ManaManager.ab.sendActionbar(p, "");
+                        cancel();
+                        return;
+                    }
+
+                    morphTimeout.put(p.getUniqueId(), time);
+                    ManaManager.ab.sendActionbar(p, m.getMessage("timeLeftAsMorph", "", "", typeStr, time));
                 }
-            }, timeLimit * 20);
+            }.runTaskTimer(Morph.pl, 0, 20);
+
         }
     }
 
@@ -409,6 +421,24 @@ public class MorphManager {
                 cooldown.put(type, morphCooldown);
                 typeCooldown.put(p.getUniqueId(), cooldown);
             }
+
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    Map<String, Integer> cooldown = typeCooldown.get(p.getUniqueId());
+                    int time = cooldown.get(type)-1;
+                    cooldown.remove(type);
+
+                    if (time != 0)
+                        cooldown.put(type, time);
+                    else if (time == 0) {
+                        cancel();
+                        return;
+                    }
+
+                    typeCooldown.put(p.getUniqueId(), cooldown);
+                }
+            }.runTaskTimer(Morph.pl, 20, 20);
         }
     }
 
