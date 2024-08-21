@@ -6,7 +6,6 @@ import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.MorphManager;
 import me.bumblebeee_.morph.morphs.Morph;
 import me.libraryaddict.disguise.DisguiseAPI;
-import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.PlayerDisguise;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -22,6 +21,8 @@ import org.bukkit.inventory.ItemStack;
 
 import java.io.File;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class InventoryClick implements Listener {
 
@@ -32,7 +33,16 @@ public class InventoryClick implements Listener {
     @EventHandler (priority = EventPriority.LOWEST)
     public void onClick(InventoryClickEvent e) {
         MorphManager morph = Main.getMorphManager();
-        String morphedTitle = m.getMessage("morphedTitle").replace("{mob}", "");
+        Player p = (Player) e.getWhoClicked();
+
+        String mob = "";
+        Morph usingMorph = Main.getMorphManager().getUsingMorph(p);
+        if (usingMorph != null) {
+            mob = usingMorph.toFriendly();
+        }
+        String rawTitle = m.getMessage("morphedTitle").replace("{mob}", mob);
+        String morphedTitle = ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', rawTitle));
+
         String unmorphedTitle = m.getMessage("unmorphedTitle");
         if (e.getView().getTitle().startsWith(morphedTitle) ||
                 e.getView().getTitle().equalsIgnoreCase(unmorphedTitle)) {
@@ -42,9 +52,12 @@ public class InventoryClick implements Listener {
             if (!e.getCurrentItem().hasItemMeta()) return;
             if (!e.getCurrentItem().getItemMeta().hasDisplayName()) return;
 
-            Player p = (Player) e.getWhoClicked();
             ItemStack i = e.getCurrentItem();
             String dis = ChatColor.stripColor(i.getItemMeta().getDisplayName().toLowerCase());
+
+            String display = ChatColor.stripColor(ChatColor
+                    .translateAlternateColorCodes('&', m.getMessage("clickToMorph").replace("{mob}", "(.*)"))
+                    .toLowerCase());
 
             if (dis.equalsIgnoreCase("Close")) {
                 p.closeInventory();
@@ -91,7 +104,7 @@ public class InventoryClick implements Listener {
             } else if (dis.equalsIgnoreCase("Click to unmorph")) {
                 p.closeInventory();
                 morph.unmorphPlayer(p, false, false);
-            } else if (dis.contains("click to morph into")) {
+            } else if (dis.matches(display)) {
                 p.closeInventory();
                 File userFile = new File(Main.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
                 FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
@@ -99,14 +112,13 @@ public class InventoryClick implements Listener {
                 List<String> players = fileConfig.getStringList("Players");
                 Inventorys.pages.remove(p.getUniqueId());
 
-                String[] split = dis.split(" ");
-                String mobType;
+                Pattern pattern = Pattern.compile(display);
+                Matcher match = pattern.matcher(dis);
+                if (!match.find())
+                    return;
+
+                String mobType = match.group(1).replace(" ", "_");
                 boolean baby = false;
-                if (split.length > 6) {
-                    mobType = split[5] + "_" + split[6];
-                } else {
-                    mobType = split[5];
-                }
 
                 if (mobType.split("_").length > 1) {
                     baby = mobType.split("_")[0].equalsIgnoreCase("baby");
@@ -152,8 +164,8 @@ public class InventoryClick implements Listener {
                 if (type == null) {
                     if (Main.pl.getConfig().getBoolean("enable-players")) {
                         dis = ChatColor.stripColor(i.getItemMeta().getDisplayName());
-                        split = dis.split(" ");
-                        String name = split[5];
+//                        split = dis.split(" ");
+                        String name = mobType;
 
                         Player t = Bukkit.getServer().getPlayer(name);
                         Player on;
@@ -238,7 +250,6 @@ public class InventoryClick implements Listener {
             if (!e.getCurrentItem().hasItemMeta()) return;
             if (!e.getCurrentItem().getItemMeta().hasDisplayName()) return;
 
-            Player p = (Player) e.getWhoClicked();
             ItemStack i = e.getCurrentItem();
             String dis = ChatColor.stripColor(i.getItemMeta().getDisplayName());
 
