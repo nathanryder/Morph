@@ -102,6 +102,7 @@ public class Runnables {
 
                     PotionEffect slow = PotionEffectType.SLOW.createEffect(999999, 1);
                     PotionEffect strength = PotionEffectType.INCREASE_DAMAGE.createEffect(999999, 5);
+                    PotionEffect ravagerStrength = PotionEffectType.INCREASE_DAMAGE.createEffect(999999, 6);
                     PotionEffect nightVision = PotionEffectType.NIGHT_VISION.createEffect(999999, 2);
                     PotionEffect turtleSlow = PotionEffectType.SLOW.createEffect(999999, 0);
                     PotionEffect squidSlow = PotionEffectType.SLOW.createEffect(999999, 3);
@@ -145,6 +146,13 @@ public class Runnables {
                         if (Config.MOB_CONFIG.getConfig().getBoolean("iron_golem.strength")) {
                             p.addPotionEffect(slow);
                             p.addPotionEffect(strength);
+                        }
+                    } else if (using.equalsIgnoreCase("ravager")) {
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("ravager.strength")) {
+                            p.addPotionEffect(ravagerStrength);
+                        }
+                        if (Config.MOB_CONFIG.getConfig().getBoolean("ravager.slowness")) {
+                            p.addPotionEffect(slow);
                         }
                     } else if (using.equalsIgnoreCase("rabbit")) {
 						if (Config.MOB_CONFIG.getConfig().getBoolean("rabbit.jump-boost")) {

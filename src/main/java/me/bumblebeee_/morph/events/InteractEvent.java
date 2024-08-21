@@ -48,6 +48,7 @@ public class InteractEvent implements Listener {
 	private HashMap<Player, Integer> illusionercd;
 	private HashMap<Player, Integer> puffercd;
 	private HashMap<Player, Integer> withercd;
+	private HashMap<Player, Integer> pillagercd;
 	private HashMap<Player, BukkitRunnable> cdTask;
 	
 	Plugin pl = null;
@@ -71,6 +72,7 @@ public class InteractEvent implements Listener {
 		illusionercd = new HashMap<>();
 		puffercd = new HashMap<>();
 		withercd = new HashMap<>();
+		pillagercd = new HashMap<>();
 		cdTask = new HashMap<>();
 	}
 	
@@ -213,6 +215,33 @@ public class InteractEvent implements Listener {
 										skeletoncd.put(p, skeletoncd.get(p) - 1);
 										if (skeletoncd.get(p) <= 1) {
 											skeletoncd.remove(p);
+											cdTask.remove(p);
+											cancel();
+										}
+									}
+								});
+								cdTask.get(p).runTaskTimer(pl, 20, 20);
+							}
+						} else {
+							p.sendMessage(prefix + " " + m.getMessage("cooldown", "", p.getDisplayName(), using, skeletoncd.get(p)));
+						}
+					}
+				}
+			} else if (using.equalsIgnoreCase("pillager")) {
+				if (Config.MOB_CONFIG.getConfig().getString("pillager.shootArrow").equalsIgnoreCase("true")) {
+					if (p.isSneaking()) {
+						if (!(pillagercd.containsKey(p))) {
+							Arrow a = p.launchProjectile(Arrow.class);
+							a.setMetadata("morph", new FixedMetadataValue(Morph.pl, "yes"));
+
+							int cd = Config.MOB_CONFIG.getConfig().getInt("pillager.ability-cooldown");
+							if (cd != 0) {
+								pillagercd.put(p, cd);
+								cdTask.put(p, new BukkitRunnable() {
+									public void run() {
+										skeletoncd.put(p, pillagercd.get(p) - 1);
+										if (pillagercd.get(p) <= 1) {
+											pillagercd.remove(p);
 											cdTask.remove(p);
 											cancel();
 										}

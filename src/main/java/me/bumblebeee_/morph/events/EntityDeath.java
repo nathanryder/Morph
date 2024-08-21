@@ -345,6 +345,18 @@ public class EntityDeath implements Listener {
 					case "craftzoglin":
 						fullType = "zoglin";
 						break;
+					case "craftpillager":
+						fullType = "pillager";
+						break;
+					case "craftpiglinbrute":
+						fullType = "piglinbrute";
+						break;
+					case "craftpiglin":
+						fullType = "piglin";
+						break;
+					case "craftravager":
+						fullType = "ravager";
+						break;
 				}
 
 				if (fullType == null)

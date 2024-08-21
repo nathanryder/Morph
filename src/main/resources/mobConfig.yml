@@ -441,3 +441,32 @@ panda:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+pillager:
+  enabled: true
+  health: 24
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+  ability-cooldown: 0
+  shootArrow: true
+piglinbrute:
+  enabled: true
+  health: 50
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+piglin:
+  enabled: true
+  health: 16
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+ravager:
+  enabled: true
+  health: 100
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+  ability-cooldown: 0
+  slowness: true
+  strength: true

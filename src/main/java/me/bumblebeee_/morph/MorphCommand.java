@@ -261,6 +261,8 @@ public class MorphCommand implements CommandExecutor {
                     args[0] = "mushroom_cow:baby";
                 } else if (args[0].equalsIgnoreCase("zombievillager:baby")) {
                     args[0] = "zombie_villager:baby";
+                } else if (args[0].equalsIgnoreCase("piglinbrute")) {
+                    args[0] = "piglin_brute";
                 }
             } else {
                 if (args[0].equalsIgnoreCase("irongolem")) {
@@ -287,6 +289,8 @@ public class MorphCommand implements CommandExecutor {
                     args[0] = "mushroom_cow";
                 } else if (args[0].equalsIgnoreCase("zombievillager")) {
                         args[0] = "zombie_villager";
+                } else if (args[0].equalsIgnoreCase("piglinbrute")) {
+                    args[0] = "piglin_brute";
                 }
             }
 
@@ -348,6 +352,8 @@ public class MorphCommand implements CommandExecutor {
                         args[1] = "mushroom_cow";
                     } else if (args[1].equalsIgnoreCase("zombievillager")) {
                         args[1] = "zombie_villager";
+                    } else if (args[0].equalsIgnoreCase("piglinbrute")) {
+                        args[0] = "piglin_brute";
                     }
 
                     DisguiseType check = getDisguiseType(args[1]);
