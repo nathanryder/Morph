@@ -9,6 +9,10 @@ unmorph-particle: true
 #Allow morphing into players? (Possibly buggy)
 enable-players: false
 
+#Blacklisted players that cannot be morphed into
+blacklisted-players:
+- "Notch"
+
 #Should players be able to see their own disguise?
 viewSelfDisguise: true
 

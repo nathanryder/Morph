@@ -1,6 +1,6 @@
 package me.bumblebeee_.morph.events;
 
-import me.bumblebeee_.morph.Morph;
+import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.MorphManager;
 import me.libraryaddict.disguise.LibsDisguises;
 import me.libraryaddict.disguise.events.UndisguiseEvent;
@@ -14,7 +14,7 @@ import java.util.UUID;
 public class PlayerUndisguise implements Listener {
 
     MorphManager morph = new MorphManager();
-    static ArrayList<UUID> blow = new ArrayList<>();
+    public static ArrayList<UUID> blow = new ArrayList<>();
 
     @EventHandler
     public void onUndisguise(UndisguiseEvent e) {
@@ -27,18 +27,18 @@ public class PlayerUndisguise implements Listener {
                 return;
             }
 
-            if (Morph.undisguiseBuffer.contains(e.getDisguised().getUniqueId())) {
-                Morph.undisguiseBuffer.remove(e.getDisguised().getUniqueId());
+            if (Main.undisguiseBuffer.contains(e.getDisguised().getUniqueId())) {
+                Main.undisguiseBuffer.remove(e.getDisguised().getUniqueId());
                 return;
             }
 
             Player p = (Player) e.getDisguised();
-            if (MorphManager.viewMorphBuffer.contains(p.getUniqueId())) {
-                MorphManager.viewMorphBuffer.remove(p.getUniqueId());
+            if (Main.getMorphManager().viewMorphBuffer.contains(p.getUniqueId())) {
+                Main.getMorphManager().viewMorphBuffer.remove(p.getUniqueId());
                 return;
             }
 
-            if (!Morph.using.containsKey(p.getUniqueId()))
+            if (!Main.using.containsKey(p.getUniqueId()))
                 return;
 
             morph.unmorphPlayer(p, false, false);

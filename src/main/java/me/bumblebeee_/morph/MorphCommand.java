@@ -1,5 +1,6 @@
 package me.bumblebeee_.morph;
 
+import me.bumblebeee_.morph.morphs.Morph;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.PlayerDisguise;
@@ -17,7 +18,6 @@ import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 public class MorphCommand implements CommandExecutor {
@@ -25,7 +25,7 @@ public class MorphCommand implements CommandExecutor {
     Messages m = new Messages();
     Inventorys inv = new Inventorys();
     MorphManager morph = new MorphManager();
-    Plugin pl = Morph.pl;
+    Plugin pl = Main.pl;
 
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -61,7 +61,7 @@ public class MorphCommand implements CommandExecutor {
                 sender.sendMessage(prefix + " " + m.getMessage("removedMorph", t.getDisplayName(), sender.getName(), "all", ""));
                 return true;
             } else {
-                DisguiseType type = getDisguiseType(args[1]);
+                Morph type = Main.getMorphManager().getMorphType(args[1].toLowerCase());
                 Player t = Bukkit.getServer().getPlayer(args[0]);
 
                 if (t == null) {
@@ -80,11 +80,6 @@ public class MorphCommand implements CommandExecutor {
                 boolean baby = false;
                 if (args.length > 2) {
                     baby = args[2].equalsIgnoreCase("baby");
-                }
-
-                if (baby && !morph.isAllowBaby(type.toReadable())) {
-                    sender.sendMessage(prefix + " " + m.getMessage("noBabyType"));
-                    return false;
                 }
 
                 if (baby) {
@@ -113,7 +108,7 @@ public class MorphCommand implements CommandExecutor {
                 return true;
             }
 
-            DisguiseType type = getDisguiseType(args[1]);
+            Morph type = Main.getMorphManager().getMorphType(args[1].toLowerCase());
 
             if (type == null) {
                 sender.sendMessage(prefix + " " + m.getMessage("invalidMorph"));
@@ -134,11 +129,6 @@ public class MorphCommand implements CommandExecutor {
             File userFile = new File(pl.getDataFolder() + "/UserData/" + t.getUniqueId() + ".yml");
             FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
             List<String> stringList = fileConfig.getStringList("Mobs");
-
-            if (baby && !morph.isAllowBaby(type.toReadable())) {
-                sender.sendMessage(prefix + " " + m.getMessage("noBabyType"));
-                return false;
-            }
 
             if (baby) {
                 if (stringList.contains(args[1] + ":baby")) {
@@ -219,26 +209,27 @@ public class MorphCommand implements CommandExecutor {
                 args[1] = "piglin_brute";
             }
 
-            DisguiseType type = getDisguiseType(args[1]);
+            Morph type = Main.getMorphManager().getMorphType(args[1].toLowerCase());
+
             if (type == null) {
                 sender.sendMessage(prefix + " " + m.getMessage("invalidMorph"));
                 return true;
             }
 
-            String perm = type.toReadable().toLowerCase().replace(" ", "_");
-            if (Morph.using.containsKey(p.getUniqueId())) {
+            String morphName = type.getMorphName();
+            if (Main.using.containsKey(p.getUniqueId())) {
                 String using = morph.getUsing(p);
                 if (baby) {
-                    if (using.equalsIgnoreCase(type.toReadable().toLowerCase())) {
+                    if (using.equalsIgnoreCase(morphName)) {
                         if (morph.isBaby(p)) {
-                            send(p, prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), "baby " + type.toReadable(), ""));
+                            send(p, prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), "baby " + type.toFriendly(), ""));
                             return true;
                         }
                     }
                 } else {
-                    if (using.equalsIgnoreCase(type.toReadable().toLowerCase())) {
+                    if (using.equalsIgnoreCase(morphName)) {
                         if (!morph.isBaby(p)) {
-                            send(p, prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), type.toReadable(), ""));
+                            send(p, prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), type.toFriendly(), ""));
 
                             return true;
                         }
@@ -247,34 +238,28 @@ public class MorphCommand implements CommandExecutor {
             }
 
             if (!ignorePerms) {
-                if (!p.hasPermission("morph.into." + perm)) {
-                    if (!p.hasPermission("morph.bypasskill." + perm)) {
+                if (!p.hasPermission("morph.into." + morphName)) {
+                    if (!p.hasPermission("morph.bypasskill." + morphName)) {
                         send(p, prefix + " " + m.getMessage("noPermissions"));
                         sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
                         return true;
                     }
                 }
 
-                if (baby && !morph.isAllowBaby(type.toReadable())) {
-                    send(p, prefix + " " + m.getMessage("noBabyType"));
-                    sender.sendMessage(prefix + " " + m.getMessage("noBabyType"));
-                    return false;
-                }
-
                 File userFile = new File(pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
                 FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
                 List<String> stringList = fileConfig.getStringList("Mobs");
-                if (!p.hasPermission("morph.bypasskill." + perm)) {
+                if (!p.hasPermission("morph.bypasskill." + morphName)) {
                     if (baby) {
                         if (!stringList.contains(type.toString().toLowerCase() + ":baby")) {
-                            p.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), "baby " + type.toReadable(), ""));
-                            sender.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), "baby " + type.toReadable(), ""));
+                            p.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), "baby " + type.toFriendly(), ""));
+                            sender.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), "baby " + type.toFriendly(), ""));
                             return true;
                         }
                     } else {
                         if (!stringList.contains(type.toString().toLowerCase())) {
-                            p.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), type.toReadable(), ""));
-                            sender.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), type.toReadable(), ""));
+                            p.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), type.toFriendly(), ""));
+                            sender.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), type.toFriendly(), ""));
                             return true;
                         }
                     }
@@ -282,7 +267,7 @@ public class MorphCommand implements CommandExecutor {
             }
 
             DisguiseAPI.undisguiseToAll(p);
-            Morph.using.remove(p.getUniqueId());
+            Main.using.remove(p.getUniqueId());
 
             morph.morphPlayer(p, type, silent, baby);
             sender.sendMessage(prefix + " " + "Successfully force morphed player!");
@@ -296,7 +281,7 @@ public class MorphCommand implements CommandExecutor {
                                 config.createOrLoad();
                             }
                             m.setup();
-                            Morph.health = !pl.getConfig().getBoolean("disableHealthSystem");
+                            Main.health = !pl.getConfig().getBoolean("disableHealthSystem");
                             sender.sendMessage(prefix + " " + m.getMessage("reloadedConfig"));
                             return true;
                         }
@@ -320,7 +305,7 @@ public class MorphCommand implements CommandExecutor {
                 if (args[0].equalsIgnoreCase("reload")) {
                     if (p.hasPermission("morph.reload")) {
                         pl.reloadConfig();
-                        Morph.health = !pl.getConfig().getBoolean("disableHealthSystem");
+                        Main.health = !pl.getConfig().getBoolean("disableHealthSystem");
                         p.sendMessage(prefix + " " + m.getMessage("reloadedConfig"));
                     }
                     return true;
@@ -420,11 +405,10 @@ public class MorphCommand implements CommandExecutor {
                 }
             }
 
-            DisguiseType type = getDisguiseType(args[0]);
-
+            Morph type = Main.getMorphManager().getMorphType(args[0].toLowerCase());
             if (type == null) {
                 if (args[0].equalsIgnoreCase("near")) {
-                    int radius = Morph.pl.getConfig().getInt("near-radius");
+                    int radius = Main.pl.getConfig().getInt("near-radius");
                     List<Entity> near = p.getNearbyEntities(radius, radius, radius);
                     if (near.toString().contains("CraftPlayer")) {
                         for (Entity e : near) {
@@ -440,14 +424,16 @@ public class MorphCommand implements CommandExecutor {
                         return true;
                     }
                     return true;
-                } else if (args[0].equalsIgnoreCase("help")) {
+                }
+                else if (args[0].equalsIgnoreCase("help")) {
                     p.sendMessage(prefix + " " + ChatColor.DARK_PURPLE + "-----------------------------------------");
                     for (String cmmd : m.getCommands()) {
                         p.sendMessage(prefix + " /" + m.getMessage("helpFormat", cmmd, m.getMessage("commands." + cmmd)));
                     }
                     p.sendMessage(prefix + " " + ChatColor.DARK_PURPLE + "-----------------------------------------");
                     return true;
-                } else if (args[0].equalsIgnoreCase("info")) {
+                }
+                else if (args[0].equalsIgnoreCase("info")) {
                     if (args.length < 2) {
                         sender.sendMessage(prefix + " " + m.getMessage("invalidArguments"));
                         return true;
@@ -477,11 +463,11 @@ public class MorphCommand implements CommandExecutor {
                         args[1] = "mushroom_cow";
                     } else if (args[1].equalsIgnoreCase("zombievillager")) {
                         args[1] = "zombie_villager";
-                    } else if (args[0].equalsIgnoreCase("piglinbrute")) {
+                    } else if (args[1].equalsIgnoreCase("piglinbrute")) {
                         args[0] = "piglin_brute";
                     }
 
-                    DisguiseType check = getDisguiseType(args[1]);
+                    Morph check = Main.getMorphManager().getMorphType(args[1].toLowerCase());
                     if (check == null) {
                         p.sendMessage(prefix + " " + m.getMessage("invalidMorph"));
                         return true;
@@ -495,13 +481,15 @@ public class MorphCommand implements CommandExecutor {
                     }
 
                     return true;
-                } else if (args[0].equalsIgnoreCase("toggle")) {
+                }
+                else if (args[0].equalsIgnoreCase("toggle")) {
                     if (p.hasPermission("morph.toggle")) {
                         morph.toggleAbilty(p);
                         return true;
                     }
-                } else if (args[0].equalsIgnoreCase("view")) {
-                    boolean playerChangeView = Morph.pl.getConfig().getBoolean("canChangeView");
+                }
+                else if (args[0].equalsIgnoreCase("view")) {
+                    boolean playerChangeView = Main.pl.getConfig().getBoolean("canChangeView");
 
                     if (!playerChangeView) {
                         p.sendMessage(prefix + " " + m.getMessage("unableToChangeView"));
@@ -516,7 +504,7 @@ public class MorphCommand implements CommandExecutor {
                     if (!(args.length > 1)) {
                         boolean ownView = fileConfig.getBoolean("viewDisguise");
                         if (fileConfig.getString("viewDisguise") == null)
-                            ownView = Morph.pl.getConfig().getBoolean("viewSelfDisguise");
+                            ownView = Main.pl.getConfig().getBoolean("viewSelfDisguise");
 
                         morph.setViewMorph(p, !ownView);
                         return true;
@@ -533,20 +521,7 @@ public class MorphCommand implements CommandExecutor {
                         return true;
                     }
                 }
-
-                if (args.length == 1) {
-                    if (args[0].equalsIgnoreCase("list")) {
-                        String useMobs = stringList.toString().replace("[", "").replace("]" ,"");
-                        if (useMobs.length() == 0) {
-                            send(p, prefix + " " + m.getMessage("cannotMorphAsAnything"));
-                            return true;
-                        }
-                        p.sendMessage(prefix + " " + m.getMessage("canMorphInto", "", p.getDisplayName(), "", useMobs));
-                        return true;
-                    }
-                }
-
-                if (args[0].equalsIgnoreCase("status")) {
+                else if (args[0].equalsIgnoreCase("status")) {
                     if (DisguiseAPI.isDisguised(p)) {
                         p.sendMessage(prefix + " " + m.getMessage("morphedAs", "", p.getDisplayName(), DisguiseAPI.getDisguise(p).getType().name().toLowerCase(), ""));
                         return true;
@@ -556,70 +531,92 @@ public class MorphCommand implements CommandExecutor {
                     }
 
                 }
+                else if (args[0].equalsIgnoreCase("player")) {
+                    if (pl.getConfig().getBoolean("enable-players")) {
+                        if (!(args.length == 2)) {
+                            send(p, prefix + " " + m.getMessage("invalidArguments"));
+                            return true;
+                        }
+
+                        Player t = Bukkit.getServer().getPlayer(args[1]);
+                        Player on;
+                        OfflinePlayer off;
+
+                        if (t == null) {
+                            off = Bukkit.getServer().getOfflinePlayer(args[1]);
+
+                            if (!(off.hasPlayedBefore())) {
+                                send(p, prefix + " " + m.getMessage("couldNotFindPlayer", "", p.getDisplayName(), "", ""));
+                                return true;
+                            }
+
+                            if (pl.getConfig().getStringList("blacklisted-players").contains(off.getName())) {
+                                return true;
+                            }
+
+                            if (!players.contains(off.getName()) && !p.hasPermission("morph.into.player." + off.getName())) {
+                                send(p, prefix + " " + m.getMessage("unableToMorphAsPlayer", off.getName(), p.getDisplayName(), "", ""));
+                                return true;
+                            }
+
+                            PlayerDisguise d = new PlayerDisguise(off.getName());
+                            DisguiseAPI.disguiseToAll(p, d);
+                            send(p, prefix + " " + m.getMessage("morphedAsPlayer", off.getName(), p.getDisplayName(), "", ""));
+
+                            return true;
+
+                        } else {
+                            on = Bukkit.getServer().getPlayer(args[1]);
+
+                            if (pl.getConfig().getStringList("blacklisted-players").contains(on.getName())) {
+                                return true;
+                            }
+
+                            if (!players.contains(on.getName()) && !p.hasPermission("morph.into.player." + on.getName())) {
+                                send(p, prefix + " " + m.getMessage("unableToMorphAsPlayer", on.getName(), p.getDisplayName(), "", ""));
+                                return true;
+                            }
+
+                            PlayerDisguise d = new PlayerDisguise(on.getName());
+                            DisguiseAPI.disguiseToAll(p, d);
+                            send(p, prefix + " " + m.getMessage("morphedAsPlayer", on.getName(), p.getDisplayName(), "", ""));
+
+                            return true;
+                        }
+                    }
+                } else if (args.length == 1) {
+                    if (args[0].equalsIgnoreCase("list")) {
+//                        String useMobs = stringList.toString().replace("[", "").replace("]" ,"");
+                        StringBuilder useMobs = new StringBuilder();
+                        for (String mob : stringList) {
+                            if (mob.contains(":baby")) {
+                                mob = "baby " + mob.split(":")[0];
+                            }
+
+                            if (useMobs.length() == 0) {
+                                useMobs.append(mob);
+                            } else {
+                                useMobs.append(", ").append(mob);
+                            }
+                        }
+
+                        if (useMobs.length() == 0) {
+                            send(p, prefix + " " + m.getMessage("cannotMorphAsAnything"));
+                            return true;
+                        }
+
+                        p.sendMessage(prefix + " " + m.getMessage("canMorphInto", "", p.getDisplayName(), "", useMobs.toString()));
+                        return true;
+                    }
+                }
 
                 p.sendMessage(prefix + " " + m.getMessage("invalidMorph"));
                 return true;
             }
 
-            if (args[0].equalsIgnoreCase("player")) {
-                if (pl.getConfig().getString("enable-players") == "true") {
-                    if (!(args.length == 2)) {
-                        send(p, prefix + " " + m.getMessage("invalidArguments"));
-                        return true;
-                    }
 
-                    Player t = Bukkit.getServer().getPlayer(args[1]);
-                    Player on;
-                    OfflinePlayer off;
-
-                    if (t == null) {
-                        off = Bukkit.getServer().getOfflinePlayer(args[1]);
-
-                        if (!(off.hasPlayedBefore())) {
-                            send(p, prefix + " " + m.getMessage("couldNotFindPlayer", "", p.getDisplayName(), "", ""));
-                            return true;
-                        }
-
-                        if (p.hasPermission("morph.blacklist.player." + off.getName())) {
-                            return true;
-                        }
-
-                        if (!players.contains(off.getName()) && !p.hasPermission("morph.into.player." + off.getName())) {
-                            send(p, prefix + " " + m.getMessage("unableToMorphAsPlayer", off.getName(), p.getDisplayName(), "", ""));
-                            return true;
-                        }
-
-                        PlayerDisguise d = new PlayerDisguise(off.getName());
-                        DisguiseAPI.disguiseToAll(p, d);
-                        send(p, prefix + " " + m.getMessage("morphedAsPlayer", off.getName(), p.getDisplayName(), "", ""));
-
-                        return true;
-
-                    } else if (t != null) {
-                        on = Bukkit.getServer().getPlayer(args[1]);
-
-                        if (p.hasPermission("morph.blacklist.player." + on.getName())) {
-                            return true;
-                        }
-
-                        if (!players.contains(on.getName()) && !p.hasPermission("morph.into.player." + on.getName())) {
-                            send(p, prefix + " " + m.getMessage("unableToMorphAsPlayer", on.getName(), p.getDisplayName(), "", ""));
-                            return true;
-                        }
-
-                        PlayerDisguise d = new PlayerDisguise(on.getName());
-                        DisguiseAPI.disguiseToAll(p, d);
-                        send(p, prefix + " " + m.getMessage("morphedAsPlayer", on.getName(), p.getDisplayName(), "", ""));
-
-                        return true;
-                    }
-                }
-            }
-
-            String perm = type.toReadable().toLowerCase().replace(" ", "_");
-
-            if (!p.hasPermission("morph.into." + perm)) {
-                if (!p.hasPermission("morph.bypasskill." + perm)) {
+            if (!p.hasPermission("morph.into." + type.getMorphName())) {
+                if (!p.hasPermission("morph.bypasskill." + type.getMorphName())) {
                     send(p, prefix + " " + m.getMessage("noPermissions"));
                     return true;
                 }
@@ -630,19 +627,19 @@ public class MorphCommand implements CommandExecutor {
                 baby = args[1].equalsIgnoreCase("baby");
             }
 
-            if (Morph.using.containsKey(p.getUniqueId())) {
+            if (Main.using.containsKey(p.getUniqueId())) {
                 String using = morph.getUsing(p);
                 if (baby) {
-                    if (using.equalsIgnoreCase(type.toReadable().toLowerCase())) {
+                    if (using.equalsIgnoreCase(type.getMorphName())) {
                         if (morph.isBaby(p)) {
-                            send(p, prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), "baby " + type.toReadable(), ""));
+                            send(p, prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), "baby " + type.toFriendly(), ""));
                             return true;
                         }
                     }
                 } else {
-                    if (using.equalsIgnoreCase(type.toReadable().toLowerCase())) {
+                    if (using.equalsIgnoreCase(type.getMorphName())) {
                         if (!morph.isBaby(p)) {
-                            send(p, prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), type.toReadable(), ""));
+                            send(p, prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), type.toFriendly(), ""));
 
                             return true;
                         }
@@ -650,20 +647,15 @@ public class MorphCommand implements CommandExecutor {
                 }
             }
 
-            if (baby && !morph.isAllowBaby(type.toReadable())) {
-                send(p, prefix + " " + m.getMessage("noBabyType"));
-                return false;
-            }
-
-            if (!p.hasPermission("morph.bypasskill." + perm)) {
+            if (!p.hasPermission("morph.bypasskill." + type.getMorphName())) {
                 if (baby) {
-                    if (!stringList.contains(type.toString().toLowerCase() + ":baby")) {
-                        p.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), "baby " + type.toReadable(), ""));
+                    if (!stringList.contains(type.getMorphName() + ":baby")) {
+                        p.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), "baby " + type.toFriendly(), ""));
                         return true;
                     }
                 } else {
-                    if (!stringList.contains(type.toString().toLowerCase())) {
-                        p.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), type.toReadable(), ""));
+                    if (!stringList.contains(type.getMorphName())) {
+                        p.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), type.toFriendly(), ""));
                         return true;
                     }
                 }
@@ -671,7 +663,7 @@ public class MorphCommand implements CommandExecutor {
 
 //            Morph.undisguiseBuffer.add(p.getUniqueId());
             DisguiseAPI.undisguiseToAll(p);
-            Morph.using.remove(p.getUniqueId());
+            Main.using.remove(p.getUniqueId());
 
             morph.morphPlayer(p, type, false, baby);
         } else if (cmd.getName().equalsIgnoreCase("unmorph")) {
@@ -720,14 +712,6 @@ public class MorphCommand implements CommandExecutor {
 
         }
         return true;
-    }
-
-    private DisguiseType getDisguiseType(String arg) {
-        for (DisguiseType type : DisguiseType.values()) {
-            String t = type.toString().toUpperCase();
-            if (arg.toUpperCase().equals(t)) return type;
-        }
-        return null;
     }
 
     public static void send(Player p, String s) {

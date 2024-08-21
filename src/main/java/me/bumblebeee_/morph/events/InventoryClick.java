@@ -2,8 +2,9 @@ package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.Inventorys;
 import me.bumblebeee_.morph.Messages;
-import me.bumblebeee_.morph.Morph;
+import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.MorphManager;
+import me.bumblebeee_.morph.morphs.Morph;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.PlayerDisguise;
@@ -43,7 +44,7 @@ public class InventoryClick implements Listener {
 
             Player p = (Player) e.getWhoClicked();
             ItemStack i = e.getCurrentItem();
-            String dis = ChatColor.stripColor(i.getItemMeta().getDisplayName());
+            String dis = ChatColor.stripColor(i.getItemMeta().getDisplayName().toLowerCase());
 
             if (dis.equalsIgnoreCase("Close")) {
                 p.closeInventory();
@@ -90,54 +91,14 @@ public class InventoryClick implements Listener {
             } else if (dis.equalsIgnoreCase("Click to unmorph")) {
                 p.closeInventory();
                 morph.unmorphPlayer(p, false, false);
-            } else if (dis.contains("Click to morph into")) {
+            } else if (dis.contains("click to morph into")) {
                 p.closeInventory();
-                File userFile = new File(Morph.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
+                File userFile = new File(Main.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
                 FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
                 List<String> stringList = fileConfig.getStringList("Mobs");
                 List<String> players = fileConfig.getStringList("Players");
-
                 Inventorys.pages.remove(p.getUniqueId());
-                if (Inventorys.pages.containsKey(p.getUniqueId())) {
-                    //Is trying to morph as player
-                    if (Morph.pl.getConfig().getBoolean("enable-players")) {
-                        String[] split = dis.split(" ");
-                        String name = split[4];
 
-                        Player t = Bukkit.getServer().getPlayer(name);
-                        Player on;
-                        OfflinePlayer off;
-
-                        if (t == null) {
-                            off = Bukkit.getServer().getOfflinePlayer(name);
-
-                            if (!players.contains(off.getName())) {
-                                p.sendMessage(prefix + " " + m.getMessage("unableToMorphAsPlayer", off.getName(), p.getDisplayName(), "", ""));
-                                return;
-                            }
-
-                            PlayerDisguise d = new PlayerDisguise(off.getName());
-                            DisguiseAPI.disguiseToAll(p, d);
-                            p.sendMessage(prefix + " " + m.getMessage("morphedAsPlayer", off.getName(), p.getDisplayName(), "", ""));
-
-                            return;
-
-                        } else {
-                            on = Bukkit.getServer().getPlayer(name);
-
-                            if (!players.contains(on.getName())) {
-                                p.sendMessage(prefix + " " + m.getMessage("UnableToMorphAsPlayer", on.getName(), p.getDisplayName(), "", ""));
-                                return;
-                            }
-
-                            PlayerDisguise d = new PlayerDisguise(on.getName());
-                            DisguiseAPI.disguiseToAll(p, d);
-                            p.sendMessage(prefix + " " + m.getMessage("morphedAsPlayer", on.getName(), p.getDisplayName(), "", ""));
-                            return;
-                        }
-                    }
-                    return;
-                }
                 String[] split = dis.split(" ");
                 String mobType;
                 boolean baby = false;
@@ -187,20 +148,48 @@ public class InventoryClick implements Listener {
                         break;
                 }
 
-                DisguiseType type = getDisguiseType(mobType);
+                Morph type = Main.getMorphManager().getMorphType(mobType);
                 if (type == null) {
-                    p.sendMessage(ChatColor.RED + "An internal error has occurred. Please report this to an admin");
-                    Morph.pl.getLogger().warning("Failed to find a mob named " + mobType);
+                    if (Main.pl.getConfig().getBoolean("enable-players")) {
+                        dis = ChatColor.stripColor(i.getItemMeta().getDisplayName());
+                        split = dis.split(" ");
+                        String name = split[5];
+
+                        Player t = Bukkit.getServer().getPlayer(name);
+                        Player on;
+                        OfflinePlayer off;
+
+                        if (t == null) {
+                            off = Bukkit.getServer().getOfflinePlayer(name);
+
+                            if (!players.contains(off.getName())) {
+                                p.sendMessage(prefix + " " + m.getMessage("unableToMorphAsPlayer", off.getName(), p.getDisplayName(), "", ""));
+                                return;
+                            }
+
+                            PlayerDisguise d = new PlayerDisguise(off.getName());
+                            DisguiseAPI.disguiseToAll(p, d);
+                            p.sendMessage(prefix + " " + m.getMessage("morphedAsPlayer", off.getName(), p.getDisplayName(), "", ""));
+
+                            return;
+
+                        } else {
+                            on = Bukkit.getServer().getPlayer(name);
+
+                            if (!players.contains(on.getName())) {
+                                p.sendMessage(prefix + " " + m.getMessage("UnableToMorphAsPlayer", on.getName(), p.getDisplayName(), "", ""));
+                                return;
+                            }
+
+                            PlayerDisguise d = new PlayerDisguise(on.getName());
+                            DisguiseAPI.disguiseToAll(p, d);
+                            p.sendMessage(prefix + " " + m.getMessage("morphedAsPlayer", on.getName(), p.getDisplayName(), "", ""));
+                            return;
+                        }
+                    }
                     return;
                 }
-                String perm = type.toReadable().toLowerCase().replace(" ", "_");
-
-                if (type.toReadable().equalsIgnoreCase("enderman")) {
-                    if (Morph.pl.getConfig().getBoolean("disable-endermen")) {
-                        p.sendMessage(prefix + " " + m.getMessage("endermenDisabled"));
-                        return;
-                    }
-                }
+                String perm = type.getMorphName().replace(" ", "_");
 
                 if (!p.hasPermission("morph.into." + perm)) {
                     if (!p.hasPermission("morph.bypasskill." + perm)) {
@@ -209,17 +198,17 @@ public class InventoryClick implements Listener {
                     }
                 }
 
-                if (Morph.using.containsKey(p.getUniqueId())) {
+                if (Main.using.containsKey(p.getUniqueId())) {
                     String using = morph.getUsing(p);
-                    if (using.equalsIgnoreCase(type.toReadable().toString().toLowerCase())) {
+                    if (using.equalsIgnoreCase(type.getMorphName())) {
                         if (baby) {
                             if (morph.isBaby(p)) {
-                                p.sendMessage(prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), "baby " + type.toReadable(), ""));
+                                p.sendMessage(prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), "baby " + type.toFriendly(), ""));
                                 return;
                             }
                         } else {
                             if (!morph.isBaby(p)) {
-                                p.sendMessage(prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), type.toReadable(), ""));
+                                p.sendMessage(prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), type.toFriendly(), ""));
                                 return;
                             }
                         }
@@ -227,18 +216,18 @@ public class InventoryClick implements Listener {
                 }
 
                 if (!p.hasPermission("morph.bypasskill." + perm)) {
-                    if (!stringList.contains(type.toString().toLowerCase())) {
+                    if (!stringList.contains(type.getMorphName())) {
                         if (baby)
-                            p.sendMessage(prefix + " " + m.getMessage("unableToMorphAsPlayer", "", p.getDisplayName(), "baby " + type.toReadable(), ""));
+                            p.sendMessage(prefix + " " + m.getMessage("unableToMorphAsPlayer", "", p.getDisplayName(), "baby " + type.toFriendly(), ""));
                         else
-                            p.sendMessage(prefix + " " + m.getMessage("unableToMorphAsPlayer", "", p.getDisplayName(), type.toReadable(), ""));
+                            p.sendMessage(prefix + " " + m.getMessage("unableToMorphAsPlayer", "", p.getDisplayName(), type.toFriendly(), ""));
 
                         return;
                     }
                 }
 //                Morph.undisguiseBuffer.add(p.getUniqueId());
                 DisguiseAPI.undisguiseToAll(p);
-                Morph.using.remove(p.getUniqueId());
+                Main.using.remove(p.getUniqueId());
 
                 morph.morphPlayer(p, type, false, baby);
             }
@@ -253,12 +242,12 @@ public class InventoryClick implements Listener {
             ItemStack i = e.getCurrentItem();
             String dis = ChatColor.stripColor(i.getItemMeta().getDisplayName());
 
-            File f = new File(Morph.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
+            File f = new File(Main.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
             FileConfiguration c = YamlConfiguration.loadConfiguration(f);
             boolean viewMorph = c.getBoolean("viewDisguise");
 
             if (dis.contains("View own morph")) {
-                boolean playerChangeView = Morph.pl.getConfig().getBoolean("canChangeView");
+                boolean playerChangeView = Main.pl.getConfig().getBoolean("canChangeView");
 
                 if (!p.hasPermission("morph.changeview")) {
                     p.sendMessage(prefix + " " + m.getMessage("noPermissions"));
@@ -270,7 +259,7 @@ public class InventoryClick implements Listener {
                 }
 
                 if (c.getString("viewDisguise") == null)
-                    viewMorph = Morph.pl.getConfig().getBoolean("viewSelfDisguise");
+                    viewMorph = Main.pl.getConfig().getBoolean("viewSelfDisguise");
 
                 morph.setViewMorph(p, !viewMorph);
                 inv.openOptions(p);
@@ -295,13 +284,6 @@ public class InventoryClick implements Listener {
         }
     }
 
-    private DisguiseType getDisguiseType(String arg) {
-        for (DisguiseType type : DisguiseType.values()) {
-            String t = type.toString().toUpperCase();
-            if (arg.toUpperCase().equals(t)) return type;
-        }
-        return null;
-    }
 }
 
 

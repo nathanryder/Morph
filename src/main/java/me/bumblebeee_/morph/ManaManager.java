@@ -17,8 +17,8 @@ public class ManaManager {
 
     public void setup() {
         if (!setupActionbar()) {
-            Morph.pl.getLogger().info("Failed to find actionbar support for this version..");
-            Morph.pl.getLogger().info("Morph power cannot be used. Please use a supported minecraft version if you wish to use it.");
+            Main.pl.getLogger().info("Failed to find actionbar support for this version..");
+            Main.pl.getLogger().info("Morph power cannot be used. Please use a supported minecraft version if you wish to use it.");
         } else {
             enabled = true;
         }
@@ -30,8 +30,6 @@ public class ManaManager {
         } catch (ArrayIndexOutOfBoundsException e) {
             return false;
         }
-
-        System.out.println("VERSION: " + version);
 
         if (version.equals("v1_11_R1"))
             ab = new Actionbar_1_11_R1();

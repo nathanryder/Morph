@@ -1,6 +1,6 @@
 package me.bumblebeee_.morph.events;
 
-import me.bumblebeee_.morph.Morph;
+import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.MorphManager;
 import me.libraryaddict.disguise.DisguiseAPI;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -31,10 +31,10 @@ public class PlayerLeave implements Listener {
 
 		if (DisguiseAPI.isDisguised(p)) {
 			final String type = DisguiseAPI.getDisguise(p).getType().toString().toLowerCase();
-			if (!Morph.using.containsKey(p.getUniqueId()))
+			if (!Main.using.containsKey(p.getUniqueId()))
 				return;
 
-			if (Morph.health) {
+			if (Main.health) {
 				p.setHealthScale(20.0);
 				p.setMaxHealth(20.0);
 				p.setHealth(20.0);
@@ -47,10 +47,10 @@ public class PlayerLeave implements Listener {
 				p.removePotionEffect(effect.getType());
 
 			//store last used morph?
-			if (Morph.pl.getConfig().getBoolean("persistMorphs")) {
+			if (Main.pl.getConfig().getBoolean("persistMorphs")) {
 				File userFile = new File(pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
 				FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
-				fileConfig.set("lastMorph", Morph.using.get(p.getUniqueId()));
+				fileConfig.set("lastMorph", Main.using.get(p.getUniqueId()));
 				try {
 					fileConfig.save(userFile);
 				} catch (IOException ioException) {
@@ -58,30 +58,31 @@ public class PlayerLeave implements Listener {
 				}
 			}
 
-			Morph.using.remove(p.getUniqueId());
+			Main.using.remove(p.getUniqueId());
 			DisguiseAPI.undisguiseToAll(p);
 
-			if (MorphManager.soundDisabled.contains(p.getUniqueId()))
-				MorphManager.soundDisabled.remove(p.getUniqueId());
+			MorphManager morphManager = Main.getMorphManager();
+			if (morphManager.soundDisabled.contains(p.getUniqueId()))
+				morphManager.soundDisabled.remove(p.getUniqueId());
 
-			int morphCooldown = Morph.pl.getConfig().getInt(type + ".morph-cooldown");
+			int morphCooldown = Main.pl.getConfig().getInt(type + ".morph-cooldown");
 			if (morphCooldown > 0) {
-				if (MorphManager.typeCooldown.containsKey(p.getUniqueId())) {
-					Map<String, Integer> cooldown = MorphManager.typeCooldown.get(p.getUniqueId());
-					MorphManager.typeCooldown.remove(p.getUniqueId());
+				if (morphManager.typeCooldown.containsKey(p.getUniqueId())) {
+					Map<String, Integer> cooldown = morphManager.typeCooldown.get(p.getUniqueId());
+					morphManager.typeCooldown.remove(p.getUniqueId());
 
 					cooldown.put(type, morphCooldown);
-					MorphManager.typeCooldown.put(p.getUniqueId(), cooldown);
+					morphManager.typeCooldown.put(p.getUniqueId(), cooldown);
 				} else {
 					Map<String, Integer> cooldown = new HashMap<>();
 					cooldown.put(type, morphCooldown);
-					MorphManager.typeCooldown.put(p.getUniqueId(), cooldown);
+					morphManager.typeCooldown.put(p.getUniqueId(), cooldown);
 				}
 
 				new BukkitRunnable() {
 					@Override
 					public void run() {
-						Map<String, Integer> cooldown = MorphManager.typeCooldown.get(p.getUniqueId());
+						Map<String, Integer> cooldown = morphManager.typeCooldown.get(p.getUniqueId());
 						int time = cooldown.get(type) - 1;
 						cooldown.remove(type);
 
@@ -92,9 +93,9 @@ public class PlayerLeave implements Listener {
 							return;
 						}
 
-						MorphManager.typeCooldown.put(p.getUniqueId(), cooldown);
+						morphManager.typeCooldown.put(p.getUniqueId(), cooldown);
 					}
-				}.runTaskTimer(Morph.pl, 20, 20);
+				}.runTaskTimer(Main.pl, 20, 20);
 			}
 		}
 	}

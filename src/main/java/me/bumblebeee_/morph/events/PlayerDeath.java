@@ -1,13 +1,9 @@
 package me.bumblebeee_.morph.events;
 
-import me.bumblebeee_.morph.Config;
+import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.Messages;
-import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
 import me.libraryaddict.disguise.DisguiseAPI;
-import me.libraryaddict.disguise.disguisetypes.MobDisguise;
-import me.libraryaddict.disguise.disguisetypes.watchers.AgeableWatcher;
-import me.libraryaddict.disguise.disguisetypes.watchers.ZombieWatcher;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -41,15 +37,15 @@ public class PlayerDeath implements Listener {
 		World w = p.getWorld();
 
 		if (k != null) {
-			if (Morph.using.containsKey(k.getUniqueId()) && Morph.pl.getConfig().getBoolean("overrideDeathMessage")) {
+			if (Main.using.containsKey(k.getUniqueId()) && Main.pl.getConfig().getBoolean("overrideDeathMessage")) {
 				String victim = p.getName();
 				String killer = k.getName();
-				String killerMorph = Morph.using.get(k.getUniqueId());
+				String killerMorph = Main.using.get(k.getUniqueId());
 
-				List<String> messages = Morph.pl.getConfig().getStringList("deathMessages");
+				List<String> messages = Main.pl.getConfig().getStringList("deathMessages");
 				String msg = "An error has occurred with Morph selecting a death message";
 
-				if (Morph.pl.getConfig().getBoolean("randomMessage")) {
+				if (Main.pl.getConfig().getBoolean("randomMessage")) {
 					Random rand = new Random();
 					msg = messages.get(rand.nextInt(messages.size()));
 				} else {
@@ -65,7 +61,7 @@ public class PlayerDeath implements Listener {
 			}
 		}
 
-		if (!Morph.using.containsKey(p.getUniqueId()))
+		if (!Main.using.containsKey(p.getUniqueId()))
 		return;
 
 		File userFile = new File(pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
@@ -79,7 +75,7 @@ public class PlayerDeath implements Listener {
 			List<String> stringListk = fileConfigk.getStringList("Mobs");
 			if (pl.getConfig().getBoolean("steal-morphs")) {
 				if (!using.isEmpty()) {
-					Morph.using.remove(k.getUniqueId());
+					Main.using.remove(k.getUniqueId());
 					stringList.remove(using);
 					stringListk.add(using);
 
@@ -100,14 +96,6 @@ public class PlayerDeath implements Listener {
 			}
 		}
 
-		if (using.equalsIgnoreCase("creeper")) {
-			if (Config.MOB_CONFIG.getConfig().getBoolean("creeper.explosion")) {
-				if (!Morph.pl.getConfig().getBoolean("creeperDeathMessage"))
-					e.setDeathMessage(null);
-				w.createExplosion(p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), 2.0F, false, Config.MOB_CONFIG.getConfig().getBoolean("creeper.explosion-damage"));
-				p.sendMessage(prefix + " " + m.getMessage("creeperExploded", "", p.getDisplayName(), "", ""));
-			}
-		}
         if (!DisguiseAPI.isDisguised(p)) {
             return;
         }
@@ -145,10 +133,10 @@ public class PlayerDeath implements Listener {
 		}
 
 		if (pl.getConfig().getBoolean("stayMorphedOnDeath")) {
-			Morph.respawnBuffer.put(p.getUniqueId(), (MobDisguise) DisguiseAPI.getDisguise(p));
+			Main.respawnBuffer.put(p.getUniqueId(), Main.using.get(p.getUniqueId()));
 		} else {
 
-			if (Morph.health) {
+			if (Main.health) {
 				p.setHealthScale(20.0);
 				p.setMaxHealth(20.0);
 			}
@@ -159,7 +147,7 @@ public class PlayerDeath implements Listener {
 			for (PotionEffect effect : p.getActivePotionEffects())
 				p.removePotionEffect(effect.getType());
 
-			Morph.using.remove(p.getUniqueId());
+			Main.using.remove(p.getUniqueId());
 		}
 
 	}

@@ -27,91 +27,12 @@ public class Inventorys {
     public static HashMap<UUID, Integer> pages = new HashMap<>();
     static HashMap<String, String> owners = new HashMap<>();
 
-    public static void setupOwners() {
-        //https://minecraft-heads.com/
-        owners.put("blaze", "MHF_Blaze");
-        owners.put("cave_spider", "MHF_CaveSpider");
-        owners.put("chicken", "MHF_Chicken");
-        owners.put("cow", "MHF_Cow");
-        owners.put("creeper", "MHF_Creeper");
-        owners.put("enderman", "MHF_Enderman");
-        owners.put("ghast", "MHF_Ghast");
-        owners.put("iron_golem", "MHF_Golem");
-        owners.put("horse", "be78c4762674dde8b1a5a1e873b33f28e13e7c102b193f683549b38dc70e0");
-        owners.put("magma_cube", "MHF_LavaSlime");
-        owners.put("mushroom_cow", "MHF_MushroomCow");
-        owners.put("ocelot", "MHF_Ocelot");
-        owners.put("pig", "MHF_Pig");
-        owners.put("pig_zombie", "MHF_PigZombie");
-        owners.put("sheep", "MHF_Sheep");
-        owners.put("skeleton", "MHF_Skeleton");
-        owners.put("slime", "MHF_Slime");
-        owners.put("spider", "MHF_Spider");
-        owners.put("squid", "MHF_Squid");
-        owners.put("villager", "MHF_Villager");
-        owners.put("wither_skeleton", "MHF_WSkeleton");
-        owners.put("zombie", "MHF_Zombie");
-        owners.put("snowman", "MHF_Pumpkin");
-        owners.put("wolf", "MHF_Wolf");
-        owners.put("rabbit", "MHF_Rabbit");
-        owners.put("husk", "d674c63c8db5f4ca628d69a3b1f8a36e29d8fd775e1a6bdb6cabb4be4db121");
-        owners.put("stray", "MHF_Stray");
-        owners.put("polar_bear", "442123ac15effa1ba46462472871b88f1b09c1db467621376e2f71656d3fbc");
-        owners.put("donkey", "63a976c047f412ebc5cb197131ebef30c004c0faf49d8dd4105fca1207edaff3");
-        owners.put("Mule", "a0486a742e7dda0bae61ce2f55fa13527f1c3b334c57c034bb4cf132fb5f5f");
-        owners.put("zombie_villager", "MHF_ZombieVillager");
-        owners.put("vindicator", "6deaec344ab095b48cead7527f7dee61b063ff791f76a8fa76642c8676e2173");
-        owners.put("evoker", "MHF_Evoker");
-        owners.put("vex", "MHF_Vex");
-        owners.put("llama", "c2b1ecff77ffe3b503c30a548eb23a1a08fa26fd67cdff389855d74921368");
-        owners.put("parrot", "MHF_Parrot");
-        owners.put("illusioner", "512512e7d016a2343a7bff1a4cd15357ab851579f1389bd4e3a24cbeb88b");
-        owners.put("guardian", "MHF_Guardian");
-        owners.put("silverfish", "da91dab8391af5fda54acd2c0b18fbd819b865e1a8f1d623813fa761e924540");
-        owners.put("dolphin", "8e9688b950d880b55b7aa2cfcd76e5a0fa94aac6d16f78e833f7443ea29fed3");
-        owners.put("drowned", "MHF_Drowned");
-        owners.put("cod", "7892d7dd6aadf35f86da27fb63da4edda211df96d2829f691462a4fb1cab0");
-        owners.put("salmon", "8aeb21a25e46806ce8537fbd6668281cf176ceafe95af90e94a5fd84924878");
-        owners.put("pufferfish", "MHF_PufferFish");
-        owners.put("tropicalfish", "MHF_TropicalFish");
-        owners.put("phantom", "MHF_Phantom");
-        owners.put("turtle", "MHF_Turtle");
-        owners.put("cat", "e9b3986e32affdb22731b687ac054a25851f8616a5a3c5ae6bb92b8ed1c9ae");
-        owners.put("fox", "16db7d507389a14bbec39de6922165b32d43657bcb6aaf4b5182825b22b4");
-        owners.put("panda", "d188c980aacfa94cf33088512b1b9517ba826b154d4cafc262aff6977be8a");
-        owners.put("bee", "d7db9a6047d299a6945fa360299e12a13736d56f1fdfc192ec20f29cf46818c");
-        owners.put("strider", "d7e4eb0fb489d6f250c607d28d672f127ebaede8e007fa6cd34e2bbc0c2fc33a");
-        owners.put("zoglin", "c19b7b5e9ffd4e22b890ab778b4795b662faff2b4978bf815574e48b0e52b301");
-        owners.put("hoglin", "9bb9bc0f01dbd762a08d9e77c08069ed7c95364aa30ca1072208561b730e8d75");
-        owners.put("axolotl", "e8a8a2d7ccf0c3746e23ab5491070e0923f05b235f9a2f5d53d384353853bddc");
-        owners.put("glowsquid", "3e94a1bb1cb00aaa153a74daf4b0eea20b8974522fe9901eb55aef478ebeff0d");
-        owners.put("goat", "a662336d8ae092407e58f7cc80d20f20e7650357a454ce16e3307619a0110648");
-
-        owners.put("giant", "MHF_Giant");
-        owners.put("ender_dragon", "ender_dragon");
-
-        //Babies
-        owners.put("baby_mushroom_cow", "MHF_MushroomCow:baby");
-        owners.put("baby_cow", "MHF_Cow:baby");
-        owners.put("baby_sheep", "MHF_Sheep:baby");
-        owners.put("baby_pig", "MHF_Pig:baby");
-        owners.put("baby_chicken", "MHF_Chicken:baby");
-        owners.put("baby_wolf", "MHF_Wolf:baby");
-        owners.put("baby_zombie", "MHF_Zombie:baby");
-        owners.put("baby_zombie_villager", "MHF_ZombieVillager:baby");
-        owners.put("baby_pig_zombie", "MHF_PigZombie:baby");
-        owners.put("baby_rabbit", "MHF_Rabbit:baby");
-        owners.put("baby_ocelot", "MHF_Ocelot:baby");
-        owners.put("baby_villager", "MHF_Villager:baby");
-        owners.put("baby_horse", "be78c4762674dde8b1a5a1e873b33f28e13e7c102b193f683549b38dc70e0:baby");
-        owners.put("baby_donkey", "63a976c047f412ebc5cb197131ebef30c004c0faf49d8dd4105fca1207edaff3:baby");
-        owners.put("baby_mule", "a0486a742e7dda0bae61ce2f55fa13527f1c3b334c57c034bb4cf132fb5f5f:baby");
-        owners.put("baby_polar_bear", "442123ac15effa1ba46462472871b88f1b09c1db467621376e2f71656d3fbc:baby");
-        owners.put("baby_husk", "d674c63c8db5f4ca628d69a3b1f8a36e29d8fd775e1a6bdb6cabb4be4db121:baby");
+    public static void addHead(String mob, String headId) {
+        owners.put(mob, headId);
     }
 
     public void openMorph(final Player p, int page) {
-        FileConfiguration config = Morph.pl.getConfig();
+        FileConfiguration config = Main.pl.getConfig();
         if (config.getBoolean("disableGUI")) {
             p.sendMessage(msgs.getMessage("GUIdisabled"));
             return;
@@ -127,22 +48,21 @@ public class Inventorys {
         p.closeInventory();
         p.sendMessage(msgs.getMessage("openingInventory"));
 
-        Bukkit.getScheduler().runTaskAsynchronously(Morph.pl, new Runnable() {
+        Bukkit.getScheduler().runTaskAsynchronously(Main.pl, new Runnable() {
             @Override
             public void run() {
 
-                if (owners.isEmpty())
-                    setupOwners();
-                File userFile = new File(Morph.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
+                File userFile = new File(Main.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
                 FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
                 String using = "none";
-                if (Morph.using.containsKey(p.getUniqueId())) {
+                if (Main.using.containsKey(p.getUniqueId())) {
                     using = mm.getUsing(p);
                 }
                 List<String> mobs = fileConfig.getStringList("Mobs");
+                List<String> players = fileConfig.getStringList("Players");
                 String title;
                 if (!using.equalsIgnoreCase("none")) {
-                    title = msgs.getMessage("morphedTitle").replace("{mob}", using);
+                    title = msgs.getMessage("morphedTitle").replace("{mob}", Main.getMorphManager().getMorphType(using).toFriendly());
                 } else {
                     title = msgs.getMessage("unmorphedTitle");
                 }
@@ -164,10 +84,10 @@ public class Inventorys {
                             continue;
                         if (!p.hasPermission("morph.bypasskill." + mobs.get(i).toLowerCase())) {
                             String mob = mobs.get(i);
-                            String l1 = mobs.get(i).substring(0, 1).toUpperCase();
-                            String mobName = l1 + mobs.get(i).substring(1);
-                            if (mobName.split(":").length > 1) {
-                                mobName = mobName.split(":")[1] + " " + mobName.split(":")[0];
+                            String mobName = Main.getMorphManager().getMorphType(mob.split(":")[0]).toFriendly();
+
+                            if (mob.split(":").length > 1) {
+                                mobName = "Baby " + mobName.split(":")[0];
                             }
 
                             String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
@@ -184,10 +104,10 @@ public class Inventorys {
                         if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
                             String m = owners.get(s);
                             String mob = getMobName(m);
-                            String l1 = mob.substring(0, 1).toUpperCase();
-                            String mobName = l1 + mob.substring(1);
-                            if (mobName.split("_").length > 1) {
-                                mobName = mobName.split("_")[0] + " " + mobName.split("_")[1];
+                            String mobName = Main.getMorphManager().getMorphType(mob.split(":")[0]).toFriendly();
+
+                            if (m.split(":").length > 1) {
+                                mobName = "Baby " + mobName.split(":")[0];
                             }
 
                             String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
@@ -202,10 +122,10 @@ public class Inventorys {
                             if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
                                 String m = owners.get(s);
                                 String mob = getMobName(m);
-                                String l1 = mob.substring(0, 1).toUpperCase();
-                                String mobName = l1 + mob.substring(1);
-                                if (mobName.split("_").length > 1) {
-                                    mobName = mobName.split("_")[0] + " " + mobName.split("_")[1];
+                                String mobName = Main.getMorphManager().getMorphType(mob.split(":")[0]).toFriendly();
+
+                                if (m.split(":").length > 1) {
+                                    mobName = "Baby " + mobName.split(":")[0];
                                 }
 
                                 String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
@@ -222,10 +142,10 @@ public class Inventorys {
                             if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
                                 String m = owners.get(s);
                                 String mob = getMobName(m);
-                                String l1 = mob.substring(0, 1).toUpperCase();
-                                String mobName = l1 + mob.substring(1);
-                                if (mobName.split("_").length > 1) {
-                                    mobName = mobName.split("_")[0] + " " + mobName.split("_")[1];
+                                String mobName = Main.getMorphManager().getMorphType(mob.split(":")[0]).toFriendly();
+
+                                if (m.split(":").length > 1) {
+                                    mobName = "Baby " + mobName.split(":")[0];
                                 }
 
                                 String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
@@ -236,10 +156,21 @@ public class Inventorys {
                         i++;
                     }
                 }
+
+                int i = 0;
+                while (pos < 52 && i < players.size()) {
+                    String player = players.get(i);
+                    String display = msgs.getMessage("clickToMorph").replace("{mob}", player);
+                    inv.setItem(pos, createHead("player:" + player, display));
+
+                    i++;
+                    pos++;
+                }
+
                 constructInventory(inv);
                 inv.setItem(0, owner);
 
-                Bukkit.getScheduler().runTask(Morph.pl, () -> {
+                Bukkit.getScheduler().runTask(Main.pl, () -> {
                     p.openInventory(inv);
                 });
             }
@@ -291,13 +222,13 @@ public class Inventorys {
     public void openOptions(Player p) {
         Inventory inv = Bukkit.getServer().createInventory(p, 36, "Morph Options");
 
-        File f = new File(Morph.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
+        File f = new File(Main.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
         FileConfiguration c = YamlConfiguration.loadConfiguration(f);
 
-        boolean ability = MorphManager.toggled.contains(p.getUniqueId());
+        boolean ability = Main.getMorphManager().toggled.contains(p.getUniqueId());
         boolean viewMorph = c.getBoolean("viewDisguise");
         boolean sound = c.getBoolean("sounds");
-        boolean playerChangeView = Morph.pl.getConfig().getBoolean("canChangeView");
+        boolean playerChangeView = Main.pl.getConfig().getBoolean("canChangeView");
         if (c.getString("viewDisguise") == null)
             viewMorph = playerChangeView;
         if (c.getString("sounds") == null)
@@ -354,7 +285,7 @@ public class Inventorys {
         inv.setItem(15, si);
         inv.setItem(31, close);
 
-        Bukkit.getScheduler().runTask(Morph.pl, () -> {
+        Bukkit.getScheduler().runTask(Main.pl, () -> {
             p.openInventory(inv);
         });
     }
@@ -365,6 +296,15 @@ public class Inventorys {
             ItemMeta im = i.getItemMeta();
             im.setDisplayName(display);
             i.setItemMeta(im);
+
+            return i;
+        } else if (mobName.contains("player:")) {
+            ItemStack i = new ItemStack(Material.PLAYER_HEAD);
+            SkullMeta meta = (SkullMeta) i.getItemMeta();
+            meta.setOwner(mobName.split(":")[1]);
+            meta.setDisplayName(display);
+            i.setItemMeta(meta);
+
             return i;
         } else {
             String owner = getOwner(mobName);
@@ -374,6 +314,7 @@ public class Inventorys {
                 mobName = dummy[1] + " " + dummy[0];
                 owner = getOwner(dummy[0]);
             }
+
             if (owner == null) {
                 return getHead(mobName, display);
             }

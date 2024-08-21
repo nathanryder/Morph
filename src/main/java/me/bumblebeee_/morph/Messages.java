@@ -13,7 +13,7 @@ public class Messages {
     public static YamlConfiguration c;
 
     private static Map<String, String> stringMsgs = new HashMap<>();
-    private static Map<String, List<String>> listMsgs = new HashMap<>();
+    public static Map<String, List<String>> listMsgs = new HashMap<>();
 
     public void setup() {
 
@@ -75,68 +75,6 @@ public class Messages {
         stringMsgs.put("GUIdisabled", "&cMorph GUI is disabled. For more help do /morph help");
 
         stringMsgs.put("abilityInfo.title", "&eAbility information for {mob}");
-        listMsgs.put("abilityInfo.horse", new ArrayList<>(Arrays.asList("&5Passive: &eSpeed 4")));
-        listMsgs.put("abilityInfo.wolf", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.ocelot", new ArrayList<>(Arrays.asList("&5Passive: &eSpeed 7")));
-        listMsgs.put("abilityInfo.cow", new ArrayList<>(Arrays.asList("&5Ability: &eEating grass restores hunger")));
-        listMsgs.put("abilityInfo.pig", new ArrayList<>(Arrays.asList("&5Ability: &eEating grass restores hunger")));
-        listMsgs.put("abilityInfo.wither_skeleton", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.bat", new ArrayList<>(Arrays.asList("&5Passive: &eFlying and night vision 3")));
-        listMsgs.put("abilityInfo.blaze", new ArrayList<>(Arrays.asList("&5Passive: &eFlying and Fire resistance 8","&5Ability: &eShoots a fireball")));
-        listMsgs.put("abilityInfo.cave_spider", new ArrayList<>(Arrays.asList("&5Passive: &eAllows you to climb walls")));
-        listMsgs.put("abilityInfo.chicken", new ArrayList<>(Arrays.asList("&5Ability: &eAllows your wildest dreams to come true.. and lay an egg!")));
-        listMsgs.put("abilityInfo.creeper", new ArrayList<>(Arrays.asList("&5Passive: &eBlows up when you die","&5Ability: &eMakes you explode, dying in the process")));
-        listMsgs.put("abilityInfo.enderman", new ArrayList<>(Arrays.asList("&5Ability: &eAllows you to teleport","&5Weakness: Doesn't like standing in the rain")));
-        listMsgs.put("abilityInfo.endermite", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.ghast", new ArrayList<>(Arrays.asList("&5Ability: &eShoots a fireball")));
-        listMsgs.put("abilityInfo.guardian", new ArrayList<>(Arrays.asList("&5Passive: &eWater breathing 8 and night vision 3")));
-        listMsgs.put("abilityInfo.iron_golem", new ArrayList<>(Arrays.asList("&5Passive: &eStrength 6","&5Weakness: Slowness 1")));
-        listMsgs.put("abilityInfo.magma_cube", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.mushroom_cow", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.pig_zombie", new ArrayList<>(Arrays.asList("&5Passive: &eSpeed 2 and can safely eat rotten flesh")));
-        listMsgs.put("abilityInfo.sheep", new ArrayList<>(Arrays.asList("&5Ability: &eEating grass restores hunger")));
-        listMsgs.put("abilityInfo.silverfish", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.skeleton", new ArrayList<>(Arrays.asList("&5Ability: &eAllows you to shoot arrows","&5Weakness: Burns in daylight")));
-        listMsgs.put("abilityInfo.slime", new ArrayList<>(Arrays.asList("&5Passive: &eJump boost 4 and splits into multiple slimes when taking damage")));
-        listMsgs.put("abilityInfo.snowman", new ArrayList<>(Arrays.asList("&5Passive: &ePlaces snow down wherever you go","&5Weakness: Starts to melt when it is raining")));
-        listMsgs.put("abilityInfo.spider", new ArrayList<>(Arrays.asList("&5Ability: &eAllows you to shoot webs","&5Passive: &eAllows you to climb walls")));
-        listMsgs.put("abilityInfo.squid", new ArrayList<>(Arrays.asList("&5Weakness: Squids are very slow and can't see very far out of water")));
-        listMsgs.put("abilityInfo.villager", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.witch", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.wither", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.llama", new ArrayList<>(Arrays.asList("&5Ability: &eDamages people by spitting at them")));
-        listMsgs.put("abilityInfo.vex", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.vindicator", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.evoker", new ArrayList<>(Arrays.asList("&5Ability:&e")));
-        listMsgs.put("abilityInfo.zombie", new ArrayList<>(Arrays.asList("&5Passive: &eCan safely eat rotten flesh","&5Weakness: Burns in daylight")));
-        listMsgs.put("abilityInfo.rabbit", new ArrayList<>(Arrays.asList("&5Passive: &eJump boost 6")));
-        listMsgs.put("abilityInfo.giant", new ArrayList<>(Arrays.asList("&5Passive: &eSlowness 3 and throws blocks wherever you walk","&5Ability: &eThrows players away from you")));
-        listMsgs.put("abilityInfo.enderdragon", new ArrayList<>(Arrays.asList("&5Passive: &eAllows you to fly")));
-        listMsgs.put("abilityInfo.mule", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.donkey", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.zombie_villager", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.parrot", new ArrayList<>(Arrays.asList("&5Passive: &eAllows you to fly")));
-        listMsgs.put("abilityInfo.illusioner", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.stray", new ArrayList<>(Arrays.asList("&5Ability: &eShoots a slowness arrow","&5Weakness: Burns during the day")));
-        listMsgs.put("abilityInfo.husk", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.dolphin", new ArrayList<>(Arrays.asList("&5Passive: &eDolphins grace 2")));
-        listMsgs.put("abilityInfo.drowned", new ArrayList<>(Arrays.asList("&5Passive: &eDolphins grace 2 and water breathing 8")));
-        listMsgs.put("abilityInfo.cod", new ArrayList<>(Arrays.asList("&5Passive: &eDolphins grace 2")));
-        listMsgs.put("abilityInfo.salmon", new ArrayList<>(Arrays.asList("&5Passive: &eDolphins grace 2")));
-        listMsgs.put("abilityInfo.tropicalfish", new ArrayList<>(Arrays.asList("&5Passive: &eDolphins grace 2")));
-        listMsgs.put("abilityInfo.pufferfish", new ArrayList<>(Arrays.asList("&5Passive: &eDolphins grace 2")));
-        listMsgs.put("abilityInfo.phantom", new ArrayList<>(Arrays.asList("&5Passive: &eNight vision 3")));
-        listMsgs.put("abilityInfo.turtle", new ArrayList<>(Arrays.asList("&5Passive: &eWater breathing 8, slowness 1 and damage resistance 3")));
-        listMsgs.put("abilityInfo.bee", new ArrayList<>(Arrays.asList("&5Passive: &eAllows you to fly")));
-        listMsgs.put("abilityInfo.strider", new ArrayList<>(Arrays.asList("&5Passive: &eSpeed and fire resistance when in lava","&5Weakness: Slowness 4 when not in lava")));
-        listMsgs.put("abilityInfo.hoglin", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.zoglin", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.shulker", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.polar_bear", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.cat", new ArrayList<>(Arrays.asList("&5Passive: &eStops phantoms from targeting you")));
-        listMsgs.put("abilityInfo.fox", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-        listMsgs.put("abilityInfo.panda", new ArrayList<>(Arrays.asList("&cNo abilities found")));
-
         stringMsgs.put("commands.morph", "&eMorph into a mob");
         stringMsgs.put("commands.unmorph", "&eMorph back into yourself");
         stringMsgs.put("commands.morph info <mob>", "&eShow the abilities that a morph gets");
@@ -148,7 +86,7 @@ public class Messages {
         stringMsgs.put("commands.addmorph <player> <mob>", "&eAdd a morph to a player");
         stringMsgs.put("commands.delmorph <player> <mob>", "&eRemove a morph from a player");
 
-        f = new File(Morph.pl.getDataFolder() + File.separator + "messages.yml");
+        f = new File(Main.pl.getDataFolder() + File.separator + "messages.yml");
         if (!f.exists()) {
             try {
                 f.createNewFile();
@@ -209,7 +147,7 @@ public class Messages {
     }
 
     public String getMessage(String key) {
-        f = new File(Morph.pl.getDataFolder() + File.separator + "messages.yml");
+        f = new File(Main.pl.getDataFolder() + File.separator + "messages.yml");
         c = YamlConfiguration.loadConfiguration(f);
 
         String msg = c.getString(key);
@@ -223,7 +161,7 @@ public class Messages {
     }
 
     public List<String> getListMessage(String key) {
-        f = new File(Morph.pl.getDataFolder() + File.separator + "messages.yml");
+        f = new File(Main.pl.getDataFolder() + File.separator + "messages.yml");
         c = YamlConfiguration.loadConfiguration(f);
 
         List<String> msg = new ArrayList<>();

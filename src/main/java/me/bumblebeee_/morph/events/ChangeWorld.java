@@ -1,7 +1,7 @@
 package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.Messages;
-import me.bumblebeee_.morph.Morph;
+import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.MorphManager;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.disguisetypes.Disguise;
@@ -31,9 +31,9 @@ public class ChangeWorld implements Listener {
 			if (!pl.getConfig().getList("enabled-worlds").contains("<all>")) {
 
 				if (DisguiseAPI.isDisguised(p)) {
-					if (!Morph.using.containsKey(p.getUniqueId()))
+					if (!Main.using.containsKey(p.getUniqueId()))
 						return;
-					if (Morph.health) {
+					if (Main.health) {
 						p.setHealthScale(20.0);
 						p.setMaxHealth(20.0);
 						p.setHealth(20.0);
@@ -45,7 +45,7 @@ public class ChangeWorld implements Listener {
 				    for (PotionEffect effect : p.getActivePotionEffects())
 				        p.removePotionEffect(effect.getType());
 				    
-					Morph.using.remove(p.getUniqueId());
+					Main.using.remove(p.getUniqueId());
 					DisguiseAPI.undisguiseToAll(p);
 					p.sendMessage( m.getMessage("prefix") + " " + m.getMessage("unmorphedByWorld"));
 				}
@@ -56,7 +56,7 @@ public class ChangeWorld implements Listener {
 			if (morph.getViewMorph(p))
 				return;
 
-			Bukkit.getServer().getScheduler().runTaskLater(Morph.pl, new Runnable() {
+			Bukkit.getServer().getScheduler().runTaskLater(Main.pl, new Runnable() {
 				@Override
 				public void run() {
 					Disguise d = DisguiseAPI.getDisguise(p);

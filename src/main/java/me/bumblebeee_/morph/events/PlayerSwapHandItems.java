@@ -2,8 +2,7 @@ package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.Inventorys;
 import me.bumblebeee_.morph.Messages;
-import me.bumblebeee_.morph.Morph;
-import me.bumblebeee_.morph.MorphManager;
+import me.bumblebeee_.morph.Main;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,7 +16,7 @@ public class PlayerSwapHandItems implements Listener {
 
     @EventHandler
     public void onPlayerSwapHandItems(PlayerSwapHandItemsEvent e) {
-        if (!Morph.pl.getConfig().getBoolean("swapMenu"))
+        if (!Main.pl.getConfig().getBoolean("swapMenu"))
             return;
         Player p = e.getPlayer();
 
@@ -28,7 +27,7 @@ public class PlayerSwapHandItems implements Listener {
             return;
         }
 
-        if (Morph.pl.getConfig().getBoolean("onlyIfEmptyHand")) {
+        if (Main.pl.getConfig().getBoolean("onlyIfEmptyHand")) {
             if (e.getOffHandItem().getType() != Material.AIR)
                 return;
             inv.openMorph(p, 1);

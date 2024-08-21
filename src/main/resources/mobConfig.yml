@@ -17,6 +17,13 @@ horse:
   morph-time: 0
   morph-cooldown: 0
   speed: true
+skeleton_horse:
+  enabled: true
+  health: 15
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+  speed: true
 wolf:
   enabled: true
   health: 10
@@ -36,12 +43,14 @@ cow:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  eatGrass: true
 pig:
   enabled: true
   health: 10
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  eatGrass: true
 wither_skeleton:
   enabled: true
   health: 20
@@ -55,6 +64,7 @@ bat:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  nightVision: true
 blaze:
   enabled: true
   health: 20
@@ -70,6 +80,11 @@ cave_spider:
   morph-time: 0
   morph-cooldown: 0
   spider-climb: true
+  web: true
+  #Remove spider webs after they are shot?
+  removeSpiderWeb: true
+  #How long (seconds) should webs stay for before despawning
+  spiderWebRemove: 30
   ability-cooldown: 0
 chicken:
   enabled: true
@@ -129,6 +144,7 @@ magma_cube:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  fireresistance: true
 mushroom_cow:
   enabled: true
   health: 10
@@ -149,6 +165,7 @@ sheep:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  dropWool: true
 silverfish:
   enabled: true
   health: 8
@@ -358,6 +375,7 @@ cod:
   morph-time: 0
   morph-cooldown: 0
   grace: true
+  waterbreathing: true
 salmon:
   enabled: true
   health: 3
@@ -365,6 +383,7 @@ salmon:
   morph-time: 0
   morph-cooldown: 0
   grace: true
+  waterbreathing: true
 tropical_fish:
   enabled: true
   health: 3
@@ -372,6 +391,7 @@ tropical_fish:
   morph-time: 0
   morph-cooldown: 0
   grace: true
+  waterbreathing: true
 pufferfish:
   enabled: true
   health: 3
@@ -381,6 +401,7 @@ pufferfish:
   poison: true
   ability-cooldown: 15
   grace: true
+  waterbreathing: true
 phantom:
   enabled: true
   health: 20
@@ -498,9 +519,39 @@ glow_squid:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  waterbreathing: true
 axolotl:
   enabled: true
   health: 14
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  waterbreathing: true
+allay:
+  enabled: true
+  health: 20
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+frog:
+  enabled: true
+  health: 10
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+  jump-boost: true
+tadpole:
+  enabled: true
+  health: 6
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+  waterbreathing: true
+warden:
+  enabled: true
+  health: 500
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
+  ability-cooldown: 10
+  sonicBoom: true

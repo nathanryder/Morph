@@ -1,6 +1,7 @@
 package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.*;
+import me.bumblebeee_.morph.morphs.Morph;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -16,11 +17,9 @@ import org.bukkit.potion.PotionEffect;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Locale;
 
 public class PlayerJoin implements Listener { 
 
-	UpdateChecker uc = new UpdateChecker();
 	ManaManager mana = new ManaManager();
 	MorphManager morph = new MorphManager();
 	Messages msgs = new Messages();
@@ -45,24 +44,16 @@ public class PlayerJoin implements Listener {
 	        fileConfig.createSection("Mobs");
 	    }
 
-		if (p.isOp()) {
-			if (UpdateChecker.update) {
-				String prefix = msgs.getMessage("prefix");
-				p.sendMessage(prefix + " " + ChatColor.YELLOW + "A update is available for Morph!");
-				p.sendMessage(prefix + " " + ChatColor.YELLOW + "The latest version is " + uc.getUpdatedVersion("8846") + ". You are running version " + uc.getVersion());
-			}
-		}
-
 		YamlConfiguration c = YamlConfiguration.loadConfiguration(userFile);
 		boolean sound = c.getBoolean("sounds");
 		if (c.getString("sounds") == null)
 			sound = true;
 
 		if (!sound)
-			MorphManager.soundDisabled.add(p.getUniqueId());
+			Main.getMorphManager().soundDisabled.add(p.getUniqueId());
 
 
-		if (Morph.health) {
+		if (Main.health) {
 			p.setHealthScale(20.0);
 			p.setMaxHealth(20.0);
 		}
@@ -75,7 +66,7 @@ public class PlayerJoin implements Listener {
         mana.getManaPlayers().put(p.getUniqueId(), 100.0);
 
         //Give morph item
-		FileConfiguration conf = Morph.pl.getConfig();
+		FileConfiguration conf = Main.pl.getConfig();
 		if (conf.getBoolean("morphItem.giveOnJoin")) {
 			ItemStack item = morph.getMorphItem();
 			int slot = conf.getInt("morphItem.slot");
@@ -91,12 +82,12 @@ public class PlayerJoin implements Listener {
 				p.getInventory().setItem(slot, item);
 		}
 
-		if (Morph.pl.getConfig().getBoolean("persistMorphs")) {
+		if (Main.pl.getConfig().getBoolean("persistMorphs")) {
 			String last = c.getString("lastMorph");
 			if (last != null) {
 				String[] data = last.split(":");
-				String typeStr = data[0].toUpperCase();
-				DisguiseType type = DisguiseType.valueOf(typeStr.toUpperCase());
+				String typeStr = data[0].toLowerCase();
+				Morph type = Main.getMorphManager().getMorphType(typeStr);
 				boolean isBaby = data.length > 1 && data[1].equals("baby");
 
 				morph.morphPlayer(p, type, false, isBaby);

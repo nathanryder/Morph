@@ -1,10 +1,12 @@
 package me.bumblebeee_.morph.events;
 
-import me.bumblebeee_.morph.Morph;
+import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.MorphManager;
+import me.bumblebeee_.morph.morphs.Morph;
 import me.libraryaddict.disguise.disguisetypes.MobDisguise;
 import me.libraryaddict.disguise.disguisetypes.watchers.AgeableWatcher;
 import me.libraryaddict.disguise.disguisetypes.watchers.ZombieWatcher;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,17 +32,15 @@ public class RespawnEvent implements Listener {
 
         if (pl.getConfig().getBoolean("stayMorphedOnDeath")) {
             boolean isBaby = false;
-            MobDisguise mobDis = Morph.respawnBuffer.get(p.getUniqueId());
-            if (mobDis.getWatcher() instanceof AgeableWatcher) {
-                isBaby = ((AgeableWatcher) mobDis.getWatcher()).isBaby();
-            } else if (mobDis.getWatcher() instanceof ZombieWatcher) {
-                isBaby = ((ZombieWatcher) mobDis.getWatcher()).isBaby();
+            String mobDis = Main.respawnBuffer.get(p.getUniqueId());
+            if (mobDis.contains("baby")) {
+                isBaby = true;
             }
 
-            mm.morphPlayer(p, mobDis.getType(), true, isBaby);
-            Morph.respawnBuffer.remove(p.getUniqueId());
+            mm.morphPlayer(p, Main.getMorphManager().getMorphType(mobDis.split(":")[0]), true, isBaby);
+            Main.respawnBuffer.remove(p.getUniqueId());
         } else {
-            if (Morph.health) {
+            if (Main.health) {
                 p.setHealthScale(20.0);
                 p.setMaxHealth(20.0);
                 p.setHealth(20.0);
@@ -51,6 +51,7 @@ public class RespawnEvent implements Listener {
             }
             for (PotionEffect effect : p.getActivePotionEffects())
                 p.removePotionEffect(effect.getType());
+
             DisguiseAPI.undisguiseToAll(p);
         }
 
