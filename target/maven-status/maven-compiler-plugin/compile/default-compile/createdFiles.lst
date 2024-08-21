@@ -13,6 +13,7 @@ me/bumblebeee_/morph/events/EntityDeath.class
 me/bumblebeee_/morph/events/InteractEvent$12.class
 me/bumblebeee_/morph/versions/Actionbar_1_10_R1.class
 me/bumblebeee_/morph/events/ItemConsume.class
+me/bumblebeee_/morph/events/PlayerLeave$1.class
 me/bumblebeee_/morph/events/EntityTarget.class
 me/bumblebeee_/morph/UpdateChecker.class
 me/bumblebeee_/morph/versions/Actionbar_1_8_R1.class

@@ -28,6 +28,7 @@ public class MorphManager {
     public static List<UUID> soundDisabled = new ArrayList<>();
     public static Map<UUID, Map<String, Integer>> typeCooldown = new HashMap();
     public static Map<UUID, Integer> morphTimeout = new HashMap();
+    public static List<UUID> removeFromTimeout = new ArrayList<>();
 
     public void toggleAbilty(Player p) {
         if (toggled.contains(p.getUniqueId())) {
@@ -337,8 +338,19 @@ public class MorphManager {
             new BukkitRunnable() {
                 @Override
                 public void run() {
+                    if (!morphTimeout.containsKey(p.getUniqueId())) {
+                        cancel();
+                        return;
+                    }
                     int time = morphTimeout.get(p.getUniqueId())-1;
                     morphTimeout.remove(p.getUniqueId());
+
+                    if (removeFromTimeout.contains(p.getUniqueId())) {
+                        ManaManager.ab.sendActionbar(p, "");
+                        removeFromTimeout.remove(p.getUniqueId());
+                        cancel();
+                        return;
+                    }
 
                     if (time == 0) {
                         unmorphPlayer(p, false, true);
@@ -348,11 +360,15 @@ public class MorphManager {
                     }
 
                     morphTimeout.put(p.getUniqueId(), time);
-                    int minutes = time / 60;
-                    int seconds = time % 60;
-                    String disMin = (minutes < 10 ? "0" : "") + minutes;
-                    String disSec = (seconds < 10 ? "0" : "") + seconds;
-                    ManaManager.ab.sendActionbar(p, m.getMessage("timeLeftAsMorph", typeStr, disMin, disSec));
+
+                    System.out.println("Time: " + time);
+                    if (time <= 30) {
+                        int minutes = time / 60;
+                        int seconds = time % 60;
+                        String disMin = (minutes < 10 ? "0" : "") + minutes;
+                        String disSec = (seconds < 10 ? "0" : "") + seconds;
+                        ManaManager.ab.sendActionbar(p, m.getMessage("timeLeftAsMorph", typeStr, disMin, disSec));
+                    }
                 }
             }.runTaskTimer(Morph.pl, 0, 20);
 
@@ -412,6 +428,9 @@ public class MorphManager {
             }
         }, 0, 10);
 
+        if (morphTimeout.get(p.getUniqueId()) != null)
+            removeFromTimeout.add(p.getUniqueId());
+
         int morphCooldown = Morph.pl.getConfig().getInt(type + ".morph-cooldown");
         if (morphCooldown > 0) {
             if (typeCooldown.containsKey(p.getUniqueId())) {
@@ -435,7 +454,7 @@ public class MorphManager {
 
                     if (time != 0)
                         cooldown.put(type, time);
-                    else if (time == 0) {
+                    else {
                         cancel();
                         return;
                     }
