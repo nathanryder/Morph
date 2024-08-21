@@ -96,7 +96,7 @@ public class PlayerJoin implements Listener {
 						Main.getMorphManager().morphPlayer(p, type, false, isBaby);
 						cancel();
 					}
-				}.runTaskTimer(Main.pl, 5, 20);
+				}.runTaskTimer(Main.pl, Main.pl.getConfig().getInt("loginMorphDelay"), 20);
 
 				c.set("lastMorph", null);
 				try {

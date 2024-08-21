@@ -38,11 +38,14 @@ death-reset-current: true
 morphOnKill: false
 #Should the player keep their morphed form when they die?
 stayMorphedOnDeath: false
+#When a player kills a morphed player, should they get the morph?
+steal-morphs: true
 
 #Keep morphs through login sessions
 persistMorphs: true
-#When a player kills a morphed player, should they get the morph?
-steal-morphs: true
+#Delay between joining and getting your morph back (ticks)
+#Should not need to change this unless there is issues with morphs on login
+loginMorphDelay: 5
 
 #Enable morph power for flying
 morph-power: true

@@ -52,11 +52,10 @@ public class CreeperMorph extends Morph implements Listener {
             return;
         if (Main.getMorphManager().toggled.contains(p.getUniqueId()))
             return;
-        if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".explosion"))
+        if (!Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".explosion"))
             return;
         if (!p.isSneaking())
             return;
-
 
         if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
             int existingCd = Cooldown.getCooldown(p.getUniqueId(), getMorphName());
@@ -79,7 +78,7 @@ public class CreeperMorph extends Morph implements Listener {
 
         if (!isMorphedAsThis(p))
             return;
-        if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".explosion"))
+        if (!Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".explosion"))
             return;
 
         if (!Main.pl.getConfig().getBoolean("creeperDeathMessage"))
