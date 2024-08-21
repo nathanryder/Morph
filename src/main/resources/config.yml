@@ -15,8 +15,7 @@ viewSelfDisguise: true
 #Should players be able to change if they view their disguises?
 canChangeView: true
 
-#When morphed as a mob do any other mobs of the same type ignore you
-#e.g Morphed as a zombie means you don't get attacked by zombies
+#When morphed as a mob do any other mobs ignore you
 ignoreMobsWhenMorphed: true
 
 #What worlds do you want this plugin enabled in?
@@ -48,6 +47,9 @@ near-radius: 10
 swapMenu: true
 #Only open the menu when there is nothing in the players main hand?
 onlyIfEmptyHand: false
+
+#Disable the /morph GUI? Not usually needed
+disableGUI: false
 
 #Changing death messages if the killer is morphed
 #Available placeholders are:
@@ -296,6 +298,19 @@ phantom:
   morph-time: 0
   morph-cooldown: 0
 turtle:
+  morph-time: 0
+  morph-cooldown: 0
+bee:
+  morph-time: 0
+  morph-cooldown: 0
+strider:
+  morph-time: 0
+  morph-cooldown: 0
+  lava-walk: true
+zoglin:
+  morph-time: 0
+  morph-cooldown: 0
+hoglin:
   morph-time: 0
   morph-cooldown: 0
 

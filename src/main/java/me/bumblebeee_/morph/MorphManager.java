@@ -1,6 +1,7 @@
 package me.bumblebeee_.morph;
 
 import me.libraryaddict.disguise.DisguiseAPI;
+import me.libraryaddict.disguise.DisguiseConfig;
 import me.libraryaddict.disguise.disguisetypes.Disguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.FlagWatcher;
@@ -124,6 +125,7 @@ public class MorphManager {
         }
         Plugin pl = Morph.pl;
         MobDisguise mob = new MobDisguise(DisguiseType.valueOf(type.toString()));
+        mob.setNotifyBar(DisguiseConfig.NotifyBar.NONE);
 
         //setViewSelfDisguise doesn't exist in LibsDisguises 1.7.10
         boolean viewSelf = Morph.pl.getConfig().getBoolean("viewSelfDisguise");
@@ -137,6 +139,7 @@ public class MorphManager {
                     viewSelf = c.getBoolean("viewDisguise");
                 }
             }
+
             mob.setViewSelfDisguise(viewSelf);
         }
 
@@ -160,8 +163,7 @@ public class MorphManager {
 
         String using = getUsing(p);
         if (Morph.health) {
-            p.setHealthScale(20.0);
-            p.setMaxHealth(20.0);
+            p.setHealth(p.getMaxHealth()-1);
         }
         if (!p.hasPermission("morph.fly")) {
             p.setAllowFlight(false);
@@ -180,6 +182,15 @@ public class MorphManager {
                 p.setMaxHealth(6);
             }
         } else if (using.equalsIgnoreCase("vex")) {
+            if (pl.getConfig().getBoolean("flying")) {
+                p.setAllowFlight(true);
+                p.setFlying(true);
+                if (Morph.health) {
+                    p.setHealthScale(10);
+                    p.setMaxHealth(10);
+                }
+            }
+        } else if (using.equalsIgnoreCase("bee")) {
             if (pl.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
@@ -332,6 +343,21 @@ public class MorphManager {
                 p.setHealthScale(10);
                 p.setMaxHealth(10);
             }
+        } else if (using.equalsIgnoreCase("hoglin")) {
+            if (Morph.health) {
+                p.setHealthScale(40);
+                p.setMaxHealth(40);
+            }
+        } else if (using.equalsIgnoreCase("strider")) {
+            if (Morph.health) {
+                p.setHealthScale(20);
+                p.setMaxHealth(20);
+            }
+        } else if (using.equalsIgnoreCase("zoglin")) {
+            if (Morph.health) {
+                p.setHealthScale(40);
+                p.setMaxHealth(40);
+            }
         }
 
         if (!silent) {
@@ -438,6 +464,8 @@ public class MorphManager {
         else if (type.equalsIgnoreCase("enderdragon"))
             return true;
         else if (type.equalsIgnoreCase("vex"))
+            return true;
+        else if (type.equalsIgnoreCase("bee"))
             return true;
 
         return false;
@@ -615,7 +643,7 @@ public class MorphManager {
             case "cave_spider":
                 return Sound.ENTITY_SPIDER_AMBIENT;
             case "pig_zombie":
-                return Sound.ENTITY_ZOMBIE_PIGMAN_AMBIENT;
+                return Sound.ENTITY_PIGLIN_AMBIENT;
             case "mushroom_cow":
                 return Sound.ENTITY_COW_AMBIENT;
             case "slime":
@@ -661,13 +689,21 @@ public class MorphManager {
             case "phantom":
                 return Sound.ENTITY_PHANTOM_AMBIENT;
             case "turtle":
-                return Sound.ENTITY_PHANTOM_AMBIENT;
+                return Sound.ENTITY_TURTLE_AMBIENT_LAND;
             case "cat":
                 return Sound.ENTITY_CAT_AMBIENT;
             case "fox":
                 return Sound.ENTITY_FOX_AMBIENT;
             case "panda":
                 return Sound.ENTITY_PANDA_AMBIENT;
+            case "bee":
+                return Sound.ENTITY_BEE_LOOP;
+            case "hoglin":
+                return Sound.ENTITY_HOGLIN_AMBIENT;
+            case "strider":
+                return Sound.ENTITY_STRIDER_AMBIENT;
+            case "zoglin":
+                return Sound.ENTITY_ZOGLIN_AMBIENT;
         }
         return null;
     }

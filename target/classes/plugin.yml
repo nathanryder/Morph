@@ -1,6 +1,5 @@
 name: Morphy
-version: 2.16
-api-version: 1.13
+version: 2.20-SNAPSHOT
 main: me.bumblebeee_.morph.Morph
 description: Morphing plugin
 depend: [LibsDisguises]
@@ -68,6 +67,10 @@ permissions:
             morph.into.tropicalfish: true
             morph.into.phantom: true
             morph.into.turtle: true
+            morph.into.bee: true
+            morph.into.hoglin: true
+            morph.into.strider: true
+            morph.into.zoglin: true
     morph.bypasskill.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -123,6 +126,10 @@ permissions:
             morph.into.tropicalfish: false
             morph.into.phantom: false
             morph.into.turtle: false
+            morph.into.bee: false
+            morph.into.hoglin: false
+            morph.into.strider: false
+            morph.into.zoglin: false
     morph.bypassreset.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -179,6 +186,10 @@ permissions:
             morph.bypassreset.tropicalfish: false
             morph.bypassreset.phantom: false
             morph.bypassreset.turtle: false
+            morph.bypassreset.bee: false
+            morph.bypassreset.hoglin: false
+            morph.bypassreset.strider: false
+            morph.bypassreset.zoglin: false
     morph.bypasstime.*:
         description: Bypass the time limit on unmorphing
         children:
@@ -235,6 +246,10 @@ permissions:
             morph.bypasstime.tropicalfish: false
             morph.bypasstime.phantom: false
             morph.bypasstime.turtle: false
+            morph.bypasstime.bee: false
+            morph.bypasstime.hoglin: false
+            morph.bypasstime.strider: false
+            morph.bypasstime.zoglin: false
     morph.morph:
         description: Main permission
         default: false

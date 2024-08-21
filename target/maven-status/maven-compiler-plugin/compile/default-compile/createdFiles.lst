@@ -33,6 +33,7 @@ me/bumblebeee_/morph/Stats$1.class
 me/bumblebeee_/morph/events/ItemDrop.class
 me/bumblebeee_/morph/events/MoveEvent.class
 me/bumblebeee_/morph/Metrics$MultiLineChart.class
+me/bumblebeee_/morph/versions/Actionbar_1_16_R1.class
 me/bumblebeee_/morph/events/PlayerJoin.class
 me/bumblebeee_/morph/events/InteractEvent$6.class
 me/bumblebeee_/morph/versions/Actionbar_1_13_R2.class
@@ -65,6 +66,7 @@ me/bumblebeee_/morph/events/InteractEvent$5.class
 me/bumblebeee_/morph/events/InteractEvent.class
 me/bumblebeee_/morph/events/EntityDamage.class
 me/bumblebeee_/morph/events/MoveEvent$4.class
+me/bumblebeee_/morph/versions/Actionbar_1_16_R3.class
 me/bumblebeee_/morph/events/InteractEvent$10.class
 me/bumblebeee_/morph/Runnables$5.class
 me/bumblebeee_/morph/events/InteractEvent$8.class
@@ -77,6 +79,7 @@ me/bumblebeee_/morph/Messages.class
 me/bumblebeee_/morph/versions/Actionbar_1_13_R1.class
 me/bumblebeee_/morph/versions/Actionbar_1_9_R2.class
 me/bumblebeee_/morph/Stats.class
+me/bumblebeee_/morph/versions/Actionbar_1_16_R2.class
 me/bumblebeee_/morph/events/PlayerLeave.class
 me/bumblebeee_/morph/events/ProjectileHit.class
 me/bumblebeee_/morph/Runnables$1.class

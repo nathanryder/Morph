@@ -74,6 +74,8 @@ public class Messages {
             createMessage("morphPower", "&eMorph Power: &a");
             createMessage("timeLeftAsMorph", "&eTime left as {mob}: {min}:{second}");
             createMessage("openingInventory", "&eLoading inventory..");
+            createMessage("unmorphedByWorld", "&cYou have been unmorphed because morphing is disabled in this world");
+            createMessage("GUIdisabled", "&cMorph GUI is disabled. For more help do /morph help");
 
             createMessage("commands.morph", "&eMorph into a mob");
             createMessage("commands.unmorph", "&eMorph back into yourself");

@@ -96,8 +96,8 @@ public class Runnables {
                     String using = morph.getUsing(p);
 
                     PotionEffect slow = PotionEffectType.SLOW.createEffect(999999, 1);
-                    PotionEffect strength = PotionEffectType.INCREASE_DAMAGE.createEffect(199999980, 5);
-                    PotionEffect nightVision = PotionEffectType.NIGHT_VISION.createEffect(199999980, 6);
+                    PotionEffect strength = PotionEffectType.INCREASE_DAMAGE.createEffect(999999, 5);
+                    PotionEffect nightVision = PotionEffectType.NIGHT_VISION.createEffect(999999, 2);
                     PotionEffect turtleSlow = PotionEffectType.SLOW.createEffect(999999, 0);
                     PotionEffect squidSlow = PotionEffectType.SLOW.createEffect(999999, 3);
                     PotionEffect squidBlind = PotionEffectType.BLINDNESS.createEffect(999999, 1);
@@ -109,7 +109,6 @@ public class Runnables {
                     PotionEffect ocelotSpeed = PotionEffectType.SPEED.createEffect(999999, 6);
                     PotionEffect fireres = PotionEffectType.FIRE_RESISTANCE.createEffect(999999, 7);
                     PotionEffect dmgRes = PotionEffectType.DAMAGE_RESISTANCE.createEffect(999999, 2);
-                    PotionEffect dolphinGrace = PotionEffectType.DOLPHINS_GRACE.createEffect(999999, 1);
 
                     if (using.equalsIgnoreCase("squid")) {
                         if (pl.getConfig().getBoolean("squid.waterbreathing")) {
@@ -176,6 +175,7 @@ public class Runnables {
                     } else if (using.equalsIgnoreCase("giant")) {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 99999, 2));
 					} else if (using.equalsIgnoreCase("dolphin")) {
+                        PotionEffect dolphinGrace = PotionEffectType.DOLPHINS_GRACE.createEffect(999999, 1);
                         p.addPotionEffect(dolphinGrace, true);
                     } else if (using.equalsIgnoreCase("drowned")) {
                         p.addPotionEffect(waterbreathing, true);
@@ -196,13 +196,6 @@ public class Runnables {
 
                             p.addPotionEffect(waterbreathing, true);
                             p.addPotionEffect(potion);
-                        } else if (in.getType() == Material.AIR) {
-
-                            if (p.getHealth() - 0.5 <= 0) {
-                                p.setHealth(0);
-                            } else {
-                                p.setHealth(p.getHealth() - 0.5);
-                            }
                         }
                     } else if (using.equalsIgnoreCase("phantom")) {
                         p.addPotionEffect(nightVision);
@@ -210,6 +203,17 @@ public class Runnables {
                         p.addPotionEffect(waterbreathing);
                         p.addPotionEffect(dmgRes);
                         p.addPotionEffect(turtleSlow);
+                    } else if (using.equalsIgnoreCase("strider")) {
+                        Block b = p.getLocation().getBlock();
+                        if (b.getType() == Material.LAVA) {
+                            p.removePotionEffect(PotionEffectType.SLOW);
+                            p.addPotionEffect(ocelotSpeed, true);
+                            p.addPotionEffect(fireres, true);
+                        } else {
+                            p.addPotionEffect(squidSlow, true);
+                            p.removePotionEffect(PotionEffectType.SPEED);
+                            p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+                        }
                     }
                 }
 			}
@@ -218,6 +222,11 @@ public class Runnables {
 
 	@SuppressWarnings("deprecation")
     public static void burning(final Plugin pl) {
+	    int damageDelay = 40;
+//	    if (pl.getConfig().isSet("burningTickDelay")) {
+//	        damageDelay = pl.getConfig().getInt("burningTickDelay");
+//        }
+
         new BukkitRunnable() {
             public void run() {
                 for (Player p : Bukkit.getServer().getOnlinePlayers()) {
@@ -280,11 +289,24 @@ public class Runnables {
                                     p.setFireTicks(60);
                                 }
                             }
+                        } else if (using.equalsIgnoreCase("cod") || using.equalsIgnoreCase("salmon")
+                                || using.equalsIgnoreCase("pufferfish") || using.equalsIgnoreCase("tropicalfish")) {
+
+                            Block in = p.getLocation().getBlock();
+
+                            if (in.getType() == Material.AIR) {
+
+                                if (p.getHealth() - 0.5 <= 0) {
+                                    p.setHealth(0);
+                                } else {
+                                    p.setHealth(p.getHealth() - 0.5);
+                                }
+                            }
                         }
                     }
                 }
             }
-        }.runTaskTimer(pl, 20, 20);
+        }.runTaskTimer(pl, damageDelay, damageDelay);
     }
 
 	public static void mobSounds() {

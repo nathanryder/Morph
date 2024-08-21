@@ -1224,6 +1224,23 @@ public class EntityDeath implements Listener {
 								}
 							}
 							break;
+						case "craftbee":
+							if (!killer.hasPermission("morph.bypasskill.bee")) {
+								if (killer.hasPermission("morph.into.bee")) {
+									if (!stringList.contains("bee")) {
+										stringList.add("bee");
+										fileConfig.set("Mobs", stringList);
+										try {
+											fileConfig.save(userFile);
+										} catch (IOException e) {
+											e.printStackTrace();
+										}
+										killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a bee!");
+										break;
+									}
+								}
+							}
+							break;
 						case "craftrabbit{rabbittype=black_and_white}":
 							if (!killer.hasPermission("morph.bypasskill.rabbit")) {
 								if (killer.hasPermission("morph.into.rabbit")) {
@@ -1479,6 +1496,57 @@ public class EntityDeath implements Listener {
 											e.printStackTrace();
 										}
 										killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a panda!");
+										break;
+									}
+								}
+							}
+							break;
+						case "crafthoglin":
+							if (!killer.hasPermission("morph.bypasskill.hoglin")) {
+								if (killer.hasPermission("morph.into.hoglin")) {
+									if (!stringList.contains("hoglin")) {
+										stringList.add("hoglin");
+										fileConfig.set("Mobs", stringList);
+										try {
+											fileConfig.save(userFile);
+										} catch (IOException e) {
+											e.printStackTrace();
+										}
+										killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a hoglin!");
+										break;
+									}
+								}
+							}
+							break;
+						case "craftstrider":
+							if (!killer.hasPermission("morph.bypasskill.strider")) {
+								if (killer.hasPermission("morph.into.strider")) {
+									if (!stringList.contains("strider")) {
+										stringList.add("strider");
+										fileConfig.set("Mobs", stringList);
+										try {
+											fileConfig.save(userFile);
+										} catch (IOException e) {
+											e.printStackTrace();
+										}
+										killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a strider!");
+										break;
+									}
+								}
+							}
+							break;
+						case "craftzoglin":
+							if (!killer.hasPermission("morph.bypasskill.zoglin")) {
+								if (killer.hasPermission("morph.into.zoglin")) {
+									if (!stringList.contains("zoglin")) {
+										stringList.add("zoglin");
+										fileConfig.set("Mobs", stringList);
+										try {
+											fileConfig.save(userFile);
+										} catch (IOException e) {
+											e.printStackTrace();
+										}
+										killer.sendMessage(ChatColor.GREEN + "[Morph] " + ChatColor.YELLOW + "You can now morph into a zoglin!");
 										break;
 									}
 								}

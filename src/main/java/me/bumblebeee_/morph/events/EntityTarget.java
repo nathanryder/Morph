@@ -31,7 +31,7 @@ public class EntityTarget implements Listener {
                     e.setCancelled(true);
                 }
             }
-        } else if (en.getType().toString().equalsIgnoreCase(Morph.using.get(p.getUniqueId()))) {
+        } else if (Morph.using.containsKey(p.getUniqueId())) {
             if (Morph.pl.getConfig().getBoolean("ignoreMobsWhenMorphed"))
                 e.setCancelled(true);
         } else if (en.getType() == EntityType.PHANTOM) {

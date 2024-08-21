@@ -1,5 +1,6 @@
 package me.bumblebeee_.morph.events;
 
+import me.bumblebeee_.morph.Messages;
 import me.bumblebeee_.morph.Morph;
 import me.bumblebeee_.morph.MorphManager;
 import me.libraryaddict.disguise.DisguiseAPI;
@@ -16,6 +17,7 @@ import org.bukkit.potion.PotionEffect;
 public class ChangeWorld implements Listener {
 	
 	Plugin pl = null;
+	Messages m = new Messages();
 	MorphManager morph = new MorphManager();
 	public ChangeWorld(Plugin plugin) {
 		pl = plugin;
@@ -45,7 +47,7 @@ public class ChangeWorld implements Listener {
 				    
 					Morph.using.remove(p.getUniqueId());
 					DisguiseAPI.undisguiseToAll(p);
-					p.sendMessage("You have been unmorphed because morphing is disabled in this world!");
+					p.sendMessage( m.getMessage("prefix") + " " + m.getMessage("unmorphedByWorld"));
 				}
 			}
 		} else {

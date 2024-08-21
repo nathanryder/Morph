@@ -416,7 +416,7 @@ public class MorphCommand implements CommandExecutor {
                         on = Bukkit.getServer().getPlayer(args[1]);
 
                         if (!players.contains(on.getName())) {
-                            send(p, prefix + " " + m.getMessage("UnableToMorphAsPlayer", on.getName(), p.getDisplayName(), "", ""));
+                            send(p, prefix + " " + m.getMessage("unableToMorphAsPlayer", on.getName(), p.getDisplayName(), "", ""));
                             return true;
                         }
 

@@ -26,6 +26,7 @@ public class Inventorys {
     static HashMap<String, String> owners = new HashMap<>();
 
     public static void setupOwners() {
+        //https://minecraft-heads.com/
         owners.put("blaze", "MHF_Blaze");
         owners.put("cave_spider", "MHF_CaveSpider");
         owners.put("chicken", "MHF_Chicken");
@@ -76,6 +77,10 @@ public class Inventorys {
         owners.put("cat", "e9b3986e32affdb22731b687ac054a25851f8616a5a3c5ae6bb92b8ed1c9ae");
         owners.put("fox", "16db7d507389a14bbec39de6922165b32d43657bcb6aaf4b5182825b22b4");
         owners.put("panda", "d188c980aacfa94cf33088512b1b9517ba826b154d4cafc262aff6977be8a");
+        owners.put("bee", "d7db9a6047d299a6945fa360299e12a13736d56f1fdfc192ec20f29cf46818c");
+        owners.put("strider", "d7e4eb0fb489d6f250c607d28d672f127ebaede8e007fa6cd34e2bbc0c2fc33a");
+        owners.put("zoglin", "c19b7b5e9ffd4e22b890ab778b4795b662faff2b4978bf815574e48b0e52b301");
+        owners.put("hoglin", "9bb9bc0f01dbd762a08d9e77c08069ed7c95364aa30ca1072208561b730e8d75");
 
         owners.put("giant", "MHF_Giant");
         owners.put("ender_dragon", "ender_dragon");
@@ -101,6 +106,11 @@ public class Inventorys {
     }
 
     public void openMorph(final Player p, int page) {
+        if (Morph.pl.getConfig().getBoolean("disableGUI")) {
+            p.sendMessage(msgs.getMessage("GUIdisabled"));
+            return;
+        }
+
         p.closeInventory();
         p.sendMessage(msgs.getMessage("openingInventory"));
 
