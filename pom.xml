@@ -26,63 +26,63 @@
             <artifactId>1p14</artifactId>
             <version>1.5.0</version>
             <scope>system</scope>
-            <systemPath>/home/user/Documents/buildPaths/spigot-1.14.jar</systemPath>
+            <systemPath>/mnt/c/Users/natha/Documents/buildPaths/spigot-1.14.4.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>sun.jdk</groupId>
             <artifactId>1p13</artifactId>
             <version>1.5.0</version>
             <scope>system</scope>
-            <systemPath>/home/user/Documents/buildPaths/spigot-1.13.jar</systemPath>
+            <systemPath>/mnt/c/Users/natha/Documents/buildPaths/spigot-1.13.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>sun.jdk</groupId>
             <artifactId>1p132</artifactId>
             <version>1.5.0</version>
             <scope>system</scope>
-            <systemPath>/home/user/Documents/buildPaths/spigot-1.13.2.jar</systemPath>
+            <systemPath>/mnt/c/Users/natha/Documents/buildPaths/spigot-1.13.2.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>sun.jdk</groupId>
             <artifactId>1p12</artifactId>
             <version>1.5.0</version>
             <scope>system</scope>
-            <systemPath>/home/user/Documents/buildPaths/spigot-1.12-pre2.jar</systemPath>
+            <systemPath>/mnt/c/Users/natha/Documents/buildPaths/spigot-1.12.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>sun.jdk</groupId>
             <artifactId>1p11</artifactId>
             <version>1.5.0</version>
             <scope>system</scope>
-            <systemPath>/home/user/Documents/buildPaths/spigot-1.11.2.jar</systemPath>
+            <systemPath>/mnt/c/Users/natha/Documents/buildPaths/spigot-1.11.2.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>sun.jdk</groupId>
             <artifactId>tools</artifactId>
             <version>1.5.0</version>
             <scope>system</scope>
-            <systemPath>/home/user/Documents/buildPaths/spigot-1.10.jar</systemPath>
+            <systemPath>/mnt/c/Users/natha/Documents/buildPaths/spigot-1.10.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>sun.jdk</groupId>
             <artifactId>tools2</artifactId>
             <version>1.5.0</version>
             <scope>system</scope>
-            <systemPath>/home/user/Documents/buildPaths/spigot-1.9.jar</systemPath>
+            <systemPath>/mnt/c/Users/natha/Documents/buildPaths/spigot-1.9.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>sun.jdk</groupId>
             <artifactId>tools4</artifactId>
             <version>1.5.0</version>
             <scope>system</scope>
-            <systemPath>/home/user/Documents/buildPaths/spigot-1.9.4.jar</systemPath>
+            <systemPath>/mnt/c/Users/natha/Documents/buildPaths/spigot-1.9.4.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>sun.jdk</groupId>
             <artifactId>tools3</artifactId>
             <version>1.5.0</version>
             <scope>system</scope>
-            <systemPath>/home/user/Documents/buildPaths/spigot-1.8.8.jar</systemPath>
+            <systemPath>/mnt/c/Users/natha/Documents/buildPaths/spigot-1.8.8.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>LibsDisguises</groupId>

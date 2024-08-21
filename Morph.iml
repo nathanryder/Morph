@@ -10,10 +10,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: LibsDisguises:LibsDisguises:9.8.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.23" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.13.2-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: sun.jdk:1p14:1.5.0">
         <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/buildPaths/spigot-1.14.jar!/" />
+          <root url="jar:///mnt/c/Users/natha/Documents/buildPaths/spigot-1.14.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -22,7 +26,7 @@
     <orderEntry type="module-library">
       <library name="Maven: sun.jdk:1p13:1.5.0">
         <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/buildPaths/spigot-1.13.jar!/" />
+          <root url="jar:///mnt/c/Users/natha/Documents/buildPaths/spigot-1.13.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -31,7 +35,7 @@
     <orderEntry type="module-library">
       <library name="Maven: sun.jdk:1p132:1.5.0">
         <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/buildPaths/spigot-1.13.2.jar!/" />
+          <root url="jar:///mnt/c/Users/natha/Documents/buildPaths/spigot-1.13.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -40,7 +44,7 @@
     <orderEntry type="module-library">
       <library name="Maven: sun.jdk:1p12:1.5.0">
         <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/buildPaths/spigot-1.12-pre2.jar!/" />
+          <root url="jar:///mnt/c/Users/natha/Documents/buildPaths/spigot-1.12.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -49,7 +53,7 @@
     <orderEntry type="module-library">
       <library name="Maven: sun.jdk:1p11:1.5.0">
         <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/buildPaths/spigot-1.11.2.jar!/" />
+          <root url="jar:///mnt/c/Users/natha/Documents/buildPaths/spigot-1.11.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -58,7 +62,7 @@
     <orderEntry type="module-library">
       <library name="Maven: sun.jdk:tools:1.5.0">
         <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/buildPaths/spigot-1.10.jar!/" />
+          <root url="jar:///mnt/c/Users/natha/Documents/buildPaths/spigot-1.10.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -67,7 +71,7 @@
     <orderEntry type="module-library">
       <library name="Maven: sun.jdk:tools2:1.5.0">
         <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/buildPaths/spigot-1.9.jar!/" />
+          <root url="jar:///mnt/c/Users/natha/Documents/buildPaths/spigot-1.9.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -76,7 +80,7 @@
     <orderEntry type="module-library">
       <library name="Maven: sun.jdk:tools4:1.5.0">
         <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/buildPaths/spigot-1.9.4.jar!/" />
+          <root url="jar:///mnt/c/Users/natha/Documents/buildPaths/spigot-1.9.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -85,26 +89,22 @@
     <orderEntry type="module-library">
       <library name="Maven: sun.jdk:tools3:1.5.0">
         <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/buildPaths/spigot-1.8.8.jar!/" />
+          <root url="jar:///mnt/c/Users/natha/Documents/buildPaths/spigot-1.8.8.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="Maven: LibsDisguises:LibsDisguises:9.8.2" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.comphenix.protocol:ProtocolLib:4.4.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.comphenix.protocol:ProtocolLib-API:4.4.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: LibsDisguises:LibsDisguises:9.9.3" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.comphenix.protocol:ProtocolLib:4.5.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: cglib:cglib-nodep:3.2.5" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.comphenix.executors:BukkitExecutors:1.1-SNAPSHOT" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot-api:1.15-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-lang:commons-lang:2.6" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: junit:junit:4.10" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.guava:guava:21.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.md-5:bungeecord-chat:1.13-SNAPSHOT" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.23" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.13.2-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.25" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.15-R0.1-SNAPSHOT" level="project" />
   </component>
 </module>

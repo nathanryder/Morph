@@ -33,7 +33,6 @@ public class EntityDeath implements Listener {
 				List<String> stringList = fileConfig.getStringList("Mobs");
 				List<String> players = fileConfig.getStringList("Players");
 
-				System.out.println(ev.getEntity().toString().toLowerCase());
 				if (pl.getConfig().getList("enabled-worlds").contains(killer.getWorld().getName()) || pl.getConfig().getList("enabled-worlds").contains("<all>")) {
 					if (ev.getEntity().toString().toLowerCase().startsWith("crafthorse{variant=skeleton_horse")) {
 						if (killer.hasPermission("morph.into.skeleton_horse")) {
@@ -158,7 +157,6 @@ public class EntityDeath implements Listener {
 				}
 
 				if (pl.getConfig().getList("enabled-worlds").contains(killer.getWorld().getName()) || pl.getConfig().getList("enabled-worlds").contains("<all>")) {
-					System.out.println("Mob: " + ev.getEntity().toString().toLowerCase());
 					switch (ev.getEntity().toString().toLowerCase()) {
 						case "craftpig":
 							if (!killer.hasPermission("morph.bypasskill.pig")) {
