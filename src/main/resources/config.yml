@@ -51,8 +51,9 @@ onlyIfEmptyHand: false
 
 #Abilities Configuration
 #
-#morph-cooldown is how often you can morph back into the mob after unmorphing from that particular mob
-#ability-cooldown is the cooldown on the given ability of the mob
+#morph-time is how long you can stay morphed as a certain mob - set to 0 to disable
+#morph-cooldown is how often you can morph back into the mob after unmorphing from that particular mob - set to 0 to disable
+#ability-cooldown is the cooldown on the given ability of the mob - set to 0 to disable
 #
 #Enable flying?
 flying: true

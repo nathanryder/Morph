@@ -55,6 +55,7 @@ public class Messages {
             createMessage("playerUnmorphed", "&ePlayer {target} has been unmorphed!");
             createMessage("morphReversed", "&eYou morphed back into {player}!");
             createMessage("cooldown", "&ePlease wait {time} seconds!");
+            createMessage("morphOnCooldown", "&ePlease wait {time} seconds before morphing into this mob!");
             createMessage("getMorphByKill", "&eYou killed {target} who was morphed as a {mob}, you now get his morph!");
             createMessage("creeperExploded", "&eYou exploded!");
             createMessage("diedLostAll", "&eYou were killed by {player} so you lost all your morphs!");
