@@ -424,7 +424,6 @@ public class Inventorys {
     }
 
     public ItemStack getHead(String owner, String display, String mobName) {
-        boolean baby = false;
         if (owner.split(":").length > 1) {
             owner = owner.split(":")[0];
         }
