@@ -54,8 +54,7 @@ public class PlayerJoin implements Listener {
 
 
 		if (Main.health) {
-			p.setHealthScale(20.0);
-			p.setMaxHealth(20.0);
+			p.resetMaxHealth();
 		}
 		if (!p.hasPermission("morph.fly")) {
 			p.setAllowFlight(false);

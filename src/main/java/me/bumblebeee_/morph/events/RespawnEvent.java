@@ -42,8 +42,7 @@ public class RespawnEvent implements Listener {
             Main.respawnBuffer.remove(p.getUniqueId());
         } else {
             if (Main.health) {
-                p.setHealthScale(20.0);
-                p.setMaxHealth(20.0);
+                p.resetMaxHealth();
                 p.setHealth(20.0);
             }
             if (!p.hasPermission("morph.fly")) {

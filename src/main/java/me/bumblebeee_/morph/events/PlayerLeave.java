@@ -37,8 +37,7 @@ public class PlayerLeave implements Listener {
 				return;
 
 			if (Main.health) {
-				p.setHealthScale(20.0);
-				p.setMaxHealth(20.0);
+				p.resetMaxHealth();
 
 				AttributeInstance healthAttr = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
 				double maxHealth = 20.0;

@@ -229,8 +229,7 @@ public class Main extends JavaPlugin implements Listener {
 			DisguiseAPI.undisguiseToAll(p);
 
 			if (health) {
-				p.setHealthScale(20.0);
-				p.setMaxHealth(20.0);
+				p.resetMaxHealth();
 			}
             if (!p.hasPermission("morph.fly")) {
                 p.setAllowFlight(false);

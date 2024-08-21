@@ -33,8 +33,7 @@ public class ChangeWorld implements Listener {
 					if (!Main.using.containsKey(p.getUniqueId()))
 						return;
 					if (Main.health) {
-						p.setHealthScale(20.0);
-						p.setMaxHealth(20.0);
+						p.resetMaxHealth();
 						p.setHealth(20.0);
 					}
 					if (!p.hasPermission("morph.fly")) {

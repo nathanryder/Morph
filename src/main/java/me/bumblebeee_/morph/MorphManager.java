@@ -64,7 +64,6 @@ public class MorphManager {
             p.sendMessage(prefix + " " + m.getMessage("mobDisabled"));
 
             if (Main.health) {
-                p.setHealthScale(20);
                 p.resetMaxHealth();
             }
             return;
@@ -129,7 +128,7 @@ public class MorphManager {
         if (Main.health) {
             int health = morphType.getHealth();
 
-            p.setHealthScale(health);
+//            p.setHealthScale(health);
             p.setMaxHealth(health);
         }
 
@@ -242,7 +241,6 @@ public class MorphManager {
         }
 
         if (Main.health) {
-            p.setHealthScale(20.0);
             p.resetMaxHealth();
         }
 
