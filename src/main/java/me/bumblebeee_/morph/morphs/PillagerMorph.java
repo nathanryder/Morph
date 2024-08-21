@@ -29,6 +29,7 @@ public class PillagerMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_PILLAGER_AMBIENT)
+                .hasBabyType(false)
                 .headId("4aee6bb37cbfc92b0d86db5ada4790c64ff4468d68b84942fde04405e8ef5333");
 
         Bukkit.getServer().getPluginManager().registerEvents(this, Main.pl);

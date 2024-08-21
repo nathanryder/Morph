@@ -36,6 +36,7 @@ public class SlimeMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.BLOCK_SLIME_BLOCK_STEP)
+                .hasBabyType(false)
                 .headId("61affd31efc37ba84f50187394d8688344ccd06cdc926ddfcf2df116986dca9")
                 .abilityInfo("&5Passive: &eJump boost 4 and splits into multiple slimes when taking damage");
 

@@ -116,8 +116,9 @@ public class Inventorys {
                             }
 
                             String mobName = morphType.toFriendly();
-                            if (m.split(":").length > 1) {
+                            if (s.split(":").length > 1) {
                                 mobName = "Baby " + mobName.split(":")[0];
+                                mob = mob + ":baby";
                             }
 
                             String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
@@ -138,8 +139,9 @@ public class Inventorys {
                                 }
 
                                 String mobName = morphType.toFriendly();
-                                if (m.split(":").length > 1) {
+                                if (s.split(":").length > 1) {
                                     mobName = "Baby " + mobName.split(":")[0];
+                                    mob = mob + ":baby";
                                 }
 
                                 String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
@@ -152,7 +154,7 @@ public class Inventorys {
                 } else if (page == 3) {
                     int i = 0;
                     for (String s : owners.keySet()) {
-                        if (i >= 52) {
+                        if (i >= 52 && i < 78) {
                             if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
                                 String m = owners.get(s);
                                 String mob = getMobName(m);
@@ -162,8 +164,84 @@ public class Inventorys {
                                 }
 
                                 String mobName = morphType.toFriendly();
-                                if (m.split(":").length > 1) {
+                                if (s.split(":").length > 1) {
                                     mobName = "Baby " + mobName.split(":")[0];
+                                    mob = mob + ":baby";
+                                }
+
+                                String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
+                                inv.setItem(pos, createHead(mob, display));
+                                pos++;
+                            }
+                        }
+                        i++;
+                    }
+                } else if (page == 4) {
+                    int i = 0;
+                    for (String s : owners.keySet()) {
+                        if (i >= 78 && i < 104) {
+                            if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
+                                String m = owners.get(s);
+                                String mob = getMobName(m);
+                                Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
+                                if (morphType == null) {
+                                    continue;
+                                }
+
+                                String mobName = morphType.toFriendly();
+                                if (s.split(":").length > 1) {
+                                    mobName = "Baby " + mobName.split(":")[0];
+                                    mob = mob + ":baby";
+                                }
+
+                                String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
+                                inv.setItem(pos, createHead(mob, display));
+                                pos++;
+                            }
+                        }
+                        i++;
+                    }
+                } else if (page == 5) {
+                    int i = 0;
+                    for (String s : owners.keySet()) {
+                        if (i >= 104 && i < 130) {
+                            if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
+                                String m = owners.get(s);
+                                String mob = getMobName(m);
+                                Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
+                                if (morphType == null) {
+                                    continue;
+                                }
+
+                                String mobName = morphType.toFriendly();
+                                if (s.split(":").length > 1) {
+                                    mobName = "Baby " + mobName.split(":")[0];
+                                    mob = mob + ":baby";
+                                }
+
+                                String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
+                                inv.setItem(pos, createHead(mob, display));
+                                pos++;
+                            }
+                        }
+                        i++;
+                    }
+                } else if (page == 6) {
+                    int i = 0;
+                    for (String s : owners.keySet()) {
+                        if (i >= 130 && i < 156) {
+                            if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
+                                String m = owners.get(s);
+                                String mob = getMobName(m);
+                                Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
+                                if (morphType == null) {
+                                    continue;
+                                }
+
+                                String mobName = morphType.toFriendly();
+                                if (s.split(":").length > 1) {
+                                    mobName = "Baby " + mobName.split(":")[0];
+                                    mob = mob + ":baby";
                                 }
 
                                 String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));

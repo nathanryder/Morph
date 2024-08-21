@@ -25,6 +25,7 @@ public class GlowSquidMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_GLOW_SQUID_AMBIENT)
+                .hasBabyType(false)
                 .headId("3e94a1bb1cb00aaa153a74daf4b0eea20b8974522fe9901eb55aef478ebeff0d")
                 .runnable(new BukkitRunnable() {
                     PotionEffect squidBlind = new PotionEffect(PotionEffectType.BLINDNESS, 99999, 1, false ,false);

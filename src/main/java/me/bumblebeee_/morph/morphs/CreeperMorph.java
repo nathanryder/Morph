@@ -38,6 +38,7 @@ public class CreeperMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_CREEPER_PRIMED)
+                .hasBabyType(false)
                 .headId("MHF_Creeper")
                 .abilityInfo("&5Passive: &eBlows up when you die","&5Ability: &eMakes you explode, dying in the process");
 

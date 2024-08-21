@@ -18,6 +18,7 @@ public class RavagerMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_RAVAGER_AMBIENT)
+                .hasBabyType(false)
                 .headId("3b62501cd1b87b37f628018210ec5400cb65a4d1aab74e6a3f7f62aa85db97ee");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".strength")) {

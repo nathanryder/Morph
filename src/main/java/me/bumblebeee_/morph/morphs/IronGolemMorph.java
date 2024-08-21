@@ -26,6 +26,7 @@ public class IronGolemMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_IRON_GOLEM_ATTACK)
+                .hasBabyType(false)
                 .headId("e13f34227283796bc017244cb46557d64bd562fa9dab0e12af5d23ad699cf697")
                 .abilityInfo("&5Passive: &eNo fall damage and Strength 6","&5Weakness: Slowness 1");
 

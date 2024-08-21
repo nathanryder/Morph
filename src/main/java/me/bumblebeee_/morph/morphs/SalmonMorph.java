@@ -24,6 +24,7 @@ public class SalmonMorph  extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_SALMON_AMBIENT)
+                .hasBabyType(false)
                 .headId("8aeb21a25e46806ce8537fbd6668281cf176ceafe95af90e94a5fd84924878")
                 .abilityInfo("&5Passive: &eDolphins grace 2")
                 .runnable(new BukkitRunnable() {

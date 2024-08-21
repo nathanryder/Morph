@@ -17,6 +17,7 @@ public class AllayMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_ALLAY_AMBIENT_WITHOUT_ITEM)
+                .hasBabyType(false)
                 .headId("beea845cc0b58ff763decffe11cd1c845c5d09c3b04fe80b0663da5c7c699eb3");
     }
 }

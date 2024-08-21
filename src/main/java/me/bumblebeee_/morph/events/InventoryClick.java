@@ -68,27 +68,20 @@ public class InventoryClick implements Listener {
                     int page = Inventorys.pages.get(p.getUniqueId());
                     Inventorys.pages.remove(p.getUniqueId());
                     if (page == 1) {
-                        Inventorys.pages.put(p.getUniqueId(), 2);
-                        inv.openMorph(p, 3);
-                    } else if (page == 3) {
-                        Inventorys.pages.put(p.getUniqueId(), 2);
-                        inv.openMorph(p, 2);
+                        Inventorys.pages.put(p.getUniqueId(), 6);
+                        inv.openMorph(p, 6);
                     } else {
-                        Inventorys.pages.put(p.getUniqueId(), 1);
-                        inv.openMorph(p, 1);
+                        Inventorys.pages.put(p.getUniqueId(), page - 1);
+                        inv.openMorph(p, page - 1);
                     }
                 } else {
-                    Inventorys.pages.put(p.getUniqueId(), 3);
-                    inv.openMorph(p, 3);
+                    Inventorys.pages.put(p.getUniqueId(), 6);
+                    inv.openMorph(p, 6);
                 }
             } else if (dis.equalsIgnoreCase("Next")) {
                 if (Inventorys.pages.containsKey(p.getUniqueId())) {
                     int page = Inventorys.pages.get(p.getUniqueId());
-                    if (page == 2) {
-                        Inventorys.pages.remove(p.getUniqueId());
-                        Inventorys.pages.put(p.getUniqueId(), 3);
-                        inv.openMorph(p, 3);
-                    } else if (page == 3) {
+                    if (page == 6) {
                         Inventorys.pages.remove(p.getUniqueId());
                         Inventorys.pages.put(p.getUniqueId(), 1);
                         inv.openMorph(p, 1);
@@ -235,11 +228,13 @@ public class InventoryClick implements Listener {
                     }
                 }
                 if (!p.hasPermission("morph.bypasskill." + perm)) {
-                    if (!stringList.contains(type.getMorphName())) {
-                        if (baby)
+                    String checkMob = baby ? type.getMorphName() + ":baby" : type.getMorphName();
+                    if (!stringList.contains(checkMob)) {
+                        if (baby) {
                             p.sendMessage(prefix + " " + m.getMessage("unableToMorphAsPlayer", "", p.getDisplayName(), "baby " + type.toFriendly(), ""));
-                        else
+                        } else {
                             p.sendMessage(prefix + " " + m.getMessage("unableToMorphAsPlayer", "", p.getDisplayName(), type.toFriendly(), ""));
+                        }
 
                         return;
                     }

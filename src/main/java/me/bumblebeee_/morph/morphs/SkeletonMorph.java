@@ -33,6 +33,7 @@ public class SkeletonMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_SKELETON_AMBIENT)
+                .hasBabyType(false)
                 .headId("MHF_Skeleton")
                 .abilityInfo("&5Ability: &eAllows you to shoot arrows","&5Weakness: Burns in daylight")
                 .runnable(new BukkitRunnable() {

@@ -29,6 +29,7 @@ public class SpiderMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_SPIDER_AMBIENT)
+                .hasBabyType(false)
                 .headId("cd541541daaff50896cd258bdbdd4cf80c3ba816735726078bfe393927e57f1")
                 .abilityInfo("&5Ability: &eAllows you to shoot webs","&5Passive: &eAllows you to climb walls")
                 .runnable(new BukkitRunnable() {

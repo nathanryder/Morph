@@ -26,6 +26,7 @@ public class VexMorph extends Morph implements Listener, Flyable {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_VEX_AMBIENT)
+                .hasBabyType(false)
                 .headId("5e7330c7d5cd8a0a55ab9e95321535ac7ae30fe837c37ea9e53bea7ba2de86b")
                 .abilityInfo("&cAbility: &ePhase through walls");
 

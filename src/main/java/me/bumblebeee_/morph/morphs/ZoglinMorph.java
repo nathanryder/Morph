@@ -16,6 +16,7 @@ public class ZoglinMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_ZOGLIN_AMBIENT)
+                .hasBabyType(false)
                 .headId("c19b7b5e9ffd4e22b890ab778b4795b662faff2b4978bf815574e48b0e52b301")
                 .abilityInfo("&cNo abilities found");
     }

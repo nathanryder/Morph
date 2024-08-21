@@ -30,6 +30,7 @@ public class EnderdragonMorph extends Morph implements Listener, Flyable {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_ENDER_DRAGON_AMBIENT)
+                .hasBabyType(false)
                 .headId("74ecc040785e54663e855ef0486da72154d69bb4b7424b7381ccf95b095a")
                 .abilityInfo("&5Ability: &eShoot fireballs", "&5Passive: &eAllows you to fly");
 

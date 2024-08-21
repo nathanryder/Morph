@@ -24,6 +24,7 @@ public class PhantomMorph extends Morph implements Flyable {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_PHANTOM_AMBIENT)
+                .hasBabyType(false)
                 .headId("MHF_Phantom")
                 .abilityInfo("&5Passive: &eNight vision 3", "&5Weakness: &eBurns in the daylight")
                 .runnable(new BukkitRunnable() {

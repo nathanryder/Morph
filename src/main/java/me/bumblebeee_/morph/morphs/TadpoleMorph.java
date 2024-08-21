@@ -18,6 +18,7 @@ public class TadpoleMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_TADPOLE_FLOP)
+                .hasBabyType(false)
                 .headId("987035f5352334c2cba6ac4c65c2b9059739d6d0e839c1dd98d75d2e77957847");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".waterbreathing")) {

@@ -32,6 +32,7 @@ public class StrayMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_STRAY_AMBIENT)
+                .hasBabyType(false)
                 .headId("6572747a639d2240feeae5c81c6874e6ee7547b599e74546490dc75fa2089186")
                 .abilityInfo("&5Ability: &eShoots a slowness arrow","&5Weakness: Burns during the day")
                 .runnable(new BukkitRunnable() {

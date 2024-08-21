@@ -29,6 +29,7 @@ public class EndermanMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_ENDERMAN_AMBIENT)
+                .hasBabyType(false)
                 .headId("bc6a4072c72e27b03234d650b0e52815d84657536daa23d1140b4c7b7f8d1dde")
                 .abilityInfo("&5Ability: &eAllows you to teleport","&5Weakness: Doesn't like standing in the rain")
                 .runnable(new BukkitRunnable() {

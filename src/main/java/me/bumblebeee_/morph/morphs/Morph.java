@@ -1,6 +1,7 @@
 package me.bumblebeee_.morph.morphs;
 
 import lombok.Getter;
+import lombok.Setter;
 import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Inventorys;
 import me.bumblebeee_.morph.Main;
@@ -30,6 +31,7 @@ public abstract class Morph {
     private @Getter int morphCooldown;
     private @Getter Sound sound;
     private @Getter DisguiseType disguiseType;
+    private @Getter boolean babyType = true;
     private @Getter List<PotionEffect> effects = new ArrayList<>();
 
     //Optional - use incase morph needs any initial setups
@@ -126,9 +128,17 @@ public abstract class Morph {
         return this;
     }
 
+    public Morph hasBabyType(boolean hasBabyType) {
+        this.babyType = hasBabyType;
+        return this;
+    }
+
     public Morph headId(String headID) {
         Inventorys.addHead(getMorphName(), headID);
-//        Inventorys.addHead(getMorphName() + ":baby", headID);
+
+        if (this.isBabyType()) {
+            Inventorys.addHead(getMorphName() + ":baby", headID);
+        }
         return this;
     }
 

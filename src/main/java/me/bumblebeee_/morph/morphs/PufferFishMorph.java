@@ -33,6 +33,7 @@ public class PufferFishMorph  extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_PUFFER_FISH_AMBIENT)
+                .hasBabyType(false)
                 .headId("292350c9f0993ed54db2c7113936325683ffc20104a9b622aa457d37e708d931")
                 .abilityInfo("&5Passive: &eDolphins grace 2")
                 .runnable(new BukkitRunnable() {

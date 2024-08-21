@@ -18,6 +18,7 @@ public class MagmaCubeMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_MAGMA_CUBE_SQUISH)
+                .hasBabyType(false)
                 .headId("MHF_LavaSlime")
                 .abilityInfo("&cNo abilities found");
 

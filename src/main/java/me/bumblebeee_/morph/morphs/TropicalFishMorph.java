@@ -24,6 +24,7 @@ public class TropicalFishMorph  extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_TROPICAL_FISH_AMBIENT)
+                .hasBabyType(false)
                 .headId("cfbdc0722549ce9f72fed18ce4f278f27ca32a03965c635778b54d05d3ca80f4")
                 .abilityInfo("&5Passive: &eDolphins grace 2")
                 .runnable(new BukkitRunnable() {

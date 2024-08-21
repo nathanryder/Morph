@@ -18,6 +18,7 @@ public class FrogMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_FROG_AMBIENT)
+                .hasBabyType(false)
                 .headId("d0edcb898356fd400c205c6134e098610bafbbc50417729a155ce77d7bca98d4");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".jump-boost")) {

@@ -18,6 +18,7 @@ public class GuardianMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_GUARDIAN_AMBIENT)
+                .hasBabyType(false)
                 .headId("18d2a7fea7f2e0d916c7c6d7914937bb8dd3fbfd7f9483a4a3912f5a0fc63d3")
                 .abilityInfo("&5Passive: &eWater breathing 8 and night vision 3");
 

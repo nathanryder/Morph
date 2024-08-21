@@ -32,6 +32,7 @@ public class EvokerMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_EVOKER_AMBIENT)
+                .hasBabyType(false)
                 .headId("d954135dc82213978db478778ae1213591b93d228d36dd54f1ea1da48e7cba6")
                 .abilityInfo("&5Ability 1: &eSpawn vexes around you", "&5Ability 2: Create evoker fangs on the ground");
 

@@ -28,6 +28,7 @@ public class WitherMorph extends Morph implements Listener, Flyable {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_WITHER_AMBIENT)
+                .hasBabyType(false)
                 .headId("ee280cefe946911ea90e87ded1b3e18330c63a23af5129dfcfe9a8e166588041")
                 .abilityInfo("&5Passive: Allows you to shoot wither heads");
 

@@ -35,6 +35,7 @@ public class BlazeMorph extends Morph implements Flyable, Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_BLAZE_AMBIENT)
+                .hasBabyType(false)
                 .headId("MHF_Blaze")
                 .abilityInfo("&5Passive: &eFlying and Fire resistance 8", "&5Ability: &eShoots a fireball")
                 .runnable(new BukkitRunnable() {

@@ -16,6 +16,7 @@ public class IllusionerMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_ILLUSIONER_AMBIENT)
+                .hasBabyType(false)
                 .headId("512512e7d016a2343a7bff1a4cd15357ab851579f1389bd4e3a24cbeb88b")
                 .abilityInfo("&cNo abilities found");
     }

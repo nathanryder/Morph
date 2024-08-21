@@ -30,6 +30,7 @@ public class SnowmanMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_SNOWBALL_THROW)
+                .hasBabyType(false)
                 .headId("53ad79207c3f8bbf4b1d532cfe86dccb57d2c97aeeb51ef00a660afdceab5fa9")
                 .abilityInfo("&5Passive: &ePlaces snow down wherever you go, and you can shoot snowballs","&5Weakness: Starts to melt when it is raining")
                 .runnable(new BukkitRunnable() {

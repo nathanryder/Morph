@@ -28,6 +28,7 @@ public class GhastMorph extends Morph implements Listener, Flyable {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_GHAST_AMBIENT)
+                .hasBabyType(false)
                 .headId("de8a38e9afbd3da10d19b577c55c7bfd6b4f2e407e44d4017b23be9167abff02")
                 .abilityInfo("&5Ability: &eShoots a fireball");
 

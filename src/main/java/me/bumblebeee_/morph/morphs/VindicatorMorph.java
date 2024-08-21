@@ -16,6 +16,7 @@ public class VindicatorMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_VINDICATOR_AMBIENT)
+                .hasBabyType(false)
                 .headId("6deaec344ab095b48cead7527f7dee61b063ff791f76a8fa76642c8676e2173")
                 .abilityInfo("&cNo abilities found");
     }

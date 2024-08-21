@@ -34,6 +34,7 @@ public class WardenMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_WARDEN_AMBIENT)
+                .hasBabyType(false)
                 .headId("cf6481c7c435c34f21dff1043a4c7034c445a383a5435fa1f2a503a348afd62f");
 
         Bukkit.getServer().getPluginManager().registerEvents(this, Main.pl);

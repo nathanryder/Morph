@@ -16,6 +16,7 @@ public class SilverfishMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_SILVERFISH_AMBIENT)
+                .hasBabyType(false)
                 .headId("da91dab8391af5fda54acd2c0b18fbd819b865e1a8f1d623813fa761e924540")
                 .abilityInfo("&cNo abilities found");
     }

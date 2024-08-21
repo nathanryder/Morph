@@ -29,6 +29,7 @@ public class CaveSpiderMorph extends Morph implements Listener {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_SPIDER_AMBIENT)
+                .hasBabyType(false)
                 .headId("41645dfd77d09923107b3496e94eeb5c30329f97efc96ed76e226e98224")
                 .abilityInfo("&5Passive: &eAllows you to climb walls")
                 .runnable(new BukkitRunnable() {

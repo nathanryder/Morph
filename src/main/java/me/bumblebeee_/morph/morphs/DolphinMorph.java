@@ -18,6 +18,7 @@ public class DolphinMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_DOLPHIN_AMBIENT)
+                .hasBabyType(false)
                 .headId("8e9688b950d880b55b7aa2cfcd76e5a0fa94aac6d16f78e833f7443ea29fed3")
                 .abilityInfo("&5Passive: &eDolphins grace 2");
 

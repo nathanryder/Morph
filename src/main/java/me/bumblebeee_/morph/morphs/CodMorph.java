@@ -24,6 +24,7 @@ public class CodMorph extends Morph {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_COD_AMBIENT)
+                .hasBabyType(false)
                 .headId("7892d7dd6aadf35f86da27fb63da4edda211df96d2829f691462a4fb1cab0")
                 .abilityInfo("&5Passive: &eDolphins grace 2")
                 .runnable(new BukkitRunnable() {

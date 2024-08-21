@@ -18,6 +18,7 @@ public class BatMorph extends Morph implements Flyable {
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .sound(Sound.ENTITY_BAT_AMBIENT)
+                .hasBabyType(false)
                 .headId("6681a72da7263ca9aef066542ecca7a180c40e328c0463fcb114cb3b83057552")
                 .abilityInfo("&5Passive: &eFlying and night vision 3");
 
