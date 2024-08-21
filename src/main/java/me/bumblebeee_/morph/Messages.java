@@ -73,6 +73,7 @@ public class Messages {
             createMessage("clickToMorph", "&bClick to morph into a {mob}");
             createMessage("morphPower", "&eMorph Power: &a");
             createMessage("timeLeftAsMorph", "&eTime left as {mob}: {min}:{second}");
+            createMessage("openingInventory", "&eLoading inventory..");
 
             createMessage("commands.morph", "&eMorph into a mob");
             createMessage("commands.unmorph", "&eMorph back into yourself");
