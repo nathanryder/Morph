@@ -111,6 +111,11 @@ public class MorphManager {
     public void morphPlayer(final Player p, DisguiseType type, boolean silent, boolean baby) {
         if (!Config.MOB_CONFIG.getConfig().getBoolean(type.toString().toLowerCase() + ".enabled")) {
             p.sendMessage(prefix + " " + m.getMessage("mobDisabled"));
+
+            if (Morph.health) {
+                p.setHealthScale(20);
+                p.setMaxHealth(20);
+            }
             return;
         }
 
@@ -177,32 +182,26 @@ public class MorphManager {
         for (PotionEffect effect : p.getActivePotionEffects())
             p.removePotionEffect(effect.getType());
 
+        int health = Config.MOB_CONFIG.getConfig().getInt(using + ".health");
+        if (Morph.health) {
+            p.setHealthScale(health);
+            p.setMaxHealth(health);
+        }
+
         if (using.equalsIgnoreCase("bat")) {
             if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
             }
-            if (Morph.health) {
-                p.setHealthScale(6);
-                p.setMaxHealth(6);
-            }
         } else if (using.equalsIgnoreCase("vex")) {
             if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
-                if (Morph.health) {
-                    p.setHealthScale(10);
-                    p.setMaxHealth(10);
-                }
             }
         } else if (using.equalsIgnoreCase("bee")) {
             if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
-                if (Morph.health) {
-                    p.setHealthScale(14);
-                    p.setMaxHealth(14);
-                }
             }
         } else if (using.equalsIgnoreCase("wither")) {
             if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
@@ -220,148 +219,16 @@ public class MorphManager {
             if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
-                if (Morph.health) {
-                    p.setHealthScale(10);
-                    p.setMaxHealth(10);
-                }
-            }
-            if (Morph.health) {
-                p.setHealthScale(10);
-                p.setMaxHealth(10);
-            }
-        } else if (using.equalsIgnoreCase("ocelot")) {
-            if (Morph.health) {
-                p.setHealthScale(6);
-                p.setMaxHealth(6);
-            }
-        } else if (using.equalsIgnoreCase("sheep")) {
-            if (Morph.health) {
-                p.setHealthScale(4);
-                p.setMaxHealth(4);
-            }
-        } else if (using.equalsIgnoreCase("silverfish")) {
-            if (Morph.health) {
-                p.setHealthScale(4);
-                p.setMaxHealth(4);
-            }
-        } else if (using.equalsIgnoreCase("snowman")) {
-            if (Morph.health) {
-                p.setHealthScale(2);
-                p.setMaxHealth(2);
-            }
-        } else if (using.equalsIgnoreCase("wolf")) {
-            if (Morph.health) {
-                p.setHealthScale(4);
-                p.setMaxHealth(4);
-            }
-        } else if (using.equalsIgnoreCase("pig")) {
-            if (Morph.health) {
-                p.setHealthScale(5);
-                p.setMaxHealth(5);
-            }
-        } else if (using.equalsIgnoreCase("cow")) {
-            if (Morph.health) {
-                p.setHealthScale(5);
-                p.setMaxHealth(5);
-            }
-        } else if (using.equalsIgnoreCase("cave_spider")) {
-            if (Morph.health) {
-                p.setHealthScale(6);
-                p.setMaxHealth(6);
-            }
-        } else if (using.equalsIgnoreCase("spider")) {
-            if (Morph.health) {
-                p.setHealthScale(8);
-                p.setMaxHealth(8);
-            }
-        } else if (using.equalsIgnoreCase("chicken")) {
-            if (Morph.health) {
-                p.setHealthScale(2);
-                p.setMaxHealth(2);
             }
         } else if (using.equalsIgnoreCase("ender_dragon")) {
             if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
             }
-        } else if (using.equalsIgnoreCase("rabbit")) {
-            if (Morph.health) {
-                p.setHealthScale(3);
-                p.setMaxHealth(3);
-            }
-        } else if (using.equalsIgnoreCase("guardian")) {
-            if (Morph.health) {
-                p.setHealthScale(30);
-                p.setMaxHealth(30);
-            }
-        } else if (using.equalsIgnoreCase("endermite")) {
-            if (Morph.health) {
-                p.setHealthScale(8);
-                p.setMaxHealth(8);
-            }
-        } else if (using.equalsIgnoreCase("shulker")) {
-            if (Morph.health) {
-                p.setHealthScale(30);
-                p.setMaxHealth(30);
-            }
-        } else if (using.equalsIgnoreCase("polar_bear")) {
-            if (Morph.health) {
-                p.setHealthScale(30);
-                p.setMaxHealth(30);
-            }
-        } else if (using.equalsIgnoreCase("vindicator")) {
-            if (Morph.health) {
-                p.setHealthScale(24);
-                p.setMaxHealth(24);
-            }
-        } else if (using.equalsIgnoreCase("evoker")) {
-            if (Morph.health) {
-                p.setHealthScale(24);
-                p.setMaxHealth(24);
-            }
         } else if (using.equalsIgnoreCase("parrot")) {
-            if (Morph.health) {
-                p.setHealthScale(6);
-                p.setMaxHealth(6);
-            }
             if (Config.MOB_CONFIG.getConfig().getBoolean("flying")) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
-            }
-        } else if (using.equalsIgnoreCase("illusioner")) {
-            if (Morph.health) {
-                p.setHealthScale(32);
-                p.setMaxHealth(32);
-            }
-        } else if (using.equalsIgnoreCase("cat")) {
-            if (Morph.health) {
-                p.setHealthScale(10);
-                p.setMaxHealth(10);
-            }
-        } else if (using.equalsIgnoreCase("fox")) {
-            if (Morph.health) {
-                p.setHealthScale(10);
-                p.setMaxHealth(10);
-            }
-        } else if (using.equalsIgnoreCase("panda")) {
-            if (Morph.health) {
-                p.setHealthScale(10);
-                p.setMaxHealth(10);
-            }
-        } else if (using.equalsIgnoreCase("hoglin")) {
-            if (Morph.health) {
-                p.setHealthScale(40);
-                p.setMaxHealth(40);
-            }
-        } else if (using.equalsIgnoreCase("strider")) {
-            if (Morph.health) {
-                p.setHealthScale(20);
-                p.setMaxHealth(20);
-            }
-        } else if (using.equalsIgnoreCase("zoglin")) {
-            if (Morph.health) {
-                p.setHealthScale(40);
-                p.setMaxHealth(40);
             }
         }
 
