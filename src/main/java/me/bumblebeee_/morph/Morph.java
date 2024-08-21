@@ -92,6 +92,7 @@ public class Morph extends JavaPlugin implements Listener {
 		Bukkit.getServer().getPluginCommand("unmorph").setExecutor(new MorphCommand());
 		Bukkit.getServer().getPluginCommand("addmorph").setExecutor(new MorphCommand());
 		Bukkit.getServer().getPluginCommand("delmorph").setExecutor(new MorphCommand());
+		Bukkit.getServer().getPluginCommand("forcemorph").setExecutor(new MorphCommand());
 	}
 
 	public void setupFiles() {

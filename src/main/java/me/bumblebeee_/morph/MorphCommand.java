@@ -49,7 +49,6 @@ public class MorphCommand implements CommandExecutor {
                     return true;
                 }
 
-
                 File userFile = new File(pl.getDataFolder() + "/UserData/" + t.getUniqueId() + ".yml");
                 FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
                 fileConfig.set("Mobs", null);
@@ -164,6 +163,129 @@ public class MorphCommand implements CommandExecutor {
                 ex.printStackTrace();
             }
             return true;
+        } else if (cmd.getName().equalsIgnoreCase("forcemorph")) {
+            if (!sender.hasPermission("morph.forcemorph")) {
+                sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
+                return true;
+            }
+            
+            if (args.length < 2) {
+                sender.sendMessage(prefix + " " + m.getMessage("invalidArguments"));
+                return true;
+            }
+
+            Player p = Bukkit.getServer().getPlayer(args[0]);
+            if (p == null) {
+                sender.sendMessage(prefix + " " + m.getMessage("invalidPlayer").replace("{target}", args[0]));
+                return true;
+            }
+
+            boolean ignorePerms = false;
+            boolean silent = false;
+            if (args.length > 2) {
+                ignorePerms = args[2].equalsIgnoreCase("true");
+
+                if (args.length > 3) {
+                    silent = args[3].equalsIgnoreCase("true");
+                }
+            }
+
+            boolean baby = args[1].split(":").length > 1;
+            if (args[1].contains("irongolem")) {
+                args[1] = "iron_golem";
+            } else if (args[1].contains("polar")) {
+                args[1] = "polar_bear";
+            } else if (args[1].contains("polarbear")) {
+                args[1] = "polar_bear";
+            } else if (args[1].contains("bear")) {
+                args[1] = "polar_bear";
+            } else if (args[1].contains("pigzombie")) {
+                args[1] = "zombified_piglin";
+            } else if (args[1].contains("zombiepig")) {
+                args[1] = "zombified_piglin";
+            } else if (args[1].contains("zombiepigman")) {
+                args[1] = "zombified_piglin";
+            } else if (args[1].contains("dragon")) {
+                args[1] = "ender_dragon";
+            } else if (args[1].contains("enderdragon")) {
+                args[1] = "ender_dragon";
+            } else if (args[1].contains("mushroom")) {
+                args[1] = "mushroom_cow";
+            } else if (args[1].contains("mushroomcow")) {
+                args[1] = "mushroom_cow";
+            } else if (args[1].contains("zombievillager")) {
+                args[1] = "zombie_villager";
+            } else if (args[1].contains("piglinbrute")) {
+                args[1] = "piglin_brute";
+            }
+
+            DisguiseType type = getDisguiseType(args[1]);
+            if (type == null) {
+                sender.sendMessage(prefix + " " + m.getMessage("invalidMorph"));
+                return true;
+            }
+
+            String perm = type.toReadable().toLowerCase().replace(" ", "_");
+            if (Morph.using.containsKey(p.getUniqueId())) {
+                String using = morph.getUsing(p);
+                if (baby) {
+                    if (using.equalsIgnoreCase(type.toReadable().toLowerCase())) {
+                        if (morph.isBaby(p)) {
+                            send(p, prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), "baby " + type.toReadable(), ""));
+                            return true;
+                        }
+                    }
+                } else {
+                    if (using.equalsIgnoreCase(type.toReadable().toLowerCase())) {
+                        if (!morph.isBaby(p)) {
+                            send(p, prefix + " " + m.getMessage("alreadyMorphed", "", p.getDisplayName(), type.toReadable(), ""));
+
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            if (!ignorePerms) {
+                if (!p.hasPermission("morph.into." + perm)) {
+                    if (!p.hasPermission("morph.bypasskill." + perm)) {
+                        send(p, prefix + " " + m.getMessage("noPermissions"));
+                        sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
+                        return true;
+                    }
+                }
+
+                if (baby && !morph.isAllowBaby(type.toReadable())) {
+                    send(p, prefix + " " + m.getMessage("noBabyType"));
+                    sender.sendMessage(prefix + " " + m.getMessage("noBabyType"));
+                    return false;
+                }
+
+                File userFile = new File(pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
+                FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
+                List<String> stringList = fileConfig.getStringList("Mobs");
+                if (!p.hasPermission("morph.bypasskill." + perm)) {
+                    if (baby) {
+                        if (!stringList.contains(type.toString().toLowerCase() + ":baby")) {
+                            p.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), "baby " + type.toReadable(), ""));
+                            sender.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), "baby " + type.toReadable(), ""));
+                            return true;
+                        }
+                    } else {
+                        if (!stringList.contains(type.toString().toLowerCase())) {
+                            p.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), type.toReadable(), ""));
+                            sender.sendMessage(prefix + " " + m.getMessage("unableToMorph", "", p.getDisplayName(), type.toReadable(), ""));
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            DisguiseAPI.undisguiseToAll(p);
+            Morph.using.remove(p.getUniqueId());
+
+            morph.morphPlayer(p, type, silent, baby);
+            sender.sendMessage(prefix + " " + "Successfully force morphed player!");
         } else if (cmd.getName().equalsIgnoreCase("morph")) {
             if (!(sender instanceof Player)) {
                 if (args.length > 0) {
@@ -295,7 +417,6 @@ public class MorphCommand implements CommandExecutor {
             }
 
             DisguiseType type = getDisguiseType(args[0]);
-            DisguiseType asd = DisguiseType.CHICKEN;
 
             if (type == null) {
                 if (args[0].equalsIgnoreCase("near")) {
@@ -557,28 +678,38 @@ public class MorphCommand implements CommandExecutor {
                 }
             }
 
-            final Player p = (Player) sender;
 
-            if (args.length == 1) {
-                Player t = Bukkit.getServer().getPlayer(args[0]);
-
+            if (args.length >= 1) {
                 if (args[0].equalsIgnoreCase("all")) {
-                    if (!p.hasPermission("morph.morph.modify")) {
-                        p.sendMessage(prefix + " " + m.getMessage("noPermissions"));
+                    if (!sender.hasPermission("morph.morph.modify")) {
+                        sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
                         return true;
                     }
                     for (Player pl : Bukkit.getServer().getOnlinePlayers()) {
-
-                        if (!DisguiseAPI.isDisguised(pl)) {
-                            p.sendMessage(prefix + " " + m.getMessage("noPlayersMorphed"));
-                            return true;
-                        }
-                        morph.unmorphPlayer(p, true, false);
+                        morph.unmorphPlayer(pl, true, false);
                     }
-                    sender.sendMessage(prefix + " " + m.getMessage("unmorphedAllPlayers", t.getDisplayName(), p.getDisplayName(), "", ""));
+                    sender.sendMessage(prefix + " " + m.getMessage("unmorphedAllPlayers"));
+
+                    return true;
+                } else {
+                    Player t = Bukkit.getServer().getPlayer(args[0]);
+                    if (t == null) {
+                        sender.sendMessage(prefix + " " + m.getMessage("invalidPlayer").replace("{target}", args[0]));
+                        return true;
+                    }
+
+                    boolean staff = true;
+                    if (args.length > 1) {
+                        staff = args[1].equalsIgnoreCase("true");
+                    }
+
+                    morph.unmorphPlayer(t, staff, false);
                     return true;
                 }
+
             }
+
+            Player p = (Player) sender;
             morph.unmorphPlayer(p, false, false);
             return true;
 

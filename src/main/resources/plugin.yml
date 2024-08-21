@@ -6,13 +6,15 @@ depend: [LibsDisguises]
 api-version: 1.13
 commands:
     morph:
-        description: Morph into a entity!
+        description: Morph into an mob
     unmorph:
-        description: Morph back to the original player!
+        description: Morph back to the original player
     addmorph:
-        description: Add a mob to a player!
+        description: Add a mob to a player
     delmorph:
-        description: remove a mob from a player!
+        description: remove a mob from a player
+    forcemorph:
+        description: Force a player to morph as a certain mob
 permissions:
     morph.into.*:
         description: Morph into all mobs
@@ -267,6 +269,7 @@ permissions:
         children:
             morph.morph: true
             morph.toggle: true
+            morph.forcemorph: true
             morph.morph.modify: true
             morph.into.*: true
             morph.bypasskill.*: true

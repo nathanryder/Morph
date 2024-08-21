@@ -144,6 +144,7 @@ public class Messages {
         stringMsgs.put("commands.morph status", "&eDisplays what you are morphed as");
         stringMsgs.put("commands.morph near", "&eTells you if there is a player near you morphed");
         stringMsgs.put("commands.morph reload", "&eReloads the plugin");
+        stringMsgs.put("commands.forcemorph <player> <mob> [ignoreChecks] [silent]", "&eForce a player to morph as a mob");
         stringMsgs.put("commands.addmorph <player> <mob>", "&eAdd a morph to a player");
         stringMsgs.put("commands.delmorph <player> <mob>", "&eRemove a morph from a player");
 
