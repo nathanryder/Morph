@@ -175,6 +175,9 @@ public class MorphManager {
         if (Morph.health) {
             p.setHealth(p.getMaxHealth()-1);
         }
+
+        p.setAllowFlight(false);
+        p.setFlying(false);
         for (PotionEffect effect : p.getActivePotionEffects())
             p.removePotionEffect(effect.getType());
 
