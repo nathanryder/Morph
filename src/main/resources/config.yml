@@ -295,6 +295,9 @@ pufferfish:
 phantom:
   morph-time: 0
   morph-cooldown: 0
+turtle:
+  morph-time: 0
+  morph-cooldown: 0
 
 disableHealthSystem: false
 checkForUpdates: true
