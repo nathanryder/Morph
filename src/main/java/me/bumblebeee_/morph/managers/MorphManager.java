@@ -4,6 +4,7 @@ import lombok.Getter;
 import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.morphs.Flyable;
 import me.bumblebeee_.morph.morphs.Morph;
+import me.bumblebeee_.morph.utils.Utils;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.DisguiseConfig;
 import me.libraryaddict.disguise.disguisetypes.Disguise;
@@ -145,9 +146,11 @@ public class MorphManager {
             }
         }
 
-        AttributeInstance scale = p.getAttribute(Attribute.GENERIC_SCALE);
-        if (scale != null && scale.getBaseValue() != 0.0) {
-            scale.setBaseValue(morphType.getScale());
+        if (Utils.getVersion(false) >= 21.0) {
+            AttributeInstance scale = p.getAttribute(Attribute.GENERIC_SCALE);
+            if (scale != null && scale.getBaseValue() != 0.0) {
+                scale.setBaseValue(morphType.getScale());
+            }
         }
 
         morphType.initMorph(p);
@@ -256,9 +259,11 @@ public class MorphManager {
             p.resetMaxHealth();
         }
 
-        AttributeInstance scale = p.getAttribute(Attribute.GENERIC_SCALE);
-        if (scale != null) {
-            scale.setBaseValue(1);
+        if (Utils.getVersion(false) >= 21.0) {
+            AttributeInstance scale = p.getAttribute(Attribute.GENERIC_SCALE);
+            if (scale != null) {
+                scale.setBaseValue(1);
+            }
         }
 
         p.setAllowFlight(false);

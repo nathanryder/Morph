@@ -39,7 +39,7 @@ stayMorphedOnDeath: false
 #When a player kills a morphed player, should they get the morph?
 steal-morphs: true
 
-#Change player hitbox size and POV
+#Change player hitbox size and POV (1.21+)
 enableScale: true
 
 #Keep morphs through login sessions
