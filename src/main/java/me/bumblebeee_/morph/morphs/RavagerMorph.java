@@ -28,7 +28,7 @@ public class RavagerMorph extends Morph {
                 .headId("3b62501cd1b87b37f628018210ec5400cb65a4d1aab74e6a3f7f62aa85db97ee");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".strength")) {
-            PotionEffect ravagerStrength = new PotionEffect(VersionedPotionEffectType.INSTANT_DAMAGE.get(), 999999, 6, false ,false);
+            PotionEffect ravagerStrength = new PotionEffect(VersionedPotionEffectType.RESISTANCE.get(), 999999, 6, false ,false);
             this.potionEffect(ravagerStrength);
         }
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".slowness")) {

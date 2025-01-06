@@ -33,8 +33,8 @@ public class TurtleMorph extends Morph {
             this.potionEffect(waterbreathing);
         }
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".damageresistance")) {
-            PotionEffect waterbreathing = new PotionEffect(VersionedPotionEffectType.INSTANT_DAMAGE.get(), 200, 7, false ,false);
-            this.potionEffect(waterbreathing);
+            PotionEffect dmg = new PotionEffect(VersionedPotionEffectType.RESISTANCE.get(), 200, 7, false ,false);
+            this.potionEffect(dmg);
         }
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".nightvision")) {
             PotionEffect waterbreathing = new PotionEffect(PotionEffectType.NIGHT_VISION, 200, 7, false ,false);
