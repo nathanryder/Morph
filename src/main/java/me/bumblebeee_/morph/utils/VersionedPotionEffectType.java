@@ -1,6 +1,5 @@
-package me.bumblebeee_.morph;
+package me.bumblebeee_.morph.utils;
 
-import org.bukkit.Bukkit;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.Map;

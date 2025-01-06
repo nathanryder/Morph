@@ -1,6 +1,8 @@
 package me.bumblebeee_.morph;
 
 import me.bumblebeee_.morph.events.EntityDamageByEntityListener;
+import me.bumblebeee_.morph.managers.ManaManager;
+import me.bumblebeee_.morph.managers.Messages;
 import me.bumblebeee_.morph.morphs.Flyable;
 import me.bumblebeee_.morph.morphs.Morph;
 import org.bukkit.Bukkit;

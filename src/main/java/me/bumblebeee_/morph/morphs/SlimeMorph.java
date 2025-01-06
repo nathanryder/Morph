@@ -1,9 +1,8 @@
 package me.bumblebeee_.morph.morphs;
 
-import me.bumblebeee_.morph.Config;
+import me.bumblebeee_.morph.managers.Config;
 import me.bumblebeee_.morph.Main;
-import me.bumblebeee_.morph.VersionedPotionEffectType;
-import me.bumblebeee_.morph.events.EntityDamage;
+import me.bumblebeee_.morph.utils.VersionedPotionEffectType;
 import me.bumblebeee_.morph.events.PlayerUndisguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Bukkit;
@@ -18,7 +17,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityTargetEvent;
 import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 import java.util.HashMap;
 import java.util.UUID;

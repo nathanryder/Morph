@@ -1,9 +1,11 @@
 package me.bumblebeee_.morph.morphs;
 
 import me.bumblebeee_.morph.*;
+import me.bumblebeee_.morph.managers.Config;
+import me.bumblebeee_.morph.managers.Cooldown;
+import me.bumblebeee_.morph.managers.Messages;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;

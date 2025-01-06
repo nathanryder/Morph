@@ -1,5 +1,6 @@
-package me.bumblebeee_.morph;
+package me.bumblebeee_.morph.utils;
 
+import me.bumblebeee_.morph.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

@@ -1,7 +1,7 @@
 package me.bumblebeee_.morph.events;
 
-import me.bumblebeee_.morph.Inventorys;
-import me.bumblebeee_.morph.Messages;
+import me.bumblebeee_.morph.managers.Inventorys;
+import me.bumblebeee_.morph.managers.Messages;
 import me.bumblebeee_.morph.Main;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

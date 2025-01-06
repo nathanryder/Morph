@@ -1,28 +1,19 @@
 package me.bumblebeee_.morph.morphs;
 
-import me.bumblebeee_.morph.Config;
-import me.bumblebeee_.morph.Cooldown;
+import me.bumblebeee_.morph.managers.Config;
+import me.bumblebeee_.morph.managers.Cooldown;
 import me.bumblebeee_.morph.Main;
-import me.bumblebeee_.morph.Messages;
+import me.bumblebeee_.morph.managers.Messages;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.World;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import java.util.Random;
 
 public class CreeperMorph extends Morph implements Listener {
 

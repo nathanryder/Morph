@@ -1,4 +1,4 @@
-package me.bumblebeee_.morph;
+package me.bumblebeee_.morph.utils;
 
 import java.util.Comparator;
 

@@ -1,5 +1,6 @@
-package me.bumblebeee_.morph;
+package me.bumblebeee_.morph.managers;
 
+import me.bumblebeee_.morph.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 

@@ -1,9 +1,8 @@
 package me.bumblebeee_.morph.morphs;
 
-import me.bumblebeee_.morph.Config;
+import me.bumblebeee_.morph.managers.Config;
 import me.bumblebeee_.morph.Main;
-import me.bumblebeee_.morph.VersionedPotionEffectType;
-import me.bumblebeee_.morph.events.PlayerUndisguise;
+import me.bumblebeee_.morph.utils.VersionedPotionEffectType;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

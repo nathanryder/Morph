@@ -1,11 +1,10 @@
 package me.bumblebeee_.morph.morphs;
 
-import me.bumblebeee_.morph.Config;
-import me.bumblebeee_.morph.VersionedPotionEffectType;
+import me.bumblebeee_.morph.managers.Config;
+import me.bumblebeee_.morph.utils.VersionedPotionEffectType;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Sound;
 import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 public class RavagerMorph extends Morph {
 

@@ -2,7 +2,9 @@ package me.bumblebeee_.morph;
 
 import lombok.Getter;
 import me.bumblebeee_.morph.events.RegisterEvents;
+import me.bumblebeee_.morph.managers.*;
 import me.bumblebeee_.morph.morphs.*;
+import me.bumblebeee_.morph.utils.Utils;
 import me.libraryaddict.disguise.DisguiseAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -35,12 +37,12 @@ public class Main extends JavaPlugin implements Listener {
 	public static @Getter MorphManager morphManager;
 
 	//Changelog
+	//Paging fixed
 	//
 	//TODO
-	//Iron golems
-	//Paging is fucked
 	//1.21 abilities
 	//Scaling hitbox?
+	//Iron golems die to magic??
 	//Console head spam?
 
 	public void onEnable() {

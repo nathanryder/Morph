@@ -1,7 +1,6 @@
 package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.Main;
-import me.bumblebeee_.morph.MorphManager;
 import me.libraryaddict.disguise.LibsDisguises;
 import me.libraryaddict.disguise.events.UndisguiseEvent;
 import org.bukkit.entity.Player;

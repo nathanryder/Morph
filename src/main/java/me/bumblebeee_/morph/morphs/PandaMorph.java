@@ -1,11 +1,8 @@
 package me.bumblebeee_.morph.morphs;
 
-import me.bumblebeee_.morph.Config;
+import me.bumblebeee_.morph.managers.Config;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Sound;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class PandaMorph extends Morph {
 

@@ -1,15 +1,14 @@
 package me.bumblebeee_.morph.morphs;
 
 import lombok.Getter;
-import me.bumblebeee_.morph.Config;
-import me.bumblebeee_.morph.Inventorys;
+import me.bumblebeee_.morph.managers.Config;
+import me.bumblebeee_.morph.managers.Inventorys;
 import me.bumblebeee_.morph.Main;
-import me.bumblebeee_.morph.Messages;
+import me.bumblebeee_.morph.managers.Messages;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;

@@ -1,9 +1,9 @@
 package me.bumblebeee_.morph.morphs;
 
-import me.bumblebeee_.morph.Config;
-import me.bumblebeee_.morph.Cooldown;
+import me.bumblebeee_.morph.managers.Config;
+import me.bumblebeee_.morph.managers.Cooldown;
 import me.bumblebeee_.morph.Main;
-import me.bumblebeee_.morph.Messages;
+import me.bumblebeee_.morph.managers.Messages;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;

@@ -1,5 +1,6 @@
-package me.bumblebeee_.morph;
+package me.bumblebeee_.morph.managers;
 
+import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.versions.*;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

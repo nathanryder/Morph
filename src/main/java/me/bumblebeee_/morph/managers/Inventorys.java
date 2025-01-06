@@ -1,15 +1,16 @@
-package me.bumblebeee_.morph;
+package me.bumblebeee_.morph.managers;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.morphs.Morph;
+import me.bumblebeee_.morph.utils.GUIComparator;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.craftbukkit.v1_17_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -153,7 +154,6 @@ public class Inventorys {
                                 }
 
                                 String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
-                                display = pos + " " + display;
                                 inv.setItem(pos, createHead(mob, display));
                                 pos++;
                                 continue;

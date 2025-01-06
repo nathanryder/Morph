@@ -1,4 +1,4 @@
-package me.bumblebeee_.morph;
+package me.bumblebeee_.morph.managers;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;

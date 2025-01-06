@@ -1,8 +1,7 @@
 package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.Main;
-import me.bumblebeee_.morph.Messages;
-import me.bumblebeee_.morph.MorphManager;
+import me.bumblebeee_.morph.managers.Messages;
 import me.libraryaddict.disguise.DisguiseAPI;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;

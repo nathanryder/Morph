@@ -1,7 +1,11 @@
 package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.*;
+import me.bumblebeee_.morph.managers.Inventorys;
+import me.bumblebeee_.morph.managers.Messages;
+import me.bumblebeee_.morph.managers.MorphManager;
 import me.bumblebeee_.morph.morphs.Morph;
+import me.bumblebeee_.morph.utils.CompatibilityUtil;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.disguisetypes.PlayerDisguise;
 import org.bukkit.Bukkit;
@@ -20,8 +24,6 @@ import org.bukkit.persistence.PersistentDataType;
 
 import java.io.File;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class InventoryClick implements Listener {
 
@@ -43,8 +45,8 @@ public class InventoryClick implements Listener {
         String morphedTitle = ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', rawTitle));
 
         String unmorphedTitle = m.getMessage("unmorphedTitle");
-        if (e.getView().getTitle().startsWith(morphedTitle) ||
-                e.getView().getTitle().equalsIgnoreCase(unmorphedTitle)) {
+        if (CompatibilityUtil.getInventoryTitle(e).startsWith(morphedTitle) ||
+                CompatibilityUtil.getInventoryTitle(e).equalsIgnoreCase(unmorphedTitle)) {
             e.setCancelled(true);
 
             if (e.getCurrentItem() == null) return;
@@ -86,11 +88,6 @@ public class InventoryClick implements Listener {
                 List<String> stringList = fileConfig.getStringList("Mobs");
                 List<String> players = fileConfig.getStringList("Players");
                 Inventorys.pages.remove(p.getUniqueId());
-
-//                Pattern pattern = Pattern.compile(display);
-//                Matcher match = pattern.matcher(dis);
-//                if (!match.find())
-//                    return;
 
                 String mobName = i.getItemMeta().getPersistentDataContainer().get(new NamespacedKey(Main.pl, "mobName"), PersistentDataType.STRING);
                 if (mobName == null) {
@@ -225,7 +222,7 @@ public class InventoryClick implements Listener {
 
                 morph.morphPlayer(p, type, false, baby);
             }
-        } else if (e.getView().getTitle().equalsIgnoreCase("Morph Options")) {
+        } else if (CompatibilityUtil.getInventoryTitle(e).equalsIgnoreCase("Morph Options")) {
             e.setCancelled(true);
 
             if (e.getCurrentItem() == null) return;

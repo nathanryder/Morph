@@ -1,6 +1,7 @@
-package me.bumblebeee_.morph;
+package me.bumblebeee_.morph.managers;
 
 import lombok.Getter;
+import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.morphs.Flyable;
 import me.bumblebeee_.morph.morphs.Morph;
 import me.libraryaddict.disguise.DisguiseAPI;

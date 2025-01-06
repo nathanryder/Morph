@@ -1,7 +1,7 @@
-package me.bumblebeee_.morph;
+package me.bumblebeee_.morph.managers;
 
 import lombok.Getter;
-import org.bukkit.entity.Player;
+import me.bumblebeee_.morph.Main;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;

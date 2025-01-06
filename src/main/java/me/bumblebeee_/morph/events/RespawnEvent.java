@@ -1,12 +1,6 @@
 package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.Main;
-import me.bumblebeee_.morph.MorphManager;
-import me.bumblebeee_.morph.morphs.Morph;
-import me.libraryaddict.disguise.disguisetypes.MobDisguise;
-import me.libraryaddict.disguise.disguisetypes.watchers.AgeableWatcher;
-import me.libraryaddict.disguise.disguisetypes.watchers.ZombieWatcher;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

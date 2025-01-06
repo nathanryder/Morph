@@ -4,12 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import me.bumblebeee_.morph.Config;
 import me.bumblebeee_.morph.Main;
-import me.bumblebeee_.morph.Messages;
-import me.bumblebeee_.morph.MorphManager;
+import me.bumblebeee_.morph.managers.Messages;
 import me.bumblebeee_.morph.morphs.Morph;
-import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.*;

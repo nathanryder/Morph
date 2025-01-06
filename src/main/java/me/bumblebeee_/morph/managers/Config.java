@@ -1,5 +1,6 @@
-package me.bumblebeee_.morph;
+package me.bumblebeee_.morph.managers;
 
+import me.bumblebeee_.morph.Main;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

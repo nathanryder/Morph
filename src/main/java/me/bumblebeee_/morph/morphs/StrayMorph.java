@@ -1,6 +1,10 @@
 package me.bumblebeee_.morph.morphs;
 
 import me.bumblebeee_.morph.*;
+import me.bumblebeee_.morph.managers.Config;
+import me.bumblebeee_.morph.managers.Cooldown;
+import me.bumblebeee_.morph.managers.Messages;
+import me.bumblebeee_.morph.utils.VersionedPotionEffectType;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
@@ -13,7 +17,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;

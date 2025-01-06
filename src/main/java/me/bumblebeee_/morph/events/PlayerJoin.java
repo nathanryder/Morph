@@ -1,10 +1,9 @@
 package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.*;
+import me.bumblebeee_.morph.managers.ManaManager;
+import me.bumblebeee_.morph.managers.Messages;
 import me.bumblebeee_.morph.morphs.Morph;
-import me.libraryaddict.disguise.disguisetypes.DisguiseType;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;

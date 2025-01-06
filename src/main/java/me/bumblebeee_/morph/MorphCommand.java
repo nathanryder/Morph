@@ -1,8 +1,11 @@
 package me.bumblebeee_.morph;
 
+import me.bumblebeee_.morph.managers.Config;
+import me.bumblebeee_.morph.managers.Inventorys;
+import me.bumblebeee_.morph.managers.Messages;
+import me.bumblebeee_.morph.managers.MorphManager;
 import me.bumblebeee_.morph.morphs.Morph;
 import me.libraryaddict.disguise.DisguiseAPI;
-import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.PlayerDisguise;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

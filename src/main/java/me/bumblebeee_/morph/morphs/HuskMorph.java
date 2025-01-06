@@ -1,6 +1,6 @@
 package me.bumblebeee_.morph.morphs;
 
-import me.bumblebeee_.morph.Config;
+import me.bumblebeee_.morph.managers.Config;
 import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.events.PlayerUndisguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
@@ -10,7 +10,6 @@ import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
