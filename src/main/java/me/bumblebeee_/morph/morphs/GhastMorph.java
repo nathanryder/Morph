@@ -18,8 +18,13 @@ public class GhastMorph extends Morph implements Listener, Flyable {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "ghast";
+
     public GhastMorph() {
-        this.morphName("ghast")
+        this.setConfigOption(MORPH_NAME + ".scale", 4);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.GHAST)
@@ -27,6 +32,7 @@ public class GhastMorph extends Morph implements Listener, Flyable {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_GHAST_AMBIENT)
                 .hasBabyType(false)
                 .headId("de8a38e9afbd3da10d19b577c55c7bfd6b4f2e407e44d4017b23be9167abff02")

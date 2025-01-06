@@ -25,7 +25,12 @@ public class SlimeMorph extends Morph implements Listener {
 
     private static HashMap<UUID, Entity> damage = new HashMap<>();
 
+    final String MORPH_NAME = "blaze";
+
     public SlimeMorph() {
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
         this.morphName("slime")
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
@@ -34,6 +39,7 @@ public class SlimeMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.BLOCK_SLIME_BLOCK_STEP)
                 .hasBabyType(false)
                 .headId("61affd31efc37ba84f50187394d8688344ccd06cdc926ddfcf2df116986dca9")

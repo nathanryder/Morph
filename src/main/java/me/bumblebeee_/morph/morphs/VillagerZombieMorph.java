@@ -14,8 +14,13 @@ import org.bukkit.inventory.ItemStack;
 
 public class VillagerZombieMorph extends Morph implements Listener {
 
+    final String MORPH_NAME = "zombie_villager";
+
     public VillagerZombieMorph() {
-        this.morphName("zombie_villager")
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craftvillagerzombie")
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.ZOMBIE_VILLAGER)
@@ -23,6 +28,7 @@ public class VillagerZombieMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_ZOMBIE_AMBIENT)
                 .headId("75ab0527ecb313aab1413e65353aacd8672bc91e98b8a09c1a1ae78bb1db9681")
                 .abilityInfo("&5Passive: &eCan safely eat rotten flesh");

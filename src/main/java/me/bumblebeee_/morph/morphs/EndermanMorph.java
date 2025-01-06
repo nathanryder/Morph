@@ -22,8 +22,13 @@ public class EndermanMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "enderman";
+
     public EndermanMorph() {
-        this.morphName("enderman")
+        this.setConfigOption(MORPH_NAME + ".scale", 2.9);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.ENDERMAN)
@@ -31,6 +36,7 @@ public class EndermanMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_ENDERMAN_AMBIENT)
                 .hasBabyType(false)
                 .headId("bc6a4072c72e27b03234d650b0e52815d84657536daa23d1140b4c7b7f8d1dde")

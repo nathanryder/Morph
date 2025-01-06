@@ -37,12 +37,13 @@ public class Main extends JavaPlugin implements Listener {
 	public static @Getter MorphManager morphManager;
 
 	//Changelog
+	//Breeze ability
+	//Empty mob list error
+	//Scale hit boxes
 	//
 	//TODO
-	//Abilities?
-	//Scaling hitbox?
-	//Iron golems die to magic??
-	//Console head spam?
+	//Magically dieing when morphing into iron golem under unknown conditions?
+	//Update git author
 
 	public void onEnable() {
 		pl = this;

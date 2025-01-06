@@ -8,8 +8,13 @@ import org.bukkit.potion.PotionEffectType;
 
 public class GuardianMorph extends Morph {
 
+    final String MORPH_NAME = "guardian";
+
     public GuardianMorph() {
-        this.morphName("guardian")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.85);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.GUARDIAN)
@@ -17,6 +22,7 @@ public class GuardianMorph extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_GUARDIAN_AMBIENT)
                 .hasBabyType(false)
                 .headId("18d2a7fea7f2e0d916c7c6d7914937bb8dd3fbfd7f9483a4a3912f5a0fc63d3")

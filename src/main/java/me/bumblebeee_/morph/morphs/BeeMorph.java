@@ -20,8 +20,13 @@ public class BeeMorph extends Morph implements Flyable, Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "bee";
+
     public BeeMorph() {
-        this.morphName("bee")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.4);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.BEE)
@@ -29,6 +34,7 @@ public class BeeMorph extends Morph implements Flyable, Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_BEE_LOOP)
                 .headId("d7db9a6047d299a6945fa360299e12a13736d56f1fdfc192ec20f29cf46818c")
                 .abilityInfo("&5Ability: &eAllows you to sting people", "&5Passive: &eAllows you to fly");

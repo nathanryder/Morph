@@ -8,8 +8,13 @@ import org.bukkit.potion.PotionEffectType;
 
 public class MagmaCubeMorph extends Morph {
 
+    final String MORPH_NAME = "magma_cube";
+
     public MagmaCubeMorph() {
-        this.morphName("magma_cube")
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craftmagmacube")
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.MAGMA_CUBE)
@@ -17,6 +22,7 @@ public class MagmaCubeMorph extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_MAGMA_CUBE_SQUISH)
                 .hasBabyType(false)
                 .headId("MHF_LavaSlime")

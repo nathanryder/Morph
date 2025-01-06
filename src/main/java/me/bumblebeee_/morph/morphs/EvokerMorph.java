@@ -26,8 +26,13 @@ public class EvokerMorph extends Morph implements Listener {
     Messages msgs = new Messages();
     Random r = new Random();
 
+    final String MORPH_NAME = "evoker";
+
     public EvokerMorph() {
-        this.morphName("evoker")
+        this.setConfigOption(MORPH_NAME + ".scale", 1.95);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.EVOKER)
@@ -35,6 +40,7 @@ public class EvokerMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_EVOKER_AMBIENT)
                 .hasBabyType(false)
                 .headId("d954135dc82213978db478778ae1213591b93d228d36dd54f1ea1da48e7cba6")

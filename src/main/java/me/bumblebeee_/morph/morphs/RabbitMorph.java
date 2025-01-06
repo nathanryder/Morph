@@ -8,8 +8,13 @@ import org.bukkit.potion.PotionEffect;
 
 public class RabbitMorph extends Morph {
 
+    final String MORPH_NAME = "rabbit";
+
     public RabbitMorph() {
-        this.morphName("rabbit")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.5);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.RABBIT)
@@ -17,6 +22,7 @@ public class RabbitMorph extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_RABBIT_AMBIENT)
                 .headId("MHF_Rabbit")
                 .abilityInfo("&5Passive: &eJump boost 6");

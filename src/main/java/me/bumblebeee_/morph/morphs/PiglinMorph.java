@@ -6,8 +6,13 @@ import org.bukkit.Sound;
 
 public class PiglinMorph extends Morph {
 
+    final String MORPH_NAME = "piglin";
+
     public PiglinMorph() {
-        this.morphName("piglin")
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.PIGLIN)
@@ -15,6 +20,7 @@ public class PiglinMorph extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_PIGLIN_AMBIENT)
                 .headId("3a914cb003a0cb3c8551beee4364d4bdcebcee7965041a6a27b95a2f259daf90");
     }

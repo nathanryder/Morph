@@ -23,8 +23,13 @@ public class SpiderMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "spider";
+
     public SpiderMorph() {
-        this.morphName("spider")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.9);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.SPIDER)
@@ -32,6 +37,7 @@ public class SpiderMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_SPIDER_AMBIENT)
                 .hasBabyType(false)
                 .headId("cd541541daaff50896cd258bdbdd4cf80c3ba816735726078bfe393927e57f1")

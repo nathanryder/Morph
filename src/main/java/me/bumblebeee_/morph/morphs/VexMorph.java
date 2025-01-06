@@ -20,8 +20,13 @@ public class VexMorph extends Morph implements Listener, Flyable {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "vex";
+
     public VexMorph() {
-        this.morphName("vex")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.8);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.VEX)
@@ -29,6 +34,7 @@ public class VexMorph extends Morph implements Listener, Flyable {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_VEX_AMBIENT)
                 .hasBabyType(false)
                 .headId("5e7330c7d5cd8a0a55ab9e95321535ac7ae30fe837c37ea9e53bea7ba2de86b")

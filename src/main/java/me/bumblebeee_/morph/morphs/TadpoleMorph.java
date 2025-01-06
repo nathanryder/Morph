@@ -8,8 +8,13 @@ import org.bukkit.potion.PotionEffectType;
 
 public class TadpoleMorph extends Morph {
 
+    final String MORPH_NAME = "tadpole";
+
     public TadpoleMorph() {
-        this.morphName("tadpole")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.2);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.TADPOLE)
@@ -17,6 +22,7 @@ public class TadpoleMorph extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_TADPOLE_FLOP)
                 .hasBabyType(false)
                 .headId("987035f5352334c2cba6ac4c65c2b9059739d6d0e839c1dd98d75d2e77957847");

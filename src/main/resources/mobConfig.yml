@@ -17,6 +17,7 @@ horse:
   morph-time: 0
   morph-cooldown: 0
   speed: true
+  scale: 1.6
 skeleton_horse:
   enabled: true
   health: 15
@@ -24,12 +25,14 @@ skeleton_horse:
   morph-time: 0
   morph-cooldown: 0
   speed: true
+  scale: 1.6
 wolf:
   enabled: true
   health: 10
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 0.8
 ocelot:
   enabled: true
   health: 10
@@ -44,6 +47,7 @@ cow:
   morph-time: 0
   morph-cooldown: 0
   eatGrass: true
+  scale: 1
 pig:
   enabled: true
   health: 10
@@ -51,6 +55,7 @@ pig:
   morph-time: 0
   morph-cooldown: 0
   eatGrass: true
+  scale: 0.8
 wither_skeleton:
   enabled: true
   health: 20
@@ -58,6 +63,7 @@ wither_skeleton:
   morph-time: 0
   morph-cooldown: 0
   ability-cooldown: 0
+  scale: 1.2
 bat:
   enabled: true
   health: 6
@@ -65,6 +71,7 @@ bat:
   morph-time: 0
   morph-cooldown: 0
   nightVision: true
+  scale: 0.3
 blaze:
   enabled: true
   health: 20
@@ -73,6 +80,7 @@ blaze:
   morph-cooldown: 0
   fire: true
   ability-cooldown: 5
+  scale: 1.2
 cave_spider:
   enabled: true
   health: 12
@@ -86,6 +94,7 @@ cave_spider:
   #How long (seconds) should webs stay for before despawning
   spiderWebRemove: 30
   ability-cooldown: 0
+  scale: 0.9
 chicken:
   enabled: true
   health: 4
@@ -94,6 +103,7 @@ chicken:
   morph-cooldown: 0
   egg: true
   ability-cooldown: 120
+  scale: 0.5
 creeper:
   enabled: true
   health: 20
@@ -102,6 +112,7 @@ creeper:
   morph-cooldown: 0
   explosion: true
   explosion-damage: false
+  scale: 1
 enderman:
   enabled: true
   health: 40
@@ -110,12 +121,14 @@ enderman:
   morph-cooldown: 0
   teleport: true
   ability-cooldown: 5
+  scale: 2.9
 endermite:
   enabled: true
   health: 8
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 0.3
 ghast:
   enabled: true
   health: 10
@@ -124,6 +137,7 @@ ghast:
   morph-cooldown: 0
   fireball: true
   ability-cooldown: 5
+  scale: 4
 guardian:
   enabled: true
   health: 30
@@ -131,6 +145,7 @@ guardian:
   morph-time: 0
   waterbreathing: true
   morph-cooldown: 0
+  scale: 0.85
 iron_golem:
   enabled: true
   health: 100
@@ -138,6 +153,7 @@ iron_golem:
   morph-time: 0
   morph-cooldown: 0
   strength: true
+  scale: 2.7
 magma_cube:
   enabled: true
   health: 16
@@ -145,12 +161,14 @@ magma_cube:
   morph-time: 0
   morph-cooldown: 0
   fireresistance: true
+  scale: 1
 mushroom_cow:
   enabled: true
   health: 10
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 zombified_piglin:
   enabled: true
   health: 20
@@ -159,6 +177,7 @@ zombified_piglin:
   morph-cooldown: 0
   eat: true
   speed: true
+  scale: 1
 sheep:
   enabled: true
   health: 8
@@ -167,12 +186,14 @@ sheep:
   morph-cooldown: 0
   ability-cooldown: 20
   dropWool: true
+  scale: 1
 silverfish:
   enabled: true
   health: 8
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 0.2
 skeleton:
   enabled: true
   health: 20
@@ -180,6 +201,7 @@ skeleton:
   morph-time: 0
   morph-cooldown: 0
   shoot: true
+  scale: 1.5
 slime:
   enabled: true
   health: 16
@@ -188,6 +210,7 @@ slime:
   morph-cooldown: 0
   jump-boost: true
   split: true
+  scale: 1
 snowman:
   enabled: true
   health: 4
@@ -197,6 +220,7 @@ snowman:
   snow: true
   shoot: true
   ability-cooldown: 0
+  scale: 1
 spider:
   enabled: true
   health: 16
@@ -217,18 +241,21 @@ squid:
   morph-time: 0
   morph-cooldown: 0
   waterbreathing: true
+  scale: 0.8
 villager:
   enabled: true
   health: 20
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 witch:
   enabled: true
   health: 26
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 wither:
   enabled: true
   health: 300
@@ -237,6 +264,7 @@ wither:
   morph-cooldown: 0
   ability-cooldown: 0
   shoot: true
+  scale: 3
 llama:
   enabled: true
   health: 20
@@ -245,6 +273,7 @@ llama:
   morph-cooldown: 0
   spit: true
   ability-cooldown: 0
+  scale: 1.8
 vex:
   enabled: true
   health: 14
@@ -255,12 +284,14 @@ vex:
   #The amount of blocks vex can phase through
   max-layers: 2
   ability-cooldown: 30
+  scale: 0.8
 vindicator:
   enabled: true
   health: 24
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 evoker:
   enabled: true
   health: 24
@@ -271,6 +302,7 @@ evoker:
   spawnVex: true
   attack-cooldown: 5
   spawnVex-cooldown: 30
+  scale: 1.95
 zombie:
   enabled: true
   health: 20
@@ -278,6 +310,7 @@ zombie:
   morph-time: 0
   morph-cooldown: 0
   eat: true
+  scale: 1
 rabbit:
   enabled: true
   health: 3
@@ -285,6 +318,7 @@ rabbit:
   morph-time: 0
   morph-cooldown: 0
   jump-boost: true
+  scale: 0.5
 giant:
   enabled: true
   health: 100
@@ -299,6 +333,7 @@ giant:
   #NOTE: This might cause random blocks to be placed/broken if enabled
   walk-throw: false
   ability-cooldown: 0
+  scale: 11.7
 ender_dragon:
   enabled: true
   health: 100
@@ -307,30 +342,35 @@ ender_dragon:
   morph-cooldown: 0
   fireball: true
   ability-cooldown: 0
+  scale: 8
 mule:
   enabled: true
   health: 20
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 donkey:
   enabled: true
   health: 20
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1.2
 zombie_villager:
   enabled: true
   health: 20
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 parrot:
   enabled: true
   health: 6
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 0.9
 illusioner:
   enabled: true
   health: 32
@@ -338,6 +378,7 @@ illusioner:
   morph-time: 0
   morph-cooldown: 0
   ability-cooldown: 0
+  scale: 1.95
 stray:
   enabled: true
   health: 20
@@ -347,6 +388,7 @@ stray:
   slow: true
   shoot: true
   ability-cooldown: 0
+  scale: 1.5
 husk:
   enabled: true
   health: 20
@@ -354,6 +396,7 @@ husk:
   morph-time: 0
   morph-cooldown: 0
   hunger: true
+  scale: 1
 dolphin:
   enabled: true
   health: 10
@@ -361,6 +404,7 @@ dolphin:
   morph-time: 0
   morph-cooldown: 0
   grace: true
+  scale: 0.6
 drowned:
   enabled: true
   health: 20
@@ -369,6 +413,7 @@ drowned:
   morph-cooldown: 0
   waterbreathing: true
   grace: true
+  scale: 1
 cod:
   enabled: true
   health: 3
@@ -377,6 +422,7 @@ cod:
   morph-cooldown: 0
   grace: true
   waterbreathing: true
+  scale: 0.3
 salmon:
   enabled: true
   health: 3
@@ -385,6 +431,7 @@ salmon:
   morph-cooldown: 0
   grace: true
   waterbreathing: true
+  scale: 0.3
 tropical_fish:
   enabled: true
   health: 3
@@ -393,6 +440,7 @@ tropical_fish:
   morph-cooldown: 0
   grace: true
   waterbreathing: true
+  scale: 0.3
 pufferfish:
   enabled: true
   health: 3
@@ -403,6 +451,7 @@ pufferfish:
   ability-cooldown: 15
   grace: true
   waterbreathing: true
+  scale: 0.3
 phantom:
   enabled: true
   health: 20
@@ -419,6 +468,7 @@ turtle:
   waterbreathing: true
   damageresistance: true
   nightvision: true
+  scale: 0.4
 bee:
   enabled: true
   health: 10
@@ -427,6 +477,7 @@ bee:
   morph-cooldown: 0
   ability-cooldown: 15
   sting: true
+  scale: 0.4
 strider:
   enabled: true
   health: 20
@@ -435,48 +486,56 @@ strider:
   morph-cooldown: 0
   speed: true
   fireresistance: true
+  scale: 0.8
 hoglin:
   enabled: true
   health: 40
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 zoglin:
   enabled: true
   health: 40
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 shulker:
   enabled: true
   health: 30
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 polar_bear:
   enabled: true
   health: 30
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 0.9
 cat:
   enabled: true
   health: 10
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 0.35
 fox:
   enabled: true
   health: 10
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 0.5
 panda:
   enabled: true
   health: 20
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1.25
 pillager:
   enabled: true
   health: 24
@@ -485,18 +544,21 @@ pillager:
   morph-cooldown: 0
   ability-cooldown: 0
   shootArrow: true
+  scale: 1.2
 piglinbrute:
   enabled: true
   health: 50
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 piglin:
   enabled: true
   health: 16
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 ravager:
   enabled: true
   health: 100
@@ -506,6 +568,7 @@ ravager:
   ability-cooldown: 0
   slowness: true
   strength: true
+  scale: 2.2
 goat:
   enabled: true
   health: 10
@@ -514,6 +577,7 @@ goat:
   morph-cooldown: 0
   throw: true
   force: 3
+  scale: 0.7
 glow_squid:
   enabled: true
   health: 10
@@ -521,6 +585,7 @@ glow_squid:
   morph-time: 0
   morph-cooldown: 0
   waterbreathing: true
+  scale: 0.8
 axolotl:
   enabled: true
   health: 14
@@ -528,12 +593,14 @@ axolotl:
   morph-time: 0
   morph-cooldown: 0
   waterbreathing: true
+  scale: 0.5
 allay:
   enabled: true
   health: 20
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 0.4
 frog:
   enabled: true
   health: 10
@@ -541,6 +608,7 @@ frog:
   morph-time: 0
   morph-cooldown: 0
   jump-boost: true
+  scale: 0.4
 tadpole:
   enabled: true
   health: 6
@@ -548,6 +616,7 @@ tadpole:
   morph-time: 0
   morph-cooldown: 0
   waterbreathing: true
+  scale: 0.2
 warden:
   enabled: true
   health: 500
@@ -556,6 +625,7 @@ warden:
   morph-cooldown: 0
   ability-cooldown: 10
   sonicBoom: true
+  scale: 1.7
 camel:
   enabled: true
   health: 32
@@ -570,12 +640,14 @@ sniffer:
   morph-time: 0
   morph-cooldown: 0
   ability-cooldown: 10
+  scale: 2.2
 bogged:
   enabled: true
   health: 16
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
+  scale: 1
 breeze:
   enabled: true
   health: 30
@@ -584,3 +656,4 @@ breeze:
   morph-cooldown: 0
   ability-cooldown: 10
   shoot: true
+  scale: 1

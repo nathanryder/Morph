@@ -15,8 +15,13 @@ import org.bukkit.potion.PotionEffectType;
 
 public class HuskMorph extends Morph implements Listener {
 
+    final String MORPH_NAME = "husk";
+
     public HuskMorph() {
-        this.morphName("husk")
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.HUSK)
@@ -24,6 +29,7 @@ public class HuskMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_HUSK_AMBIENT)
                 .headId("d674c63c8db5f4ca628d69a3b1f8a36e29d8fd775e1a6bdb6cabb4be4db121")
                 .abilityInfo("&5Passive: &eGives Hunger to whatever it attacks");

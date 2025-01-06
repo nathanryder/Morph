@@ -19,8 +19,13 @@ public class PillagerMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "pillager";
+
     public PillagerMorph() {
-        this.morphName("pillager")
+        this.setConfigOption(MORPH_NAME + ".scale", 1.2);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.PILLAGER)
@@ -28,6 +33,7 @@ public class PillagerMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_PILLAGER_AMBIENT)
                 .hasBabyType(false)
                 .headId("4aee6bb37cbfc92b0d86db5ada4790c64ff4468d68b84942fde04405e8ef5333");

@@ -13,8 +13,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class AxolotlMorph extends Morph {
 
+    final String MORPH_NAME = "axolotl";
+
     public AxolotlMorph() {
-        this.morphName("axolotl")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.5);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.AXOLOTL)

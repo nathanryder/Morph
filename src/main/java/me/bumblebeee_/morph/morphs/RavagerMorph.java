@@ -8,8 +8,13 @@ import org.bukkit.potion.PotionEffect;
 
 public class RavagerMorph extends Morph {
 
+    final String MORPH_NAME = "ravager";
+
     public RavagerMorph() {
-        this.morphName("ravager")
+        this.setConfigOption(MORPH_NAME + ".scale", 2.2);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.RAVAGER)
@@ -17,6 +22,7 @@ public class RavagerMorph extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_RAVAGER_AMBIENT)
                 .hasBabyType(false)
                 .headId("3b62501cd1b87b37f628018210ec5400cb65a4d1aab74e6a3f7f62aa85db97ee");

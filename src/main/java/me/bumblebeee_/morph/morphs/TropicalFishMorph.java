@@ -14,8 +14,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class TropicalFishMorph  extends Morph {
 
+    final String MORPH_NAME = "tropical_fish";
+
     public TropicalFishMorph() {
-        this.morphName("tropical_fish")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.3);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craftfish")
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.TROPICAL_FISH)
@@ -23,6 +28,7 @@ public class TropicalFishMorph  extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_TROPICAL_FISH_AMBIENT)
                 .hasBabyType(false)
                 .headId("cfbdc0722549ce9f72fed18ce4f278f27ca32a03965c635778b54d05d3ca80f4")

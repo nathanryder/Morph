@@ -26,6 +26,7 @@ public abstract class Morph {
     private @Getter int requiredKills;
     private @Getter int morphTime;
     private @Getter int morphCooldown;
+    private @Getter double scale;
     private @Getter Sound sound;
     private @Getter DisguiseType disguiseType;
     private @Getter boolean babyType = true;
@@ -123,6 +124,11 @@ public abstract class Morph {
 
     public Morph morphCooldown(int morphCooldown) {
         this.morphCooldown = morphCooldown;
+        return this;
+    }
+
+    public Morph scale(double scale) {
+        this.scale = scale;
         return this;
     }
 

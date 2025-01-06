@@ -15,8 +15,13 @@ import org.bukkit.potion.PotionEffect;
 
 public class IronGolemMorph extends Morph implements Listener {
 
+    final String MORPH_NAME = "iron_golem";
+
     public IronGolemMorph() {
-        this.morphName("iron_golem")
+        this.setConfigOption(MORPH_NAME + ".scale", 2.7);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craftirongolem")
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.IRON_GOLEM)
@@ -24,6 +29,7 @@ public class IronGolemMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_IRON_GOLEM_ATTACK)
                 .hasBabyType(false)
                 .headId("e13f34227283796bc017244cb46557d64bd562fa9dab0e12af5d23ad699cf697")

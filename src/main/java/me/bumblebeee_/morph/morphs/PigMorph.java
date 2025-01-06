@@ -14,8 +14,13 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class PigMorph extends Morph implements Listener {
 
+    final String MORPH_NAME = "pig";
+
     public PigMorph() {
-        this.morphName("pig")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.8);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.PIG)
@@ -23,6 +28,7 @@ public class PigMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_PIG_AMBIENT)
                 .headId("MHF_Pig");
 

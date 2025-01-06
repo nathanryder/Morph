@@ -19,8 +19,13 @@ public class SheepMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "sheep";
+
     public SheepMorph() {
-        this.morphName("sheep")
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.SHEEP)
@@ -28,6 +33,7 @@ public class SheepMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_SHEEP_AMBIENT)
                 .headId("MHF_Sheep")
                 .abilityInfo("&5Ability: &eShear yourself");

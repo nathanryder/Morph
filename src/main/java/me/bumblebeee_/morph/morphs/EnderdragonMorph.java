@@ -20,8 +20,13 @@ public class EnderdragonMorph extends Morph implements Listener, Flyable {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "ender_dragon";
+
     public EnderdragonMorph() {
-        this.morphName("ender_dragon")
+        this.setConfigOption(MORPH_NAME + ".scale", 8);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.ENDER_DRAGON)
@@ -29,6 +34,7 @@ public class EnderdragonMorph extends Morph implements Listener, Flyable {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_ENDER_DRAGON_AMBIENT)
                 .hasBabyType(false)
                 .headId("74ecc040785e54663e855ef0486da72154d69bb4b7424b7381ccf95b095a")

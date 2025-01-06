@@ -13,8 +13,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class CodMorph extends Morph {
 
+    final String MORPH_NAME = "cod";
+
     public CodMorph() {
-        this.morphName("cod")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.3);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.COD)
@@ -22,6 +27,7 @@ public class CodMorph extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_COD_AMBIENT)
                 .hasBabyType(false)
                 .headId("7892d7dd6aadf35f86da27fb63da4edda211df96d2829f691462a4fb1cab0")

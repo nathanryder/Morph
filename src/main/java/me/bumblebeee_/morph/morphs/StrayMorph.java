@@ -25,8 +25,13 @@ public class StrayMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "stray";
+
     public StrayMorph() {
-        this.morphName("stray")
+        this.setConfigOption(MORPH_NAME + ".scale", 1.5);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.STRAY)
@@ -34,6 +39,7 @@ public class StrayMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_STRAY_AMBIENT)
                 .hasBabyType(false)
                 .headId("6572747a639d2240feeae5c81c6874e6ee7547b599e74546490dc75fa2089186")

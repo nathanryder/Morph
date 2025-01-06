@@ -23,8 +23,13 @@ public class CaveSpiderMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "cave_spider";
+
     public CaveSpiderMorph() {
-        this.morphName("cave_spider")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.5);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craftcavespider")
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.CAVE_SPIDER)
@@ -32,6 +37,7 @@ public class CaveSpiderMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_SPIDER_AMBIENT)
                 .hasBabyType(false)
                 .headId("41645dfd77d09923107b3496e94eeb5c30329f97efc96ed76e226e98224")

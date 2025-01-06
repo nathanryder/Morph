@@ -14,8 +14,13 @@ import org.bukkit.event.entity.EntityTargetEvent;
 
 public class CatMorph extends Morph implements Listener {
 
+    final String MORPH_NAME = "cat";
+
     public CatMorph() {
-        this.morphName("cat")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.35);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.CAT)
@@ -23,6 +28,7 @@ public class CatMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_CAT_AMBIENT)
                 .headId("e9b3986e32affdb22731b687ac054a25851f8616a5a3c5ae6bb92b8ed1c9ae");
 

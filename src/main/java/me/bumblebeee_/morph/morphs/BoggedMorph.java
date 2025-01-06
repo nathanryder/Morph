@@ -20,8 +20,19 @@ public class BoggedMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "bogged";
+
     public BoggedMorph() {
-        this.morphName("bogged")
+        this.setConfigOption(MORPH_NAME + ".enabled", true);
+        this.setConfigOption(MORPH_NAME + ".health", 16);
+        this.setConfigOption(MORPH_NAME + ".requiredKills", 1);
+        this.setConfigOption(MORPH_NAME + ".shoot", true);
+        this.setConfigOption(MORPH_NAME + ".morph-time", 0);
+        this.setConfigOption(MORPH_NAME + ".morph-cooldown", 0);
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.BOGGED)
@@ -29,17 +40,12 @@ public class BoggedMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_BOGGED_AMBIENT)
                 .headId("a3b9003ba2d05562c75119b8a62185c67130e9282f7acbac4bc2824c21eb95d9")
                 .abilityInfo("&5Ability: &eAllows you to shoot poison arrows");
 
-        this.setConfigOption(getMorphName() + ".enabled", true);
-        this.setConfigOption(getMorphName() + ".health", 16);
-        this.setConfigOption(getMorphName() + ".requiredKills", 1);
-        this.setConfigOption(getMorphName() + ".shoot", true);
-        this.setConfigOption(getMorphName() + ".morph-time", 0);
-        this.setConfigOption(getMorphName() + ".morph-cooldown", 0);
-        this.buildConfig();
+
 
         Bukkit.getServer().getPluginManager().registerEvents(this, Main.pl);
     }

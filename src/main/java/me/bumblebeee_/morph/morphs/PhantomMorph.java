@@ -11,8 +11,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class PhantomMorph extends Morph implements Flyable {
 
+    final String MORPH_NAME = "phantom";
+
     public PhantomMorph() {
-        this.morphName("phantom")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.9);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.PHANTOM)
@@ -20,6 +25,7 @@ public class PhantomMorph extends Morph implements Flyable {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_PHANTOM_AMBIENT)
                 .hasBabyType(false)
                 .headId("MHF_Phantom")

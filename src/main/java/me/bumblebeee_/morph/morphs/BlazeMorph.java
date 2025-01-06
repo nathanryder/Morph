@@ -25,8 +25,13 @@ public class BlazeMorph extends Morph implements Flyable, Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "blaze";
+
     public BlazeMorph() {
-        this.morphName("blaze")
+        this.setConfigOption(MORPH_NAME + ".scale", 1.2);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.BLAZE)
@@ -34,6 +39,7 @@ public class BlazeMorph extends Morph implements Flyable, Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_BLAZE_AMBIENT)
                 .hasBabyType(false)
                 .headId("MHF_Blaze")

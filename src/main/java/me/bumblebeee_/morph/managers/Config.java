@@ -1,6 +1,7 @@
 package me.bumblebeee_.morph.managers;
 
 import me.bumblebeee_.morph.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -68,6 +69,19 @@ public enum Config {
         }
 
         return getConfig().getInt(mob + ".morph-cooldown");
+    }
+
+    public double getScale(String mob) {
+        if (!Main.pl.getConfig().getBoolean("enableScale")) {
+            return 1;
+        }
+
+        double exists = Config.MOB_CONFIG.getConfig().getDouble(mob + ".scale");
+        if (exists == 0.0) {
+            return 1;
+        }
+
+        return getConfig().getDouble(mob + ".scale");
     }
 
     public boolean isSettingTrue(String setting) {

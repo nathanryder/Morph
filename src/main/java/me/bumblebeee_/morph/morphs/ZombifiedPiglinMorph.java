@@ -16,8 +16,13 @@ import org.bukkit.potion.PotionEffectType;
 
 public class ZombifiedPiglinMorph extends Morph implements Listener {
 
+    final String MORPH_NAME = "zombified_piglin";
+
     public ZombifiedPiglinMorph() {
-        this.morphName("zombified_piglin")
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craftpigzombie")
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.ZOMBIFIED_PIGLIN)
@@ -25,6 +30,7 @@ public class ZombifiedPiglinMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_ZOMBIFIED_PIGLIN_AMBIENT)
                 .headId("8954d0d1c286c1b34fb091841c06aed741a1bf9b65b9a430e4e5ca1d1c4b9f6f")
                 .abilityInfo("&5Passive: &eSpeed 2 and can safely eat rotten flesh");

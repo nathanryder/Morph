@@ -21,8 +21,13 @@ public class ChickenMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "chicken";
+
     public ChickenMorph() {
-        this.morphName("chicken")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.5);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.CHICKEN)
@@ -30,6 +35,7 @@ public class ChickenMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_CHICKEN_AMBIENT)
                 .headId("ca3582ce4889333dad329e4e24372a03a5daa2c34280c56256af5283edb043f8")
                 .abilityInfo("&5Ability: &eAllows your wildest dreams to come true.. and lay an egg! (Also no fall damage)");

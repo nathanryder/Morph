@@ -14,9 +14,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class GlowSquidMorph extends Morph {
 
-    public GlowSquidMorph() {
+    final String MORPH_NAME = "glow_squid";
 
-        this.morphName("glow_squid")
+    public GlowSquidMorph() {
+        this.setConfigOption(MORPH_NAME + ".scale", 0.8);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craftglowsquid")
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.GLOW_SQUID)
@@ -24,6 +28,7 @@ public class GlowSquidMorph extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_GLOW_SQUID_AMBIENT)
                 .hasBabyType(false)
                 .headId("3e94a1bb1cb00aaa153a74daf4b0eea20b8974522fe9901eb55aef478ebeff0d")

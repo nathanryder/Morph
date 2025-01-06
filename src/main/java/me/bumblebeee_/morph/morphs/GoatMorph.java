@@ -18,8 +18,13 @@ public class GoatMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "goat";
+
     public GoatMorph() {
-        this.morphName("goat")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.7);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.GOAT)
@@ -27,6 +32,7 @@ public class GoatMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_GOAT_AMBIENT)
                 .headId("a662336d8ae092407e58f7cc80d20f20e7650357a454ce16e3307619a0110648");
 

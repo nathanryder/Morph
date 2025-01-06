@@ -24,8 +24,13 @@ public class SkeletonMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "skeleton";
+
     public SkeletonMorph() {
-        this.morphName("skeleton")
+        this.setConfigOption(MORPH_NAME + ".scale", 1.5);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.SKELETON)
@@ -33,6 +38,7 @@ public class SkeletonMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_SKELETON_AMBIENT)
                 .hasBabyType(false)
                 .headId("MHF_Skeleton")

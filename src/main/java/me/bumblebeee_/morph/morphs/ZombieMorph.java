@@ -16,8 +16,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class ZombieMorph extends Morph implements Listener {
 
+    final String MORPH_NAME = "zombie";
+
     public ZombieMorph() {
-        this.morphName("zombie")
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.ZOMBIE)
@@ -25,6 +30,7 @@ public class ZombieMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_ZOMBIE_AMBIENT)
                 .headId("64528b3229660f3dfab42414f59ee8fd01e80081dd3df30869536ba9b414e089")
                 .abilityInfo("&5Passive: &eCan safely eat rotten flesh","&5Weakness: Burns in daylight")

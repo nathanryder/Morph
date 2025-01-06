@@ -19,8 +19,13 @@ public class LlamaMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "llama";
+
     public LlamaMorph() {
-        this.morphName("llama")
+        this.setConfigOption(MORPH_NAME + ".scale", 1.8);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.LLAMA)
@@ -28,6 +33,7 @@ public class LlamaMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_LLAMA_AMBIENT)
                 .headId("c2b1ecff77ffe3b503c30a548eb23a1a08fa26fd67cdff389855d74921368")
                 .abilityInfo("&5Ability: &eDamages people by spitting at them");

@@ -19,8 +19,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class StriderMorph extends Morph implements Listener {
 
+    final String MORPH_NAME = "strider";
+
     public StriderMorph() {
-        this.morphName("strider")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.8);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.STRIDER)
@@ -28,6 +33,7 @@ public class StriderMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_STRIDER_AMBIENT)
                 .headId("d7e4eb0fb489d6f250c607d28d672f127ebaede8e007fa6cd34e2bbc0c2fc33a")
                 .abilityInfo("&5Passive: &eSpeed and fire resistance when in lava","&5Weakness: Slowness 4 when not in lava")

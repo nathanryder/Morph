@@ -12,8 +12,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class DrownedMorph extends Morph {
 
+    final String MORPH_NAME = "drowned";
+
     public DrownedMorph() {
-        this.morphName("drowned")
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.DROWNED)
@@ -21,6 +26,7 @@ public class DrownedMorph extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_DROWNED_AMBIENT)
                 .headId("303d552bff98137a4d20ef1ae6087e717a87ade2ce5a4d9044c776f0e5948a2")
                 .abilityInfo("&5Passive: &eDolphins grace 2 and water breathing 8")

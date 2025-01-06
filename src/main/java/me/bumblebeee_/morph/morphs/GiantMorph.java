@@ -30,8 +30,13 @@ public class GiantMorph extends Morph implements Listener {
     private HashMap<Player, Double> blockcd = new HashMap<>();
     private HashMap<Player, BukkitRunnable> cdTask = new HashMap<>();
 
+    final String MORPH_NAME = "giant";
+
     public GiantMorph() {
-        this.morphName("giant")
+        this.setConfigOption(MORPH_NAME + ".scale", 11.7);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.GIANT)
@@ -39,6 +44,7 @@ public class GiantMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_ZOMBIE_AMBIENT)
                 .hasBabyType(false)
                 .headId("MHF_Zombie")

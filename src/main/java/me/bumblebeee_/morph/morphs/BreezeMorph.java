@@ -24,8 +24,13 @@ public class BreezeMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "breeze";
+
     public BreezeMorph() {
-        this.morphName("breeze")
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.BREEZE)
@@ -33,9 +38,10 @@ public class BreezeMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_BREEZE_IDLE_AIR)
                 .headId("a275728af7e6a29c88125b675a39d88ae9919bb61fdc200337fed6ab0c49d65c")
-                .abilityInfo("&5Ability: &eTODO this is a beta build");
+                .abilityInfo("&5Ability: &eJump into the air and gain resistance for a short time");
 
         this.setConfigOption(getMorphName() + ".enabled", true);
         this.setConfigOption(getMorphName() + ".health", 30);

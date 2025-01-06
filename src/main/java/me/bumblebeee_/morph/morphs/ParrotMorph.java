@@ -6,8 +6,13 @@ import org.bukkit.Sound;
 
 public class ParrotMorph extends Morph implements Flyable {
 
+    final String MORPH_NAME = "parrot";
+
     public ParrotMorph() {
-        this.morphName("parrot")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.9);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.PARROT)
@@ -15,6 +20,7 @@ public class ParrotMorph extends Morph implements Flyable {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_PARROT_AMBIENT)
                 .hasBabyType(false)
                 .headId("f0bfa850f5de4b2981cce78f52fc2cc7cd7b5c62caefeddeb9cf311e83d9097")

@@ -23,8 +23,13 @@ public class PufferFishMorph  extends Morph {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "pufferfish";
+
     public PufferFishMorph() {
-        this.morphName("pufferfish")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.3);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craftpufferfish")
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.PUFFERFISH)
@@ -32,6 +37,7 @@ public class PufferFishMorph  extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_PUFFER_FISH_AMBIENT)
                 .hasBabyType(false)
                 .headId("292350c9f0993ed54db2c7113936325683ffc20104a9b622aa457d37e708d931")

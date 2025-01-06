@@ -8,8 +8,13 @@ import org.bukkit.potion.PotionEffectType;
 
 public class SkeletonHorseMorph extends Morph {
 
+    final String MORPH_NAME = "skeleton_horse";
+
     public SkeletonHorseMorph() {
-        this.morphName("skeleton_horse")
+        this.setConfigOption(MORPH_NAME + ".scale", 1.6);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("crafthorse{variant=skeleton_horse}")
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.SKELETON_HORSE)
@@ -17,6 +22,7 @@ public class SkeletonHorseMorph extends Morph {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_SKELETON_HORSE_AMBIENT)
                 .headId("47effce35132c86ff72bcae77dfbb1d22587e94df3cbc2570ed17cf8973a");
 

@@ -8,14 +8,12 @@ unmorph-particle: true
 
 #Allow morphing into players? (Possibly buggy)
 enable-players: false
-
 #Blacklisted players that cannot be morphed into
 blacklisted-players:
 - "Notch"
 
 #Should players be able to see their own disguise?
 viewSelfDisguise: true
-
 #Should players be able to change if they view their disguises?
 canChangeView: true
 
@@ -41,6 +39,9 @@ stayMorphedOnDeath: false
 #When a player kills a morphed player, should they get the morph?
 steal-morphs: true
 
+#Change player hitbox size and POV
+enableScale: true
+
 #Keep morphs through login sessions
 persistMorphs: true
 #Delay between joining and getting your morph back (ticks)
@@ -59,6 +60,7 @@ near-radius: 10
 
 #Use Crouch+F to open the morph menu?
 swapMenu: true
+
 #Only open the menu when there is nothing in the players main hand?
 onlyIfEmptyHand: false
 

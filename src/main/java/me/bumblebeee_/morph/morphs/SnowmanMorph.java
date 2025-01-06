@@ -22,8 +22,13 @@ public class SnowmanMorph extends Morph implements Listener {
 
     Messages msgs = new Messages();
 
+    final String MORPH_NAME = "snowman";
+
     public SnowmanMorph() {
-        this.morphName("snowman")
+        this.setConfigOption(MORPH_NAME + ".scale", 1);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.SNOWMAN)
@@ -31,6 +36,7 @@ public class SnowmanMorph extends Morph implements Listener {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_SNOWBALL_THROW)
                 .hasBabyType(false)
                 .headId("53ad79207c3f8bbf4b1d532cfe86dccb57d2c97aeeb51ef00a660afdceab5fa9")

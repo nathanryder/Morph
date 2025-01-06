@@ -11,6 +11,9 @@ import me.libraryaddict.disguise.disguisetypes.MobDisguise;
 import me.libraryaddict.disguise.disguisetypes.watchers.AgeableWatcher;
 import me.libraryaddict.disguise.disguisetypes.watchers.ZombieWatcher;
 import org.bukkit.*;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -128,8 +131,6 @@ public class MorphManager {
 
         if (Main.health) {
             int health = morphType.getHealth();
-
-//            p.setHealthScale(health);
             p.setMaxHealth(health);
         }
 
@@ -139,6 +140,12 @@ public class MorphManager {
                 p.setFlying(true);
             }
         }
+
+        AttributeInstance scale = p.getAttribute(Attribute.GENERIC_SCALE);
+        if (scale != null && scale.getBaseValue() != 0.0) {
+            scale.setBaseValue(morphType.getScale());
+        }
+
         morphType.initMorph(p);
 
         if (!silent) {
@@ -243,6 +250,11 @@ public class MorphManager {
 
         if (Main.health) {
             p.resetMaxHealth();
+        }
+
+        AttributeInstance scale = p.getAttribute(Attribute.GENERIC_SCALE);
+        if (scale != null) {
+            scale.setBaseValue(1);
         }
 
         p.setAllowFlight(false);

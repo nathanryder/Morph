@@ -8,8 +8,13 @@ import org.bukkit.potion.PotionEffectType;
 
 public class BatMorph extends Morph implements Flyable {
 
+    final String MORPH_NAME = "bat";
+
     public BatMorph() {
-        this.morphName("bat")
+        this.setConfigOption(MORPH_NAME + ".scale", 0.3);
+        this.buildConfig();
+
+        this.morphName(MORPH_NAME)
                 .internalName("craft" + getMorphName())
                 .enabled(Config.MOB_CONFIG.isEnabled(getMorphName()))
                 .disguiseType(DisguiseType.BAT)
@@ -17,6 +22,7 @@ public class BatMorph extends Morph implements Flyable {
                 .requiredKills(Config.MOB_CONFIG.getRequiredKills(getMorphName()))
                 .morphTime(Config.MOB_CONFIG.getMorphTime(getMorphName()))
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
+                .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_BAT_AMBIENT)
                 .hasBabyType(false)
                 .headId("6681a72da7263ca9aef066542ecca7a180c40e328c0463fcb114cb3b83057552")
