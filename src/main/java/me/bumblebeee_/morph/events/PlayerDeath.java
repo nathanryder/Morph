@@ -2,8 +2,11 @@ package me.bumblebeee_.morph.events;
 
 import me.bumblebeee_.morph.Main;
 import me.bumblebeee_.morph.managers.Messages;
+import me.bumblebeee_.morph.utils.Utils;
 import me.libraryaddict.disguise.DisguiseAPI;
 import org.bukkit.World;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -59,8 +62,16 @@ public class PlayerDeath implements Listener {
 			}
 		}
 
-		if (!Main.using.containsKey(p.getUniqueId()))
-		return;
+		if (!Main.using.containsKey(p.getUniqueId())) {
+			return;
+		}
+
+		if (Utils.getVersion(false) >= 21.0) {
+			AttributeInstance scale = p.getAttribute(Attribute.GENERIC_SCALE);
+			if (scale != null) {
+				scale.setBaseValue(1);
+			}
+		}
 
 		File userFile = new File(pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");
 		FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(userFile);
