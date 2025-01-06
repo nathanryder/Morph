@@ -38,6 +38,7 @@ public class Main extends JavaPlugin implements Listener {
 
 	//Changelog
 	//Paging fixed
+	//<1.20.6 inventory error fixed
 	//
 	//TODO
 	//1.21 abilities
