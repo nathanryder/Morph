@@ -145,9 +145,9 @@ public class PlayerDeath implements Listener {
 
 		if (pl.getConfig().getBoolean("stayMorphedOnDeath")) {
 			if (pl.getConfig().getBoolean("death-reset-current")) {
-				Main.getMorphManager().unmorphPlayer(p, false, false);
+				Main.getMorphManager().unmorphPlayer(p, false, false, false);
 			} else if (pl.getConfig().getBoolean("death-reset-all")) {
-				Main.getMorphManager().unmorphPlayer(p, false, false);
+				Main.getMorphManager().unmorphPlayer(p, false, false, false);
 			} else {
 				Main.respawnBuffer.put(p.getUniqueId(), Main.using.get(p.getUniqueId()));
 			}

@@ -80,7 +80,7 @@ public class InventoryClick implements Listener {
                 inv.openOptions(p);
             } else if (dis.equalsIgnoreCase("Click to unmorph")) {
                 p.closeInventory();
-                morph.unmorphPlayer(p, false, false);
+                morph.unmorphPlayer(p, false, false, false);
             } else if (dis.matches(display)) {
                 p.closeInventory();
                 File userFile = new File(Main.pl.getDataFolder() + "/UserData/" + p.getUniqueId() + ".yml");

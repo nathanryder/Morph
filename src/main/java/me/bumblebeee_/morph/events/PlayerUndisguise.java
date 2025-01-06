@@ -39,7 +39,7 @@ public class PlayerUndisguise implements Listener {
             if (!Main.using.containsKey(p.getUniqueId()))
                 return;
 
-            Main.getMorphManager().unmorphPlayer(p, false, false);
+            Main.getMorphManager().unmorphPlayer(p, false, false, false);
             blow.remove(e.getDisguised().getUniqueId());
         }
     }

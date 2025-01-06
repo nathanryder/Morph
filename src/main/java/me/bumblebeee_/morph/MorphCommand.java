@@ -689,7 +689,7 @@ public class MorphCommand implements CommandExecutor {
                 
                 if (args[0].equalsIgnoreCase("all")) {
                     for (Player pl : Bukkit.getServer().getOnlinePlayers()) {
-                        morph.unmorphPlayer(pl, true, false);
+                        morph.unmorphPlayer(pl, true, false, false);
                     }
                     sender.sendMessage(prefix + " " + m.getMessage("unmorphedAllPlayers"));
 
@@ -702,18 +702,22 @@ public class MorphCommand implements CommandExecutor {
                     }
 
                     boolean staff = true;
+                    boolean silent = false;
                     if (args.length > 1) {
                         staff = args[1].equalsIgnoreCase("true");
                     }
+                    if (args.length > 2) {
+                        silent = args[2].equalsIgnoreCase("true");
+                    }
 
-                    morph.unmorphPlayer(t, staff, false);
+                    morph.unmorphPlayer(t, staff, false, silent);
                     return true;
                 }
 
             }
 
             Player p = (Player) sender;
-            morph.unmorphPlayer(p, false, false);
+            morph.unmorphPlayer(p, false, false, false);
             return true;
 
         } else if (cmd.getName().equalsIgnoreCase("randommorph")) {

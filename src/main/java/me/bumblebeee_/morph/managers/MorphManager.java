@@ -219,7 +219,7 @@ public class MorphManager {
                     }
 
                     if (time == 0) {
-                        unmorphPlayer(p, false, true);
+                        unmorphPlayer(p, false, true, false);
                         ManaManager.ab.sendActionbar(p, "");
                         cancel();
                         return;
@@ -248,7 +248,7 @@ public class MorphManager {
         }
     }
 
-    public void unmorphPlayer(final Player p, boolean staff, boolean time) {
+    public void unmorphPlayer(final Player p, boolean staff, boolean time, boolean silent) {
         String prefix = m.getMessage("prefix");
         if (!DisguiseAPI.isDisguised(p)) {
             p.sendMessage(prefix + " " +  m.getMessage("notMorphedAsAnything"));
@@ -276,12 +276,14 @@ public class MorphManager {
         Main.using.remove(p.getUniqueId());
         DisguiseAPI.undisguiseToAll(p);
 
-        if (staff) {
-            p.sendMessage(prefix + " " + m.getMessage("unmorphedByStaff", "", p.getDisplayName(), "", ""));
-        } else if (time) {
-            p.sendMessage(prefix + " " + m.getMessage("unmorphedByTime", "", p.getDisplayName(), "", ""));
-        } else {
-            p.sendMessage(prefix + " " + m.getMessage("morphReversed", "", p.getDisplayName(), "", ""));
+        if (!silent) {
+            if (staff) {
+                p.sendMessage(prefix + " " + m.getMessage("unmorphedByStaff", "", p.getDisplayName(), "", ""));
+            } else if (time) {
+                p.sendMessage(prefix + " " + m.getMessage("unmorphedByTime", "", p.getDisplayName(), "", ""));
+            } else {
+                p.sendMessage(prefix + " " + m.getMessage("morphReversed", "", p.getDisplayName(), "", ""));
+            }
         }
 
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Main.pl, new Runnable() {
