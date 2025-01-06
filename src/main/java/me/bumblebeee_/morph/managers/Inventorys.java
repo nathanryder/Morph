@@ -129,10 +129,10 @@ public class Inventorys {
                                 inv.setItem(pos, createHead(mob, display));
                                 pos++;
                                 continue;
+                            } else {
+                                ownMorphDone = true;
+                                indexOffset = ((page)*26) - i;
                             }
-                        } else {
-                            ownMorphDone = true;
-                            indexOffset = ((page)*26) - i;
                         }
                     }
 
