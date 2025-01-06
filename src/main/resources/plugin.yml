@@ -1,5 +1,5 @@
 name: Morphy
-version: 3.5.5-SNAPSHOT
+version: 3.6
 main: me.bumblebeee_.morph.Main
 description: Morphing plugin
 depend: [LibsDisguises]
