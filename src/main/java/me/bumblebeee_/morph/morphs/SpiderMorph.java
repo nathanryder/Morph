@@ -122,6 +122,7 @@ public class SpiderMorph extends Morph implements Listener {
             }
 
             final FallingBlock b = p.getWorld().spawnFallingBlock(p.getEyeLocation(), new MaterialData(Material.COBWEB));
+            b.setDropItem(false);
             b.setVelocity(p.getEyeLocation().getDirection().multiply(2));
 
             if (Config.MOB_CONFIG.getConfig().getBoolean("spider.removeSpiderWeb")) {
