@@ -289,6 +289,7 @@ public class Inventorys {
 
             ItemStack i = new ItemStack(Material.PLAYER_HEAD);
             SkullMeta meta = (SkullMeta) i.getItemMeta();
+            meta.getPersistentDataContainer().set(new NamespacedKey(Main.pl, "mobName"), PersistentDataType.STRING, playerName);
             meta.setOwningPlayer(Bukkit.getServer().getOfflinePlayer(playerName));
             meta.setDisplayName(display);
             i.setItemMeta(meta);

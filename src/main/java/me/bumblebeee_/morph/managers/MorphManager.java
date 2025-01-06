@@ -47,6 +47,10 @@ public class MorphManager {
     }
 
     public Morph getMorphType(String type) {
+        if (type == null) {
+            return null;
+        }
+
         Morph find = Main.getMorphManager().getMorphs().get(type);
         if (find == null) {
             for (String name : Main.getMorphManager().getMorphs().keySet()) {

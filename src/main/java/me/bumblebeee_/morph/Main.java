@@ -45,7 +45,6 @@ public class Main extends JavaPlugin implements Listener {
 	//Inconsistent skull meta warning
 	//
 	//TODO
-	//Head textures  -  Players
 	//Magically dieing when morphing into iron golem under unknown conditions?
 	//Update git author
 
