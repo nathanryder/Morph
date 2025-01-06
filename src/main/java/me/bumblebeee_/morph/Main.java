@@ -40,6 +40,7 @@ public class Main extends JavaPlugin implements Listener {
 	//Breeze ability
 	//Empty mob list error
 	//Scale hit boxes
+	//Allays can now fly
 	//
 	//TODO
 	//Magically dieing when morphing into iron golem under unknown conditions?

@@ -4,7 +4,7 @@ import me.bumblebeee_.morph.managers.Config;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Sound;
 
-public class AllayMorph extends Morph {
+public class AllayMorph extends Morph implements Flyable {
 
     final String MORPH_NAME = "allay";
 
