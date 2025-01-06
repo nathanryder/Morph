@@ -41,8 +41,11 @@ public class Main extends JavaPlugin implements Listener {
 	//Empty mob list error
 	//Scale hit boxes
 	//Allays can now fly
+	//GUI pages
+	//Inconsistent skull meta warning
 	//
 	//TODO
+	//Head textures  -  Players
 	//Magically dieing when morphing into iron golem under unknown conditions?
 	//Update git author
 

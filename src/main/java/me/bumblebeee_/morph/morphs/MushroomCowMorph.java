@@ -22,7 +22,7 @@ public class MushroomCowMorph extends Morph {
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_COW_AMBIENT)
-                .headId("MHF_MushroomCow")
+                .headId("1543b72def1b247685ad4d027df86c9632e7dac143a9552ec89c80035c3ba4ae")
                 .abilityInfo("&cNo abilities found");
     }
 }

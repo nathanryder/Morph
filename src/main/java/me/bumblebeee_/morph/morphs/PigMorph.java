@@ -30,7 +30,7 @@ public class PigMorph extends Morph implements Listener {
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_PIG_AMBIENT)
-                .headId("MHF_Pig");
+                .headId("7535805cd966dbe7fb3167fdf9561928c89bbc47f14b9b8fe1738fa58ad178af");
 
         Bukkit.getServer().getPluginManager().registerEvents(this, Main.pl);
     }

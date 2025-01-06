@@ -17,9 +17,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.profile.PlayerProfile;
+import org.bukkit.profile.PlayerTextures;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 import static me.bumblebeee_.morph.MorphCommand.send;
@@ -62,6 +66,7 @@ public class Inventorys {
                 if (Main.using.containsKey(p.getUniqueId())) {
                     using = Main.getMorphManager().getUsing(p);
                 }
+
                 List<String> mobs = fileConfig.getStringList("Mobs");
                 List<String> players = fileConfig.getStringList("Players");
                 String title;
@@ -72,128 +77,60 @@ public class Inventorys {
                 }
 
                 Inventory inv = Bukkit.getServer().createInventory(null, 36, title);
+                List<String> allMorphs = new ArrayList<>();
+                for (int i = 0; i < mobs.size(); i++) {
+                    String mob = mobs.get(i);
+                    if (p.hasPermission("morph.bypasskill." + mob.toLowerCase())) {
+                        continue;
+                    }
 
-                ItemStack owner = new ItemStack(Material.PLAYER_HEAD);
-                owner.setDurability((short) 3);
-                SkullMeta sm = (SkullMeta) owner.getItemMeta();
-                sm.setOwner(p.getName());
-                sm.setDisplayName(ChatColor.DARK_PURPLE + "Click to unmorph");
-                owner.setItemMeta(sm);
+                    allMorphs.add(mob);
+                }
+                for (int i = 0; i < owners.size(); i++) {
+                    String mob = (String) owners.keySet().toArray()[i];
+                    if (!p.hasPermission("morph.bypasskill." + mob.toLowerCase())) {
+                        continue;
+                    }
 
+                    allMorphs.add(mob);
+                }
+                for (int i = 0; i < players.size(); i++) {
+                    String player = players.get(i);
+                    allMorphs.add("player:" + player);
+                }
 
+                boolean lastPage = false;
                 int pos = 1;
-//                if (!mobs.isEmpty()) {
-//                    for (int i = ((page-1)*(27)); i < mobs.size(); i++) {
-//                        if (pos >= page*27)
-//                            continue;
-//                        if (!p.hasPermission("morph.bypasskill." + mobs.get(i).toLowerCase())) {
-//                            String mob = mobs.get(i);
-//                            Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
-//                            if (morphType == null) {
-//                                continue;
-//                            }
-//
-//                            String mobName = morphType.toFriendly();
-//                            if (mob.split(":").length > 1) {
-//                                mobName = "Baby " + mobName.split(":")[0];
-//                            }
-//
-//                            String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
-//                            inv.setItem(pos, createHead(mob, display));
-//                            pos++;
-//                        }
-//                    }
-//                }
-
-                boolean ownMorphDone = false;
-                boolean bypassMorphsDone = false;
-                boolean playerMorphsDone = false;
-                int indexOffset = 0;
                 for (int i = ((page-1)*(26)); i < ((page)*26); i++) {
-
-                    if (!ownMorphDone) {
-                        if (i < mobs.size()) {
-                            if (!p.hasPermission("morph.bypasskill." + mobs.get(i).toLowerCase())) {
-                                String mob = mobs.get(i);
-                                Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
-                                if (morphType == null) {
-                                    continue;
-                                }
-
-                                String mobName = morphType.toFriendly();
-                                if (mob.split(":").length > 1) {
-                                    mobName = "Baby " + mobName.split(":")[0];
-                                }
-
-                                String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
-                                inv.setItem(pos, createHead(mob, display));
-                                pos++;
-                                continue;
-                            } else {
-                                ownMorphDone = true;
-                                indexOffset = ((page)*26) - i;
-                            }
-                        }
+                    if (i >= allMorphs.size()) {
+                        lastPage = true;
+                        break;
                     }
 
-                    if (!bypassMorphsDone) {
-                        if (i < owners.size()) {
-                            String s = (String) owners.keySet().toArray()[i-indexOffset];
-                            if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
-                                String m = owners.get(s);
-                                String mob = getMobName(m);
-                                Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
-                                if (morphType == null) {
-                                    continue;
-                                }
+                    String mob = allMorphs.get(i);
+                    if (mob.startsWith("player:")) {
+                        String player = mob.split(":")[1];
+                        String display = msgs.getMessage("clickToMorph").replace("{mob}", player);
+                        inv.setItem(pos, createHead("player:" + player, display));
 
-                                String mobName = morphType.toFriendly();
-                                if (s.split(":").length > 1) {
-                                    mobName = "Baby " + mobName.split(":")[0];
-                                    mob = mob + ":baby";
-                                }
-
-                                String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
-                                inv.setItem(pos, createHead(mob, display));
-                                pos++;
-                                continue;
-                            }
-                        } else {
-                            bypassMorphsDone = true;
-                            indexOffset = i;
-                        }
+                        continue;
                     }
 
-                    if (!playerMorphsDone) {
-                        if (i-indexOffset < players.size()) {
-                            String player = players.get(i-indexOffset);
-                            String display = msgs.getMessage("clickToMorph").replace("{mob}", player);
-                            inv.setItem(pos, createHead("player:" + player, display));
-                            pos++;
-                        } else {
-                            playerMorphsDone = true;
-                        }
-                    }
+                    ItemStack head = createMobHead(mob);
+                    inv.setItem(pos, head);
+                    pos++;
                 }
 
                 int nextPage = page+1;
                 int previousPage = page-1;
-                if (ownMorphDone && bypassMorphsDone && playerMorphsDone) {
+                if (lastPage) {
                     nextPage = 1;
                 }
                 if (page == 1) {
-                    int maxEntries = players.size()+mobs.size();
-                    for (String s : owners.keySet()) {
-                        if (p.hasPermission("morph.bypasskill." + s.toLowerCase())) {
-                            maxEntries++;
-                        }
-                    }
-
-                    previousPage = maxEntries/26;
+                    previousPage = (int) Math.ceil((double) allMorphs.size() /26);
                 }
 
-                constructInventory(inv, nextPage, previousPage);
-                inv.setItem(0, owner);
+                constructInventory(inv, p.getUniqueId(), nextPage, previousPage);
 
                 Bukkit.getScheduler().runTask(Main.pl, () -> {
                     p.openInventory(inv);
@@ -202,7 +139,22 @@ public class Inventorys {
         });
     }
 
-    public void constructInventory(Inventory inv, int nextPage, int previousPage) {
+    public ItemStack createMobHead(String mob) {
+        Morph morphType = Main.getMorphManager().getMorphType(mob.split(":")[0]);
+        if (morphType == null) {
+            return null;
+        }
+
+        String mobName = morphType.toFriendly();
+        if (mob.split(":").length > 1) {
+            mobName = "Baby " + mobName.split(":")[0];
+        }
+
+        String display = msgs.getMessage("clickToMorph").replace("{mob}", mobName.replace("_", ""));
+        return createHead(mob, display);
+    }
+
+    public void constructInventory(Inventory inv, UUID ownerUUID, int nextPage, int previousPage) {
         ItemStack settings = new ItemStack(Material.REDSTONE);
         ItemMeta sm = settings.getItemMeta();
         sm.setDisplayName(ChatColor.AQUA + "Settings");
@@ -228,6 +180,14 @@ public class Inventorys {
         ItemMeta rm = r.getItemMeta();
         rm.setDisplayName(" ");
         r.setItemMeta(rm);
+
+        ItemStack owner = new ItemStack(Material.PLAYER_HEAD);
+        SkullMeta meta = (SkullMeta) owner.getItemMeta();
+        meta.setOwningPlayer(Bukkit.getOfflinePlayer(ownerUUID));
+        meta.setDisplayName(ChatColor.DARK_PURPLE + "Click to unmorph");
+        owner.setItemMeta(meta);
+//        ItemStack owner = createHead("player:" + ownerUUID, ChatColor.DARK_PURPLE + "Click to unmorph");
+        inv.setItem(0, owner);
 
         for (int i = 27; i < 36; i++) {
             if (i == 27) {
@@ -325,9 +285,11 @@ public class Inventorys {
 
             return i;
         } else if (mobName.contains("player:")) {
+            String playerName = mobName.split(":")[1];
+
             ItemStack i = new ItemStack(Material.PLAYER_HEAD);
             SkullMeta meta = (SkullMeta) i.getItemMeta();
-            meta.setOwner(mobName.split(":")[1]);
+            meta.setOwningPlayer(Bukkit.getServer().getOfflinePlayer(playerName));
             meta.setDisplayName(display);
             i.setItemMeta(meta);
 
@@ -357,47 +319,34 @@ public class Inventorys {
             owner = owner.split(":")[0];
         }
 
-        if (!owner.split("_")[0].equalsIgnoreCase("MHF")) {
-            ItemStack i = getHeadTest(owner, "Name");
-            SkullMeta sm = (SkullMeta) i.getItemMeta();
-            sm.getPersistentDataContainer().set(new NamespacedKey(Main.pl, "mobName"), PersistentDataType.STRING, mobName);
-            sm.setDisplayName(display);
-            i.setItemMeta(sm);
-            return i;
-        }
-
-        ItemStack i = new ItemStack(Material.PLAYER_HEAD);
-        i.setDurability((short) 3);
+        ItemStack i = getHeadTest(owner);
         SkullMeta sm = (SkullMeta) i.getItemMeta();
         sm.getPersistentDataContainer().set(new NamespacedKey(Main.pl, "mobName"), PersistentDataType.STRING, mobName);
-        sm.setOwner(owner);
         sm.setDisplayName(display);
         i.setItemMeta(sm);
         return i;
     }
 
-    public static ItemStack getHeadTest(String playerSkullTexture, String nom) {
-        playerSkullTexture = "http://textures.minecraft.net/texture/" + playerSkullTexture;
-        ItemStack skull = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
-        SkullMeta sk = (SkullMeta) skull.getItemMeta();
-        if (!nom.equalsIgnoreCase("")) {
-            sk.setDisplayName(nom);
-        }
+    public static ItemStack getHeadTest(String playerSkullTexture) {
+        String url = "http://textures.minecraft.net/texture/" + playerSkullTexture;
 
-        GameProfile profile = new GameProfile(UUID.randomUUID(), "Morphy");
-        byte[] encodedData = Base64.getEncoder().encode(String.format("{textures:{SKIN:{url:\"%s\"}}}", playerSkullTexture).getBytes());
-        profile.getProperties().put("textures", new Property("textures", new String(encodedData)));
-        Field profileField;
+        PlayerProfile profile = Bukkit.createPlayerProfile(UUID.randomUUID());
+        PlayerTextures textures = profile.getTextures();
+        URL urlObject;
         try {
-            profileField = sk.getClass().getDeclaredField("profile");
-            profileField.setAccessible(true);
-            profileField.set(sk, profile);
-        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e1) {
-            e1.printStackTrace();
+            urlObject = new URL(url);
+        } catch (MalformedURLException exception) {
+            throw new RuntimeException("Invalid URL", exception);
         }
-        skull.setItemMeta(sk);
+        textures.setSkin(urlObject);
+        profile.setTextures(textures);
 
-        return skull;
+        ItemStack head = new ItemStack(Material.PLAYER_HEAD);
+        SkullMeta meta = (SkullMeta) head.getItemMeta();
+        meta.setOwnerProfile(profile);
+        head.setItemMeta(meta);
+
+        return head;
     }
 
     public String getMobName(String owner) {

@@ -24,7 +24,7 @@ public class RabbitMorph extends Morph {
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_RABBIT_AMBIENT)
-                .headId("MHF_Rabbit")
+                .headId("cd1d2bbc3d77ab0d119c031ea74d8781c93285cf736abc422baec1eb1560e8ca")
                 .abilityInfo("&5Passive: &eJump boost 6");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".jump-boost")) {

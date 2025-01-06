@@ -25,7 +25,7 @@ public class MagmaCubeMorph extends Morph {
                 .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_MAGMA_CUBE_SQUISH)
                 .hasBabyType(false)
-                .headId("MHF_LavaSlime")
+                .headId("38957d5023c937c4c41aa2412d43410bda23cf79a9f6ab36b76fef2d7c429")
                 .abilityInfo("&cNo abilities found");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".fireresistance")) {

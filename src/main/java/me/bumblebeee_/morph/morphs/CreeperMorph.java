@@ -36,7 +36,7 @@ public class CreeperMorph extends Morph implements Listener {
                 .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_CREEPER_PRIMED)
                 .hasBabyType(false)
-                .headId("MHF_Creeper")
+                .headId("201495bed76b28c855c33717afd7c72921cfbd4841f352f1d5b28d94f1488ed6")
                 .abilityInfo("&5Passive: &eBlows up when you die","&5Ability: &eMakes you explode, dying in the process");
 
         Bukkit.getServer().getPluginManager().registerEvents(this, Main.pl);

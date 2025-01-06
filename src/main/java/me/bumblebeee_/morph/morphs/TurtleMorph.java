@@ -26,7 +26,7 @@ public class TurtleMorph extends Morph {
                 .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_TURTLE_AMBIENT_LAND)
                 .abilityInfo("&5Passive: &eWater breathing 8, slowness 1 and damage resistance 3")
-                .headId("MHF_Turtle");
+                .headId("71fdf97f1c4bcef3976fc593249051b3588c6f34da4864ab24519ec0fe62f3");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".waterbreathing")) {
             PotionEffect waterbreathing = new PotionEffect(PotionEffectType.WATER_BREATHING, 200, 7, false ,false);

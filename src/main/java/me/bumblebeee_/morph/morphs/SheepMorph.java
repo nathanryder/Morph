@@ -35,7 +35,7 @@ public class SheepMorph extends Morph implements Listener {
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_SHEEP_AMBIENT)
-                .headId("MHF_Sheep")
+                .headId("84e5cdb0edb362cb454586d1fd0ebe971423f015b0b1bfc95f8d5af8afe7e810")
                 .abilityInfo("&5Ability: &eShear yourself");
 
         Bukkit.getServer().getPluginManager().registerEvents(this, Main.pl);

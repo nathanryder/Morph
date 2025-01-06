@@ -35,7 +35,7 @@ public class CowMorph extends Morph implements Listener {
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_COW_AMBIENT)
-                .headId("MHF_COW")
+                .headId("f88be57af6d248c297b3cae676f45cc2a438f15a9ef26cdf5f035fb842d86dd9")
                 .abilityInfo("&5Ability: &eEating grass restores hunger");
 
         Bukkit.getServer().getPluginManager().registerEvents(this, Main.pl);

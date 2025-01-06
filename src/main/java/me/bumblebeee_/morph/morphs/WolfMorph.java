@@ -22,7 +22,7 @@ public class WolfMorph extends Morph {
                 .morphCooldown(Config.MOB_CONFIG.getMorphCooldown(getMorphName()))
                 .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_WOLF_AMBIENT)
-                .headId("MHF_Wolf")
+                .headId("a70611e0734caaa9d6b915d515f4aa5aa88032e902dab4d6a231f05d4fceade7")
                 .abilityInfo("&cNo abilities found");
     }
 }

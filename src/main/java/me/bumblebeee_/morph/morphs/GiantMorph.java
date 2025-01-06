@@ -47,7 +47,7 @@ public class GiantMorph extends Morph implements Listener {
                 .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_ZOMBIE_AMBIENT)
                 .hasBabyType(false)
-                .headId("MHF_Zombie")
+                .headId("1c232d0683ba1e362593fa1a97d744c290b1655d72b2277988a6c85a93854255")
                 .abilityInfo("&5Passive: &eSlowness 3 and throws blocks wherever you walk","&5Ability: &eThrows players away from you");
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".slow")) {

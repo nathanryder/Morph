@@ -42,7 +42,7 @@ public class BlazeMorph extends Morph implements Flyable, Listener {
                 .scale(Config.MOB_CONFIG.getScale(getMorphName()))
                 .sound(Sound.ENTITY_BLAZE_AMBIENT)
                 .hasBabyType(false)
-                .headId("MHF_Blaze")
+                .headId("b20657e24b56e1b2f8fc219da1de788c0c24f36388b1a409d0cd2d8dba44aa3b")
                 .abilityInfo("&5Passive: &eFlying and Fire resistance 8", "&5Ability: &eShoots a fireball")
                 .runnable(new BukkitRunnable() {
                     @Override
