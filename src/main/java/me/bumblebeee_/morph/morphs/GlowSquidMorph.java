@@ -18,6 +18,7 @@ public class GlowSquidMorph extends Morph {
 
     public GlowSquidMorph() {
         this.setConfigOption(MORPH_NAME + ".scale", 0.8);
+        this.setConfigOption(MORPH_NAME + ".nightvision", true);
         this.buildConfig();
 
         this.morphName(MORPH_NAME)
@@ -58,10 +59,12 @@ public class GlowSquidMorph extends Morph {
                 }, 20);
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".waterbreathing")) {
-            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.WATER_BREATHING, 200, 7, false ,false);
-            PotionEffect nightVision = new PotionEffect(PotionEffectType.NIGHT_VISION, 999999, 2, false ,false);
+            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.WATER_BREATHING, 200, 7, false, false);
 
             this.potionEffect(waterbreathing);
+        }
+        if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".nightvision")) {
+            PotionEffect nightVision = new PotionEffect(PotionEffectType.NIGHT_VISION, 999999, 2, false, false);
             this.potionEffect(nightVision);
         }
 

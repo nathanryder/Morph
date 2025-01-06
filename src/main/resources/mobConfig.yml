@@ -241,6 +241,7 @@ squid:
   morph-time: 0
   morph-cooldown: 0
   waterbreathing: true
+  nightvision: true
   scale: 0.8
 villager:
   enabled: true
@@ -585,6 +586,7 @@ glow_squid:
   morph-time: 0
   morph-cooldown: 0
   waterbreathing: true
+  nightvision: true
   scale: 0.8
 axolotl:
   enabled: true

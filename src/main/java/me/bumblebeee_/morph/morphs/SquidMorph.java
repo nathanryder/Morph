@@ -18,6 +18,7 @@ public class SquidMorph extends Morph {
 
     public SquidMorph() {
         this.setConfigOption(MORPH_NAME + ".scale", 0.8);
+        this.setConfigOption(MORPH_NAME + ".nightvision", true);
         this.buildConfig();
 
         this.morphName(MORPH_NAME)
@@ -34,8 +35,8 @@ public class SquidMorph extends Morph {
                 .headId("d8705624daa2956aa45956c81bab5f4fdb2c74a596051e24192039aea3a8b8")
                 .abilityInfo("&5Passive: &5Waterbreathing and night vision while in water", "&5Weakness: Squids are very slow and can't see very far out of water")
                 .runnable(new BukkitRunnable() {
-                    PotionEffect squidBlind = new PotionEffect(PotionEffectType.BLINDNESS, 999999, 1, false ,false);
-                    PotionEffect squidSlow = new PotionEffect(VersionedPotionEffectType.SLOWNESS.get(), 999999, 3, false ,false);
+                    PotionEffect squidBlind = new PotionEffect(PotionEffectType.BLINDNESS, 999999, 1, false, false);
+                    PotionEffect squidSlow = new PotionEffect(VersionedPotionEffectType.SLOWNESS.get(), 999999, 3, false, false);
 
                     @Override
                     public void run() {
@@ -56,16 +57,17 @@ public class SquidMorph extends Morph {
                         }
 
                     }
-                }, 20);;
+                }, 20);
 
         if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".waterbreathing")) {
-            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.WATER_BREATHING, 200, 7, false ,false);
-            PotionEffect nightVision = new PotionEffect(PotionEffectType.NIGHT_VISION, 999999, 2, false ,false);
+            PotionEffect waterbreathing = new PotionEffect(PotionEffectType.WATER_BREATHING, 200, 7, false, false);
 
             this.potionEffect(waterbreathing);
+        }
+        if (Config.MOB_CONFIG.isSettingTrue(getMorphName() + ".nightvision")) {
+            PotionEffect nightVision = new PotionEffect(PotionEffectType.NIGHT_VISION, 999999, 2, false, false);
             this.potionEffect(nightVision);
         }
-
     }
 
 }
