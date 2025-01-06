@@ -1,9 +1,6 @@
 package me.bumblebeee_.morph.events;
 
-import me.bumblebeee_.morph.Inventorys;
-import me.bumblebeee_.morph.Messages;
-import me.bumblebeee_.morph.Main;
-import me.bumblebeee_.morph.MorphManager;
+import me.bumblebeee_.morph.*;
 import me.bumblebeee_.morph.morphs.Morph;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.disguisetypes.PlayerDisguise;
@@ -63,37 +60,20 @@ public class InventoryClick implements Listener {
 
             if (dis.equalsIgnoreCase("Close")) {
                 p.closeInventory();
-            } else if (dis.equalsIgnoreCase("Previous")) {
-                if (Inventorys.pages.containsKey(p.getUniqueId())) {
-                    int page = Inventorys.pages.get(p.getUniqueId());
-                    Inventorys.pages.remove(p.getUniqueId());
-                    if (page == 1) {
-                        Inventorys.pages.put(p.getUniqueId(), 5);
-                        inv.openMorph(p, 5);
-                    } else {
-                        Inventorys.pages.put(p.getUniqueId(), page - 1);
-                        inv.openMorph(p, page - 1);
-                    }
-                } else {
-                    Inventorys.pages.put(p.getUniqueId(), 5);
-                    inv.openMorph(p, 5);
+            } else if (dis.contains("previous (") || dis.contains("next (")) {
+                int bracket = dis.indexOf("(");
+                String rawPage = dis.substring(bracket+1, bracket+2);
+
+                int page = 0;
+                try {
+                    page = Integer.parseInt(rawPage);
+                } catch (NumberFormatException ne) {
+                    Main.pl.getLogger().severe("Failed to find a valid page number to navigate to");
+                } catch (Exception err) {
+                    Main.pl.getLogger().severe("Unexpected error occurred when fetching page number");
                 }
-            } else if (dis.equalsIgnoreCase("Next")) {
-                if (Inventorys.pages.containsKey(p.getUniqueId())) {
-                    int page = Inventorys.pages.get(p.getUniqueId());
-                    if (page == 5) {
-                        Inventorys.pages.remove(p.getUniqueId());
-                        Inventorys.pages.put(p.getUniqueId(), 1);
-                        inv.openMorph(p, 1);
-                    } else {
-                        Inventorys.pages.remove(p.getUniqueId());
-                        Inventorys.pages.put(p.getUniqueId(), page + 1);
-                        inv.openMorph(p, page + 1);
-                    }
-                } else {
-                    Inventorys.pages.put(p.getUniqueId(), 2);
-                    inv.openMorph(p, 2);
-                }
+
+                inv.openMorph(p, page);
             } else if (dis.equalsIgnoreCase("Settings")) {
                 inv.openOptions(p);
             } else if (dis.equalsIgnoreCase("Click to unmorph")) {
