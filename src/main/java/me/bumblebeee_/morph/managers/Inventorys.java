@@ -111,8 +111,9 @@ public class Inventorys {
                     if (mob.startsWith("player:")) {
                         String player = mob.split(":")[1];
                         String display = msgs.getMessage("clickToMorph").replace("{mob}", player);
-                        inv.setItem(pos, createHead("player:" + player, display));
 
+                        inv.setItem(pos, createHead("player:" + player, display));
+                        pos++;
                         continue;
                     }
 
