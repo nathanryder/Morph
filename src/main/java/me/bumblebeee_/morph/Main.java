@@ -37,11 +37,9 @@ public class Main extends JavaPlugin implements Listener {
 	public static @Getter MorphManager morphManager;
 
 	//Changelog
-	//Paging fixed
-	//<1.20.6 inventory error fixed
 	//
 	//TODO
-	//1.21 abilities
+	//Abilities?
 	//Scaling hitbox?
 	//Iron golems die to magic??
 	//Console head spam?

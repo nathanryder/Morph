@@ -576,7 +576,6 @@ bogged:
   requiredKills: 1
   morph-time: 0
   morph-cooldown: 0
-  shoot: true
 breeze:
   enabled: true
   health: 30
@@ -584,3 +583,4 @@ breeze:
   morph-time: 0
   morph-cooldown: 0
   ability-cooldown: 10
+  shoot: true
