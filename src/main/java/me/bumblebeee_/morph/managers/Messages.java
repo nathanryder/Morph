@@ -165,6 +165,7 @@ public class Messages {
         stringMsgs.put("mobNames.zombified_piglin", "zombified_piglin");
         stringMsgs.put("mobNames.bogged", "bogged");
         stringMsgs.put("mobNames.breeze", "breeze");
+        stringMsgs.put("mobNames.armadillo", "armadillo");
 
         f = new File(Main.pl.getDataFolder() + File.separator + "messages.yml");
         if (!f.exists()) {

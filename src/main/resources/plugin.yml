@@ -1,5 +1,5 @@
 name: Morphy
-version: 3.6.1
+version: 3.6.2
 main: me.bumblebeee_.morph.Main
 description: Morphing plugin
 depend: [LibsDisguises]
@@ -84,6 +84,7 @@ permissions:
             morph.into.warden: true
             morph.into.camel: true
             morph.into.sniffer: true
+            morph.into.armadillo: true
     morph.bypasskill.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -150,6 +151,7 @@ permissions:
             morph.into.warden: false
             morph.into.camel: false
             morph.into.sniffer: false
+            morph.into.armadillo: false
     morph.bypassreset.*:
         description: Morph into all mobs without having to kill them
         children:
@@ -217,6 +219,7 @@ permissions:
             morph.bypassreset.warden: false
             morph.bypassreset.camel: false
             morph.bypassreset.sniffer: false
+            morph.bypassreset.armadillo: false
     morph.bypasstime.*:
         description: Bypass the time limit on unmorphing
         children:
@@ -284,12 +287,14 @@ permissions:
             morph.bypasstime.warden: false
             morph.bypasstime.camel: false
             morph.bypasstime.sniffer: false
+            morph.bypasstime.armadillo: false
     morph.morph:
         description: Main permission
         default: false
         children:
             morph.toggle: true
             morph.changeview: true
+            morph.unmorph: true
     morph.*:
         description: Use all Morph commands
         children:

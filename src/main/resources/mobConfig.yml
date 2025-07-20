@@ -546,7 +546,7 @@ pillager:
   ability-cooldown: 0
   shootArrow: true
   scale: 1.2
-piglinbrute:
+piglin_brute:
   enabled: true
   health: 50
   requiredKills: 1
@@ -658,4 +658,11 @@ breeze:
   morph-cooldown: 0
   ability-cooldown: 10
   shoot: true
+  scale: 1
+armadillo:
+  enabled: true
+  health: 30
+  requiredKills: 1
+  morph-time: 0
+  morph-cooldown: 0
   scale: 1

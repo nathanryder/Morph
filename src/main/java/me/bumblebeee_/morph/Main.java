@@ -151,6 +151,7 @@ public class Main extends JavaPlugin implements Listener {
 		if (version >= 1.21) {
 			morphManager.registerMorph(new BoggedMorph());
 			morphManager.registerMorph(new BreezeMorph());
+			morphManager.registerMorph(new ArmadilloMorph());
 		}
 
 		Runnables.potionEffects();

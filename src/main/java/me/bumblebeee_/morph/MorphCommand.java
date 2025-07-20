@@ -680,7 +680,6 @@ public class MorphCommand implements CommandExecutor {
                 }
             }
 
-
             if (args.length >= 1) {
                 if (!sender.hasPermission("morph.morph.modify")) {
                     sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
@@ -716,10 +715,14 @@ public class MorphCommand implements CommandExecutor {
 
             }
 
+            if (!sender.hasPermission("morph.unmorph")) {
+                sender.sendMessage(prefix + " " + m.getMessage("noPermissions"));
+                return true;
+            }
+
             Player p = (Player) sender;
             morph.unmorphPlayer(p, false, false, false);
             return true;
-
         } else if (cmd.getName().equalsIgnoreCase("randommorph")) {
             if (!(sender instanceof Player)) {
                 sender.sendMessage(prefix + " " + "You cannot use this command!");
