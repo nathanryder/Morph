@@ -25,7 +25,7 @@ public class SlimeMorph extends Morph implements Listener {
 
     private static HashMap<UUID, Entity> damage = new HashMap<>();
 
-    final String MORPH_NAME = "blaze";
+    final String MORPH_NAME = "slime";
 
     public SlimeMorph() {
         this.setConfigOption(MORPH_NAME + ".scale", 1);

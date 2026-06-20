@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.bumblebeee_.morph</groupId>
     <artifactId>Morph</artifactId>
-    <version>3.6.2</version>
+    <version>3.7.0</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -20,6 +20,13 @@
 <!--            <version>1.12-R0.1-SNAPSHOT</version>-->
 <!--        </dependency>-->
 
+        <dependency>
+            <groupId>sun.jdk</groupId>
+            <artifactId>1p21</artifactId>
+            <version>1.5.0</version>
+            <scope>system</scope>
+            <systemPath>C:/Users/Nathan/Documents/buildPaths/spigot-api-26.1.2.jar</systemPath>
+        </dependency>
         <dependency>
             <groupId>sun.jdk</groupId>
             <artifactId>1p21</artifactId>

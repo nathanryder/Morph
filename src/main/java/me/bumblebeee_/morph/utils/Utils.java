@@ -130,17 +130,25 @@ public class Utils {
         try {
             String versionStr = Bukkit.getBukkitVersion().split("-")[0];
 
-            if (majorMinor) {
+            if (Integer.parseInt(versionStr.split("\\.")[0]) >= 26) {
                 versionStr = versionStr.substring(0, 4);
-
             } else {
-                versionStr = versionStr.substring(2);
+                //Legacy versioning system
+                if (majorMinor) {
+                    versionStr = versionStr.substring(0, 4);
+
+                } else {
+                    versionStr = versionStr.substring(2);
+                }
             }
 
             version = Double.parseDouble(versionStr);
         } catch (ArrayIndexOutOfBoundsException e) {
             Main.pl.getLogger().severe("Failed to find a valid server version! Report this to the developer immediately");
             version = 1.2;
+        } catch (Exception e) {
+            Main.pl.getLogger().severe("Failed to find a valid server version! Report this to the developer immediately");
+            version = 100;
         }
 
         return version;
